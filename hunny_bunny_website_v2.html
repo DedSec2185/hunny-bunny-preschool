@@ -644,6 +644,186 @@ footer {
   .gallery-mosaic { grid-template-columns:1fr; }
   .g-item { height:210px; }
 }
+
+/* ══════════════════════════════════════════════
+   CREATIVE ANIMATIONS & UNIQUE SECTION TRANSITIONS
+══════════════════════════════════════════════ */
+
+/* Scroll Progress Indicator Bar */
+.scroll-progress-bar {
+  position: fixed; top: 0; left: 0; height: 5px;
+  background: linear-gradient(90deg, var(--orange), var(--yellow), var(--sky), var(--green));
+  z-index: 9999; width: 0%; transition: width 0.1s ease-out;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 10px rgba(255,98,0,0.5);
+}
+
+/* Floating Elements for Hero Section */
+.floating-bg-element {
+  position: absolute; pointer-events: none; z-index: 1; opacity: 0.75;
+  animation: floatRandom 6s ease-in-out infinite alternate;
+  user-select: none;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+@keyframes floatRandom {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  50% { transform: translateY(-22px) rotate(12deg) scale(1.08); }
+  100% { transform: translateY(12px) rotate(-10deg) scale(0.92); }
+}
+
+/* Brand Rabbit Wiggle Animation */
+@keyframes bunnyWiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-15deg) scale(1.15); }
+  50% { transform: rotate(10deg) scale(1.1); }
+  75% { transform: rotate(-8deg) scale(1.15); }
+}
+.nav-brand-circle { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.nav-brand:hover .nav-brand-circle { animation: bunnyWiggle 0.6s ease-in-out; background: var(--yellow); }
+
+/* Shimmer Ribbon */
+@keyframes ribbonShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.hero-ribbon {
+  background: linear-gradient(90deg, var(--yellow) 0%, #FFF59D 50%, var(--yellow) 100%);
+  background-size: 200% 100%;
+  animation: ribbonShimmer 3.5s infinite linear;
+}
+
+/* Rating Card Pulse & Border Glow */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(255,215,64,0.6); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+  50% { border-color: rgba(255,215,64,1); box-shadow: 0 12px 36px rgba(255,215,64,0.4); }
+}
+.hero-rating { animation: borderGlow 4s infinite ease-in-out; }
+
+/* Promise Strip Hover Vibrations */
+.promise-item { transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.promise-item:hover { transform: translateY(-4px) scale(1.05); }
+.promise-item:hover i { animation: iconBounce 0.5s ease-in-out; }
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px) scale(1.2); }
+}
+
+/* Pillar Cards 3D Interactive Hover */
+.pillar {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+.pillar.safety:hover   { transform: translateY(-10px) rotate(-1.5deg) scale(1.03); box-shadow: 0 18px 40px rgba(78,206,224,0.3); }
+.pillar.hygiene:hover  { transform: translateY(-10px) rotate(1.5deg) scale(1.03); box-shadow: 0 18px 40px rgba(46,125,50,0.25); }
+.pillar.learning:hover { transform: translateY(-10px) rotate(-1.5deg) scale(1.03); box-shadow: 0 18px 40px rgba(255,98,0,0.3); }
+.pillar.care:hover     { transform: translateY(-10px) rotate(1.5deg) scale(1.03); box-shadow: 0 18px 40px rgba(249,168,37,0.3); }
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+.care .pillar-badge { animation: heartBeat 1.8s infinite ease-in-out; }
+
+/* Safety Cards Radar Wave Icon Glow */
+@keyframes radarPulse {
+  0% { box-shadow: 0 0 0 0 rgba(78,206,224,0.5); }
+  70% { box-shadow: 0 0 0 22px rgba(78,206,224,0); }
+  100% { box-shadow: 0 0 0 0 rgba(78,206,224,0); }
+}
+.safety-card { transition: transform 0.4s ease, background 0.3s ease, border-color 0.3s ease; }
+.safety-card:hover { transform: translateY(-8px) scale(1.03); border-color: var(--yellow); }
+.safety-card-icon { display: inline-block; transition: transform 0.4s ease; }
+.safety-card:hover .safety-card-icon { transform: scale(1.35) rotate(12deg); animation: radarPulse 1.2s infinite; }
+
+/* Programs Block Photo Reveal */
+.prog-photo { position: relative; overflow: hidden; }
+.prog-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,98,0,0.2), transparent);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.program-block:hover .prog-photo::after { opacity: 1; }
+
+/* Traffic Signal Light Blinking for Life Skills */
+@keyframes lightBlink {
+  0%, 100% { color: #FF5252; text-shadow: 0 0 10px #FF5252; }
+  33% { color: #FFD740; text-shadow: 0 0 10px #FFD740; }
+  66% { color: #69F0AE; text-shadow: 0 0 10px #69F0AE; }
+}
+.tag-ls { position: relative; }
+
+/* Hygiene Visual Bubble Rise */
+.bubble-container {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 24px;
+}
+.bubble {
+  position: absolute; bottom: -20px; background: rgba(78, 206, 224, 0.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.8); border-radius: 50%;
+  animation: bubbleRise 4.5s linear infinite;
+}
+@keyframes bubbleRise {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  25% { opacity: 0.8; }
+  100% { transform: translateY(-320px) scale(1.3); opacity: 0; }
+}
+
+/* Gallery Mosaic 3D Tilt */
+.g-item {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+.g-item:hover {
+  transform: scale(1.04) translateY(-6px);
+  z-index: 5;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+}
+
+/* Testimonial Cards Postcard Tilt */
+.review-card:nth-child(1) { transform: rotate(-1.5deg); }
+.review-card:nth-child(2) { transform: rotate(1.5deg); }
+.review-card:nth-child(3) { transform: rotate(-1deg); }
+.review-card { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; }
+.review-card:hover { transform: rotate(0deg) translateY(-12px) scale(1.03) !important; z-index: 10; box-shadow: 0 20px 45px rgba(0,0,0,0.25); }
+
+@keyframes floatQuote {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(6deg); }
+}
+.review-quote { animation: floatQuote 3.5s ease-in-out infinite; }
+
+/* JustDial Trophy Glow */
+@keyframes trophyGlow {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0px var(--yellow)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 12px var(--yellow)); }
+}
+.reviews-jd { animation: trophyGlow 3s infinite ease-in-out; }
+
+/* Admissions Banner Dynamic Flow Gradient */
+.admissions-banner {
+  background: linear-gradient(120deg, #E65100, #FF6200, #FF8F00, #FFD740, #FF6200);
+  background-size: 300% 300%;
+  animation: gradientFlow 7s ease infinite;
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* WhatsApp Tooltip */
+.wa-tooltip {
+  position: fixed; bottom: 98px; right: 28px; z-index: 801;
+  background: #fff; color: var(--ink); padding: 10px 18px; border-radius: 20px;
+  font-size: 0.88rem; font-weight: 800; box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  border: 2px solid #25D366; display: flex; align-items: center; gap: 10px;
+  animation: popInTooltip 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes popInTooltip {
+  from { transform: scale(0) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Form Control Focus Line Ripple */
+.form-control { transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s; }
+.form-control:focus { transform: translateY(-2px); }
 </style>
 </head>
 <body>
@@ -735,31 +915,31 @@ footer {
 
 <!-- ABOUT / PILLARS -->
 <section id="about">
-  <div data-aos="fade-up">
+  <div data-aos="zoom-in-down">
     <span class="section-label">Why Families Choose Us</span>
     <h2 class="sec-title fredoka">A school built on<br>four honest promises</h2>
     <p class="sec-sub">Every decision we make — from how we set up a classroom to who we hire — flows from what matters most to parents: their child's safety, joy, and growth.</p>
   </div>
   <div class="pillars-grid">
-    <div class="pillar safety" data-aos="fade-up" data-aos-delay="100">
+    <div class="pillar safety" data-aos="flip-left" data-aos-delay="100">
       <span class="pillar-badge">Priority #1</span>
       <span class="pillar-icon">🔐</span>
       <h3>Safe at Every Step</h3>
       <p>CCTV surveillance, child-proofed furniture, restricted entry, and trained staff who know every child by name. You can work your day without a single worry.</p>
     </div>
-    <div class="pillar hygiene" data-aos="fade-up" data-aos-delay="200">
+    <div class="pillar hygiene" data-aos="zoom-in-down" data-aos-delay="250">
       <span class="pillar-badge">Daily Practice</span>
       <span class="pillar-icon">🧼</span>
       <h3>Spotless, Every Day</h3>
       <p>All toys, mats, and surfaces are sanitised twice daily. Shoe-free classrooms. Hand-washing rituals before every meal. We treat hygiene as a curriculum, not a chore.</p>
     </div>
-    <div class="pillar learning" data-aos="fade-up" data-aos-delay="300">
+    <div class="pillar learning" data-aos="rotate-in-up-left" data-aos-delay="400">
       <span class="pillar-badge">Play-Based</span>
       <span class="pillar-icon">🎨</span>
       <h3>Learning Through Joy</h3>
       <p>Dance, art, phonics, sports, and real-world lessons with police officers and community visitors. Children learn best when they're having fun — and we design for that.</p>
     </div>
-    <div class="pillar care" data-aos="fade-up" data-aos-delay="400">
+    <div class="pillar care" data-aos="flip-right" data-aos-delay="550">
       <span class="pillar-badge">Motherly Care</span>
       <span class="pillar-icon">🤗</span>
       <h3>Teachers Who Truly Care</h3>
@@ -771,38 +951,38 @@ footer {
 <!-- SAFETY SECTION -->
 <section id="safety">
   <div class="safety-inner">
-    <div class="safety-header" data-aos="fade-up">
+    <div class="safety-header" data-aos="zoom-in">
       <span class="section-label">Safety & Security</span>
       <h2 class="fredoka">Your child's security<br>is not a feature — it's our foundation</h2>
       <p>Every corner of Hunny Bunny is designed with little ones in mind. Here's exactly what we do to keep your child safe, every single day.</p>
     </div>
     <div class="safety-grid">
-      <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="safety-card" data-aos="fade-down-right" data-aos-delay="100">
         <div class="safety-card-icon">📹</div>
         <h3>24/7 CCTV Monitoring</h3>
         <p>Every classroom and common area is under continuous surveillance. Footage is reviewed regularly and available to parents on request.</p>
       </div>
-      <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="safety-card" data-aos="flip-up" data-aos-delay="200">
         <div class="safety-card-icon">🚪</div>
         <h3>Controlled Entry & Exit</h3>
         <p>Children are only handed over to verified parents or authorised guardians. No exceptions. No shortcuts.</p>
       </div>
-      <div class="safety-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="safety-card" data-aos="fade-down-left" data-aos-delay="300">
         <div class="safety-card-icon">🧱</div>
         <h3>Child-Proofed Infrastructure</h3>
         <p>Foam-tiled floors, rounded furniture, covered sockets, safety gates, and no sharp edges anywhere children play or learn.</p>
       </div>
-      <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="safety-card" data-aos="fade-up-right" data-aos-delay="400">
         <div class="safety-card-icon">🚑</div>
         <h3>First Aid Trained Staff</h3>
         <p>All teachers are trained in basic first aid. A well-stocked first aid kit is always accessible. Emergency protocols are rehearsed regularly.</p>
       </div>
-      <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="safety-card" data-aos="flip-down" data-aos-delay="500">
         <div class="safety-card-icon">🚦</div>
         <h3>Real Safety Education</h3>
         <p>Local traffic police visit to teach road safety. Fire drill sessions. Personal safety awareness — because the safest child is an informed one.</p>
       </div>
-      <div class="safety-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="safety-card" data-aos="fade-up-left" data-aos-delay="600">
         <div class="safety-card-icon">👩‍⚕️</div>
         <h3>Illness Protocol</h3>
         <p>Sick children are kept home. All staff follow strict hygiene practices. We communicate transparently with parents about any health concerns in the school.</p>
@@ -818,7 +998,7 @@ footer {
 
 <!-- PROGRAMS -->
 <section id="programs">
-  <div data-aos="fade-up">
+  <div data-aos="zoom-in-up">
     <span class="section-label">Our Programs</span>
     <h2 class="sec-title fredoka">The right program<br>for every age</h2>
     <p class="sec-sub">From curious toddlers exploring the world to confident 6-year-olds ready for big school — we have a structured, joyful path for each stage.</p>
@@ -826,7 +1006,7 @@ footer {
 
   <div class="programs-list">
     <!-- Playgroup -->
-    <div class="program-block" data-aos="fade-up" data-aos-delay="100">
+    <div class="program-block" data-aos="fade-right" data-aos-duration="900" data-aos-delay="100">
       <div class="prog-photo">
         <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-atupvsslji.webp" alt="Playgroup children in cultural dress" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
       </div>
@@ -848,7 +1028,7 @@ footer {
     </div>
 
     <!-- Nursery -->
-    <div class="program-block flip" data-aos="fade-up" data-aos-delay="100">
+    <div class="program-block flip" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
       <div class="prog-photo">
         <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-qiht3xenmh.webp" alt="Nursery award ceremony" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
       </div>
@@ -870,7 +1050,7 @@ footer {
     </div>
 
     <!-- Daycare -->
-    <div class="program-block" data-aos="fade-up" data-aos-delay="100">
+    <div class="program-block" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="200">
       <div class="prog-photo">
         <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-tutorials-for-class-iv-cffm8r6gbt.webp" alt="Sports Day" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
       </div>
@@ -892,12 +1072,12 @@ footer {
     </div>
 
     <!-- Life Skills -->
-    <div class="program-block flip" data-aos="fade-up" data-aos-delay="100">
+    <div class="program-block flip" data-aos="flip-down" data-aos-duration="900" data-aos-delay="250">
       <div class="prog-photo">
         <img src="traffic_safety.jpg" alt="Traffic police safety session" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
       </div>
       <div class="prog-info">
-        <span class="prog-tag tag-ls">🌍 Beyond Academics</span>
+        <span class="prog-tag tag-ls"><i class="fa-solid fa-traffic-light"></i> 🌍 Beyond Academics</span>
         <h3 class="fredoka">Life Skills & Safety Education</h3>
         <p>We believe school should prepare children for life, not just exams. Our sessions with local traffic police, community helpers, and practical safety drills teach children essential real-world knowledge in the most engaging way possible.</p>
         <ul class="prog-feats">
@@ -1395,13 +1575,75 @@ document.querySelectorAll('.modal-backdrop').forEach(b=>{
     if(e.target === b) b.classList.remove('open');
   });
 });
+
+/* DYNAMIC ANIMATION HELPERS */
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Scroll Progress Bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress-bar';
+  document.body.appendChild(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + '%';
+  });
+
+  // 2. Floating Hero Background Elements
+  const hero = document.getElementById('home');
+  if (hero) {
+    const floatables = ['🎈', '⭐', '☁️', '🐰', '🎨', '✨', '🧸'];
+    for (let i = 0; i < 7; i++) {
+      const el = document.createElement('div');
+      el.className = 'floating-bg-element';
+      el.textContent = floatables[i % floatables.length];
+      el.style.left = (8 + Math.random() * 82) + '%';
+      el.style.top = (12 + Math.random() * 72) + '%';
+      el.style.fontSize = (1.4 + Math.random() * 1.4) + 'rem';
+      el.style.animationDuration = (4.5 + Math.random() * 4.5) + 's';
+      el.style.animationDelay = (Math.random() * 2.5) + 's';
+      hero.appendChild(el);
+    }
+  }
+
+  // 3. Hygiene Card Bubbles
+  const hygieneVisual = document.querySelector('.hygiene-visual');
+  if (hygieneVisual) {
+    hygieneVisual.style.position = 'relative';
+    hygieneVisual.style.overflow = 'hidden';
+    const container = document.createElement('div');
+    container.className = 'bubble-container';
+    for (let i = 0; i < 7; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      const sz = (10 + Math.random() * 18) + 'px';
+      b.style.width = sz;
+      b.style.height = sz;
+      b.style.left = (4 + Math.random() * 92) + '%';
+      b.style.animationDuration = (3.5 + Math.random() * 3.5) + 's';
+      b.style.animationDelay = (Math.random() * 2) + 's';
+      container.appendChild(b);
+    }
+    hygieneVisual.appendChild(container);
+  }
+
+  // 4. WhatsApp Tooltip
+  setTimeout(() => {
+    const tip = document.createElement('div');
+    tip.className = 'wa-tooltip';
+    tip.innerHTML = `<span>Have questions? Chat with us! 💬</span> <button onclick="this.parentElement.remove()" style="background:none;border:none;cursor:pointer;font-size:0.9rem;color:#888;padding:2px 4px;">✕</button>`;
+    document.body.appendChild(tip);
+  }, 4000);
+});
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
     duration: 800,
-    once: true,
-    offset: 100,
+    once: false,
+    mirror: true,
+    offset: 80,
     easing: 'ease-out-cubic'
   });
 </script>
