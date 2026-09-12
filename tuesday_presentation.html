@@ -3,52 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hunny Bunny Pre-School — Digital Growth & Admission Engine Deck</title>
+    <title>Hunny Bunny Pre-School — Master Digital Growth Deck & Architectural Rationale</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --orange: #FF6200;
             --orange-dk: #D94F00;
-            --orange-lt: #FFF0E6;
+            --orange-lt: rgba(255, 98, 0, 0.15);
             --yellow: #FFD740;
             --sky: #4ECEE0;
             --sky-dk: #0288D1;
-            --sky-lt: #E6F9FC;
             --green: #2E7D32;
-            --green-lt: #E8F5E9;
+            --green-lt: rgba(46, 125, 50, 0.2);
             --navy: #1A237E;
-            --dark: #0F172A;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --border: rgba(255, 255, 255, 0.2);
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --dark: #0B1120;
+            --card-bg: rgba(30, 41, 59, 0.75);
+            --border: rgba(255, 255, 255, 0.12);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Nunito', sans-serif; }
 
         body {
             background-color: var(--dark);
             color: #F8FAFC;
-            overflow: hidden;
             height: 100vh;
             width: 100vw;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* Top Progress Bar & Header Controls */
+        /* Top Header Control Bar */
         .header-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 65px;
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(16px);
+            z-index: 100;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -58,7 +50,7 @@
 
         .brand-title {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--yellow);
             display: flex;
             align-items: center;
@@ -68,29 +60,27 @@
         .slide-counter {
             font-weight: 800;
             font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 18px;
             border-radius: 100px;
             color: #E2E8F0;
         }
 
-        .nav-controls {
-            display: flex;
-            gap: 10px;
-        }
+        .nav-controls { display: flex; gap: 10px; }
 
         .nav-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             color: #fff;
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .nav-btn:hover {
@@ -101,239 +91,197 @@
 
         .progress-line {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 3px;
+            bottom: 0; left: 0;
+            height: 4px;
             background: linear-gradient(90deg, var(--orange), var(--yellow), var(--sky), var(--green));
-            transition: width 0.3s ease;
-            width: 12.5%;
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 11.1%;
         }
 
-        /* Presentation Container & Scroll Snap */
+        /* Slide Deck State Machine (No Scroll Freeze) */
         .presentation-deck {
-            height: 100vh;
+            position: relative;
             width: 100vw;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
+            height: 100vh;
+            padding-top: 65px;
+            padding-bottom: 60px;
         }
 
         .slide {
-            height: 100vh;
-            width: 100vw;
-            scroll-snap-align: start;
-            display: flex;
+            position: absolute;
+            inset: 65px 0 60px 0;
+            display: none;
+            opacity: 0;
+            transform: scale(0.96) translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             justify-content: center;
             align-items: center;
-            padding: 80px 2rem 2rem;
-            position: relative;
-            background-size: cover;
-            background-position: center;
+            padding: 1.5rem 2rem;
         }
 
-        /* Background Variations */
-        .slide-1 { background: radial-gradient(circle at top right, #312E81, #0F172A); }
-        .slide-2 { background: radial-gradient(circle at top left, #1E293B, #0F172A); }
-        .slide-3 { background: radial-gradient(circle at bottom right, #1E1B4B, #0F172A); }
-        .slide-4 { background: radial-gradient(circle at top center, #064E3B, #0F172A); }
-        .slide-5 { background: radial-gradient(circle at bottom left, #701A75, #0F172A); }
-        .slide-6 { background: radial-gradient(circle at top right, #1C1917, #0F172A); }
-        .slide-7 { background: radial-gradient(circle at bottom right, #0C4A6E, #0F172A); }
-        .slide-8 { background: radial-gradient(circle at center, #831843, #0F172A); }
-
-        /* Slide Main Card Container */
-        .deck-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 28px;
-            padding: 3rem;
-            max-width: 1200px;
-            width: 95%;
-            max-height: 85vh;
-            overflow-y: auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .slide.active .deck-card {
-            transform: translateY(0);
+        .slide.active {
+            display: flex;
             opacity: 1;
+            transform: scale(1) translateY(0);
+            z-index: 10;
         }
 
-        /* Headers & Typography */
+        /* Slide Glassmorphism Container */
+        .deck-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 2.5rem 3rem;
+            max-width: 1280px;
+            width: 96%;
+            max-height: 100%;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Badges & Headers */
         .tag-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 6px 16px;
             border-radius: 100px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
-        .badge-orange { background: rgba(255, 98, 0, 0.2); color: #FF8A50; border: 1px solid rgba(255, 98, 0, 0.4); }
-        .badge-yellow { background: rgba(255, 215, 64, 0.2); color: #FFE082; border: 1px solid rgba(255, 215, 64, 0.4); }
-        .badge-sky    { background: rgba(78, 206, 224, 0.2); color: #80DEEA; border: 1px solid rgba(78, 206, 224, 0.4); }
-        .badge-green  { background: rgba(46, 125, 50, 0.25); color: #A5D6A7; border: 1px solid rgba(76, 175, 80, 0.4); }
+        .badge-orange { background: var(--orange-lt); color: #FF8A50; border: 1px solid rgba(255, 98, 0, 0.4); }
+        .badge-yellow { background: rgba(255, 215, 64, 0.15); color: #FFE082; border: 1px solid rgba(255, 215, 64, 0.4); }
+        .badge-sky    { background: rgba(78, 206, 224, 0.15); color: #80DEEA; border: 1px solid rgba(78, 206, 224, 0.4); }
+        .badge-green  { background: var(--green-lt); color: #A5D6A7; border: 1px solid rgba(76, 175, 80, 0.4); }
 
         h1 {
             font-family: 'Fredoka', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFF 0%, #CBD5E1 100%);
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            line-height: 1.12;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         h2 {
             font-family: 'Fredoka', sans-serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            margin-bottom: 1rem;
+            font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+            margin-bottom: 0.8rem;
             color: #F8FAFC;
         }
 
         p.slide-sub {
-            font-size: 1.15rem;
+            font-size: 1.08rem;
             color: #94A3B8;
-            max-width: 800px;
-            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-bottom: 1.8rem;
             line-height: 1.6;
         }
 
-        /* Grid Layouts & Cards */
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+        /* Rationale Callout Boxes */
+        .rationale-box {
+            background: rgba(15, 23, 42, 0.7);
+            border-left: 4px solid var(--yellow);
+            border-radius: 0 16px 16px 0;
+            padding: 1rem 1.4rem;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .rationale-box strong { color: var(--yellow); font-size: 0.95rem; display: block; margin-bottom: 4px; }
+        .rationale-box p { font-size: 0.88rem; color: #CBD5E1; line-height: 1.5; margin: 0; }
+
+        /* Grid System */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.4rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; }
 
         .info-card {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.65);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 1.8rem;
+            padding: 1.6rem;
             transition: all 0.3s ease;
             text-align: left;
+            position: relative;
         }
 
         .info-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(15, 23, 42, 0.8);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(15, 23, 42, 0.85);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
         }
 
         .card-icon {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
 
-        .icon-orange { background: rgba(255, 98, 0, 0.2); color: var(--orange); }
+        .icon-orange { background: var(--orange-lt); color: var(--orange); }
         .icon-yellow { background: rgba(255, 215, 64, 0.2); color: var(--yellow); }
         .icon-sky    { background: rgba(78, 206, 224, 0.2); color: var(--sky); }
-        .icon-green  { background: rgba(46, 125, 50, 0.2); color: #66BB6A; }
+        .icon-green  { background: var(--green-lt); color: #66BB6A; }
 
-        .info-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.6rem;
-            color: #F8FAFC;
-        }
+        .info-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #F8FAFC; }
+        .info-card p { font-size: 0.92rem; color: #94A3B8; line-height: 1.5; }
 
-        .info-card p {
-            font-size: 0.95rem;
-            color: #94A3B8;
-            line-height: 1.55;
-        }
-
-        /* Timeline Flow */
-        .timeline-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            text-align: left;
-            margin-top: 1rem;
-        }
-
+        /* Step Timeline */
+        .timeline-container { display: flex; flex-direction: column; gap: 1rem; text-align: left; margin-top: 1rem; }
         .timeline-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.2rem;
-            background: rgba(15, 23, 42, 0.5);
-            padding: 1.2rem 1.6rem;
+            display: flex; align-items: flex-start; gap: 1.2rem;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1.2rem 1.5rem;
             border-radius: 16px;
             border-left: 4px solid var(--orange);
             transition: transform 0.2s ease;
         }
+        .timeline-step:hover { transform: translateX(6px); background: rgba(15, 23, 42, 0.85); }
+        .step-num { font-family: 'Fredoka', sans-serif; font-size: 1.3rem; color: var(--yellow); flex-shrink: 0; }
+        .step-content h4 { font-size: 1.05rem; color: #F8FAFC; margin-bottom: 0.3rem; }
+        .step-content p { font-size: 0.88rem; color: #94A3B8; line-height: 1.5; }
 
-        .timeline-step:hover {
-            transform: translateX(8px);
-            background: rgba(15, 23, 42, 0.8);
-        }
-
-        .step-num {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.4rem;
-            color: var(--yellow);
-            flex-shrink: 0;
-        }
-
-        .step-content h4 {
-            font-size: 1.1rem;
-            color: #F8FAFC;
-            margin-bottom: 0.3rem;
-        }
-
-        .step-content p {
-            font-size: 0.9rem;
-            color: #94A3B8;
-            line-height: 1.5;
-        }
-
-        /* Custom Keyword Pills */
-        .kw-pill {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--yellow);
-            margin: 4px;
-        }
-
-        /* Scroll Bottom Hint */
-        .scroll-down-prompt {
+        /* Bottom Slide Pill Navigation */
+        .bottom-bar {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 0; left: 0; right: 0;
+            height: 60px;
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(16px);
+            z-index: 100;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            font-size: 0.85rem;
-            color: #64748B;
-            font-weight: 700;
-            animation: bounce 2s infinite;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-8px) translateX(-50%); }
-            60% { transform: translateY(-4px) translateX(-50%); }
+        .slide-pill {
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            background: rgba(255, 255, 255, 0.08);
+            color: #94A3B8;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
+
+        .slide-pill:hover { background: rgba(255, 255, 255, 0.15); color: #FFF; }
+        .slide-pill.active { background: var(--orange); color: #FFF; border-color: var(--yellow); box-shadow: 0 0 12px rgba(255,98,0,0.5); }
 
         /* Custom Scrollbar */
         .deck-card::-webkit-scrollbar { width: 6px; }
@@ -341,306 +289,319 @@
         .deck-card::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
 
         @media (max-width: 768px) {
-            .deck-card { padding: 1.8rem; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.7rem; }
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .deck-card { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .bottom-bar { overflow-x: auto; justify-content: flex-start; padding: 0 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Top Navigation Control -->
     <div class="header-bar">
         <div class="brand-title">
-            <span>🐰</span> Hunny Bunny Pre-School & Daycare
+            <span>🐰</span> Hunny Bunny Pre-School — Architectural Deck
         </div>
-        <div class="slide-counter" id="slideIndicator">Slide 1 of 8</div>
+        <div class="slide-counter" id="slideIndicator">Slide 1 of 9</div>
         <div class="nav-controls">
-            <button class="nav-btn" onclick="prevSlide()" title="Previous Slide (Up Arrow)"><i class="fa-solid fa-chevron-up"></i></button>
-            <button class="nav-btn" onclick="nextSlide()" title="Next Slide (Down Arrow)"><i class="fa-solid fa-chevron-down"></i></button>
+            <button class="nav-btn" onclick="prevSlide()" title="Previous Slide (Left/Up Arrow)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="nav-btn" onclick="nextSlide()" title="Next Slide (Right/Down Arrow)"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <div class="progress-line" id="progressBar"></div>
     </div>
 
-    <!-- Presentation Slides -->
-    <div class="presentation-deck" id="deck">
+    <!-- Presentation Deck State Machine -->
+    <div class="presentation-deck">
 
-        <!-- SLIDE 1: Executive Title -->
-        <section class="slide slide-1 active">
+        <!-- SLIDE 1: Title & Strategic Purpose -->
+        <section class="slide active">
             <div class="deck-card" style="text-align: center;">
-                <span class="tag-badge badge-orange"><i class="fa-solid fa-rocket"></i> Strategic Growth Blueprint 2025–26</span>
-                <h1>Transforming Hunny Bunny Into Seawoods' #1 Preschool Brand</h1>
-                <p class="slide-sub" style="margin: 0 auto 2.5rem;">A complete digital growth partnership roadmap — designed to establish undeniable parent trust, automate admissions, and dominate local Google search results.</p>
+                <span class="tag-badge badge-orange"><i class="fa-solid fa-compass"></i> Master Architectural Blueprint 2025–26</span>
+                <h1>Why Every Pixel Was Built & How It Drives Admissions</h1>
+                <p class="slide-sub" style="margin: 0 auto 2rem;">This presentation explains the exact <strong>business logic, parent psychology, and technical design rationale</strong> behind the Hunny Bunny platform. Every section was placed intentionally to eliminate parent fear and secure admissions.</p>
 
-                <div class="grid-3" style="margin-top: 2rem;">
+                <div class="grid-3">
                     <div class="info-card">
-                        <div class="card-icon icon-orange"><i class="fa-solid fa-shield-heart"></i></div>
-                        <h3>Parent Trust First</h3>
-                        <p>Converting parent hesitation into confidence by showcasing safety, CCTV, and hygiene transparently.</p>
+                        <div class="card-icon icon-orange"><i class="fa-solid fa-eye"></i></div>
+                        <h3>The 3-Second Rule</h3>
+                        <p>Parents decide whether to trust a preschool within 3 seconds of opening the site. We designed top visual anchors to win instantly.</p>
                     </div>
                     <div class="info-card">
-                        <div class="card-icon icon-yellow"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <div class="card-icon icon-yellow"><i class="fa-solid fa-shield-heart"></i></div>
+                        <h3>Zero-Friction Reassurance</h3>
+                        <p>CCTV, hygiene, and teacher ratios are placed before fees or forms, neutralizing parent hesitation upfront.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon icon-sky"><i class="fa-solid fa-chart-line"></i></div>
                         <h3>Google Search Dominance</h3>
-                        <p>Ranking #1 for local searches like "Playschool in Seawoods" and "Safe Daycare Sector 42".</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="card-icon icon-sky"><i class="fa-solid fa-comments"></i></div>
-                        <h3>Direct WhatsApp Conversion</h3>
-                        <p>1-tap inquiry system turning web visitors into scheduled school visits automatically.</p>
+                        <p>Structured HTML tags and keyword placement engineered to rank #1 in Seawoods West with zero ad spend.</p>
                     </div>
                 </div>
+
+                <div class="rationale-box" style="margin-top: 1.5rem;">
+                    <strong>💡 Strategic Goal for Tuesday Meeting:</strong>
+                    <p>Use this deck to show the owner & teachers that this is not just a "website," but a 24/7 digital admissions office that works continuously for the school.</p>
+                </div>
             </div>
-            <div class="scroll-down-prompt">Use Down Arrow Key or Scroll to Begin <i class="fa-solid fa-arrow-down"></i></div>
         </section>
 
-        <!-- SLIDE 2: The Modern Parent Problem vs Digital Solution -->
-        <section class="slide slide-2">
+        <!-- SLIDE 2: Hero Section Rationale -->
+        <section class="slide">
             <div class="deck-card">
-                <span class="tag-badge badge-sky"><i class="fa-solid fa-users-viewfinder"></i> The Parent Mindset</span>
-                <h2>Why Digital Platform is No Longer Optional</h2>
-                <p class="slide-sub">Modern parents (Gen Z & Millennials in Seawoods) research preschools online before ever stepping foot outside their house.</p>
+                <span class="tag-badge badge-sky"><i class="fa-solid fa-layer-group"></i> Hero Section Anatomy</span>
+                <h2>Hero Section: Why Elements Are Placed Here</h2>
+                <p class="slide-sub">Understanding the visual hierarchy and psychological triggers at the top of the webpage.</p>
 
                 <div class="grid-2">
-                    <div class="info-card" style="border-left: 4px solid #EF4444;">
-                        <h3 style="color: #F87171;"><i class="fa-solid fa-circle-xmark"></i> Without a Digital Platform</h3>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; color: #CBD5E1; font-size: 0.95rem;">
-                            <li>❌ Parents rely only on random word-of-mouth or outdated flyers.</li>
-                            <li>❌ Unanswered phone calls after 7 PM lead to lost admissions.</li>
-                            <li>❌ Parents worry about safety/hygiene if they can't verify it online first.</li>
-                            <li>❌ Competitors with active websites snatch high-intent parents.</li>
-                        </ul>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-award" style="color: var(--yellow);"></i> 1. Top Ribbon: "Seawoods' Trusted School Since 2013"</h3>
+                        <p><strong>Position:</strong> Top left, directly above main headline.</p>
+                        <p><strong>Why It's There:</strong> Eye-tracking studies show parents scan top-left first. Highlighting "12+ Years" immediately proves Hunny Bunny is an established, trusted institution—not a new risky setup.</p>
                     </div>
 
-                    <div class="info-card" style="border-left: 4px solid #10B981;">
-                        <h3 style="color: #34D399;"><i class="fa-solid fa-circle-check"></i> With Our Digital Platform</h3>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; color: #CBD5E1; font-size: 0.95rem;">
-                            <li>✅ 24/7 Digital Admissions Office answering questions round-the-clock.</li>
-                            <li>✅ Instant trust validation through CCTV & hygiene protocol breakdowns.</li>
-                            <li>✅ Direct 1-tap WhatsApp booking button right on the smartphone.</li>
-                            <li>✅ Verified Google presence proving 12+ years of local excellence.</li>
-                        </ul>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-star" style="color: var(--yellow);"></i> 2. Floating 4.8★ Rating Card</h3>
+                        <p><strong>Position:</strong> Top right floating glassmorphism card.</p>
+                        <p><strong>Why It's There:</strong> Third-party social proof (39 JustDial reviews). Parents validate friend recommendations by checking star ratings before reading further.</p>
                     </div>
+
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-heart" style="color: var(--orange);"></i> 3. Headline: "Where Every Child's Story Begins ✨"</h3>
+                        <p><strong>Position:</strong> Center hero headline.</p>
+                        <p><strong>Why It's There:</strong> Connects emotionally. Parents aren't just buying "a seat in playgroup"; they are seeking a loving start to their child's life story.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-paper-plane" style="color: var(--sky);"></i> 4. "Book a Free Visit" CTA Button</h3>
+                        <p><strong>Position:</strong> Primary orange button with arrow icon.</p>
+                        <p><strong>Why It's There:</strong> High contrast color. Framing it as "Free Visit" removes financial pressure and encourages immediate WhatsApp clicks.</p>
+                    </div>
+                </div>
+
+                <div class="rationale-box">
+                    <strong>🧠 Parent Psychology Note:</strong>
+                    <p>Within 3 seconds, a mother or father sees: 12+ Years Experience + 4.8★ Social Proof + Emotional Warmth + Zero-Risk Free Visit CTA.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 3: ROI & Value Matrix (Owner, Teachers, Parents) -->
-        <section class="slide slide-3">
+        <!-- SLIDE 3: Promise Strip & 4 Pillars Rationale -->
+        <section class="slide">
             <div class="deck-card">
-                <span class="tag-badge badge-yellow"><i class="fa-solid fa-handshake"></i> Multi-Stakeholder Value</span>
-                <h2>What Every Stakeholder Wins</h2>
-                <p class="slide-sub">This investment delivers concrete, measurable benefits across all levels of the school ecosystem.</p>
+                <span class="tag-badge badge-yellow"><i class="fa-solid fa-shield-halved"></i> Trust Architecture</span>
+                <h2>Promise Strip & 4 Pillars Rationale</h2>
+                <p class="slide-sub">How we pre-emptively solve the top 5 parent objections before they even scroll down.</p>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-bolt" style="color: var(--orange);"></i> The Orange Promise Strip</h3>
+                        <p><strong>Items:</strong> CCTV Monitored · Daily Sanitisation · Trained Educators · Soft-Floor · Restricted Entry.</p>
+                        <p><strong>Strategic Purpose:</strong> Sits directly below the hero image. Before a parent asks *"Is it safe? Is it clean?"*, this high-contrast bar answers all 5 safety questions instantly.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-palette" style="color: var(--sky);"></i> Color Psychology of the 4 Pillars</h3>
+                        <p><strong>Safety Card (Sky Blue):</strong> Blue evokes security & professional reliability.</p>
+                        <p><strong>Hygiene Card (Green):</strong> Green signifies cleanliness, health, and fresh environments.</p>
+                        <p><strong>Learning Card (Orange):</strong> Orange triggers energy, creativity, and playfulness.</p>
+                        <p><strong>Motherly Care Card (Gold):</strong> Warm gold conveys patience and maternal affection.</p>
+                    </div>
+                </div>
+
+                <div class="rationale-box">
+                    <strong>❤️ Motherly Care Feature:</strong>
+                    <p>The "Motherly Care" pillar badge features a <em>beating heart animation</em> (`heartBeat`), visually reinforcing that teachers provide genuine affection, not just supervision.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Safety & Security Matrix -->
+        <section class="slide">
+            <div class="deck-card">
+                <span class="tag-badge badge-sky"><i class="fa-solid fa-lock"></i> Security Architecture</span>
+                <h2>Safety Section: Bank-Grade Security Feel</h2>
+                <p.slide-sub>Why safety is styled in deep navy blue with radar wave icon animations.</p>
 
                 <div class="grid-3">
                     <div class="info-card">
-                        <div class="card-icon icon-orange"><i class="fa-solid fa-crown"></i></div>
-                        <h3 style="color: var(--yellow);">For School Management</h3>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: #CBD5E1;">
-                            <li>• Increased admission conversions year-round.</li>
-                            <li>• Zero money wasted on printed paper circulars.</li>
-                            <li>• Strong brand equity in Seawoods West.</li>
-                            <li>• Direct tracking of inquiry sources.</li>
-                        </ul>
+                        <div class="card-icon icon-sky"><i class="fa-solid fa-video"></i></div>
+                        <h3>24/7 CCTV Monitoring</h3>
+                        <p>Every classroom & common area is covered. Footage reviewed regularly & accessible to parents on request.</p>
                     </div>
-
                     <div class="info-card">
-                        <div class="card-icon icon-sky"><i class="fa-solid fa-chalkboard-user"></i></div>
-                        <h3 style="color: var(--sky);">For Teachers & Staff</h3>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: #CBD5E1;">
-                            <li>• Parents come pre-informed about school rules.</li>
-                            <li>• Reduced repetitive calls about fees & timings.</li>
-                            <li>• Higher professional pride & prestige.</li>
-                            <li>• Easy online syllabus reference for parents.</li>
-                        </ul>
+                        <div class="card-icon icon-orange"><i class="fa-solid fa-door-closed"></i></div>
+                        <h3>Controlled Entry & Exit</h3>
+                        <p>Children handed over strictly to verified parents with ID. Zero shortcuts or unauthorized handovers.</p>
                     </div>
-
                     <div class="info-card">
-                        <div class="card-icon icon-green"><i class="fa-solid fa-heart-pulse"></i></div>
-                        <h3 style="color: #81C784;">For Enrolling Parents</h3>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: #CBD5E1;">
-                            <li>• 100% peace of mind on CCTV & safety.</li>
-                            <li>• Complete clarity on age criteria & daily routine.</li>
-                            <li>• Instant connection via WhatsApp.</li>
-                            <li>• Transparent hygiene commitment.</li>
-                        </ul>
+                        <div class="card-icon icon-yellow"><i class="fa-solid fa-truck-medical"></i></div>
+                        <h3>First Aid & Emergency Trained</h3>
+                        <p>All staff trained in emergency response. Full medical kit stocked and checked monthly.</p>
                     </div>
+                </div>
+
+                <div class="rationale-box">
+                    <strong>🛡️ Design Rationale (Navy Blue Background):</strong>
+                    <p>We switched from light pastel to a deep gradient blue (`#0D47A1` to `#1976D2`) for the Safety Section. Deep blue creates a feeling of hospital/security-grade protection, reassuring parents that their child's safety is non-negotiable.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 4: SEO & Keyword Masterplan -->
-        <section class="slide slide-4">
+        <!-- SLIDE 5: Programs & Syllabus Modals -->
+        <section class="slide">
             <div class="deck-card">
-                <span class="tag-badge badge-green"><i class="fa-solid fa-chart-line"></i> Local SEO Masterplan</span>
-                <h2>Capturing Local Search Intent in Seawoods</h2>
-                <p class="slide-sub">When parents in our area search Google for a preschool, Hunny Bunny will be the first name they see.</p>
+                <span class="tag-badge badge-green"><i class="fa-solid fa-book-open"></i> Curriculum Transparency</span>
+                <h2>Programs & Interactive Syllabus Modals</h2>
+                <p class="slide-sub">Reducing repetitive parent phone calls by providing 100% syllabus clarity online.</p>
 
-                <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div class="grid-2">
                     <div class="info-card">
-                        <h3><i class="fa-solid fa-bullseye" style="color: var(--orange);"></i> Target High-Intent Keywords</h3>
-                        <p style="margin-bottom: 10px;">We optimize the website code specifically for keywords parents type when ready to enroll:</p>
-                        <div>
-                            <span class="kw-pill">Playschool in Seawoods</span>
-                            <span class="kw-pill">Best Preschool Sector 42</span>
-                            <span class="kw-pill">Daycare 8 AM to 7 PM Navi Mumbai</span>
-                            <span class="kw-pill">Safe Nursery near Seawoods Station</span>
-                            <span class="kw-pill">Hunny Bunny Preschool Fees</span>
+                        <h3><i class="fa-solid fa-child" style="color: var(--yellow);"></i> Age-Wise Program Blocks</h3>
+                        <p><strong>Playgroup (1.5–2.5 yrs):</strong> Focuses on sensory play, storytime & separation anxiety support.</p>
+                        <p><strong>Nursery (2.5–3.5 yrs):</strong> Jolly Phonics, pre-writing strokes & letter recognition.</p>
+                        <p><strong>Daycare (8 AM–7 PM):</strong> Supervised meals, quiet nap room & evening homework help.</p>
+                        <p><strong>Life Skills:</strong> Traffic police safety drills & community helper workshops.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-window-maximize" style="color: var(--sky);"></i> Interactive Syllabus Modal Popup</h3>
+                        <p>Clicking <em>"Full Syllabus & Details"</em> opens a springy modal displaying exact teacher ratios, timings, daily schedules, and learning modules.</p>
+                        <div class="rationale-box" style="margin-top: 1rem;">
+                            <strong>📞 Operational Result:</strong>
+                            <p>Teachers don't have to spend 20 minutes on the phone explaining Nursery topics. Parents read it online and call to confirm the visit!</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Hygiene Protocol & Bubble Animation -->
+        <section class="slide">
+            <div class="deck-card">
+                <span class="tag-badge badge-green"><i class="fa-solid fa-pump-soap"></i> Hygiene Standards</span>
+                <h2>Hygiene Protocol: Cleanliness as Curriculum</h2>
+                <p class="slide-sub">Addressing mothers' micro-concerns regarding toddler immune safety.</p>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-clock-rotate-left" style="color: var(--sky);"></i> Step-by-Step Daily Routine</h3>
+                        <p>🌅 <strong>Morning:</strong> Disinfectant floor mop & toy sanitisation before first child arrives.</p>
+                        <p>🍱 <strong>Mealtime:</strong> Supervised hand-washing ritual before & after every snack.</p>
+                        <p>🌇 <strong>Evening:</strong> Deep clean of restrooms, toy tubs & changing bins.</p>
+                        <p>🤧 <strong>Zero-Tolerance Illness:</strong> Sick children stay home; transparent health reporting.</p>
+                    </div>
 
                     <div class="info-card">
-                        <h3><i class="fa-solid fa-bolt" style="color: var(--yellow);"></i> Technical Optimization Pillars</h3>
-                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: #CBD5E1;">
-                            <li>⚡ <strong>Sub-1.5s Load Time:</strong> Instant loading on 4G/5G mobile networks.</li>
-                            <li>📱 <strong>Mobile-First Design:</strong> 92% of parents view on smartphones.</li>
-                            <li>🗺️ <strong>Google Business Linking:</strong> Direct integration with Google Maps.</li>
-                            <li>🏷️ <strong>Meta Tag Schema:</strong> Structured data telling Google our ratings.</li>
+                        <h3><i class="fa-solid fa-sparkles" style="color: var(--green);"></i> Floating Soap Bubble Animation</h3>
+                        <p>The Hygiene Protocol box features dynamic <strong>rising soap bubbles</strong> (`@keyframes bubbleRise`), visually communicating freshness, health, and cleanliness.</p>
+                        <div class="rationale-box" style="margin-top: 1rem;">
+                            <strong>👟 Key Hygiene Policy Highlighted:</strong>
+                            <p><em>"Shoe-Free Classrooms"</em> — All adults & kids remove outdoor shoes at entry, ensuring crawling toddlers stay safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Local SEO & Google Search Strategy -->
+        <section class="slide">
+            <div class="deck-card">
+                <span class="tag-badge badge-orange"><i class="fa-solid fa-magnifying-glass"></i> SEO Architecture</span>
+                <h2>Dominating Local Google Searches in Seawoods</h2>
+                <p class="slide-sub">How we bring high-intent parents from Google Search straight to Hunny Bunny.</p>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-key" style="color: var(--yellow);"></i> Primary Local Keyword Targets</h3>
+                        <p>When a parent moves to Seawoods and searches on Google, our site is optimized for:</p>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--yellow); margin-top: 8px;">
+                            <li>• "Best Playschool in Seawoods West"</li>
+                            <li>• "Safe Daycare 8 AM to 7 PM Navi Mumbai"</li>
+                            <li>• "Preschool near Akash CHS Sector 42"</li>
+                            <li>• "Hunny Bunny Nursery Fees & Timings"</li>
                         </ul>
                     </div>
+
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-code" style="color: var(--sky);"></i> Behind-the-Scenes Technical SEO</h3>
+                        <p><strong>Meta Descriptions & OpenGraph:</strong> Beautiful preview cards when shared on WhatsApp.</p>
+                        <p><strong>Schema Markup:</strong> Structured code identifying address, ratings, and phone numbers directly to Googlebot.</p>
+                        <p><strong>Mobile Optimization:</strong> 100% responsive for iOS/Android smartphones.</p>
+                    </div>
+                </div>
+
+                <div class="rationale-box">
+                    <strong>💰 Financial Return:</strong>
+                    <p>Organic Google rankings bring continuous admissions every single month without paying for Facebook/Instagram sponsored ads.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 5: Social Media Synergy (FB & Insta Loop) -->
-        <section class="slide slide-5">
+        <!-- SLIDE 8: Social Media & Parent Journey Loop -->
+        <section class="slide">
             <div class="deck-card">
                 <span class="tag-badge badge-sky"><i class="fa-brands fa-instagram"></i> Social Media Synergy</span>
-                <h2>Instagram, Facebook & Website Integration</h2>
-                <p class="slide-sub">Social media builds daily interest; the website closes the admission.</p>
-
-                <div class="grid-3">
-                    <div class="info-card">
-                        <div class="card-icon icon-orange"><i class="fa-solid fa-camera-retro"></i></div>
-                        <h3>1. Daily Life Proof</h3>
-                        <p>Teachers capture short clips of craft activities, sports day drills, or festival celebrations for Instagram Reels and Facebook posts.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="card-icon icon-yellow"><i class="fa-solid fa-link"></i></div>
-                        <h3>2. The Link Traffic</h3>
-                        <p>Every post includes a call-to-action: <em>"Learn more about our curriculum & book a visit at hunnybunny.in"</em>.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="card-icon icon-green"><i class="fa-solid fa-circle-dollar-to-slot"></i></div>
-                        <h3>3. Admission Conversion</h3>
-                        <p>Parent clicks link -> Sees safety & syllabus details -> Clicks WhatsApp button -> School tour scheduled!</p>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.05); padding: 1rem 1.5rem; border-radius: 16px; margin-top: 1.5rem; text-align: left;">
-                    <strong style="color: var(--yellow);"><i class="fa-solid fa-lightbulb"></i> Three Content Pillars for Staff:</strong>
-                    <span style="color: #CBD5E1; font-size: 0.92rem; margin-left: 10px;">1) Safety & Hygiene in Action 🧼 | 2) Student Milestones & Awards 🏆 | 3) Life Skills (Traffic Police sessions) 🚦</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6: Step-by-Step Execution Roadmap -->
-        <section class="slide slide-6">
-            <div class="deck-card">
-                <span class="tag-badge badge-orange"><i class="fa-solid fa-map-location-dot"></i> Step-by-Step Roadmap</span>
-                <h2>Implementation & Launch Timeline</h2>
-                <p class="slide-sub">A structured 6-step path from today's meeting to long-term digital growth.</p>
+                <h2>Social Media & Parent Conversion Loop</h2>
+                <p class="slide-sub">How Instagram/Facebook posts drive traffic to the website to close admissions.</p>
 
                 <div class="timeline-container">
                     <div class="timeline-step">
                         <div class="step-num">01</div>
                         <div class="step-content">
-                            <h4>Tuesday Meeting Sign-off & Content Review (Today)</h4>
-                            <p>Gather final owner feedback, tweak specific wording, confirm fee/timing display preferences.</p>
+                            <h4>Teachers Post Daily Activities on Instagram / Facebook</h4>
+                            <p>Short video clips of sports day relays, Janmashtami dances, or traffic police safety workshops.</p>
                         </div>
                     </div>
 
                     <div class="timeline-step" style="border-left-color: var(--yellow);">
                         <div class="step-num" style="color: var(--yellow);">02</div>
                         <div class="step-content">
-                            <h4>Custom Domain Mapping & SSL Security (Day 1-2)</h4>
-                            <p>Connect official custom domain (`hunnybunny.in` / `.com`) with HTTPS green padlock security encryption.</p>
+                            <h4>Post Caption Directs Parents to Website Link</h4>
+                            <p><em>"See our full safety features and syllabus at hunnybunny.in"</em> in bio link.</p>
                         </div>
                     </div>
 
                     <div class="timeline-step" style="border-left-color: var(--sky);">
                         <div class="step-num" style="color: var(--sky);">03</div>
                         <div class="step-content">
-                            <h4>Google Search Console & Local SEO Submission (Day 3)</h4>
-                            <p>Submit sitemap to Googlebot for immediate indexing so Hunny Bunny starts ranking for Seawoods searches.</p>
+                            <h4>Website Establishes 100% Trust & Security</h4>
+                            <p>Parent reads CCTV proof, hygiene standards, and 4.8★ parent reviews.</p>
                         </div>
                     </div>
 
-                    <div class="timeline-step" style="border-left-color: #A7F3D0;">
-                        <div class="step-num" style="color: #A7F3D0;">04</div>
+                    <div class="timeline-step" style="border-left-color: #66BB6A;">
+                        <div class="step-num" style="color: #66BB6A;">04</div>
                         <div class="step-content">
-                            <h4>Official Launch & Parent Review Gathering Campaign (Week 2)</h4>
-                            <p>Share website with existing satisfied parents on WhatsApp to collect 5-star Google & JustDial reviews.</p>
+                            <h4>1-Tap WhatsApp Admission Inquiry Sent</h4>
+                            <p>Parent clicks green WhatsApp floating button -> Direct chat initiated -> School tour confirmed!</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 7: The Parent Psychology Funnel -->
-        <section class="slide slide-7">
-            <div class="deck-card">
-                <span class="tag-badge badge-sky"><i class="fa-solid fa-filter"></i> Parent Psychology</span>
-                <h2>How We Convert Searches into Walk-In Admissions</h2>
-
-                <div class="timeline-container" style="margin-top: 1.5rem;">
-                    <div class="timeline-step" style="border-left-color: #F43F5E;">
-                        <div class="step-num" style="color: #FB7185;">STAGE 1</div>
-                        <div class="step-content">
-                            <h4>Discovery (Google Search / Instagram Reel)</h4>
-                            <p>Parent searches for <em>"best preschool near me"</em> or sees a happy student activity video online.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-step" style="border-left-color: #F59E0B;">
-                        <div class="step-num" style="color: #FBBF24;">STAGE 2</div>
-                        <div class="step-content">
-                            <h4>Verification (Website Exploration)</h4>
-                            <p>Parent lands on Hunny Bunny website. Sees 12+ years history, CCTV safety proof, hygiene protocols, and clear syllabus.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-step" style="border-left-color: #3B82F6;">
-                        <div class="step-num" style="color: #60A5FA;">STAGE 3</div>
-                        <div class="step-content">
-                            <h4>Trust Confirmation (4.8★ Parent Reviews)</h4>
-                            <p>Parent reads real testimonials from other Seawoods mothers & fathers, eliminating any remaining doubt.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-step" style="border-left-color: #10B981;">
-                        <div class="step-num" style="color: #34D399;">STAGE 4</div>
-                        <div class="step-content">
-                            <h4>Action (1-Tap WhatsApp Booking)</h4>
-                            <p>Parent clicks "Book a Free Visit" button. Directly chats with owner on WhatsApp to confirm school tour time.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 8: Action Plan & Next Steps -->
-        <section class="slide slide-8">
+        <!-- SLIDE 9: Action Plan & Tuesday Approval -->
+        <section class="slide">
             <div class="deck-card" style="text-align: center;">
-                <span class="tag-badge badge-green"><i class="fa-solid fa-circle-check"></i> Next Steps</span>
-                <h1>Ready to Launch Hunny Bunny's Digital Future</h1>
-                <p class="slide-sub" style="margin: 0 auto 2rem;">With your approval on the final tweaks today, we can have the platform live and Google-indexed within 48 hours.</p>
+                <span class="tag-badge badge-green"><i class="fa-solid fa-circle-check"></i> Action Plan</span>
+                <h1>Tuesday Approval & Launch Checklist</h1>
+                <p class="slide-sub" style="margin: 0 auto 1.8rem;">Everything is ready. Upon your sign-off today, we execute the 48-hour launch sequence.</p>
 
-                <div style="background: rgba(15,23,42,0.8); border: 2px solid var(--green); padding: 2rem; border-radius: 24px; max-width: 700px; margin: 0 auto 2rem; text-align: left;">
-                    <h3 style="color: #81C784; margin-bottom: 1rem;"><i class="fa-solid fa-list-check"></i> Immediate Approval Checklist for Today:</h3>
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; color: #E2E8F0; font-weight: 700;">
-                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 1. Review & confirm text/content tweaks on the website.</li>
-                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 2. Confirm preferred contact phone numbers & WhatsApp number.</li>
-                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 3. Select domain name (`hunnybunny.in` / `.com`).</li>
-                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 4. Give final go-ahead for Google Search indexing launch!</li>
+                <div style="background: rgba(15,23,42,0.8); border: 2px solid var(--green); padding: 1.8rem; border-radius: 24px; max-width: 720px; margin: 0 auto 1.8rem; text-align: left;">
+                    <h3 style="color: #81C784; margin-bottom: 1rem;"><i class="fa-solid fa-list-check"></i> Immediate Tuesday Sign-off Items:</h3>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; color: #E2E8F0; font-weight: 700; font-size: 0.95rem;">
+                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 1. Confirm any minor text/wording tweaks requested by school owner.</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 2. Verify contact phone numbers (9833026085 / 9167302292) & WhatsApp links.</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 3. Confirm domain choice (`hunnybunny.in` / `.com`).</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--green);"></i> 4. Authorization to submit site to Google Search Console for live indexing!</li>
                     </ul>
                 </div>
 
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://hunny-bunny-preschool.vercel.app" target="_blank" style="background: var(--orange); color: #fff; text-decoration: none; padding: 14px 28px; border-radius: 100px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(255,98,0,0.4);">
-                        <i class="fa-solid fa-globe"></i> View Live Demo Site
+                    <a href="https://hunny-bunny-preschool.vercel.app" target="_blank" style="background: var(--orange); color: #fff; text-decoration: none; padding: 14px 30px; border-radius: 100px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(255,98,0,0.4);">
+                        <i class="fa-solid fa-globe"></i> Experience Live Website
                     </a>
                 </div>
             </div>
@@ -648,68 +609,78 @@
 
     </div>
 
-    <!-- Navigation & Keyboard Script -->
+    <!-- Bottom Slide Pill Navigation Bar -->
+    <div class="bottom-bar" id="bottomPillBar">
+        <button class="slide-pill active" onclick="goToSlide(0)">1. Vision</button>
+        <button class="slide-pill" onclick="goToSlide(1)">2. Hero Anatomy</button>
+        <button class="slide-pill" onclick="goToSlide(2)">3. Trust & Pillars</button>
+        <button class="slide-pill" onclick="goToSlide(3)">4. Safety Matrix</button>
+        <button class="slide-pill" onclick="goToSlide(4)">5. Syllabus Modals</button>
+        <button class="slide-pill" onclick="goToSlide(5)">6. Hygiene Protocol</button>
+        <button class="slide-pill" onclick="goToSlide(6)">7. Local SEO</button>
+        <button class="slide-pill" onclick="goToSlide(7)">8. Social Loop</button>
+        <button class="slide-pill" onclick="goToSlide(8)">9. Launch Plan</button>
+    </div>
+
+    <!-- Bulletproof State Machine Script (No Lockups) -->
     <script>
-        const deck = document.getElementById('deck');
         const slides = document.querySelectorAll('.slide');
+        const pills = document.querySelectorAll('.slide-pill');
         const indicator = document.getElementById('slideIndicator');
         const progressBar = document.getElementById('progressBar');
 
         let currentSlide = 0;
         const totalSlides = slides.length;
 
-        function updateSlideUI(index) {
-            slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                }
-            });
-
-            indicator.textContent = `Slide ${index + 1} of ${totalSlides}`;
-            progressBar.style.width = `${((index + 1) / totalSlides) * 100}%`;
-        }
-
-        function scrollToSlide(index) {
+        function goToSlide(index) {
             if (index < 0) index = 0;
             if (index >= totalSlides) index = totalSlides - 1;
+
+            slides[currentSlide].classList.remove('active');
+            pills[currentSlide].classList.remove('active');
+
             currentSlide = index;
-            slides[currentSlide].scrollIntoView({ behavior: 'smooth' });
-            updateSlideUI(currentSlide);
+
+            slides[currentSlide].classList.add('active');
+            pills[currentSlide].classList.add('active');
+
+            indicator.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
         }
 
-        function nextSlide() {
-            scrollToSlide(currentSlide + 1);
-        }
+        function nextSlide() { goToSlide(currentSlide + 1); }
+        function prevSlide() { goToSlide(currentSlide - 1); }
 
-        function prevSlide() {
-            scrollToSlide(currentSlide - 1);
-        }
-
-        // Keyboard Navigation (Arrow Up/Down, Left/Right, Space, PageUp/PageDown)
+        // Keyboard Navigation (Arrow Keys & Space)
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
                 e.preventDefault();
                 nextSlide();
-            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
                 e.preventDefault();
                 prevSlide();
             }
         });
 
-        // Intersection Observer to detect manual scrolling
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const index = Array.from(slides).indexOf(entry.target);
-                    currentSlide = index;
-                    updateSlideUI(currentSlide);
-                }
-            });
-        }, { threshold: 0.5 });
+        // Debounced Mouse Wheel Slide Switch (Prevents Lockup)
+        let isWheeling = false;
+        window.addEventListener('wheel', (e) => {
+            if (isWheeling) return;
+            // Check if user is scrolling inside a card with scrollbar
+            const activeCard = slides[currentSlide].querySelector('.deck-card');
+            if (activeCard) {
+                const isAtTop = activeCard.scrollTop === 0;
+                const isAtBottom = activeCard.scrollHeight - activeCard.scrollTop <= activeCard.clientHeight + 5;
+                if (e.deltaY > 0 && !isAtBottom) return; // scroll card content down first
+                if (e.deltaY < 0 && !isAtTop) return;    // scroll card content up first
+            }
 
-        slides.forEach(slide => observer.observe(slide));
+            isWheeling = true;
+            if (e.deltaY > 0) nextSlide();
+            else if (e.deltaY < 0) prevSlide();
+
+            setTimeout(() => { isWheeling = false; }, 400);
+        }, { passive: true });
     </script>
 </body>
 </html>
