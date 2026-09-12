@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Client Testing & Review Guide — Hunny Bunny Pre School Demo V2</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+:root {
+  --orange: #FF6200;
+  --navy: #0A1628;
+  --blue: #0055DD;
+  --sky: #4ECEE0;
+  --cream: #FFFBF3;
+  --ink: #1E293B;
+  --muted: #64748B;
+  --border: #E2E8F0;
+  --green: #10B981;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #F8FAFC;
+  color: var(--ink);
+  line-height: 1.7;
+  padding: 40px 20px;
+}
+.guide-card {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 16px 50px rgba(0,0,0,0.06);
+  padding: 56px;
+  border: 1px solid var(--border);
+}
+.header {
+  border-bottom: 2px dashed var(--border);
+  padding-bottom: 32px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFF0E6;
+  padding: 8px 20px;
+  border-radius: 100px;
+  color: var(--orange);
+  font-weight: 900;
+  font-size: 1rem;
+}
+h1.title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 2.3rem;
+  color: var(--navy);
+  margin-top: 14px;
+  line-height: 1.25;
+}
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 600;
+}
+.meta-tag {
+  background: var(--green);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.url-banner {
+  background: linear-gradient(135deg, #0A1628 0%, #1565C0 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.url-text {
+  font-family: monospace;
+  font-size: 1.15rem;
+  color: #FFD740;
+  font-weight: 700;
+}
+.btn-visit {
+  background: var(--orange);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(255,98,0,0.4);
+}
+
+.checklist-group {
+  margin-bottom: 40px;
+}
+.group-title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.45rem;
+  color: var(--navy);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.group-title i { color: var(--orange); }
+
+.test-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #F8FAFC;
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: border-color 0.2s;
+}
+.test-item:hover { border-color: var(--sky); }
+.check-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E8F5E9;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.test-content h4 {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.test-content p {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.test-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: #E0F2FE;
+  color: #0369A1;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-top: 8px;
+}
+
+.footer-section {
+  border-top: 2px solid var(--border);
+  padding-top: 32px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+@media print {
+  body { background: #fff; padding:0; }
+  .guide-card { box-shadow: none; border: none; padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="guide-card">
+  <div class="header">
+    <div>
+      <div class="logo-badge">🐰 Hunny Bunny Pre School</div>
+      <h1 class="title">Owner's Interactive Testing & Review Guide</h1>
+      <p class="subtitle">Step-by-Step Walkthrough for Management Approval · Demo V2</p>
+    </div>
+    <div style="text-align:right;">
+      <span class="meta-tag">TESTING GUIDE V2</span>
+      <p style="font-size:0.82rem; color:var(--muted); margin-top:8px; font-weight:700;">ASVEX Technologies</p>
+    </div>
+  </div>
+
+  <!-- LIVE URL BANNER -->
+  <div class="url-banner">
+    <div>
+      <div style="font-size:0.85rem; opacity:0.9; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Live Production Preview Link:</div>
+      <div class="url-text">https://hunny-bunny-preschool.vercel.app</div>
+    </div>
+    <a href="https://hunny-bunny-preschool.vercel.app" target="_blank" class="btn-visit">Open Live Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+  </div>
+
+  <!-- SMARTPHONE TESTING -->
+  <div class="checklist-group">
+    <h2 class="group-title"><i class="fa-solid fa-mobile-screen-button"></i> 1. Mobile Phone Testing Checklist (85%+ Parents)</h2>
+    <p style="margin-bottom:16px; color:var(--muted);">Open the link above on your Android or iPhone and verify the following:</p>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>Mobile Navigation Menu</h4>
+        <p>Tap the top-right hamburger icon (<b>≡</b>). The menu drawer will slide out cleanly with quick links to About, Programs, Safety, Gallery, Reviews, and Booking.</p>
+        <span class="test-tag">MOBILE NAVIGATION</span>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>Floating WhatsApp Chat Button</h4>
+        <p>Look at the bottom right green WhatsApp icon. Tap it on your phone — it directly opens WhatsApp with a pre-filled enquiry message to <code>9833026085</code>.</p>
+        <span class="test-tag">LEAD CONVERSION</span>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>One-Tap Phone Calling</h4>
+        <p>In the footer or top banner, tap <code>9833026085</code> or <code>9167302292</code>. Your phone's dialer will open instantly ready to place the call.</p>
+        <span class="test-tag">DIRECT CALLING</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESKTOP TESTING -->
+  <div class="checklist-group">
+    <h2 class="group-title"><i class="fa-solid fa-laptop"></i> 2. Laptop & Desktop Testing Checklist</h2>
+    <p style="margin-bottom:16px; color:var(--muted);">Open the link on your laptop or computer browser:</p>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>Hero Storefront Visual</h4>
+        <p>Notice the background photo showing the real Hunny Bunny Pre School entrance. The text is comfortably positioned so your signage is unobstructed.</p>
+        <span class="test-tag">BRAND IDENTITY</span>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>Scroll Animations (AOS)</h4>
+        <p>Scroll down slowly. Notice how Safety cards, Program blocks, Hygiene timelines, and Reviews gracefully fade and zoom into view as you scroll.</p>
+        <span class="test-tag">VISUAL EXCELLENCE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE FEATURES -->
+  <div class="checklist-group">
+    <h2 class="group-title"><i class="fa-solid fa-hand-pointer"></i> 3. Interactive Features & Syllabus Modals</h2>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>Syllabus & Details Modals</h4>
+        <p>Under Academic Programs, click <b>"Full Syllabus & Details"</b> on Playgroup or Nursery. An interactive popup displays timings, teacher ratios, and learning outcomes.</p>
+        <span class="test-tag">SYLLABUS MODAL</span>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>Photo Gallery Lightbox</h4>
+        <p>In the "Life at Hunny Bunny" photo section, click any photo (Sports Day, Janmashtami, Traffic Police lecture). It opens a high-res lightbox modal with full captions.</p>
+        <span class="test-tag">PHOTO LIGHTBOX</span>
+      </div>
+    </div>
+
+    <div class="test-item">
+      <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+      <div class="test-content">
+        <h4>Digital Marketing Playbook Link</h4>
+        <p>Scroll to the bottom footer and click <b>"📱 Digital Marketing Playbook"</b> to view your school's comprehensive local SEO & parent acquisition guide.</p>
+        <span class="test-tag">MARKETING PLAYBOOK</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-section">
+    <strong>ASVEX Technologies</strong> · Client Testing & Handover Document<br/>
+    Hunny Bunny Pre School Demo V2 · Seawoods West, Navi Mumbai
+  </div>
+</div>
+
+</body>
+</html>
