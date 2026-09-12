@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Hunny Bunny Pre School — Client Proposal & Digital Strategy Guide</title>
+<title>Hunny Bunny Pre School — Client Proposal & Digital Investment Strategy Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
@@ -16,6 +16,7 @@
   --muted: #64748B;
   --border: #E2E8F0;
   --green: #10B981;
+  --gold: #D97706;
 }
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 body {
@@ -26,12 +27,12 @@ body {
   padding: 40px 20px;
 }
 .container {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
   background: #ffffff;
   border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-  padding: 48px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.07);
+  padding: 52px;
   border: 1px solid var(--border);
 }
 .header {
@@ -57,13 +58,13 @@ body {
 }
 h1.title {
   font-family: 'Fredoka One', sans-serif;
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   color: var(--navy);
   margin-top: 14px;
   line-height: 1.2;
 }
 .subtitle {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   color: var(--muted);
   margin-top: 6px;
 }
@@ -77,62 +78,123 @@ h1.title {
 }
 
 .section {
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
 .section-title {
   font-family: 'Fredoka One', sans-serif;
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   color: var(--navy);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 .section-title i {
   color: var(--orange);
 }
 
+.mindset-card {
+  background: linear-gradient(135deg, #0A1628 0%, #1E293B 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  margin: 28px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(10,22,40,0.15);
+}
+.mindset-card h3 {
+  font-family: 'Fredoka One', sans-serif;
+  color: #FFD740;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+.mindset-card p {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.seo-box {
+  background: #F0F9FF;
+  border: 2px solid #BAE6FD;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 36px;
+}
+.seo-box h3 {
+  font-family: 'Fredoka One', sans-serif;
+  color: #0284C7;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.keyword-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.kw-tag {
+  background: #E0F2FE;
+  color: #0369A1;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid #7DD3FC;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 16px;
+  gap: 20px;
+  margin-top: 18px;
 }
 .card {
   background: #F8FAFC;
   border: 1.5px solid var(--border);
-  border-radius: 16px;
-  padding: 22px;
-  transition: transform 0.2s;
+  border-radius: 18px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 .card-icon {
-  font-size: 2rem;
-  margin-bottom: 12px;
+  font-size: 2.2rem;
+  margin-bottom: 14px;
   display: block;
 }
 .card h3 {
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--navy);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .card p {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--muted);
 }
 
-.highlight-box {
-  background: linear-gradient(135deg, #FFF6F0 0%, #FFF0E6 100%);
-  border: 2px solid #FFCCAA;
-  border-radius: 18px;
-  padding: 26px;
-  margin: 24px 0;
+.benefit-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFBF3;
+  border: 1.5px solid #FDE68A;
+  padding: 14px 20px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
-.highlight-box h3 {
-  font-family: 'Fredoka One', sans-serif;
-  color: var(--orange);
-  font-size: 1.25rem;
-  margin-bottom: 8px;
+.benefit-pill i {
+  color: var(--gold);
+  font-size: 1.2rem;
 }
 
 .testing-steps {
@@ -140,37 +202,37 @@ h1.title {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 .testing-steps li {
   display: flex;
   align-items: flex-start;
   gap: 14px;
   background: #F1F5F9;
-  padding: 16px 20px;
-  border-radius: 14px;
+  padding: 18px 22px;
+  border-radius: 16px;
   font-weight: 700;
 }
 .step-num {
   background: var(--orange);
   color: #fff;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .footer-note {
   border-top: 2px solid var(--border);
-  padding-top: 24px;
+  padding-top: 28px;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--muted);
-  margin-top: 48px;
+  margin-top: 52px;
 }
 @media print {
   body { background: #fff; padding:0; }
@@ -184,34 +246,52 @@ h1.title {
   <div class="header">
     <div>
       <div class="logo-badge">🐰 Hunny Bunny Pre School</div>
-      <h1 class="title">Website Redesign & Parent Trust Strategy</h1>
+      <h1 class="title">Website Redesign, SEO & Parent Trust Investment Plan</h1>
       <p class="subtitle">Prepared for Management · Seawoods West, Navi Mumbai</p>
     </div>
     <div style="text-align:right;">
-      <span class="meta-tag">DEMO V2 PRESENTATION</span>
+      <span class="meta-tag">STRATEGIC PROPOSAL V2</span>
       <p style="font-size:0.8rem; color:var(--muted); margin-top:8px;">Version 2.0 · Est. 2013</p>
     </div>
   </div>
 
-  <!-- EXECUTIVE SUMMARY -->
-  <div class="section">
-    <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> Executive Summary</h2>
-    <p>Modern young parents in Seawoods search on Google and view websites on their mobile phones long before setting foot inside a school campus. Choosing a preschool for a 1.5 to 4-year-old child is an deeply emotional decision based on <strong>trust, safety, hygiene, and warmth</strong>.</p>
-    <p style="margin-top:12px;">This <strong>Demo V2 Website</strong> has been purpose-built to instantly reassure parents, highlight Hunny Bunny's 12-year legacy, showcase your actual school entrance and activities, and turn casual website visitors into confirmed campus visits.</p>
+  <!-- CORE PHILOSOPHY -->
+  <div class="mindset-card">
+    <h3>💡 Why This Is NOT a "Tech Expense" — It's an Investment in Parent Trust</h3>
+    <p>When parents choose a preschool for their 1.5 to 4-year-old child, they aren't buying a service — <strong>they are trusting you with their most precious gift</strong>. In 2025, 90%+ of parents search Google and inspect a school's website on their smartphones late at night before deciding whether to call or visit.</p>
+    <p style="margin-top:12px;">This website is designed to break down parental anxiety, prove your 12-year track record in Seawoods, and build an immediate bond of safety, warmth, and security before the parent even steps through your doors.</p>
   </div>
 
-  <div class="highlight-box">
-    <h3><i class="fa-solid fa-heart-pulse"></i> The Parent Mindset & How This Website Builds Immediate Trust</h3>
-    <p>When a parent opens this website on their smartphone, they aren't just looking for fees — they are asking: <em>"Will my baby be safe here? Are the teachers caring? Is the school clean?"</em> Demo V2 answers all these questions visually and transparently in seconds.</p>
+  <!-- SEO & GOOGLE RANKING STRATEGY -->
+  <div class="section">
+    <div class="seo-box">
+      <h3><i class="fa-solid fa-magnifying-glass-chart"></i> How SEO & Keyword Optimization Gets You to #1 on Google</h3>
+      <p>When a mother or father in Seawoods types <em>"playschool near me"</em> or <em>"safe daycare in Seawoods"</em> into Google, this website is structured to capture that high-intent traffic instantly.</p>
+      
+      <div class="keyword-tag-list">
+        <span class="kw-tag">📍 Playschool in Seawoods</span>
+        <span class="kw-tag">📍 Nursery in Seawoods West</span>
+        <span class="kw-tag">📍 Daycare 8 AM to 7 PM Seawoods</span>
+        <span class="kw-tag">📍 Best Pre School in Navi Mumbai</span>
+        <span class="kw-tag">📍 CCTV Monitored Playgroup Seawoods</span>
+        <span class="kw-tag">📍 Activity Centre Sector 42 Seawoods</span>
+      </div>
+
+      <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+        <div class="benefit-pill"><i class="fa-solid fa-ranking-star"></i> <strong>Search Engine Dominance:</strong> Built-in schema tags, fast loading speeds, and localized meta descriptions tell Google that Hunny Bunny is the most active and authentic pre-school in Seawoods.</div>
+        <div class="benefit-pill"><i class="fa-solid fa-arrow-trend-up"></i> <strong>Zero Wasted Ad Budget:</strong> Organic search traffic brings parents who are <em>actively searching right now</em>, resulting in significantly higher conversion rates for campus visits.</div>
+        <div class="benefit-pill"><i class="fa-solid fa-mobile-screen-button"></i> <strong>Google Maps Integration:</strong> Connects seamlessly with Google Business Profile so parents get instant driving directions, 1-tap phone calls, and WhatsApp chats.</div>
+      </div>
+    </div>
   </div>
 
   <!-- KEY STRATEGIC FEATURES -->
   <div class="section">
-    <h2 class="section-title"><i class="fa-solid fa-star"></i> 5 Core Pillars Built into Demo V2</h2>
+    <h2 class="section-title"><i class="fa-solid fa-shield-cat"></i> 6 Pillars of Trust Built into Demo V2</h2>
     <div class="card-grid">
       <div class="card">
         <span class="card-icon">📸</span>
-        <h3>Authentic Campus Visuals</h3>
+        <h3>Real School Visuals</h3>
         <p>Uses your actual Hunny Bunny storefront image and real photos from Sports Day, Janmashtami, and prize distributions — establishing 100% authenticity over stock images.</p>
       </div>
       <div class="card">
@@ -244,7 +324,7 @@ h1.title {
 
   <!-- HOW TO TEST & APPROVE -->
   <div class="section">
-    <h2 class="section-title"><i class="fa-solid fa-vial-circle-check"></i> Client Testing & Review Checklist</h2>
+    <h2 class="section-title"><i class="fa-solid fa-vial-circle-check"></i> Client Testing & Approval Checklist</h2>
     <p>Please review the live Vercel link on your mobile phone and laptop following these steps:</p>
     <ul class="testing-steps">
       <li>
