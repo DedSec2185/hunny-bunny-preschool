@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunny Bunny Pre School | Seawoods</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animations CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF8BA7; /* Soft Pink */
+            --primary-dark: #FF5C8A;
+            --secondary: #FFB347; /* Warm Orange */
+            --tertiary: #4ECDC4; /* Teal/Aqua */
+            --quaternary: #FFE66D; /* Sunny Yellow */
+            --bg-light: #FAFAFA;
+            --text-dark: #2B2D42;
+            --text-muted: #6C757D;
+            --white: #FFFFFF;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-lg: 0 15px 30px rgba(0,0,0,0.08);
+            --border-radius: 24px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .brand-font {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--text-dark);
+        }
+
+        /* ----- NAVIGATION ----- */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            font-size: 2.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--tertiary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--tertiary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ----- BUTTONS ----- */
+        .btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 139, 167, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(255, 139, 167, 0.5);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-dark);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(43, 45, 66, 0.3);
+        }
+
+        /* ----- HERO SECTION ----- */
+        .hero {
+            padding: 10rem 5% 6rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: radial-gradient(circle at top right, rgba(255, 230, 109, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(78, 205, 196, 0.1), transparent 40%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 3rem;
+            z-index: 2;
+        }
+
+        .badge {
+            background-color: rgba(255, 179, 71, 0.15);
+            color: #E68A00;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span.highlight-1 { color: var(--primary-dark); }
+        .hero h1 span.highlight-2 { color: var(--tertiary); position: relative; }
+        
+        .hero h1 span.highlight-2::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: var(--quaternary);
+            z-index: -1;
+            border-radius: 10px;
+            transform: rotate(-2deg);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 550px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            border: 12px solid var(--white);
+            transform: rotate(3deg);
+            transition: var(--transition);
+        }
+
+        .hero-image img:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        /* Abstract Shapes */
+        .shape {
+            position: absolute;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+        .shape-1 { top: 20%; left: 45%; color: var(--quaternary); font-size: 3rem; animation-delay: 0s; }
+        .shape-2 { bottom: 15%; right: 45%; color: var(--primary); font-size: 4rem; animation-delay: 1s; }
+        .shape-3 { top: 15%; right: 10%; color: var(--tertiary); font-size: 2.5rem; animation-delay: 2s; }
+
+        /* ----- ABOUT / WHY US ----- */
+        .section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 span {
+            color: var(--primary-dark);
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-card:nth-child(1):hover { border-color: var(--secondary); }
+        .feature-card:nth-child(2):hover { border-color: var(--tertiary); }
+        .feature-card:nth-child(3):hover { border-color: var(--primary); }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .c-1 .icon-wrapper { background: rgba(255, 179, 71, 0.15); color: var(--secondary); }
+        .c-2 .icon-wrapper { background: rgba(78, 205, 196, 0.15); color: var(--tertiary); }
+        .c-3 .icon-wrapper { background: rgba(255, 139, 167, 0.15); color: var(--primary-dark); }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+        }
+
+        /* ----- PROGRAMS ----- */
+        .bg-gray {
+            background-color: #F4F7F6;
+        }
+
+        .programs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .program-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .program-row:hover {
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.01);
+        }
+
+        .program-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .program-img {
+            flex: 1;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .program-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .program-row:hover .program-img img {
+            transform: scale(1.05);
+        }
+
+        .program-info {
+            flex: 1;
+            padding: 3rem;
+        }
+
+        .program-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag-playgroup { background: rgba(255, 230, 109, 0.3); color: #B39B00; }
+        .tag-nursery { background: rgba(78, 205, 196, 0.2); color: #00877C; }
+        .tag-daycare { background: rgba(255, 139, 167, 0.2); color: #C2003A; }
+
+        .program-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-info p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .program-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .program-features li i {
+            color: var(--tertiary);
+        }
+
+        /* ----- GALLERY ----- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 250px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item.large {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item.large {
+                grid-column: span 1;
+            }
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-overlay h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover .gallery-overlay h4 {
+            transform: translateY(0);
+        }
+
+        /* ----- TESTIMONIALS ----- */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .testimonials .section-header h2, 
+        .testimonials .section-header p {
+            color: var(--white);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: rgba(255, 139, 167, 0.2);
+        }
+
+        .stars {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .parent-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .parent-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--tertiary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .parent-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+        .parent-details p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ----- CONTACT ----- */
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 4rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--tertiary);
+            margin-top: 5px;
+        }
+
+        .info-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            color: var(--text-muted);
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E9ECEF;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--tertiary);
+            box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* ----- FLOATING BUTTONS ----- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 110px;
+            right: 35px;
+            background-color: var(--text-dark);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-about h2 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-about p {
+            color: #ADB5BD;
+            margin-bottom: 1.5rem;
+            max-width: 400px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--tertiary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ADB5BD;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ADB5BD;
+            font-size: 0.9rem;
+        }
+        
+        .agency-tag strong {
+            color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 8rem; }
+            .hero-content { padding-right: 0; margin-bottom: 4rem; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { margin: 0 auto 2rem; }
+            .hero-buttons { justify-content: center; }
+            
+            .program-row, .program-row.reverse { flex-direction: column; }
+            .contact-container { flex-direction: column; padding: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            
+            .nav-links { display: none; } /* Add a hamburger menu for production */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header id="navbar">
+        <a href="#" class="logo">
+            <i class="fa-solid fa-graduation-cap"></i> Hunny Bunny
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+        <a href="#contact" class="btn">Admissions Open</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <i class="fa-solid fa-star shape shape-1"></i>
+        <i class="fa-solid fa-heart shape shape-2"></i>
+        <i class="fa-solid fa-paper-plane shape shape-3"></i>
+        
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+            <div class="badge"><i class="fa-solid fa-check-circle"></i> Seawoods' Most Trusted Since 2013</div>
+            <h1>A place to <span class="highlight-1">play</span>,<br>learn & <span class="highlight-2">grow</span></h1>
+            <p>Give your child the best foundation. We provide a safe, nurturing, and joyful environment for early childhood development.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Book a Campus Tour <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#programs" class="btn btn-outline">Explore Programs</a>
+            </div>
+        </div>
+        <div class="hero-image" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+            <img src="hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp" alt="Children playing with blocks">
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section" id="about">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Why Parents <span>Trust Us</span></h2>
+            <p>For over a decade, we have been the preferred choice for parents in Navi Mumbai. Your child's safety and happiness are our greatest priorities.</p>
+        </div>
+        
+        <div class="about-grid">
+            <div class="feature-card c-1" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-wrapper"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>100% Safe & Secure</h3>
+                <p>Equipped with 24/7 CCTV surveillance, restricted access entry, and child-proofed infrastructure.</p>
+            </div>
+            
+            <div class="feature-card c-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-wrapper"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <h3>Loving Educators</h3>
+                <p>Our teachers are not just trained professionals; they provide motherly care, patience, and warm guidance.</p>
+            </div>
+            
+            <div class="feature-card c-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-wrapper"><i class="fa-solid fa-pump-medical"></i></div>
+                <h3>Premium Hygiene</h3>
+                <p>Rigorous daily sanitization of all toys and spaces, ensuring a healthy environment for developing immune systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="section bg-gray" id="programs">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Our <span>Programs</span></h2>
+            <p>Tailored curriculums designed to foster creativity, cognitive skills, and emotional intelligence at every age.</p>
+        </div>
+
+        <div class="programs-container">
+            <!-- Program 1 -->
+            <div class="program-row" data-aos="fade-up">
+                <div class="program-img">
+                    <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-atupvsslji.webp" alt="Playgroup">
+                </div>
+                <div class="program-info">
+                    <div class="program-tag tag-playgroup">Ages 1.5 - 2.5 Years</div>
+                    <h3>Playgroup & Discovery</h3>
+                    <p>Our Playgroup focuses on sensory exploration, building vocabulary, and helping toddlers socialize in a warm setting away from home.</p>
+                    <ul class="program-features">
+                        <li><i class="fa-solid fa-check"></i> Motor skills development</li>
+                        <li><i class="fa-solid fa-check"></i> Interactive storytelling</li>
+                        <li><i class="fa-solid fa-check"></i> Music and movement</li>
+                    </ul>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
+
+            <!-- Program 2 -->
+            <div class="program-row reverse" data-aos="fade-up">
+                <div class="program-img">
+                    <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-qiht3xenmh.webp" alt="Nursery">
+                </div>
+                <div class="program-info">
+                    <div class="program-tag tag-nursery">Ages 2.5 - 3.5 Years</div>
+                    <h3>Nursery Curriculum</h3>
+                    <p>A structured yet flexible environment where children learn early literacy, numbers, and emotional regulation through play-based activities.</p>
+                    <ul class="program-features">
+                        <li><i class="fa-solid fa-check"></i> Pre-writing skills</li>
+                        <li><i class="fa-solid fa-check"></i> Phonics introduction</li>
+                        <li><i class="fa-solid fa-check"></i> Creative arts & crafts</li>
+                    </ul>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
+
+            <!-- Program 3 -->
+            <div class="program-row" data-aos="fade-up">
+                <div class="program-img">
+                    <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-tutorials-for-class-iv-cffm8r6gbt.webp" alt="Daycare">
+                </div>
+                <div class="program-info">
+                    <div class="program-tag tag-daycare">Flexible Hours: 8 AM - 7 PM</div>
+                    <h3>Safe Daycare Services</h3>
+                    <p>The perfect solution for working parents. We provide a structured routine including nap times, nutritious meals, and evening activities.</p>
+                    <ul class="program-features">
+                        <li><i class="fa-solid fa-check"></i> After-school homework help</li>
+                        <li><i class="fa-solid fa-check"></i> Nutritious supervised meals</li>
+                        <li><i class="fa-solid fa-check"></i> Evening play & enrichment</li>
+                    </ul>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
+
+            <!-- Program 4 -->
+            <div class="program-row reverse" data-aos="fade-up">
+                <div class="program-img">
+                    <img src="traffic_safety.jpg" alt="Traffic Safety Lesson">
+                </div>
+                <div class="program-info">
+                    <div class="program-tag tag-nursery">Beyond Academics</div>
+                    <h3>Life Skills & Safety</h3>
+                    <p>We go beyond traditional learning by teaching essential life skills. From basic road safety rules with local traffic police to understanding personal safety, we prepare your child for the real world with interactive, practical knowledge.</p>
+                    <ul class="program-features">
+                        <li><i class="fa-solid fa-check"></i> Real-world safety drills</li>
+                        <li><i class="fa-solid fa-check"></i> Traffic rules awareness</li>
+                        <li><i class="fa-solid fa-check"></i> Interactive guest sessions</li>
+                    </ul>
+                    <a href="#contact" class="btn">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Life at <span>Hunny Bunny</span></h2>
+            <p>Take a glimpse into the joyful, vibrant daily lives of our little stars.</p>
+        </div>
+
+        <div class="gallery-grid" data-aos="zoom-in-up">
+            <div class="gallery-item large">
+                <img src="hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp" alt="Kids learning">
+                <div class="gallery-overlay"><h4>Creative Arts Session</h4></div>
+            </div>
+            <div class="gallery-item">
+                <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-atupvsslji.webp" alt="Toys">
+                <div class="gallery-overlay"><h4>Safe Wooden Toys</h4></div>
+            </div>
+            <div class="gallery-item">
+                <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-qiht3xenmh.webp" alt="Outdoor play">
+                <div class="gallery-overlay"><h4>Sensory Play</h4></div>
+            </div>
+            <div class="gallery-item">
+                <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-tutorials-for-class-iv-cffm8r6gbt.webp" alt="Reading">
+                <div class="gallery-overlay"><h4>Story Time</h4></div>
+            </div>
+            <div class="gallery-item">
+                <img src="sports_day.jpg" alt="Annual Sports Day">
+                <div class="gallery-overlay"><h4>Annual Sports Day</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials" id="reviews">
+        <div class="section-header" data-aos="fade-up">
+            <h2>What Parents <span>Say</span></h2>
+            <p>Our 4.8-Star rating reflects our commitment to your child's well-being.</p>
+        </div>
+
+        <div class="review-grid">
+            <div class="review-card" data-aos="flip-left" data-aos-delay="100">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"My daughter joined the playgroup last year and the transformation is amazing. She is more independent, and the teachers are incredibly caring. Best decision we made!"</p>
+                <div class="parent-info">
+                    <div class="parent-avatar">P</div>
+                    <div class="parent-details">
+                        <h4>Priya Sharma</h4>
+                        <p>Mother of Aanya (Playgroup)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card" data-aos="flip-left" data-aos-delay="200">
+                <i class="fa-solid fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"The daycare facility is a lifesaver for working parents like us. They maintain great hygiene and send regular updates on WhatsApp. Highly recommended in Seawoods."</p>
+                <div class="parent-info">
+                    <div class="parent-avatar">R</div>
+                    <div class="parent-details">
+                        <h4>Rahul Desai</h4>
+                        <p>Father of Vihaan (Daycare)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section bg-gray" id="contact">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Let's Get In <span>Touch</span></h2>
+            <p>Admissions are now open. Reach out to schedule a campus tour.</p>
+        </div>
+
+        <div class="contact-container" data-aos="fade-up">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <img src="storefront.jpg" alt="Hunny Bunny Storefront" style="width: 100%; border-radius: 16px; margin-bottom: 2rem; box-shadow: var(--shadow-sm);">
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Visit Us</h4>
+                        <p>Sector 40, Near Seawoods Grand Central Mall,<br>Seawoods West, Navi Mumbai - 400706</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+91 98765 43210 (Admissions)</p>
+                        <p>+91 98765 43211 (Daycare)</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p>hello@hunnybunnypreschool.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form onsubmit="event.preventDefault(); alert('Inquiry Sent successfully!');">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Parent's Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Select Program</option>
+                            <option value="playgroup">Playgroup</option>
+                            <option value="nursery">Nursery</option>
+                            <option value="jrkg">Jr. KG</option>
+                            <option value="srkg">Sr. KG</option>
+                            <option value="daycare">Daycare</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Any special requests or questions?"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; justify-content: center;">Submit Enquiry <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING ELEMENTS -->
+    <a href="#" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo(0,0)">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h2 class="brand-font"><i class="fa-solid fa-graduation-cap" style="color: var(--secondary);"></i> Hunny Bunny</h2>
+                <p>Providing a foundation of love, learning, and safety for the bright young minds of Seawoods since 2013.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs & Fees</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Admission</a></li>
+                    <li><a href="#">Safety Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hunny Bunny Pre School. All Rights Reserved.</p>
+            <p class="agency-tag">Digital Transformation Proposed by <strong>ASVEX Technologies</strong></p>
+        </div>
+    </footer>
+
+    <!-- AOS JS for Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Navbar Scroll Effect & Scroll Top Button
+        const navbar = document.getElementById('navbar');
+        const scrollBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 5%';
+                navbar.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = '0 4px 6px rgba(0,0,0,0.05)';
+            }
+
+            if (window.scrollY > 500) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

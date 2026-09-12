@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hunny Bunny Pre School | Seawoods, Navi Mumbai — Fun Begins Here</title>
+<meta name="description" content="Hunny Bunny Pre School in Seawoods, Navi Mumbai. Playgroup, Nursery, Daycare & Activity Centre for children aged 1.5–6 years. Est. 2013. 4.8★ rated. Safe, hygienic, joyful."/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════════
+   TOKENS
+══════════════════════════════════════════════ */
+:root {
+  --orange:    #FF6200;
+  --orange-dk: #D94F00;
+  --orange-lt: #FFF0E6;
+  --yellow:    #FFD740;
+  --sky:       #4ECEE0;
+  --sky-lt:    #E6F9FC;
+  --green:     #2E7D32;
+  --green-lt:  #E8F5E9;
+  --navy:      #1A237E;
+  --cream:     #FFFBF3;
+  --cream-dk:  #F5ECD8;
+  --ink:       #1C1C1C;
+  --muted:     #5A5A5A;
+  --border:    rgba(0,0,0,0.08);
+  --r:         20px;
+  --shadow:    0 6px 32px rgba(0,0,0,0.09);
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--ink); line-height:1.65; overflow-x:hidden; }
+
+/* TYPE */
+.fredoka, h1, h2, h3 { font-family:'Fredoka One',sans-serif; font-weight:400; }
+
+/* ══════════════════════════════════════════════
+   NAV
+══════════════════════════════════════════════ */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:900;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(14px);
+  border-bottom:2px solid var(--yellow);
+  padding:0 5%;
+  height:70px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-brand {
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none;
+}
+.nav-brand-circle {
+  width:46px; height:46px; border-radius:50%;
+  background:var(--orange);
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px;
+}
+.nav-brand-text { font-family:'Fredoka One',sans-serif; font-size:1.45rem; color:var(--orange); line-height:1.1; }
+.nav-brand-tagline { font-size:0.65rem; color:var(--muted); font-weight:700; letter-spacing:0.5px; }
+.nav-links { display:flex; gap:0.2rem; list-style:none; align-items:center; }
+.nav-links a {
+  text-decoration:none; color:var(--ink); font-weight:700; font-size:0.92rem;
+  padding:8px 14px; border-radius:100px; transition:background .18s,color .18s;
+}
+.nav-links a:hover { background:var(--orange-lt); color:var(--orange-dk); }
+.nav-links .nav-cta {
+  background:var(--orange); color:#fff;
+  padding:9px 20px; border-radius:100px;
+  box-shadow:0 4px 14px rgba(255,98,0,0.35);
+  transition:transform .18s, box-shadow .18s;
+}
+.nav-links .nav-cta:hover { transform:translateY(-2px); box-shadow:0 7px 20px rgba(255,98,0,0.45); background:var(--orange); color:#fff; }
+.hamburger { display:none; background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--orange); }
+.mobile-menu {
+  display:none; position:fixed; top:70px; left:0; right:0; z-index:899;
+  background:#fff; border-bottom:2px solid var(--orange-lt);
+  padding:16px 5%; flex-direction:column; gap:6px;
+}
+.mobile-menu.open { display:flex; }
+.mobile-menu a { text-decoration:none; color:var(--ink); font-weight:700; padding:10px 14px; border-radius:10px; transition:background .15s; }
+.mobile-menu a:hover { background:var(--orange-lt); }
+
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
+.hero {
+  min-height:100vh;
+  background-image: url('hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp');
+  background-size:cover; background-position:center top;
+  position:relative;
+  display:flex; align-items:flex-end;
+  padding-top:340px;
+}
+.hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.3) 40%,
+    rgba(0,0,0,0.78) 100%
+  );
+}
+.hero-inner {
+  position:relative; z-index:2;
+  width:100%; padding:0 5% 60px;
+  display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:32px;
+}
+.hero-content { max-width:580px; }
+.hero-ribbon {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--yellow); color:var(--ink);
+  font-weight:800; font-size:0.82rem; letter-spacing:0.5px;
+  padding:6px 14px; border-radius:100px; margin-bottom:18px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.25);
+}
+.hero h1 {
+  font-size:clamp(2.6rem,6vw,4.2rem); color:#fff;
+  line-height:1.08; margin-bottom:16px;
+  text-shadow:0 3px 20px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9);
+}
+.hero p {
+  font-size:1.1rem; color:rgba(255,255,255,0.95);
+  margin-bottom:28px; max-width:480px;
+  text-shadow:0 2px 12px rgba(0,0,0,0.8);
+}
+.hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
+.btn-hero-p {
+  background:var(--orange); color:#fff;
+  padding:14px 28px; border-radius:100px; font-weight:800; font-size:1rem;
+  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  box-shadow:0 6px 20px rgba(255,98,0,0.45); transition:transform .18s,box-shadow .18s;
+}
+.btn-hero-p:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(255,98,0,0.55); }
+.btn-hero-s {
+  background:rgba(255,255,255,0.18); color:#fff;
+  padding:14px 28px; border-radius:100px; font-weight:800; font-size:1rem;
+  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  border:2px solid rgba(255,255,255,0.55); backdrop-filter:blur(8px);
+  transition:background .18s;
+}
+.btn-hero-s:hover { background:rgba(255,255,255,0.28); }
+.hero-rating {
+  background:rgba(255,255,255,0.18); backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:2px solid rgba(255,215,64,0.6); border-radius:16px;
+  padding:18px 24px; text-align:center; color:#fff; min-width:150px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+.hero-rating-num { font-family:'Fredoka One',sans-serif; font-size:2.6rem; color:var(--yellow); line-height:1; }
+.hero-rating-stars { font-size:1.1rem; color:var(--yellow); margin:4px 0; }
+.hero-rating-sub { font-size:0.75rem; font-weight:700; opacity:0.8; }
+
+/* Wave divider */
+.wave { width:100%; overflow:hidden; line-height:0; display:block; }
+.wave svg { display:block; }
+
+/* ══════════════════════════════════════════════
+   PROMISE STRIP
+══════════════════════════════════════════════ */
+.promise-strip {
+  background:var(--orange);
+  padding:0 5%;
+}
+.promise-items {
+  display:flex; flex-wrap:wrap; justify-content:space-around; gap:0;
+  padding:24px 0;
+}
+.promise-item {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 20px; color:#fff;
+}
+.promise-item i { font-size:1.4rem; color:var(--yellow); }
+.promise-item-text { font-weight:800; font-size:0.92rem; }
+.promise-item-sub { font-size:0.72rem; opacity:0.8; }
+
+/* ══════════════════════════════════════════════
+   SECTIONS BASE
+══════════════════════════════════════════════ */
+section { padding:72px 5%; }
+.section-label {
+  font-size:0.78rem; font-weight:900; letter-spacing:2px;
+  text-transform:uppercase; color:var(--orange);
+  margin-bottom:10px; display:block;
+}
+h2.sec-title { font-size:clamp(1.8rem,3.5vw,2.8rem); line-height:1.12; margin-bottom:14px; }
+.sec-sub { font-size:1rem; color:var(--muted); max-width:600px; margin-bottom:48px; }
+
+/* ══════════════════════════════════════════════
+   ABOUT / PILLARS
+══════════════════════════════════════════════ */
+#about { background:#fff; }
+.about-header { max-width:1200px; margin:0 auto 40px; }
+.pillars-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
+.pillar {
+  border-radius:var(--r); padding:32px 24px; position:relative; overflow:hidden;
+  transition:transform .2s, box-shadow .2s;
+}
+.pillar:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+.pillar.safety   { background:var(--sky-lt); border:2px solid var(--sky); }
+.pillar.hygiene  { background:var(--green-lt); border:2px solid #A5D6A7; }
+.pillar.learning { background:var(--orange-lt); border:2px solid #FFCCAA; }
+.pillar.care     { background:#FFF8E1; border:2px solid #FFE082; }
+.pillar-icon { font-size:2.4rem; margin-bottom:16px; display:block; }
+.pillar h3 { font-size:1.3rem; margin-bottom:8px; }
+.pillar p { font-size:0.88rem; color:var(--muted); line-height:1.6; }
+.pillar-badge {
+  position:absolute; top:14px; right:14px;
+  font-size:0.65rem; font-weight:900; letter-spacing:1px; text-transform:uppercase;
+  padding:3px 9px; border-radius:100px;
+}
+.safety .pillar-badge   { background:var(--sky); color:#fff; }
+.hygiene .pillar-badge  { background:var(--green); color:#fff; }
+.learning .pillar-badge { background:var(--orange); color:#fff; }
+.care .pillar-badge     { background:#F9A825; color:#fff; }
+
+/* ══════════════════════════════════════════════
+   SAFETY SECTION
+══════════════════════════════════════════════ */
+#safety {
+  background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%);
+  position:relative; overflow:hidden;
+}
+#safety::before {
+  content:''; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.safety-inner { max-width:1200px; margin:0 auto; position:relative; z-index:2; }
+.safety-header { text-align:center; margin-bottom:52px; }
+.safety-header .section-label { color:var(--yellow); }
+.safety-header h2 { color:#fff; font-size:clamp(1.8rem,3.5vw,2.8rem); }
+.safety-header p { color:rgba(255,255,255,0.8); margin:12px auto 0; max-width:560px; font-size:1rem; }
+.safety-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+.safety-card {
+  background:rgba(255,255,255,0.1);
+  border:1.5px solid rgba(255,255,255,0.2);
+  border-radius:var(--r); padding:28px 22px;
+  color:#fff; text-align:center;
+  backdrop-filter:blur(6px);
+  transition:background .2s, transform .2s;
+}
+.safety-card:hover { background:rgba(255,255,255,0.18); transform:translateY(-3px); }
+.safety-card-icon { font-size:2.4rem; margin-bottom:14px; }
+.safety-card h3 { font-size:1.15rem; margin-bottom:8px; }
+.safety-card p { font-size:0.84rem; opacity:0.82; line-height:1.6; }
+
+/* ══════════════════════════════════════════════
+   PROGRAMS
+══════════════════════════════════════════════ */
+#programs { background:var(--cream); }
+.programs-header { max-width:1200px; margin:0 auto 40px; }
+.programs-list { max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:40px; }
+.program-block {
+  display:grid; grid-template-columns:1fr 1fr; gap:0;
+  border-radius:24px; overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.program-block.flip { direction:rtl; }
+.program-block.flip > * { direction:ltr; }
+.prog-photo { overflow:hidden; min-height:340px; }
+.prog-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
+.program-block:hover .prog-photo img { transform:scale(1.04); }
+.prog-info { background:#fff; padding:44px 40px; display:flex; flex-direction:column; justify-content:center; }
+.prog-tag {
+  display:inline-block; font-weight:800; font-size:0.75rem; letter-spacing:0.5px;
+  padding:5px 14px; border-radius:100px; margin-bottom:16px;
+}
+.tag-pg  { background:rgba(255,215,64,0.25); color:#7a5f00; }
+.tag-nr  { background:rgba(78,206,224,0.2); color:#005b6e; }
+.tag-dc  { background:rgba(255,98,0,0.12); color:var(--orange-dk); }
+.tag-ls  { background:var(--green-lt); color:var(--green); }
+.prog-info h3 { font-size:1.7rem; margin-bottom:10px; }
+.prog-info p  { font-size:0.94rem; color:var(--muted); margin-bottom:20px; }
+.prog-feats   { list-style:none; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; }
+.prog-feats li {
+  display:flex; align-items:center; gap:10px;
+  font-weight:700; font-size:0.88rem;
+}
+.prog-feats li::before {
+  content:''; width:22px; height:22px; flex-shrink:0;
+  border-radius:50%; background:var(--sky-lt);
+  border:2px solid var(--sky);
+  display:flex; align-items:center; justify-content:center;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%234ECEE0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:center; background-size:10px;
+}
+.prog-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--orange); color:#fff;
+  padding:12px 24px; border-radius:100px;
+  font-weight:800; font-size:0.9rem; text-decoration:none;
+  box-shadow:0 4px 14px rgba(255,98,0,0.3);
+  transition:transform .18s, box-shadow .18s;
+  align-self:flex-start;
+}
+.prog-cta:hover { transform:translateY(-2px); box-shadow:0 7px 20px rgba(255,98,0,0.4); }
+
+/* ══════════════════════════════════════════════
+   HYGIENE
+══════════════════════════════════════════════ */
+#hygiene { background:#fff; }
+.hygiene-layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1.1fr; gap:60px; align-items:center; }
+.hygiene-text .sec-sub { max-width:440px; }
+.hygiene-checklist { display:flex; flex-direction:column; gap:0; }
+.hygiene-item {
+  display:flex; gap:16px; align-items:flex-start;
+  padding:18px 0; border-bottom:1px solid var(--cream-dk);
+}
+.hygiene-item:last-child { border-bottom:none; }
+.hygiene-dot {
+  width:44px; height:44px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem;
+}
+.hygiene-dot.am   { background:var(--sky-lt); }
+.hygiene-dot.noon { background:rgba(255,215,64,0.2); }
+.hygiene-dot.pm   { background:var(--green-lt); }
+.hygiene-dot.day  { background:var(--orange-lt); }
+.hygiene-item-title { font-weight:800; font-size:0.95rem; margin-bottom:3px; }
+.hygiene-item-desc  { font-size:0.84rem; color:var(--muted); line-height:1.55; }
+.hygiene-visual {
+  background:linear-gradient(135deg,#E8F5E9,#F1FFF2);
+  border:2px solid #C8E6C9;
+  border-radius:24px; padding:36px 32px;
+}
+.hygiene-visual-title { font-size:1.1rem; font-weight:900; color:var(--green); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+.hygiene-protocol { display:flex; flex-direction:column; gap:12px; }
+.hp-row {
+  display:flex; align-items:center; gap:14px;
+  background:#fff; border-radius:12px; padding:14px 16px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+.hp-icon { font-size:1.5rem; flex-shrink:0; }
+.hp-label { font-weight:800; font-size:0.9rem; }
+.hp-detail { font-size:0.78rem; color:var(--muted); }
+
+/* ══════════════════════════════════════════════
+   GALLERY
+══════════════════════════════════════════════ */
+#gallery { background:var(--cream); }
+.gallery-header { text-align:center; margin-bottom:40px; max-width:1200px; margin:0 auto 40px; }
+.gallery-header h2 { font-size:clamp(1.8rem,3.5vw,2.8rem); }
+.gallery-header p { color:var(--muted); font-size:1rem; max-width:520px; margin:12px auto 0; }
+.gallery-mosaic {
+  max-width:1200px; margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:240px 240px;
+  gap:14px;
+}
+.g-item { border-radius:18px; overflow:hidden; position:relative; cursor:pointer; }
+.g-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease; }
+.g-item:hover img { transform:scale(1.07); }
+.g-item-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 60%);
+  opacity:0; transition:opacity 0.28s;
+  display:flex; align-items:flex-end; padding:16px;
+}
+.g-item:hover .g-item-overlay { opacity:1; }
+.g-item-label { color:#fff; font-weight:800; font-size:0.9rem; }
+.g-item.tall { grid-row:span 2; }
+.g-item.wide { grid-column:span 2; }
+
+/* ══════════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════════ */
+#reviews { background:var(--orange); position:relative; overflow:hidden; }
+#reviews::before {
+  content:''; position:absolute; top:-30%; right:-10%; width:500px; height:500px;
+  background:rgba(255,255,255,0.05); border-radius:50%;
+}
+.reviews-inner { max-width:1200px; margin:0 auto; position:relative; z-index:2; }
+.reviews-header { text-align:center; margin-bottom:48px; }
+.reviews-header .section-label { color:var(--yellow); }
+.reviews-header h2 { color:#fff; font-size:clamp(1.8rem,3.5vw,2.8rem); }
+.reviews-header p { color:rgba(255,255,255,0.85); font-size:1rem; }
+.reviews-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.review-card {
+  background:#fff; border-radius:var(--r); padding:28px;
+  position:relative; box-shadow:0 8px 32px rgba(0,0,0,0.15);
+}
+.review-quote { font-size:3rem; color:rgba(255,98,0,0.12); position:absolute; top:14px; right:20px; font-family:Georgia,serif; line-height:1; }
+.review-stars { color:var(--orange); margin-bottom:12px; font-size:1rem; }
+.review-text { font-size:0.93rem; color:var(--muted); font-style:italic; line-height:1.7; margin-bottom:18px; }
+.reviewer { display:flex; align-items:center; gap:12px; }
+.reviewer-avatar {
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fredoka One',sans-serif; font-size:1.2rem; color:#fff; flex-shrink:0;
+}
+.reviewer-name { font-weight:800; font-size:0.95rem; }
+.reviewer-child { font-size:0.78rem; color:var(--muted); }
+.reviews-jd {
+  text-align:center; margin-top:40px;
+  background:rgba(255,255,255,0.15); border-radius:14px; padding:20px;
+  display:inline-flex; align-items:center; gap:12px;
+  border:1.5px solid rgba(255,255,255,0.3); color:#fff;
+  margin:40px auto 0; display:flex; justify-content:center;
+}
+.jd-score { font-family:'Fredoka One',sans-serif; font-size:2.4rem; color:var(--yellow); }
+.jd-label { font-weight:800; font-size:0.9rem; opacity:0.9; }
+.jd-sub   { font-size:0.75rem; opacity:0.75; }
+
+/* ══════════════════════════════════════════════
+   STATS BAND
+══════════════════════════════════════════════ */
+.stats-band { background:var(--cream-dk); padding:48px 5%; }
+.stats-inner { display:flex; flex-wrap:wrap; justify-content:space-around; gap:16px; max-width:900px; margin:0 auto; }
+.stat-item { text-align:center; padding:0 16px; }
+.stat-number { font-family:'Fredoka One',sans-serif; font-size:2.8rem; color:var(--orange); line-height:1; }
+.stat-label  { font-weight:700; font-size:0.85rem; color:var(--muted); margin-top:4px; }
+
+/* ══════════════════════════════════════════════
+   ADMISSIONS BANNER
+══════════════════════════════════════════════ */
+.admissions-banner {
+  background:linear-gradient(135deg,#E65100,var(--orange),#FF8F00);
+  padding:56px 5%; text-align:center; position:relative; overflow:hidden;
+}
+.admissions-banner::before {
+  content:'🐰'; position:absolute; font-size:8rem;
+  left:-20px; top:50%; transform:translateY(-50%); opacity:0.15;
+}
+.admissions-banner::after {
+  content:'⭐'; position:absolute; font-size:6rem;
+  right:20px; top:50%; transform:translateY(-50%); opacity:0.12;
+}
+.admissions-banner h2 { font-size:clamp(1.8rem,4vw,3rem); color:#fff; margin-bottom:12px; }
+.admissions-banner p { color:rgba(255,255,255,0.9); font-size:1.05rem; margin-bottom:28px; }
+.banner-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn-white {
+  background:#fff; color:var(--orange-dk);
+  padding:14px 30px; border-radius:100px;
+  font-weight:900; font-size:0.95rem; text-decoration:none;
+  display:inline-flex; align-items:center; gap:8px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  transition:transform .18s;
+}
+.btn-white:hover { transform:translateY(-2px); }
+.btn-outline-white {
+  background:transparent; color:#fff;
+  padding:14px 30px; border-radius:100px;
+  font-weight:900; font-size:0.95rem; text-decoration:none;
+  display:inline-flex; align-items:center; gap:8px;
+  border:2px solid rgba(255,255,255,0.7);
+  transition:background .18s;
+}
+.btn-outline-white:hover { background:rgba(255,255,255,0.12); }
+
+/* ══════════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════════ */
+#contact { background:#fff; }
+.contact-layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1.1fr; gap:60px; align-items:start; }
+.contact-info-title { font-size:1.8rem; margin-bottom:12px; }
+.contact-info-sub   { color:var(--muted); font-size:0.95rem; margin-bottom:32px; }
+.contact-details { display:flex; flex-direction:column; gap:18px; }
+.cd-item { display:flex; gap:14px; align-items:flex-start; }
+.cd-icon {
+  width:46px; height:46px; border-radius:14px; flex-shrink:0;
+  background:var(--orange-lt); color:var(--orange);
+  display:flex; align-items:center; justify-content:center; font-size:1.2rem;
+}
+.cd-label { font-weight:800; font-size:0.8rem; color:var(--muted); letter-spacing:0.5px; text-transform:uppercase; }
+.cd-value { font-weight:700; font-size:0.95rem; color:var(--ink); }
+.cd-value a { color:var(--ink); text-decoration:none; }
+.cd-value a:hover { color:var(--orange); }
+.contact-form-box {
+  background:var(--cream); border-radius:24px; padding:36px 32px;
+  border:2px solid var(--cream-dk);
+}
+.form-group { margin-bottom:18px; }
+.form-group label { display:block; font-weight:800; font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+.form-control {
+  width:100%; padding:13px 16px;
+  border:2px solid var(--cream-dk); border-radius:12px;
+  font-family:'Nunito',sans-serif; font-size:0.95rem; background:#fff;
+  transition:border-color .18s, box-shadow .18s;
+  outline:none;
+}
+.form-control:focus { border-color:var(--sky); box-shadow:0 0 0 4px rgba(78,206,224,0.12); }
+textarea.form-control { resize:vertical; min-height:110px; }
+.form-select {
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A5A' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 14px center;
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.btn-submit {
+  width:100%; background:var(--orange); color:#fff;
+  padding:15px; border-radius:100px; border:none; font-weight:900; font-size:1rem;
+  font-family:'Nunito',sans-serif; cursor:pointer;
+  box-shadow:0 4px 16px rgba(255,98,0,0.35);
+  transition:transform .18s, box-shadow .18s;
+}
+.btn-submit:hover { transform:translateY(-2px); box-shadow:0 7px 22px rgba(255,98,0,0.45); }
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+footer {
+  background:var(--ink); color:#fff;
+  padding:48px 5% 24px;
+}
+.footer-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:48px; margin-bottom:36px; }
+.footer-brand { font-family:'Fredoka One',sans-serif; font-size:1.8rem; color:var(--orange); margin-bottom:10px; }
+.footer-tagline { color:rgba(255,255,255,0.55); font-size:0.84rem; line-height:1.65; max-width:280px; }
+.footer-socials { display:flex; gap:10px; margin-top:18px; }
+.footer-social-btn {
+  width:38px; height:38px; border-radius:50%;
+  background:rgba(255,255,255,0.08); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:0.95rem;
+  text-decoration:none; transition:background .18s;
+}
+.footer-social-btn:hover { background:var(--orange); }
+.footer-col h4 { color:#fff; font-size:1rem; margin-bottom:14px; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.footer-links a { color:rgba(255,255,255,0.55); text-decoration:none; font-size:0.88rem; transition:color .18s; }
+.footer-links a:hover { color:var(--orange); }
+.footer-bottom {
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;
+  font-size:0.8rem; color:rgba(255,255,255,0.4);
+}
+.footer-bottom strong { color:var(--orange); }
+
+/* ══════════════════════════════════════════════
+   FLOATING
+══════════════════════════════════════════════ */
+.wa-float {
+  position:fixed; bottom:28px; right:28px; z-index:800;
+  width:60px; height:60px; border-radius:50%; background:#25D366;
+  color:#fff; font-size:1.8rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 6px 20px rgba(37,211,102,0.45);
+  text-decoration:none; transition:transform .18s;
+  animation:wapulse 2.5s infinite;
+}
+.wa-float:hover { transform:scale(1.1) rotate(-8deg); }
+@keyframes wapulse {
+  0%,100% { box-shadow:0 0 0 0 rgba(37,211,102,0.5); }
+  60%     { box-shadow:0 0 0 14px rgba(37,211,102,0); }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE & MOBILE POLISH
+══════════════════════════════════════════════ */
+@media(max-width:860px){
+  nav { height:64px; padding:0 4%; }
+  .nav-brand-circle { width:40px; height:40px; font-size:18px; }
+  .nav-brand-text { font-size:1.25rem; }
+  .nav-brand-tagline { font-size:0.6rem; }
+  .nav-links { display:none; }
+  .hamburger {
+    display:flex; align-items:center; justify-content:center;
+    width:42px; height:42px; border-radius:12px;
+    background:var(--orange-lt); color:var(--orange); font-size:1.3rem;
+  }
+  
+  .mobile-menu {
+    display:none; position:fixed; top:64px; left:0; right:0; z-index:899;
+    background:rgba(255,255,255,0.98); backdrop-filter:blur(16px);
+    border-bottom:3px solid var(--orange);
+    padding:20px 5%; flex-direction:column; gap:10px;
+    box-shadow:0 14px 30px rgba(0,0,0,0.15);
+    animation:slideDown 0.25s ease-out;
+  }
+  @keyframes slideDown { from{ opacity:0; transform:translateY(-10px); } to{ opacity:1; transform:translateY(0); } }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a {
+    text-decoration:none; color:var(--ink); font-weight:800; font-size:1rem;
+    padding:12px 16px; border-radius:14px; background:var(--cream);
+    display:flex; align-items:center; justify-content:space-between;
+    transition:background .18s, color .18s;
+  }
+  .mobile-menu a:hover, .mobile-menu a:active { background:var(--orange-lt); color:var(--orange-dk); }
+  .mobile-menu .mobile-cta { background:var(--orange); color:#fff !important; font-size:1.05rem; box-shadow:0 4px 14px rgba(255,98,0,0.35); }
+
+  .hero { min-height:85vh; padding-top:80px; }
+  .hero-inner { padding:0 5% 50px; flex-direction:column; align-items:stretch; gap:24px; text-align:left; }
+  .hero h1 { font-size:clamp(2.2rem, 8vw, 3.2rem); margin-bottom:12px; }
+  .hero p { font-size:0.98rem; margin-bottom:22px; }
+  .hero-btns { flex-direction:column; width:100%; gap:10px; }
+  .btn-hero-p, .btn-hero-s { width:100%; justify-content:center; text-align:center; padding:15px 20px; font-size:0.98rem; }
+  .hero-rating { width:100%; min-width:auto; padding:14px 20px; display:flex; align-items:center; justify-content:space-around; text-align:left; }
+  .hero-rating-num { font-size:2.2rem; }
+
+  .promise-items { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; padding:16px 0; }
+  .promise-item { padding:8px 10px; gap:8px; }
+  .promise-item i { font-size:1.2rem; }
+  .promise-item-text { font-size:0.82rem; }
+  .promise-item-sub { font-size:0.68rem; }
+
+  .stats-band { padding:32px 5%; }
+  .stats-inner { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; text-align:center; }
+  .stat-number { font-size:2.2rem; }
+
+  section { padding:48px 5%; }
+  h2.sec-title { font-size:1.8rem; }
+  .sec-sub { font-size:0.92rem; margin-bottom:32px; }
+
+  .pillars-grid { grid-template-columns:1fr; gap:14px; }
+  .pillar { padding:24px 20px; }
+
+  .program-block, .program-block.flip { grid-template-columns:1fr; direction:ltr; }
+  .program-block.flip .prog-photo { order:-1; }
+  .prog-photo { min-height:220px; max-height:280px; }
+  .prog-info { padding:28px 20px; }
+  .prog-info h3 { font-size:1.4rem; }
+  .prog-cta { width:100%; justify-content:center; text-align:center; margin-bottom:6px; }
+
+  .hygiene-layout { grid-template-columns:1fr; gap:36px; }
+  .hygiene-visual { padding:24px 20px; }
+
+  .gallery-mosaic { grid-template-columns:repeat(2,1fr); gap:10px; grid-template-rows:auto; }
+  .g-item { height:180px; }
+  .g-item.tall, .g-item.wide { grid-column:span 1; grid-row:span 1; height:180px; }
+
+  .reviews-grid { grid-template-columns:1fr; gap:16px; }
+  .review-card { padding:22px 18px; }
+
+  .admissions-banner { padding:40px 5%; }
+  .admissions-banner h2 { font-size:1.8rem; }
+  .banner-btns { flex-direction:column; gap:10px; }
+  .btn-white, .btn-outline-white { width:100%; justify-content:center; }
+
+  .contact-layout { grid-template-columns:1fr; gap:36px; }
+  .contact-form-box { padding:28px 20px; border-radius:20px; }
+  .form-row { grid-template-columns:1fr; gap:10px; }
+  .form-control { font-size:16px; padding:14px; } /* Prevents iOS Safari auto-zoom */
+
+  .footer-grid { grid-template-columns:1fr; gap:32px; }
+  .footer-bottom { flex-direction:column; text-align:center; gap:8px; }
+
+  .wa-float { width:52px; height:52px; font-size:1.6rem; bottom:20px; right:20px; }
+}
+
+@media(max-width:480px){
+  .promise-items { grid-template-columns:1fr; }
+  .gallery-mosaic { grid-template-columns:1fr; }
+  .g-item { height:210px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-brand">
+    <div class="nav-brand-circle">🐰</div>
+    <div>
+      <div class="nav-brand-text">Hunny Bunny</div>
+      <div class="nav-brand-tagline">Fun Begins Here · Seawoods</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#safety">Safety</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Enquire Now</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <i class="fa-solid fa-bars" id="ham-icon"></i>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMenu()"><span>🏫 About Us</span> <i class="fa-solid fa-chevron-right"></i></a>
+  <a href="#programs" onclick="closeMenu()"><span>📚 Programs & Curriculum</span> <i class="fa-solid fa-chevron-right"></i></a>
+  <a href="#safety" onclick="closeMenu()"><span>🛡️ Safety & Hygiene</span> <i class="fa-solid fa-chevron-right"></i></a>
+  <a href="#gallery" onclick="closeMenu()"><span>🖼️ Life at School</span> <i class="fa-solid fa-chevron-right"></i></a>
+  <a href="#reviews" onclick="closeMenu()"><span>⭐ Parent Reviews</span> <i class="fa-solid fa-chevron-right"></i></a>
+  <a href="#contact" onclick="closeMenu()" class="mobile-cta"><span>📞 Book Visit / Enquire</span> <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+      <div class="hero-ribbon" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fa-solid fa-certificate"></i> Seawoods' Trusted School Since 2013
+      </div>
+      <h1>Where every<br>child's story<br>begins ✨</h1>
+      <p>A safe, joyful, and nurturing home-away-from-home for children aged 1.5 to 6 years. Playgroup · Nursery · Daycare · Activity Centre.</p>
+      <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+        <a href="#contact" class="btn-hero-p">Book a Free Visit <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#programs" class="btn-hero-s"><i class="fa-solid fa-play-circle"></i> See Our Programs</a>
+      </div>
+    </div>
+    <div class="hero-rating" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+      <div class="hero-rating-num">4.8</div>
+      <div class="hero-rating-stars">★★★★★</div>
+      <div class="hero-rating-sub">39 parent reviews<br>JustDial Verified</div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE TOP -->
+<div class="wave" style="background:var(--cream);">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px;"><path fill="#FF6200" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/></svg>
+</div>
+
+<!-- PROMISE STRIP -->
+<div class="promise-strip">
+  <div class="promise-items" data-aos="fade-up">
+    <div class="promise-item"><i class="fa-solid fa-shield-halved"></i><div><div class="promise-item-text">CCTV Monitored</div><div class="promise-item-sub">24/7 surveillance</div></div></div>
+    <div class="promise-item"><i class="fa-solid fa-spray-can-sparkles"></i><div><div class="promise-item-text">Daily Sanitisation</div><div class="promise-item-sub">Every room & toy</div></div></div>
+    <div class="promise-item"><i class="fa-solid fa-user-graduate"></i><div><div class="promise-item-text">Trained Educators</div><div class="promise-item-sub">Caring & patient</div></div></div>
+    <div class="promise-item"><i class="fa-solid fa-child-reaching"></i><div><div class="promise-item-text">Soft-Floor Classrooms</div><div class="promise-item-sub">Child-proofed spaces</div></div></div>
+    <div class="promise-item"><i class="fa-solid fa-door-closed"></i><div><div class="promise-item-text">Restricted Entry</div><div class="promise-item-sub">Parents only with ID</div></div></div>
+  </div>
+</div>
+
+<!-- WAVE BOTTOM -->
+<div class="wave" style="background:#fff;">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:60px;"><path fill="#FF6200" d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z"/></svg>
+</div>
+
+<!-- STATS BAND -->
+<div class="stats-band" data-aos="fade-up">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-number">12+</div><div class="stat-label">Years in Seawoods</div></div>
+    <div class="stat-item"><div class="stat-number">4.8★</div><div class="stat-label">Parent Rating</div></div>
+    <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Happy Graduates</div></div>
+    <div class="stat-item"><div class="stat-number">8 AM</div><div class="stat-label">to 7 PM Daycare</div></div>
+    <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Activity Programs</div></div>
+  </div>
+</div>
+
+<!-- ABOUT / PILLARS -->
+<section id="about">
+  <div data-aos="fade-up">
+    <span class="section-label">Why Families Choose Us</span>
+    <h2 class="sec-title fredoka">A school built on<br>four honest promises</h2>
+    <p class="sec-sub">Every decision we make — from how we set up a classroom to who we hire — flows from what matters most to parents: their child's safety, joy, and growth.</p>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar safety" data-aos="fade-up" data-aos-delay="100">
+      <span class="pillar-badge">Priority #1</span>
+      <span class="pillar-icon">🔐</span>
+      <h3>Safe at Every Step</h3>
+      <p>CCTV surveillance, child-proofed furniture, restricted entry, and trained staff who know every child by name. You can work your day without a single worry.</p>
+    </div>
+    <div class="pillar hygiene" data-aos="fade-up" data-aos-delay="200">
+      <span class="pillar-badge">Daily Practice</span>
+      <span class="pillar-icon">🧼</span>
+      <h3>Spotless, Every Day</h3>
+      <p>All toys, mats, and surfaces are sanitised twice daily. Shoe-free classrooms. Hand-washing rituals before every meal. We treat hygiene as a curriculum, not a chore.</p>
+    </div>
+    <div class="pillar learning" data-aos="fade-up" data-aos-delay="300">
+      <span class="pillar-badge">Play-Based</span>
+      <span class="pillar-icon">🎨</span>
+      <h3>Learning Through Joy</h3>
+      <p>Dance, art, phonics, sports, and real-world lessons with police officers and community visitors. Children learn best when they're having fun — and we design for that.</p>
+    </div>
+    <div class="pillar care" data-aos="fade-up" data-aos-delay="400">
+      <span class="pillar-badge">Motherly Care</span>
+      <span class="pillar-icon">🤗</span>
+      <h3>Teachers Who Truly Care</h3>
+      <p>Our educators bring patience, warmth, and genuine affection — not just qualifications. Many children look forward to school more than weekends. That's our proudest achievement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY SECTION -->
+<section id="safety">
+  <div class="safety-inner">
+    <div class="safety-header" data-aos="fade-up">
+      <span class="section-label">Safety & Security</span>
+      <h2 class="fredoka">Your child's security<br>is not a feature — it's our foundation</h2>
+      <p>Every corner of Hunny Bunny is designed with little ones in mind. Here's exactly what we do to keep your child safe, every single day.</p>
+    </div>
+    <div class="safety-grid">
+      <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="safety-card-icon">📹</div>
+        <h3>24/7 CCTV Monitoring</h3>
+        <p>Every classroom and common area is under continuous surveillance. Footage is reviewed regularly and available to parents on request.</p>
+      </div>
+      <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="safety-card-icon">🚪</div>
+        <h3>Controlled Entry & Exit</h3>
+        <p>Children are only handed over to verified parents or authorised guardians. No exceptions. No shortcuts.</p>
+      </div>
+      <div class="safety-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="safety-card-icon">🧱</div>
+        <h3>Child-Proofed Infrastructure</h3>
+        <p>Foam-tiled floors, rounded furniture, covered sockets, safety gates, and no sharp edges anywhere children play or learn.</p>
+      </div>
+      <div class="safety-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="safety-card-icon">🚑</div>
+        <h3>First Aid Trained Staff</h3>
+        <p>All teachers are trained in basic first aid. A well-stocked first aid kit is always accessible. Emergency protocols are rehearsed regularly.</p>
+      </div>
+      <div class="safety-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="safety-card-icon">🚦</div>
+        <h3>Real Safety Education</h3>
+        <p>Local traffic police visit to teach road safety. Fire drill sessions. Personal safety awareness — because the safest child is an informed one.</p>
+      </div>
+      <div class="safety-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="safety-card-icon">👩‍⚕️</div>
+        <h3>Illness Protocol</h3>
+        <p>Sick children are kept home. All staff follow strict hygiene practices. We communicate transparently with parents about any health concerns in the school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--cream);">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:56px;"><path fill="#0D47A1" d="M0,20 C360,60 1080,-20 1440,30 L1440,80 L0,80 Z"/></svg>
+</div>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div data-aos="fade-up">
+    <span class="section-label">Our Programs</span>
+    <h2 class="sec-title fredoka">The right program<br>for every age</h2>
+    <p class="sec-sub">From curious toddlers exploring the world to confident 6-year-olds ready for big school — we have a structured, joyful path for each stage.</p>
+  </div>
+
+  <div class="programs-list">
+    <!-- Playgroup -->
+    <div class="program-block" data-aos="fade-up" data-aos-delay="100">
+      <div class="prog-photo">
+        <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-atupvsslji.webp" alt="Playgroup children in cultural dress" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      </div>
+      <div class="prog-info">
+        <span class="prog-tag tag-pg">🌱 Ages 1.5 – 2.5 Years</span>
+        <h3 class="fredoka">Playgroup & Discovery</h3>
+        <p>Their first adventure outside home. Gentle sensory exploration, basic vocabulary, songs, and social play in a warm, secure setting. We make the transition from home to school completely stress-free.</p>
+        <ul class="prog-feats">
+          <li>Sensory play & motor skills</li>
+          <li>Interactive storytelling & rhymes</li>
+          <li>Music, movement & free play</li>
+          <li>Separation anxiety support for parents too</li>
+        </ul>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="#contact" class="prog-cta">Enquire About Playgroup <i class="fa-solid fa-arrow-right"></i></a>
+          <button onclick="openProgramModal('playgroup')" class="prog-cta" style="background:var(--sky-lt); color:var(--sky); box-shadow:none; cursor:pointer; border:1.5px solid var(--sky);">Full Syllabus & Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nursery -->
+    <div class="program-block flip" data-aos="fade-up" data-aos-delay="100">
+      <div class="prog-photo">
+        <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-qiht3xenmh.webp" alt="Nursery award ceremony" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      </div>
+      <div class="prog-info">
+        <span class="prog-tag tag-nr">📚 Ages 2.5 – 3.5 Years</span>
+        <h3 class="fredoka">Nursery Curriculum</h3>
+        <p>A structured-yet-playful environment where children build foundational skills. Early literacy, numbers, phonics, and emotional regulation — all taught through activities that feel like fun, not study.</p>
+        <ul class="prog-feats">
+          <li>Pre-writing & fine motor skills</li>
+          <li>Phonics introduction & letter recognition</li>
+          <li>Creative arts, crafts & role play</li>
+          <li>Classroom celebrations for every milestone</li>
+        </ul>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="#contact" class="prog-cta">Enquire About Nursery <i class="fa-solid fa-arrow-right"></i></a>
+          <button onclick="openProgramModal('nursery')" class="prog-cta" style="background:var(--sky-lt); color:var(--sky); box-shadow:none; cursor:pointer; border:1.5px solid var(--sky);">Full Syllabus & Details</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daycare -->
+    <div class="program-block" data-aos="fade-up" data-aos-delay="100">
+      <div class="prog-photo">
+        <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-tutorials-for-class-iv-cffm8r6gbt.webp" alt="Sports Day" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      </div>
+      <div class="prog-info">
+        <span class="prog-tag tag-dc">🏠 Daycare: 8 AM – 7 PM</span>
+        <h3 class="fredoka">Safe Daycare for Working Parents</h3>
+        <p>We understand that working parents need more than school hours. Our daycare program provides a warm, structured routine — supervised meals, nap time, homework help, and evening enrichment — so your child is safe, engaged, and happy all day.</p>
+        <ul class="prog-feats">
+          <li>Structured daily routine with nap time</li>
+          <li>Nutritious meals, supervised by teachers</li>
+          <li>After-school homework assistance</li>
+          <li>Evening activities & creative play</li>
+        </ul>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="#contact" class="prog-cta">Enquire About Daycare <i class="fa-solid fa-arrow-right"></i></a>
+          <button onclick="openProgramModal('daycare')" class="prog-cta" style="background:var(--sky-lt); color:var(--sky); box-shadow:none; cursor:pointer; border:1.5px solid var(--sky);">Daily Schedule & Meals</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Life Skills -->
+    <div class="program-block flip" data-aos="fade-up" data-aos-delay="100">
+      <div class="prog-photo">
+        <img src="traffic_safety.jpg" alt="Traffic police safety session" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      </div>
+      <div class="prog-info">
+        <span class="prog-tag tag-ls">🌍 Beyond Academics</span>
+        <h3 class="fredoka">Life Skills & Safety Education</h3>
+        <p>We believe school should prepare children for life, not just exams. Our sessions with local traffic police, community helpers, and practical safety drills teach children essential real-world knowledge in the most engaging way possible.</p>
+        <ul class="prog-feats">
+          <li>Traffic police guest sessions (road safety & signal rules)</li>
+          <li>Fire safety & emergency response drills</li>
+          <li>Personal safety awareness program ("Good Touch / Bad Touch")</li>
+          <li>Community helpers — doctors, police officers, postmen</li>
+        </ul>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="#contact" class="prog-cta">Book Safety Workshop Tour <i class="fa-solid fa-arrow-right"></i></a>
+          <button onclick="openProgramModal('lifeskills')" class="prog-cta" style="background:var(--green-lt); color:var(--green); box-shadow:none; cursor:pointer; border:1.5px solid var(--green);">View Safety Modules</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HYGIENE SECTION -->
+<section id="hygiene" style="background:#fff;">
+  <div class="hygiene-layout">
+    <div class="hygiene-text" data-aos="fade-right">
+      <span class="section-label">Hygiene Standards</span>
+      <h2 class="sec-title fredoka">Clean classrooms.<br>Healthy children.<br>Peaceful parents.</h2>
+      <p class="sec-sub" style="margin-bottom:28px;">Children's immune systems are still developing. We treat cleanliness as seriously as curriculum — and we want you to know exactly what we do.</p>
+      <div class="hygiene-checklist">
+        <div class="hygiene-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="hygiene-dot am"><span>🌅</span></div>
+          <div>
+            <div class="hygiene-item-title">Morning Routine — Before Children Arrive</div>
+            <div class="hygiene-item-desc">Full classroom sweep, floor mopping with disinfectant, all toys wiped with child-safe sanitiser, fresh mats laid out. The room is clean before the first child walks in.</div>
+          </div>
+        </div>
+        <div class="hygiene-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="hygiene-dot noon"><span>🍱</span></div>
+          <div>
+            <div class="hygiene-item-title">Before & After Every Meal</div>
+            <div class="hygiene-item-desc">All children wash hands with soap — supervised and assisted. Meal surfaces are wiped before and after. No shared utensils.</div>
+          </div>
+        </div>
+        <div class="hygiene-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="hygiene-dot pm"><span>🌇</span></div>
+          <div>
+            <div class="hygiene-item-title">Evening Deep Clean</div>
+            <div class="hygiene-item-desc">At end of day, all mats, toys, and surfaces receive a thorough second clean. Restrooms sanitised. Bins emptied and changed.</div>
+          </div>
+        </div>
+        <div class="hygiene-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="hygiene-dot day"><span>🤧</span></div>
+          <div>
+            <div class="hygiene-item-title">Illness Policy — Zero Tolerance</div>
+            <div class="hygiene-item-desc">Any child showing signs of fever, cold, or infection is kept home until fully recovered. Staff follow the same protocol. We notify parents immediately if there's any health concern in school.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-aos="fade-left" data-aos-delay="200">
+      <div class="hygiene-visual">
+        <div class="hygiene-visual-title"><span>🧼</span> Our Daily Hygiene Protocol</div>
+        <div class="hygiene-protocol">
+          <div class="hp-row"><span class="hp-icon">🦠</span><div><div class="hp-label">Child-Safe Disinfectants Only</div><div class="hp-detail">No harsh chemicals. All products are non-toxic, baby-safe certified</div></div></div>
+          <div class="hp-row"><span class="hp-icon">👟</span><div><div class="hp-label">Shoe-Free Classrooms</div><div class="hp-detail">All shoes removed at entrance — children & adults both</div></div></div>
+          <div class="hp-row"><span class="hp-icon">🧸</span><div><div class="hp-label">Toys Sanitised Daily</div><div class="hp-detail">Every shared toy cleaned with child-safe wipes each morning & evening</div></div></div>
+          <div class="hp-row"><span class="hp-icon">🚿</span><div><div class="hp-label">Hand-Washing as a Lesson</div><div class="hp-detail">We teach children the right way to wash hands — it becomes a daily habit</div></div></div>
+          <div class="hp-row"><span class="hp-icon">💨</span><div><div class="hp-label">Ventilated Classrooms</div><div class="hp-detail">Natural airflow maintained throughout school hours. No stale air.</div></div></div>
+          <div class="hp-row"><span class="hp-icon">🏥</span><div><div class="hp-label">Medical Protocol Ready</div><div class="hp-detail">First aid kit stocked & checked monthly. Emergency contacts on file</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header" data-aos="fade-up">
+    <span class="section-label">Life at Hunny Bunny</span>
+    <h2 class="fredoka sec-title">Moments that tell<br>our whole story</h2>
+    <p>From Annual Sports Day medals to Janmashtami celebrations — every day here is a memory worth keeping.</p>
+  </div>
+  <div class="gallery-mosaic">
+    <div class="g-item tall" data-aos="zoom-in" data-aos-delay="100" onclick="openGalleryLightbox('storefront.jpg', '📍 Our Campus — Seawoods', 'Spacious, well-lit, and CCTV-monitored pre-school facility located in Sector 42, Seawoods West.')">
+      <img src="storefront.jpg" alt="Hunny Bunny School — Seawoods" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      <div class="g-item-overlay"><span class="g-item-label">📍 Our School — Seawoods</span></div>
+    </div>
+    <div class="g-item" data-aos="zoom-in" data-aos-delay="200" onclick="openGalleryLightbox('hunny-bunny-pre-school-seawoods-navi-mumbai-tutorials-for-class-iv-cffm8r6gbt.webp', '🏅 Annual Sports Day', 'Celebrating athleticism, teamwork, and healthy sportsmanship in our little champions.')">
+      <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-tutorials-for-class-iv-cffm8r6gbt.webp" alt="Annual Sports Day" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      <div class="g-item-overlay"><span class="g-item-label">🏅 Annual Sports Day</span></div>
+    </div>
+    <div class="g-item" data-aos="zoom-in" data-aos-delay="300" onclick="openGalleryLightbox('hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-atupvsslji.webp', '🎊 Janmashtami Celebration', 'Traditional cultural celebrations with music, costumes, and festive joy.')">
+      <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-atupvsslji.webp" alt="Janmashtami celebration" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      <div class="g-item-overlay"><span class="g-item-label">🎊 Janmashtami Celebration</span></div>
+    </div>
+    <div class="g-item" data-aos="zoom-in" data-aos-delay="100" onclick="openGalleryLightbox('hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-qiht3xenmh.webp', '🏆 Annual Prize Distribution', 'Recognizing every child’s unique talents and achievements with pride.')">
+      <img src="hunny-bunny-pre-school-seawoods-navi-mumbai-dance-classes-qiht3xenmh.webp" alt="Award ceremony" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      <div class="g-item-overlay"><span class="g-item-label">🏆 Annual Prize Distribution</span></div>
+    </div>
+    <div class="g-item" data-aos="zoom-in" data-aos-delay="200" onclick="openGalleryLightbox('sports_day.jpg', '🔥 Sports Day Torch Ceremony', 'Lighting the sports torch with our teachers to inaugurate the Annual Sports Meet!')">
+      <img src="sports_day.jpg" alt="Sports Day torch relay" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      <div class="g-item-overlay"><span class="g-item-label">🔥 Sports Day Torch Ceremony</span></div>
+    </div>
+    <div class="g-item" data-aos="zoom-in" data-aos-delay="300" onclick="openGalleryLightbox('traffic_safety.jpg', '🚦 Traffic Police Safety Session', 'Interactive guest lecture by local traffic police educating children on road signals & safety rules.')">
+      <img src="traffic_safety.jpg" alt="Traffic police session" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      <div class="g-item-overlay"><span class="g-item-label">🚦 Traffic Police Safety Session</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header" data-aos="fade-up">
+      <span class="section-label">Parent Stories</span>
+      <h2 class="fredoka">What mums &<br>dads say about us</h2>
+      <p>12 years of trust — built one family at a time.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">My daughter was extremely shy and clingy when she joined Playgroup. Within two months, she was running in on her own every morning. The teachers here are genuinely patient and loving — not just professionally trained.</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:var(--sky);">P</div>
+          <div><div class="reviewer-name">Priya Nair</div><div class="reviewer-child">Mother of Anaya, Playgroup 2023</div></div>
+        </div>
+      </div>
+      <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">As a working couple, the daycare was everything we needed. My son is safe, happy, and eating well — which was our biggest worry. The 8 AM to 7 PM timings genuinely saved us. Best decision we made for him.</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:var(--orange);">R</div>
+          <div><div class="reviewer-name">Rajesh & Shruti Sharma</div><div class="reviewer-child">Parents of Aryan, Daycare</div></div>
+        </div>
+      </div>
+      <div class="review-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The Annual Sports Day, Janmashtami, traffic police visits — my son came home telling me everything he learned. It's not just academics. They actually prepare children for the real world in a way that is magical to witness.</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:var(--green);">S</div>
+          <div><div class="reviewer-name">Seema Kulkarni</div><div class="reviewer-child">Mother of Ishaan, Nursery 2024</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-jd" data-aos="zoom-in" data-aos-delay="200">
+      <div><div class="jd-score">4.8</div></div>
+      <div><div class="jd-label">Rated on JustDial</div><div class="jd-sub">39 verified parent reviews · Seawoods, Navi Mumbai</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS BANNER -->
+<div class="admissions-banner" data-aos="zoom-in">
+  <h2 class="fredoka">Admissions Open — 2025–26 Batch 🎉</h2>
+  <p>Limited seats across Playgroup, Nursery & Daycare. Book a free campus visit and let your child experience the Hunny Bunny difference before you decide.</p>
+  <div class="banner-btns">
+    <a href="#contact" class="btn-white">📅 Book a Free Visit</a>
+    <a href="tel:9833026085" class="btn-outline-white">📞 Call Us Now</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-layout">
+    <div data-aos="fade-right">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="contact-info-title fredoka">Come see us.<br>We'd love to meet your little one. 🐰</h2>
+      <p class="contact-info-sub">The best way to know if Hunny Bunny is the right fit is to visit. Our tours are free, no-pressure, and children are always welcome to explore.</p>
+      
+      <div style="border-radius:18px; overflow:hidden; margin-bottom:24px; box-shadow:0 8px 24px rgba(0,0,0,0.12); border:2px solid var(--orange-lt);">
+        <img src="storefront.jpg" alt="Hunny Bunny School Front — Seawoods" style="width:100%; height:220px; object-fit:cover; display:block;" onerror="this.onerror=null; this.src='hunny-bunny-pre-school-navi-mumbai-1euhvkpzwu.webp';"/>
+      </div>
+      <div class="contact-details">
+        <div class="cd-item">
+          <div class="cd-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="cd-label">Address</div>
+            <div class="cd-value">Shop No. 6–8, Akash CHS, Plot No. 8 & 9, Sector 42, Seawoods West, Navi Mumbai – 400 706</div>
+          </div>
+        </div>
+        <div class="cd-item">
+          <div class="cd-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="cd-label">Phone</div>
+            <div class="cd-value"><a href="tel:9833026085">9833026085</a> / <a href="tel:9167302292">9167302292</a></div>
+          </div>
+        </div>
+        <div class="cd-item">
+          <div class="cd-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <div class="cd-label">WhatsApp</div>
+            <div class="cd-value"><a href="https://wa.me/919833026085">Message us on WhatsApp</a></div>
+          </div>
+        </div>
+        <div class="cd-item">
+          <div class="cd-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <div class="cd-label">School Hours</div>
+            <div class="cd-value">Mon–Sat · 8:00 AM – 7:30 PM</div>
+          </div>
+        </div>
+        <div class="cd-item">
+          <div class="cd-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <div>
+            <div class="cd-label">Annual Fees</div>
+            <div class="cd-value">Starting ₹47,000/year · Call for program-wise breakdowns</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-box" data-aos="fade-left" data-aos-delay="200">
+      <h3 class="fredoka" style="font-size:1.4rem;margin-bottom:6px;">Enquire or Book a Visit</h3>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:22px;">Fill this in and we'll call you back within a few hours.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Parent Name</label><input type="text" class="form-control" placeholder="e.g. Priya Sharma"/></div>
+        <div class="form-group"><label>Child's Name</label><input type="text" class="form-control" placeholder="e.g. Aarav"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" class="form-control" placeholder="9876543210"/></div>
+        <div class="form-group"><label>Child's Age</label><input type="text" class="form-control" placeholder="e.g. 2 years 3 months"/></div>
+      </div>
+      <div class="form-group">
+        <label>Program Interested In</label>
+        <select class="form-control form-select">
+          <option value="">Select a program...</option>
+          <option>Playgroup (1.5 – 2.5 years)</option>
+          <option>Nursery (2.5 – 3.5 years)</option>
+          <option>Junior KG (3.5 – 4.5 years)</option>
+          <option>Daycare (8 AM – 7 PM)</option>
+          <option>Activity Centre</option>
+          <option>Not sure — want to discuss</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (Optional)</label>
+        <textarea class="form-control" placeholder="Any questions or details about your child we should know..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="handleFormSubmit()">Send Enquiry 🐰</button>
+      <p style="text-align:center;font-size:0.76rem;color:var(--muted);margin-top:12px;">We respond within a few hours. Your information is private and will never be shared.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">🐰 Hunny Bunny</div>
+      <p class="footer-tagline">Pre School · Daycare · Activity Centre<br>Fun Begins Here — Seawoods, Navi Mumbai since 2013.</p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/919833026085" class="footer-social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul class="footer-links">
+        <li><a href="#programs">Playgroup (1.5–2.5 yrs)</a></li>
+        <li><a href="#programs">Nursery (2.5–3.5 yrs)</a></li>
+        <li><a href="#programs">Junior KG</a></li>
+        <li><a href="#programs">Daycare (8 AM–7 PM)</a></li>
+        <li><a href="#programs">Activity Centre</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Reach Us</h4>
+      <ul class="footer-links">
+        <li><a href="tel:9833026085">📞 9833026085</a></li>
+        <li><a href="tel:9167302292">📞 9167302292</a></li>
+        <li><a href="https://wa.me/919833026085">💬 WhatsApp</a></li>
+        <li><a href="#contact">📍 Get Directions</a></li>
+        <li><a href="#contact">📩 Send Enquiry</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hunny Bunny Pre School, Seawoods, Navi Mumbai. All rights reserved.</span>
+    <span><a href="playbook.html" target="_blank" style="color:var(--yellow); text-decoration:none; font-weight:800; margin-right:16px;">📱 Digital Marketing Playbook</a> Website by <strong>ASVEX Technologies</strong> · asvextech.com</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/919833026085?text=Hi!%20I%20would%20like%20to%20enquire%20about%20admissions%20at%20Hunny%20Bunny%20Pre%20School." class="wa-float" title="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+/* NAV */
+function toggleMenu(){
+  document.getElementById('mobile-menu').classList.toggle('open');
+  const ic = document.getElementById('ham-icon');
+  ic.className = ic.className.includes('bars') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('ham-icon').className = 'fa-solid fa-bars';
+}
+
+/* NAV SCROLL */
+window.addEventListener('scroll',()=>{
+  const n = document.getElementById('navbar');
+  n.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,0.1)' : '';
+});
+
+/* SMOOTH CLOSE NAV ON LINK CLICK */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',()=>{ closeMenu(); });
+});
+
+/* COUNTER ANIMATION */
+function animateCounters(){
+  document.querySelectorAll('.stat-number').forEach(el=>{
+    const raw = el.textContent;
+    const num = parseFloat(raw.replace(/[^0-9.]/g,''));
+    if(!num || raw.includes('AM')) return;
+    let start = 0; const dur = 1600; const step = 16;
+    const timer = setInterval(()=>{
+      start += step;
+      const progress = Math.min(start/dur,1);
+      const ease = 1 - Math.pow(1-progress,3);
+      const current = Math.floor(ease*num);
+      el.textContent = raw.replace(/[\d.]+/,current);
+      if(progress>=1){ clearInterval(timer); el.textContent = raw; }
+    },step);
+  });
+}
+let countersRun = false;
+const statsObs = new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting && !countersRun){ countersRun=true; animateCounters(); }
+},{threshold:0.4});
+const sb = document.querySelector('.stats-band');
+if(sb) statsObs.observe(sb);
+
+/* FORM */
+function handleFormSubmit(){
+  const name = document.querySelector('input[placeholder="e.g. Priya Sharma"]').value.trim();
+  const phone = document.querySelector('input[placeholder="9876543210"]').value.trim();
+  if(!name || !phone){
+    alert('Please enter your name and phone number so we can get back to you.');
+    return;
+  }
+  const btn = document.querySelector('.btn-submit');
+  btn.textContent = '✅ Enquiry Sent! We\'ll call you soon.';
+  btn.style.background = 'var(--green)';
+  btn.disabled = true;
+}
+
+/* ACTIVE NAV LINK */
+window.addEventListener('scroll',()=>{
+  const sections = document.querySelectorAll('section[id]');
+  let cur = '';
+  sections.forEach(s=>{ if(window.scrollY >= s.offsetTop - 90) cur = s.id; });
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.style.fontWeight = a.getAttribute('href') === '#'+cur ? '900' : '700';
+    a.style.color = a.getAttribute('href') === '#'+cur && !a.classList.contains('nav-cta') ? 'var(--orange)' : '';
+  });
+});
+</script>
+
+<!-- PROGRAM DETAIL MODAL -->
+<div class="modal-backdrop" id="programModal">
+  <div class="modal-content">
+    <button class="modal-close-btn" onclick="closeModal('programModal')">✕</button>
+    <div id="programModalBody"></div>
+  </div>
+</div>
+
+<!-- GALLERY LIGHTBOX MODAL -->
+<div class="modal-backdrop" id="lightboxModal">
+  <div class="modal-content" style="max-width:750px; text-align:center; padding:24px;">
+    <button class="modal-close-btn" onclick="closeModal('lightboxModal')">✕</button>
+    <img id="lightboxImg" src="" style="width:100%; max-height:55vh; object-fit:contain; border-radius:16px; margin-bottom:16px;" alt="Gallery detail"/>
+    <h3 class="fredoka" id="lightboxTitle" style="font-size:1.5rem; margin-bottom:8px; color:var(--orange);"></h3>
+    <p id="lightboxDesc" style="color:var(--muted); font-size:0.95rem; max-width:550px; margin:0 auto 18px;"></p>
+    <a href="#contact" class="prog-cta" onclick="closeModal('lightboxModal')" style="display:inline-flex; align-self:center; justify-content:center;">Schedule a School Visit <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<style>
+.modal-backdrop {
+  position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,0.75); backdrop-filter:blur(8px);
+  display:none; align-items:center; justify-content:center;
+  padding:20px;
+}
+.modal-backdrop.open { display:flex; animation:fadeInModal 0.25s ease-out; }
+.modal-content {
+  background:#fff; border-radius:24px; max-width:620px; width:100%;
+  max-height:85vh; overflow-y:auto; padding:32px; position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+.modal-close-btn {
+  position:absolute; top:18px; right:18px; width:36px; height:36px;
+  border-radius:50%; background:var(--cream-dk); border:none;
+  font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:background 0.2s, color 0.2s;
+}
+.modal-close-btn:hover { background:var(--orange); color:#fff; }
+@keyframes fadeInModal { from{opacity:0;} to{opacity:1;} }
+</style>
+
+<script>
+const programData = {
+  playgroup: {
+    title: '🌱 Playgroup & Discovery',
+    age: '1.5 – 2.5 Years',
+    timing: '9:30 AM – 11:30 AM (Mon to Fri)',
+    ratio: '1 Teacher : 6 Children + Dedicated Caretaker',
+    overview: 'Designed for a gentle transition from home to school. We focus on sensory integration, language building, and emotional security.',
+    curriculum: [
+      'Sensory play tubs (sand, water, textures)',
+      'Basic vocabulary & nursery rhymes in English/Hindi',
+      'Gross motor skill obstacles & soft play',
+      'Social sharing and group storytime'
+    ]
+  },
+  nursery: {
+    title: '📚 Nursery Curriculum',
+    age: '2.5 – 3.5 Years',
+    timing: '9:00 AM – 12:00 PM (Mon to Fri)',
+    ratio: '1 Teacher : 8 Children',
+    overview: 'Prepares toddlers for formal schooling with phonics, early math concepts, pencil grip, and self-expression.',
+    curriculum: [
+      'Jolly Phonics sound introduction (A to Z)',
+      'Pre-writing strokes, patterns & number tracing',
+      'Monthly theme-based art & science crafts',
+      'Stage exposure & poem recitation sessions'
+    ]
+  },
+  daycare: {
+    title: '🏠 Extended Daycare Program',
+    age: '1.5 – 8 Years',
+    timing: '8:00 AM – 7:30 PM (Flexible Shifts)',
+    ratio: 'Supervised care with continuous CCTV coverage',
+    overview: 'A safe second home for children of working parents. Structured routine with healthy meal supervision, quiet nap time, and homework assistance.',
+    curriculum: [
+      'Supervised nutritious lunch & evening snacks',
+      'Dedicated silent room with comfortable beds for naps',
+      'After-school tuition & homework completion help',
+      'Indoor board games, drawing & free recreation'
+    ]
+  },
+  lifeskills: {
+    title: '🌍 Life Skills & Safety Education',
+    age: 'All Age Groups',
+    timing: 'Integrated Weekly Modules',
+    ratio: 'Hands-on practical sessions',
+    overview: 'Unique practical module teaching traffic rules, fire drills, stranger safety, and basic community etiquette.',
+    curriculum: [
+      'Traffic signal rules with real police officers',
+      'Fire escape drill and basic emergency protocols',
+      'Personal safety ("Good Touch / Bad Touch" awareness)',
+      'Eco-awareness, plant care & waste sorting'
+    ]
+  }
+};
+
+function openProgramModal(key){
+  const p = programData[key];
+  if(!p) return;
+  const body = document.getElementById('programModalBody');
+  body.innerHTML = `
+    <span style="display:inline-block; padding:4px 14px; background:var(--orange-lt); color:var(--orange-dk); font-weight:800; font-size:0.8rem; border-radius:100px; margin-bottom:12px;">${p.age}</span>
+    <h3 class="fredoka" style="font-size:1.8rem; margin-bottom:8px; color:var(--ink);">${p.title}</h3>
+    <p style="color:var(--muted); font-size:0.95rem; margin-bottom:20px; line-height:1.6;">${p.overview}</p>
+    
+    <div style="background:var(--cream); padding:16px 20px; border-radius:16px; margin-bottom:20px; border:1px solid var(--cream-dk);">
+      <div style="font-size:0.88rem; font-weight:800; margin-bottom:6px;">🕒 Timings: <span style="font-weight:600; color:var(--muted);">${p.timing}</span></div>
+      <div style="font-size:0.88rem; font-weight:800;">👩‍🏫 Teacher Ratio: <span style="font-weight:600; color:var(--muted);">${p.ratio}</span></div>
+    </div>
+
+    <h4 style="font-size:1.05rem; font-weight:800; margin-bottom:12px;">What Children Learn & Experience:</h4>
+    <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:24px;">
+      ${p.curriculum.map(c=>`<li style="display:flex; align-items:center; gap:10px; font-weight:700; font-size:0.9rem;"><i class="fa-solid fa-check-circle" style="color:var(--green); font-size:1.1rem;"></i> ${c}</li>`).join('')}
+    </ul>
+
+    <a href="#contact" onclick="closeModal('programModal')" class="btn-hero-p" style="width:100%; justify-content:center; text-align:center;">Book a Campus Visit for this Program <i class="fa-solid fa-arrow-right"></i></a>
+  `;
+  document.getElementById('programModal').classList.add('open');
+}
+
+function openGalleryLightbox(imgSrc, title, desc){
+  document.getElementById('lightboxImg').src = imgSrc;
+  document.getElementById('lightboxTitle').textContent = title;
+  document.getElementById('lightboxDesc').textContent = desc;
+  document.getElementById('lightboxModal').classList.add('open');
+}
+
+function closeModal(id){
+  document.getElementById(id).classList.remove('open');
+}
+
+document.querySelectorAll('.modal-backdrop').forEach(b=>{
+  b.addEventListener('click', (e)=>{
+    if(e.target === b) b.classList.remove('open');
+  });
+});
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100,
+    easing: 'ease-out-cubic'
+  });
+</script>
+</body>
+</html>

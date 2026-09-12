@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hunny Bunny Pre School — Digital Presence Playbook | ASVEX Technologies</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #FAFBFF; color: #0A1628; -webkit-font-smoothing: antialiased; }
+  button { font-family: inherit; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState } = React;
+
+const S = {
+  bg:"#FAFBFF", white:"#fff", navy:"#0A1628", blue:"#0055DD",
+  orange:"#FF6200", yellow:"#FFD740", green:"#1B7A3E", sky:"#0099CC",
+  pink:"#E91E8C", purple:"#6B21A8", red:"#CC2200",
+  gray:"#5A6A8A", gray2:"#94A3B8", border:"#E2EAF8",
+  cream:"#FFFBF3",
+};
+
+const platforms = [
+  {
+    id:"gbp", icon:"🔍", name:"Google Business Profile",
+    color:S.blue, tag:"DO THIS FIRST — FREE", tagBg:"#E6F0FF",
+    why:"When a parent in Seawoods types 'playschool near me' on Google, this is what shows up. It's the single highest-intent channel — they're already looking.",
+    steps:[
+      { step:"Create / Claim the Profile", detail:"Go to business.google.com → Search 'Hunny Bunny Pre School Seawoods' → If it exists, click 'Claim this business'. If not, click 'Add your business'. Google will send a postcard with a PIN to the school address to verify." },
+      { step:"Fill Every Single Field", detail:"Business name: 'Hunny Bunny Pre School'. Category: Primary = 'Pre-school' / Additional = 'Day care centre', 'Tutoring center'. Address, phone, website URL. Hours: Mon–Sat 8 AM–7:30 PM." },
+      { step:"Upload 15–20 Photos on Day 1", detail:"Upload: school exterior (front signboard), 3–4 classroom photos, children in uniform on Sports Day, Janmashtami celebration, teacher with child, any certificates or awards. Google ranks profiles with photos much higher." },
+      { step:"Write the Description", detail:"'Hunny Bunny Pre School in Seawoods, Navi Mumbai has been nurturing children aged 1.5–6 years since 2013. We offer Playgroup, Nursery, Junior KG, and full-day Daycare from 8 AM to 7:30 PM. Our school is known for its warm, experienced teachers, child-safe environment, daily hygiene routines, and activity-based learning including dance, sports, phonics, and life skills programs. Rated 4.8 stars by over 39 parents on JustDial.' — Use this almost verbatim." },
+      { step:"Add All Services", detail:"Go to Products / Services section → Add each program: Playgroup (₹X/year), Nursery, Junior KG, Daycare. Adding services makes you appear for more search queries." },
+      { step:"Request Reviews — Week 1 Action", detail:"Create a WhatsApp message: 'Hi [Parent Name], we'd love your honest feedback on Google to help other families find Hunny Bunny! It takes 2 minutes. Here's the link: [Google review link]. Thank you 🙏' Send to 20 current parents this week." },
+      { step:"Post Every Week (Google Posts)", detail:"Google lets you post updates — use this like a social feed. Post: events ('Annual Sports Day — 15 Oct!'), updates ('Admissions open for 2025–26'), tips ('5 signs your child is ready for playgroup'). Posts appear in search results directly." },
+    ],
+    results:"With 10+ reviews and complete info, Hunny Bunny will appear in the Google Maps 3-pack for 'preschool in Seawoods' searches within 4–8 weeks.",
+  },
+  {
+    id:"insta", icon:"📸", name:"Instagram",
+    color:S.pink, tag:"HIGHEST REACH FOR PARENTS", tagBg:"#FCE7F3",
+    why:"Parents of 2–5 year olds are 26–35 years old and scroll Instagram daily. This is where Hunny Bunny's personality, warmth, and activities can shine — and where word-of-mouth spreads fastest.",
+    steps:[
+      { step:"Create Business Account", detail:"Download Instagram → Sign up with email hunny.bunny.seawoods@gmail.com → Go to Settings → Switch to Professional Account → Category: School → Add all contact info." },
+      { step:"Set Up the Profile", detail:"Profile photo: the school's rabbit logo on orange background (circular crop). Username: @hunnybunnyseawoods. Bio (exactly 150 chars): '🐰 Pre School · Daycare · Activity Centre\n📍 Seawoods, Navi Mumbai\n⭐ 4.8★ Rated · Est. 2013\n📞 Tap below to enquire 👇'. Link in bio: WhatsApp link or website." },
+      { step:"Create 5 Highlights on Day 1", detail:"Highlight 1: 'About Us' — add 4–5 stories introducing the school. Highlight 2: 'Programs' — one story per program. Highlight 3: 'Safety & Hygiene' — your promise. Highlight 4: 'Gallery' — best photos. Highlight 5: 'Admissions' — contact info, fee structure." },
+      { step:"Post 4× Per Week — Content Mix", detail:"Monday: Activity photo (children doing an art project, dance, or sports). Wednesday: Educational tip for parents ('How to know if your child is ready for playgroup'). Friday: Behind the scenes (classroom setup, teacher preparing, a festival celebration). Saturday: Parent quote or testimonial (with permission)." },
+      { step:"Reels Strategy — 2 Per Month", detail:"Reel 1: Show a full day at Hunny Bunny — 30 second timelapse style. Morning arrival → activity → meal → nap → play → home. Reel 2: Event highlight — 60 seconds of Annual Sports Day or Janmashtami with music. Reels get 5× more reach than static posts." },
+      { step:"Stories — Daily Habit", detail:"Post to Stories 3–4x per week: Morning photo of clean classroom before children arrive. A quick parent testimonial screenshot. A child's art work or achievement (with parental consent, no faces needed — just hands + artwork is enough). A poll: 'What age did your child start playschool? 1.5 / 2 / 2.5 / 3'." },
+      { step:"Hashtag Strategy", detail:"Every post: #HunnyBunnySeawoods #PreschoolNamanviMumbai #SeawoodsNanavMumbai #PlayschoolMumbai. Activity posts: #EarlyChildhoodEducation #KidsActivities #Playgroup. Safety posts: #ChildSafety #SafeSchool. Admission posts: #AdmissionsOpen2025 #PlaygroupAdmission. Use 15–20 hashtags per post." },
+      { step:"Engage Every Day (15 Minutes)", detail:"Like and comment on posts from: other Seawoods-area businesses, parenting pages in Navi Mumbai, Mumbai mommy blogger accounts. Reply to every comment on your own posts within 2 hours. DM people who comment 'So cute!' — 'Thank you! We have a few seats open for next batch 🙏 Would you like us to call?'" },
+    ],
+    results:"Consistent posting for 90 days → 500–1,500 followers in Seawoods area → 10–20 enquiry DMs per month.",
+  },
+  {
+    id:"fb", icon:"📘", name:"Facebook",
+    color:"#1877F2", tag:"PARENT COMMUNITY CHANNEL", tagBg:"#E7F0FD",
+    why:"Facebook is where Seawoods housing societies, local parents groups, and community pages are active. One post in the right group reaches 500+ relevant parents for free.",
+    steps:[
+      { step:"Create Facebook Page", detail:"Go to facebook.com/pages/create → Business/Organization → Category: School → Name: 'Hunny Bunny Pre School - Seawoods'. Add all details: address, phone, website, hours. Profile photo: school logo. Cover photo: best Sports Day or Janmashtami group photo (wide, landscape)." },
+      { step:"Connect to Instagram (Meta Business Suite)", detail:"Connect your Facebook Page to your Instagram account in Meta Business Suite. Now every Instagram post can be automatically shared to Facebook too — one post, two platforms. This saves 50% of your time." },
+      { step:"Join These Groups Immediately", detail:"Search and join: 'Seawoods Residents', 'Nerul Parents Group', 'Navi Mumbai Moms', 'Seawoods Grand Central Community', 'Kharghar Parents', 'New Panvel Moms Group'. Do NOT post promotions immediately — comment helpfully for 1 week first." },
+      { step:"Group Post Strategy — 2x Per Month", detail:"Do NOT write: 'Admissions open, call us!' Instead write: 'Hi, I'm from Hunny Bunny Pre School in Seawoods. Our Sports Day is this Saturday — all current and prospective families welcome. Here are some tips for making your child's first school experience smooth: [3 genuine tips]... Happy to answer questions in the comments.' This builds trust. Promotional groups posts get ignored; helpful posts get shared." },
+      { step:"Facebook Events — Every Event", detail:"For every school event (Sports Day, Janmashtami, Republic Day celebration, Open House), create a Facebook Event. Invite current parents. Encourage parents to click 'Interested'. Facebook shows events to friends of attendees — free organic reach." },
+      { step:"Facebook Reviews", detail:"Go to your Page → Reviews tab → Copy the review link. Add to your parent WhatsApp broadcast: 'We'd really appreciate a Facebook review too — it helps other Seawoods families find us.' Facebook reviews appear in Google searches for your school name." },
+      { step:"Paid Boost — Start at ₹500", detail:"Once you have 10+ posts, boost your best-performing one. Set audience: Location = Seawoods + 5 km radius. Age = 24–38. Interests = Parenting, Baby products, Education. Run for 7 days at ₹70/day. This gets your post seen by 2,000–5,000 parents in the area for ₹500 total." },
+    ],
+    results:"Active Facebook page + group presence → 200–400 page followers in 60 days → 3–5 direct enquiries per month from Facebook alone.",
+  },
+  {
+    id:"wa", icon:"💬", name:"WhatsApp Business",
+    color:S.green, tag:"INDIA'S #1 CHANNEL", tagBg:"#E8F5EE",
+    why:"Every existing parent is already on WhatsApp. This is your free, instant broadcast channel for updates, events, and referrals — and the easiest way to convert enquiries.",
+    steps:[
+      { step:"Set Up WhatsApp Business App", detail:"Download WhatsApp Business (separate from regular WhatsApp). Register with school's number (9833026085 or a dedicated number). Business name: 'Hunny Bunny Pre School'. Category: Education. Hours: Mon–Sat 8 AM–7:30 PM." },
+      { step:"Write a Professional Auto-Reply", detail:"Set this as Away Message and Greeting Message: 'Welcome to Hunny Bunny Pre School, Seawoods 🐰 Thank you for reaching out! We offer Playgroup, Nursery, Junior KG, and Daycare for children aged 1.5–6 years. To enquire about admissions, please share: 1) Your child's age 2) Program interested in 3) Your preferred visit date. We'll get back to you within 2 hours 🙏'" },
+      { step:"Set Up Quick Replies", detail:"/fees — 'Our annual fee structure: Playgroup: ₹X | Nursery: ₹X | Daycare: ₹X. Includes all activities. Please visit the school for a detailed breakup — call 9833026085 to fix a tour.' /timing — 'School timings: 8:00 AM – 12:30 PM. Daycare: 8:00 AM – 7:30 PM. Monday to Saturday.' /address — 'Shop 6–8, Akash CHS, Plot 8&9, Sector 42, Seawoods West, Navi Mumbai 400706. Landmark: Near Seawoods Grand Central Mall.'" },
+      { step:"Create a Product Catalogue", detail:"In WhatsApp Business → Catalogue → Add each program as a 'product': Playgroup Program (photo of children, description, fees). Nursery Curriculum. Daycare Service. Activity Centre. Parents can browse programs inside WhatsApp without leaving the app." },
+      { step:"WhatsApp Status — 3× Per Week", detail:"Post to WhatsApp Status every Monday, Wednesday, Friday: Monday = school week start (a cheerful classroom photo). Wednesday = mid-week activity (art, dance, sports). Friday = have a great weekend + reminder about admissions. Every parent who has your number sees your Status — this is free, daily advertising to 100+ contacts." },
+      { step:"Monthly Broadcast List", detail:"Create a Broadcast List with all current parents (they must have your number saved). Send ONE message per month: 'Dear Hunny Bunny families, this month we celebrated [event]. Next month: [event]. Admissions for 2025–26 are now open — we'd be grateful if you could refer any friends or neighbors with young children. Here's our link to share: [website link].' Broadcast = they receive as personal message, not group." },
+      { step:"Referral System via WhatsApp", detail:"Message to current parents: 'If you refer a family who joins Hunny Bunny, you receive a small thank-you gift 🎁 Just ask them to mention your name when they enquire. Thank you for being part of our family! 🐰' This is your cheapest, most trusted source of new admissions." },
+    ],
+    results:"WhatsApp Business + consistent Status updates → 5–10 enquiries per month from existing parent network alone. Word-of-mouth is a preschool's strongest channel.",
+  },
+  {
+    id:"jd", icon:"📋", name:"JustDial + Sulekha + UrbanClap",
+    color:S.orange, tag:"PARENTS ACTIVELY SEARCHING", tagBg:"#FFF0E6",
+    why:"Platforms like JustDial are where parents specifically search for schools. You're already 4.8★ on JustDial — you just need to optimise it and add more platforms.",
+    steps:[
+      { step:"Optimise JustDial Profile", detail:"Log in to JustDial at justdial.com/business → Update: all photos (add Sports Day, classroom, children in uniform). Full description with keywords: 'playschool Seawoods', 'nursery Navi Mumbai', 'daycare Seawoods', 'preschool near Seawoods Grand Central'. Update timings, fees, programs. Ensure GSTIN is listed (adds credibility)." },
+      { step:"Request More JustDial Reviews", detail:"Your current 39 reviews and 4.8★ is strong. Getting to 60–80 reviews will rank you #1 for 'preschool in Seawoods'. Message 20 parents via WhatsApp: 'Hi [Name], would you mind leaving us a quick review on JustDial? It really helps other Seawoods families find us. Here's the direct link: [link]. Thank you so much 🙏'" },
+      { step:"List on Sulekha.com", detail:"Go to sulekha.com → List business → Category: Pre Schools & Play Schools. Fill all details. Upload same photos as JustDial. Sulekha ranks in Google for 'preschool Navi Mumbai' searches — free backlink + additional discovery." },
+      { step:"List on SchoolMyKids.com", detail:"This is a dedicated school listing site. Go to schoolmykids.com → Add school. Parents specifically use this to compare schools in their area. A complete profile here gets you discovered by parents who are already seriously considering enrolling." },
+      { step:"Update Google Maps Entry", detail:"Your Google Business Profile IS your Google Maps entry. Make sure the pin is correctly placed on the map (drag it to the exact school location if needed). Add parking information in the description. Add an interior photo — parents can do a virtual 'Street View' inside." },
+      { step:"Respond to Every Review on Every Platform", detail:"On JustDial, Google, Sulekha — reply to every review within 48 hours. Template: Positive: 'Thank you [Name]! We love having [child's name] at Hunny Bunny. Your kind words mean so much to our teachers 🐰'. Negative (if any): 'Thank you for your feedback. We take every concern seriously. Could you please call us at 9833026085 so we can address this personally?'" },
+    ],
+    results:"Complete listings on 4+ platforms with 60+ reviews → Appear in Google search results for 8–12 different keyword combinations without spending on ads.",
+  },
+  {
+    id:"content", icon:"🎬", name:"Content Ideas — What to Post",
+    color:S.purple, tag:"NEVER RUN OUT OF IDEAS", tagBg:"#F3E8FF",
+    why:"Most schools give up because they don't know what to post. Here are 60+ specific content ideas — enough for a full year.",
+    steps:[
+      { step:"Category 1: Daily School Life", detail:"• 'Good morning from our classroom! ☀️' [photo of clean, decorated classroom]\n• 'Hand-washing time! 🧼 Teaching good habits from day one'\n• 'What's in the lunch box today?' [healthy meal photo]\n• 'Circle time! 🟠 Learning shapes through songs'\n• 'Shoe-free zone inside — keeping our little ones safe and clean'" },
+      { step:"Category 2: Festival & Event Posts", detail:"• Annual Sports Day highlights (videos of tiny athletes 🏅)\n• Janmashtami dress-up (colorful cultural costumes)\n• Republic Day celebration flag hoisting\n• Ganesh Chaturthi craft activity\n• Christmas party & Santa visit\n• Children's Day special activities\n• Diwali lamp-making craft\n• 'Theme of the Month: Community Helpers' [your actual classroom display]" },
+      { step:"Category 3: Educational Tips for Parents", detail:"• '5 signs your child is ready for playschool'\n• 'How to make the first day of school easier'\n• 'Why does my toddler cry at drop-off? And when does it stop?'\n• 'Screen time guidelines for children under 5'\n• '3 games that improve fine motor skills at home'\n• 'When should kids learn to write? The truth about early writing'\n• 'How to talk to your child about their school day'" },
+      { step:"Category 4: Safety & Trust Posts", detail:"• 'Meet our safety promise: here's what happens every morning before your child arrives' [cleaning routine photo]\n• 'Traffic police visited Hunny Bunny today! 🚦 Little ones learned about road safety'\n• 'Our foam-tiled classrooms — soft landings for energetic explorers'\n• 'Fire drill day! Practicing safety the fun way 🚒'\n• 'CCTV monitored, child-proofed, shoe-free — your child's safety is our first job'" },
+      { step:"Category 5: Milestone & Achievement Posts", detail:"• 'Little hands, big achievements! 🎨 [child's artwork — no face needed]'\n• 'First day vs. today — what a transformation! [with parent permission]'\n• 'Today [child's name] said their first full sentence in class! 🥹'\n• 'Annual prize distribution — so proud of every single one of them 🏆'\n• '12 years of Hunny Bunny! Here's to 12 more ❤️'\n• 'Our oldest graduates — now in Class 4! Once a Hunny Bunny kid, always one.'" },
+      { step:"Category 6: Parent Testimonials", detail:"Create a simple template in Canva: school's orange background + a quote in white + star rating. Message parents: 'Would you be comfortable sharing a 2-line quote about your experience? We'll turn it into a beautiful post 🙏'. Use: '[Child's name]'s mother says: \"My daughter runs into school every morning. That's how I know we made the right choice.\" — Priya, Seawoods'." },
+      { step:"Canva Templates — Build Once, Reuse Forever", detail:"Create 5 templates in Canva (free):\n1. Orange background: School update announcements\n2. Blue background: Safety & hygiene tips\n3. Cream background: Educational parent tips\n4. Photo card: Event highlights\n5. Testimonial card: Parent quotes\nUse these every week — just change the text. Consistent look builds brand recognition." },
+    ],
+    results:"60+ content ideas + 5 Canva templates = you will never run out of things to post, and every post will look professional and on-brand.",
+  },
+];
+
+const adPlan = [
+  { phase:"Month 1 — Week 1–2", color:S.green, budget:"₹0", label:"Free Foundation", actions:[
+    "Claim & complete Google Business Profile",
+    "Create Instagram + Facebook Business accounts",
+    "Set up WhatsApp Business with auto-reply",
+    "Upload 20 photos across all platforms",
+    "Request Google reviews from 20 current parents",
+    "Join 5 Seawoods Facebook parent groups",
+    "List on JustDial (optimise) + Sulekha + SchoolMyKids",
+  ]},
+  { phase:"Month 1 — Week 3–4", color:S.sky, budget:"₹0", label:"Content Kickoff", actions:[
+    "Post first 8 Instagram/Facebook posts (pre-schedule using Meta Business Suite)",
+    "Shoot: classroom video walkthrough (60 seconds, vertical, for Reel)",
+    "First WhatsApp broadcast to all current parents",
+    "Launch referral program via WhatsApp",
+    "Set up 5 Instagram Highlights",
+    "First Google Business Post (admissions open)",
+  ]},
+  { phase:"Month 2 — Boost Phase", color:S.blue, budget:"₹1,000–₹2,000", label:"First Paid Push", actions:[
+    "Boost best Instagram post: ₹500 → 5 km radius, parents 25–38",
+    "Boost Facebook event (if any event this month): ₹500",
+    "WhatsApp Status daily — morning + afternoon posts",
+    "2 Reels published this month",
+    "Respond to every comment and DM within 2 hours",
+    "Ask 10 more parents for Google/JustDial reviews",
+  ]},
+  { phase:"Month 3 — Admission Season Push", color:S.orange, budget:"₹5,000–₹8,000", label:"Admission Campaign", actions:[
+    "Meta Ads campaign: 'Admissions Open 2025–26' — 4 weeks, ₹200/day",
+    "Target: 5 km radius, age 26–38, interests: Parenting + Baby + Education",
+    "Create a dedicated admission landing page (simple WhatsApp link page)",
+    "Run Google Ads: 'playschool in Seawoods' — ₹50/day, 30 days = ₹1,500",
+    "Send 2 WhatsApp broadcasts this month (one mid-month, one end)",
+    "Share parent testimonial Reels every week",
+    "Track: how many DMs → calls → visits → admissions",
+  ]},
+  { phase:"Ongoing — Every Month", color:S.purple, budget:"₹0 organic", label:"Sustain & Grow", actions:[
+    "4 Instagram/Facebook posts per week (use Canva templates)",
+    "2 Stories per week minimum",
+    "1 Google Business Post per week",
+    "WhatsApp Status 3× per week",
+    "Request 2 new reviews per month",
+    "Respond to ALL reviews within 48 hours",
+    "Track: which platform brings most enquiries → invest more there",
+  ]},
+];
+
+const contentCalendar = [
+  { day:"MON", platform:"Instagram + Facebook", type:"School Life", example:"'Good morning from our classroom! ☀️ A fresh week begins' [clean classroom photo]", color:S.pink },
+  { day:"TUE", platform:"WhatsApp Status", type:"Passive Reach", example:"Morning photo of classroom setup — reaches all parent contacts automatically", color:S.green },
+  { day:"WED", platform:"Instagram + Facebook", type:"Parent Tips", example:"'How to make school drop-off easier: 3 things that actually work 💛' [educational tip]", color:S.blue },
+  { day:"THU", platform:"WhatsApp Status", type:"Activity Highlight", example:"Mid-week activity photo — crafts, dance, outdoor play", color:S.green },
+  { day:"FRI", platform:"Instagram + Facebook", type:"Event/Activity", example:"'Celebrating [festival/event] at Hunny Bunny! 🎉' [colourful event photo]", color:S.pink },
+  { day:"SAT", platform:"Instagram + Facebook", type:"Trust/Safety", example:"'What happens every morning before your little one arrives 🧼' [hygiene routine]", color:S.orange },
+  { day:"SUN", platform:"Google Business Post", type:"SEO Update", example:"Weekly post: admission reminder, event teaser, or parenting tip. Appears in Google search results.", color:S.blue },
+];
+
+const tools = [
+  { name:"Canva", icon:"🎨", free:true, use:"Design posts, stories, banners, testimonial cards. Pre-made templates. Massive time saver.", link:"canva.com" },
+  { name:"Meta Business Suite", icon:"📊", free:true, use:"Post to Instagram + Facebook at the same time. Schedule posts in advance. View analytics. All in one app.", link:"business.facebook.com" },
+  { name:"Google Business Profile", icon:"🗺️", free:true, use:"Manage your Google Maps listing, reviews, photos, and weekly posts.", link:"business.google.com" },
+  { name:"WhatsApp Business", icon:"💬", free:true, use:"Auto-replies, quick replies, broadcast lists, product catalogue, Status posts.", link:"App Store / Play Store" },
+  { name:"CapCut", icon:"🎬", free:true, use:"Edit Reels and short videos for Instagram/Facebook. Add captions, music, text overlays. Easy for non-designers.", link:"capcut.com" },
+  { name:"Google Analytics + Search Console", icon:"📈", free:true, use:"Once the website is live, track: how many people visit, where they come from, what they search.", link:"analytics.google.com" },
+  { name:"Linktree", icon:"🔗", free:true, use:"Put one link in your Instagram bio that points to everything: WhatsApp, website, Google Maps, admission form.", link:"linktr.ee" },
+];
+
+function DigitalPresencePlaybook() {
+  const [tab, setTab] = useState("platforms");
+  const [openPlatform, setOpenPlatform] = useState("gbp");
+  const [openStep, setOpenStep] = useState({});
+
+  const tabs = [
+    { id:"platforms", label:"📱 Platforms" },
+    { id:"content", label:"✏️ Content Ideas" },
+    { id:"plan", label:"📅 90-Day Plan" },
+    { id:"calendar", label:"🗓️ Weekly Calendar" },
+    { id:"tools", label:"🛠️ Free Tools" },
+  ];
+
+  const p = platforms.find(pl => pl.id === openPlatform);
+
+  return (
+    <div style={{ minHeight:"100vh", background:S.bg, fontFamily:"'Inter','Arial',sans-serif", color:S.navy }}>
+
+      {/* HEADER */}
+      <div style={{ background:S.navy, padding:"28px 5% 0" }}>
+        <div style={{ marginBottom:20 }}>
+          <div style={{ fontSize:10, fontWeight:700, letterSpacing:4, color:"#8fa8d6", textTransform:"uppercase", marginBottom:8 }}>ASVEX Technologies · Client Project</div>
+          <h1 style={{ fontSize:"clamp(20px,3.5vw,34px)", fontWeight:900, color:"#fff", margin:"0 0 6px", letterSpacing:-0.5 }}>🐰 Hunny Bunny Pre School — Digital Presence Playbook</h1>
+          <p style={{ color:"#6b88b6", fontSize:13, margin:0 }}>Seawoods, Navi Mumbai · Zero → Full Digital Presence · 90-Day Action Plan</p>
+        </div>
+        <div style={{ display:"flex", gap:4, overflowX:"auto", paddingBottom:1 }}>
+          {tabs.map(t => (
+            <button key={t.id} onClick={() => setTab(t.id)} style={{
+              background:"none", border:"none",
+              borderBottom: tab===t.id ? "2.5px solid #FF6200" : "2.5px solid transparent",
+              color: tab===t.id ? "#FF6200" : "#6b88b6",
+              padding:"12px 16px 10px", cursor:"pointer",
+              fontSize:12, fontWeight:700, letterSpacing:0.5, whiteSpace:"nowrap", transition:"all .2s",
+            }}>{t.label}</button>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ padding:"32px 5% 64px", maxWidth:1000, margin:"0 auto" }}>
+
+        {/* ── PLATFORMS TAB ── */}
+        {tab==="platforms" && (
+          <div>
+            {/* Priority banner */}
+            <div style={{ background:"#FFF8E8", border:"1px solid #F0DDA0", borderRadius:14, padding:"16px 22px", marginBottom:28, display:"flex", gap:14, alignItems:"flex-start" }}>
+              <span style={{ fontSize:20 }}>⚡</span>
+              <div>
+                <div style={{ fontWeight:800, fontSize:14, color:"#7a5c00", marginBottom:4 }}>Start Here — Recommended Order</div>
+                <p style={{ fontSize:13, color:"#5a4400", margin:0, lineHeight:1.6 }}>
+                  <strong>Week 1:</strong> Google Business Profile → JustDial &amp; Listings (free, highest ROI).<br/>
+                  <strong>Week 2:</strong> WhatsApp Business → Instagram setup.<br/>
+                  <strong>Week 3:</strong> Facebook Page → Start posting content.<br/>
+                  <strong>Month 2:</strong> First paid ad boost (₹500–₹1,000).
+                </p>
+              </div>
+            </div>
+
+            {/* Platform selector */}
+            <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:24 }}>
+              {platforms.map(pl => (
+                <button key={pl.id} onClick={() => setOpenPlatform(pl.id)} style={{
+                  background: openPlatform===pl.id ? pl.tagBg : S.white,
+                  border: `2px solid ${openPlatform===pl.id ? pl.color : S.border}`,
+                  borderRadius:100, padding:"9px 18px", cursor:"pointer",
+                  fontSize:13, fontWeight:700, color: openPlatform===pl.id ? pl.color : S.gray,
+                  display:"flex", alignItems:"center", gap:7, transition:"all .18s",
+                }}>
+                  <span>{pl.icon}</span> {pl.name.split(" ")[0]}
+                </button>
+              ))}
+            </div>
+
+            {/* Platform detail */}
+            {p && (
+              <div style={{ background:S.white, border:`1px solid ${S.border}`, borderRadius:16, overflow:"hidden" }}>
+                <div style={{ background:p.tagBg, borderBottom:`2px solid ${p.color}`, padding:"22px 28px" }}>
+                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:12 }}>
+                    <div>
+                      <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:8 }}>
+                        <span style={{ fontSize:28 }}>{p.icon}</span>
+                        <h2 style={{ fontWeight:900, fontSize:18, color:S.navy, margin:0 }}>{p.name}</h2>
+                        <span style={{ fontSize:9, fontWeight:800, letterSpacing:1.5, color:p.color, background:"#fff", border:`1px solid ${p.color}`, borderRadius:100, padding:"3px 10px" }}>{p.tag}</span>
+                      </div>
+                      <p style={{ fontSize:13, color:S.gray, margin:0, maxWidth:600, lineHeight:1.6 }}>{p.why}</p>
+                    </div>
+                  </div>
+                </div>
+                <div style={{ padding:"8px 0" }}>
+                  {p.steps.map((s,i) => (
+                    <div key={i} style={{ borderBottom:`1px solid ${S.border}` }}>
+                      <button onClick={() => setOpenStep(prev => ({...prev, [`${p.id}_${i}`]: !prev[`${p.id}_${i}`]}))} style={{
+                        width:"100%", background:"none", border:"none", padding:"16px 24px",
+                        cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", textAlign:"left", gap:12,
+                      }}>
+                        <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                          <div style={{ width:28, height:28, borderRadius:8, background:p.tagBg, border:`1.5px solid ${p.color}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:900, color:p.color, flexShrink:0 }}>{i+1}</div>
+                          <span style={{ fontSize:14, fontWeight:700, color:S.navy }}>{s.step}</span>
+                        </div>
+                        <span style={{ color:p.color, fontSize:18, transition:"transform .2s", transform:openStep[`${p.id}_${i}`] ? "rotate(45deg)":"none", flexShrink:0 }}>+</span>
+                      </button>
+                      {openStep[`${p.id}_${i}`] && (
+                        <div style={{ padding:"0 24px 20px 64px" }}>
+                          <div style={{ background:S.bg, borderRadius:10, padding:"14px 16px" }}>
+                            <p style={{ fontSize:13, color:S.navy, lineHeight:1.75, margin:0, whiteSpace:"pre-line" }}>{s.detail}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div style={{ background:p.tagBg, padding:"16px 24px", display:"flex", gap:10, alignItems:"flex-start" }}>
+                  <span style={{ fontSize:18 }}>📈</span>
+                  <div style={{ fontSize:13, color:p.color === S.pink ? "#7a003a" : p.color, fontWeight:700, lineHeight:1.6 }}><strong>Expected Result: </strong>{p.results}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── CONTENT IDEAS TAB ── */}
+        {tab==="content" && (() => {
+          const contentP = platforms.find(pl => pl.id === "content");
+          return (
+            <div>
+              <div style={{ background:S.white, border:`1px solid ${S.border}`, borderRadius:16, overflow:"hidden" }}>
+                <div style={{ background:"#F3E8FF", borderBottom:"2px solid #6B21A8", padding:"22px 28px" }}>
+                  <h2 style={{ fontWeight:900, fontSize:18, color:S.navy, margin:"0 0 8px" }}>🎬 Content Ideas — 60+ Posts, Never Run Out</h2>
+                  <p style={{ fontSize:13, color:S.gray, margin:0 }}>Organised by category. Mix these throughout your posting calendar. Real, specific, actionable.</p>
+                </div>
+                {contentP.steps.map((s,i) => (
+                  <div key={i} style={{ borderBottom:`1px solid ${S.border}` }}>
+                    <button onClick={() => setOpenStep(prev => ({...prev, [`content_${i}`]: !prev[`content_${i}`]}))} style={{
+                      width:"100%", background:"none", border:"none", padding:"16px 24px",
+                      cursor:"pointer", display:"flex", justifyContent:"space-between", alignItems:"center", textAlign:"left", gap:12,
+                    }}>
+                      <div style={{ display:"flex", alignItems:"center", gap:12 }}>
+                        <div style={{ width:28, height:28, borderRadius:8, background:"#F3E8FF", border:"1.5px solid #6B21A8", display:"flex", alignItems:"center", justifyContent:"center", fontSize:12, fontWeight:900, color:"#6B21A8", flexShrink:0 }}>{i+1}</div>
+                        <span style={{ fontSize:14, fontWeight:700, color:S.navy }}>{s.step}</span>
+                      </div>
+                      <span style={{ color:"#6B21A8", fontSize:18, transition:"transform .2s", transform:openStep[`content_${i}`] ? "rotate(45deg)":"none", flexShrink:0 }}>+</span>
+                    </button>
+                    {openStep[`content_${i}`] && (
+                      <div style={{ padding:"0 24px 20px 64px" }}>
+                        <div style={{ background:"#F9F5FF", borderRadius:10, padding:"14px 16px" }}>
+                          <p style={{ fontSize:13, color:S.navy, lineHeight:1.85, margin:0, whiteSpace:"pre-line" }}>{s.detail}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div style={{ marginTop:20, background:S.white, border:`1px solid ${S.border}`, borderRadius:14, padding:"20px 24px" }}>
+                <div style={{ fontWeight:800, fontSize:14, marginBottom:8 }}>✅ The 3-Photo Types That Get The Most Engagement for a Preschool</div>
+                <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))", gap:12 }}>
+                  {[
+                    { emoji:"🧒", title:"Children's hands (not faces)", desc:"Artwork, crafts, play — you don't need faces with parental consent issues. Hands + art = emotional, shareable." },
+                    { emoji:"🎊", title:"Festival & dress-up moments", desc:"Janmashtami, Republic Day, Christmas, Sports Day — these get saved and shared by parents to family WhatsApp groups." },
+                    { emoji:"🧼", title:"Behind-the-scenes: cleaning & safety", desc:"Parents LOVE seeing the classroom being cleaned, hand-washing routines, safety gear. Builds trust faster than anything." },
+                  ].map(c => (
+                    <div key={c.title} style={{ background:S.bg, borderRadius:10, padding:"16px" }}>
+                      <div style={{ fontSize:24, marginBottom:8 }}>{c.emoji}</div>
+                      <div style={{ fontWeight:800, fontSize:13, marginBottom:4 }}>{c.title}</div>
+                      <p style={{ fontSize:12, color:S.gray, margin:0, lineHeight:1.6 }}>{c.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ── 90-DAY PLAN TAB ── */}
+        {tab==="plan" && (
+          <div>
+            <p style={{ color:S.gray, fontSize:13, marginBottom:24, lineHeight:1.6 }}>This is the execution sequence. Do things in this order. Don't skip ahead to paid ads before the free foundation is solid — it wastes money.</p>
+            <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
+              {adPlan.map((phase, i) => (
+                <div key={i} style={{ background:S.white, border:`2px solid ${phase.color}20`, borderRadius:16, overflow:"hidden" }}>
+                  <div style={{ background:`${phase.color}10`, borderBottom:`2px solid ${phase.color}30`, padding:"18px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap", gap:10 }}>
+                    <div>
+                      <div style={{ fontWeight:900, fontSize:15, color:S.navy }}>{phase.phase}</div>
+                      <div style={{ fontSize:11, fontWeight:700, color:phase.color, letterSpacing:1, marginTop:2 }}>{phase.label}</div>
+                    </div>
+                    <div style={{ background:"#fff", border:`1.5px solid ${phase.color}`, borderRadius:100, padding:"6px 18px", fontWeight:800, fontSize:13, color:phase.color }}>
+                      💰 {phase.budget}
+                    </div>
+                  </div>
+                  <div style={{ padding:"16px 24px" }}>
+                    {phase.actions.map((a, j) => (
+                      <div key={j} style={{ display:"flex", gap:10, padding:"8px 0", borderBottom: j < phase.actions.length-1 ? `1px solid ${S.border}` : "none" }}>
+                        <div style={{ width:20, height:20, borderRadius:5, background:`${phase.color}15`, border:`1.5px solid ${phase.color}40`, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, marginTop:2 }}>
+                          <span style={{ color:phase.color, fontSize:10, fontWeight:900 }}>✓</span>
+                        </div>
+                        <span style={{ fontSize:13, color:S.navy, lineHeight:1.6 }}>{a}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop:24, background:"#FFF8E8", border:"1px solid #F0DDA0", borderRadius:14, padding:"20px 24px" }}>
+              <div style={{ fontWeight:800, fontSize:14, color:"#7a5c00", marginBottom:8 }}>📊 ROI Reality Check</div>
+              <p style={{ fontSize:13, color:"#5a4400", lineHeight:1.7, margin:0 }}>
+                Annual fee per child: <strong>₹47,000</strong>. If the 90-day plan brings just <strong>3 new admissions</strong>, that's <strong>₹1,41,000 in new annual revenue</strong> against a marketing investment of ₹0–₹8,000. That's a 17× return. Even if only 1 child joins from all digital efforts, every subsequent year they stay = recurring ₹47,000 revenue from that single admission.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* ── WEEKLY CALENDAR TAB ── */}
+        {tab==="calendar" && (
+          <div>
+            <p style={{ color:S.gray, fontSize:13, marginBottom:24, lineHeight:1.6 }}>This is your repeatable weekly rhythm. Do this every week and you'll have 208 posts in a year with zero blank-page panic. Takes 45 minutes per week total once you have the Canva templates set up.</p>
+            <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+              {contentCalendar.map((day, i) => (
+                <div key={i} style={{ display:"grid", gridTemplateColumns:"70px 170px 1fr", gap:14, background:S.white, border:`1px solid ${S.border}`, borderRadius:14, padding:"18px 22px", alignItems:"flex-start" }}>
+                  <div style={{ background:`${day.color}15`, border:`1.5px solid ${day.color}`, borderRadius:8, padding:"8px 0", textAlign:"center" }}>
+                    <div style={{ fontWeight:900, fontSize:13, color:day.color }}>{day.day}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontWeight:800, fontSize:12, color:day.color, marginBottom:3 }}>{day.platform}</div>
+                    <div style={{ fontSize:11, fontWeight:700, color:S.gray2, background:`${day.color}08`, borderRadius:100, padding:"2px 8px", display:"inline-block" }}>{day.type}</div>
+                  </div>
+                  <p style={{ fontSize:13, color:S.navy, margin:0, lineHeight:1.65, fontStyle:"italic" }}>{day.example}</p>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop:20, background:"#E6F4FF", border:"1px solid #B0D4F0", borderRadius:14, padding:"16px 22px" }}>
+              <div style={{ fontWeight:800, fontSize:13, color:S.blue, marginBottom:6 }}>💡 Use Meta Business Suite to Schedule a Whole Week in 30 Minutes</div>
+              <p style={{ fontSize:13, color:S.navy, margin:0, lineHeight:1.65 }}>Every Sunday, spend 30 minutes in Meta Business Suite: prepare 3 posts (photos + captions + hashtags), schedule them for Monday/Wednesday/Friday. Done. The rest of the week is just WhatsApp Status (takes 2 minutes) and responding to comments.</p>
+            </div>
+          </div>
+        )}
+
+        {/* ── TOOLS TAB ── */}
+        {tab==="tools" && (
+          <div>
+            <p style={{ color:S.gray, fontSize:13, marginBottom:24 }}>Every tool listed here is 100% free for a school at this scale. No paid subscriptions needed for at least the first 6 months.</p>
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))", gap:14 }}>
+              {tools.map((t, i) => (
+                <div key={i} style={{ background:S.white, border:`1px solid ${S.border}`, borderRadius:14, padding:"22px 20px" }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:12 }}>
+                    <span style={{ fontSize:26 }}>{t.icon}</span>
+                    <div>
+                      <div style={{ fontWeight:900, fontSize:15, color:S.navy }}>{t.name}</div>
+                      {t.free && <span style={{ fontSize:9, fontWeight:800, letterSpacing:1, color:S.green, background:"#E8F5EE", border:"1px solid #B7DEC8", borderRadius:100, padding:"2px 8px" }}>FREE</span>}
+                    </div>
+                  </div>
+                  <p style={{ fontSize:13, color:S.gray, lineHeight:1.65, margin:"0 0 12px" }}>{t.use}</p>
+                  <div style={{ fontSize:11, fontWeight:700, color:S.blue }}>{t.link}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop:20, background:S.white, border:`1px solid ${S.border}`, borderRadius:14, padding:"20px 24px" }}>
+              <div style={{ fontWeight:800, fontSize:14, marginBottom:12 }}>📱 The Exact Phone Setup for Hunny Bunny (All Free)</div>
+              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
+                {[
+                  "Download: WhatsApp Business, Meta Business Suite, Instagram, Canva, CapCut — 5 apps, all free",
+                  "Create one Gmail: hunny.bunny.seawoods@gmail.com — use this for all platform sign-ups",
+                  "Set up Google Business with this Gmail — it also gives you Google Photos storage for school photos",
+                  "Connect Instagram to Facebook in Meta Business Suite — post to both in one tap",
+                  "In Canva, create a 'Brand Kit': upload school logo, set colors to Orange #FF6200 + Yellow #FFD740 — every design stays on-brand automatically",
+                ].map((item, i) => (
+                  <div key={i} style={{ display:"flex", gap:12, fontSize:13, color:S.navy, padding:"8px 0", borderBottom: i < 4 ? `1px solid ${S.border}` : "none" }}>
+                    <span style={{ color:S.orange, fontWeight:900, flexShrink:0 }}>→</span>
+                    <span style={{ lineHeight:1.6 }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<DigitalPresencePlaybook />);
+</script>
+</body>
+</html>

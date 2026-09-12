@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',Arial,sans-serif;color:#0A1628;background:#fff;font-size:12px;}
+  .page{padding:36px 40px 32px;}
+
+  .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;padding-bottom:18px;border-bottom:3px solid #0055DD;}
+  .brand{font-size:18px;font-weight:900;color:#0A1628;letter-spacing:.5px;}
+  .brand span{color:#0055DD;}
+  .brand-sub{font-size:9px;color:#8899BB;letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+  .for-block{text-align:right;}
+  .for-block .label{font-size:9px;color:#8899BB;letter-spacing:2px;text-transform:uppercase;}
+  .for-block .school{font-size:16px;font-weight:900;color:#0A1628;margin-top:2px;}
+  .for-block .sub{font-size:10px;color:#8899BB;}
+
+  .hero{background:linear-gradient(135deg,#0A1628,#0D2A5A);border-radius:12px;padding:22px 26px;color:white;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
+  .hero-h{font-size:19px;font-weight:900;margin-bottom:6px;}
+  .hero-sub{font-size:12px;color:#8fa8d6;line-height:1.6;}
+  .hero-stat{text-align:center;background:rgba(255,255,255,0.07);border-radius:10px;padding:14px 20px;flex-shrink:0;}
+  .hero-stat-n{font-size:24px;font-weight:900;color:#00D4FF;}
+  .hero-stat-l{font-size:9px;color:#8fa8d6;text-transform:uppercase;letter-spacing:1px;margin-top:3px;}
+
+  .section-title{font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#0055DD;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .section-title::after{content:'';flex:1;height:1px;background:#D6E0F5;}
+
+  .packages{display:flex;gap:10px;margin-bottom:20px;}
+  .pkg{flex:1;border:1.5px solid #D6E0F5;border-radius:12px;padding:14px 14px;position:relative;overflow:hidden;}
+  .pkg.highlight{border-color:#0055DD;background:#F0F6FF;}
+  .pkg-badge{position:absolute;top:0;left:0;right:0;height:3px;}
+  .pkg-name{font-size:13px;font-weight:900;margin-bottom:3px;}
+  .pkg-price{font-size:17px;font-weight:900;color:#0055DD;margin-bottom:2px;}
+  .pkg-note{font-size:9px;color:#8899BB;margin-bottom:10px;}
+  .pkg-items{font-size:10.5px;color:#3a4a6a;line-height:1.7;}
+  .pkg-items li{margin-left:12px;margin-bottom:2px;}
+
+  .two-col{display:flex;gap:16px;margin-bottom:20px;}
+  .col{flex:1;}
+
+  .why-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #E8EFF8;}
+  .why-item:last-child{border-bottom:none;}
+  .why-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+  .why-title{font-size:11.5px;font-weight:700;color:#0A1628;margin-bottom:2px;}
+  .why-desc{font-size:10.5px;color:#5A6A8A;line-height:1.5;}
+
+  .roi-box{background:#FFF8E8;border:1px solid #E8D8A0;border-radius:10px;padding:14px 16px;}
+  .roi-title{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#B8860B;margin-bottom:8px;}
+  .roi-row{display:flex;justify-content:space-between;padding:5px 0;font-size:11px;border-bottom:1px solid #F0DDA0;}
+  .roi-row:last-child{border-bottom:none;font-weight:700;font-size:12px;color:#7a5c00;}
+
+  .process{display:flex;gap:0;margin-bottom:20px;}
+  .proc-step{flex:1;text-align:center;padding:0 8px;position:relative;}
+  .proc-step::after{content:'→';position:absolute;right:-6px;top:14px;color:#0055DD;font-size:14px;}
+  .proc-step:last-child::after{display:none;}
+  .proc-num{width:30px;height:30px;border-radius:50%;background:#0055DD;color:white;font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;}
+  .proc-title{font-size:10px;font-weight:700;color:#0A1628;}
+  .proc-desc{font-size:9.5px;color:#5A6A8A;margin-top:3px;line-height:1.4;}
+
+  .footer{border-top:1px solid #D6E0F5;padding-top:14px;display:flex;justify-content:space-between;align-items:center;}
+  .footer-brand{font-size:13px;font-weight:900;}
+  .footer-brand span{color:#0055DD;}
+  .footer-contact{font-size:10.5px;color:#8899BB;text-align:right;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand">ASVEX <span>TECHNOLOGIES</span></div>
+      <div class="brand-sub">Software Development & Digital Marketing Agency</div>
+    </div>
+    <div class="for-block">
+      <div class="label">Prepared for</div>
+      <div class="school">Hunny Bunny Pre School</div>
+      <div class="sub">Seawoods West, Navi Mumbai · Est. 2013</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="hero-h">Every parent searching for a<br>preschool in Seawoods should<br>find Hunny Bunny first.</div>
+      <div class="hero-sub">We help trusted schools like yours build a digital presence that<br>matches the reputation you've built over 12 years — and<br>converts online searches into new admissions.</div>
+    </div>
+    <div>
+      <div class="hero-stat" style="margin-bottom:8px;">
+        <div class="hero-stat-n">4.8★</div>
+        <div class="hero-stat-l">JustDial Rating</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">12+</div>
+        <div class="hero-stat-l">Years of Trust</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <div class="section-title">Service Packages</div>
+  <div class="packages">
+    <div class="pkg">
+      <div class="pkg-badge" style="background:#00875A;"></div>
+      <div class="pkg-name">Digital Starter</div>
+      <div class="pkg-price">₹18,000</div>
+      <div class="pkg-note">one-time + ₹5,000/mo</div>
+      <ul class="pkg-items">
+        <li>Mobile-first school website (5 pages)</li>
+        <li>Google Business Profile setup</li>
+        <li>Local SEO (Seawoods keywords)</li>
+        <li>WhatsApp enquiry integration</li>
+        <li>8 Instagram + 4 Facebook posts/month</li>
+      </ul>
+    </div>
+    <div class="pkg highlight">
+      <div class="pkg-badge" style="background:#0055DD;"></div>
+      <div class="pkg-name">Growth Package ⭐</div>
+      <div class="pkg-price">₹35,000</div>
+      <div class="pkg-note">one-time + ₹8,000/mo</div>
+      <ul class="pkg-items">
+        <li>Everything in Starter, plus:</li>
+        <li>SEO blog (2 posts/month)</li>
+        <li>Admission season Meta Ads campaign</li>
+        <li>Event banners + digital invites</li>
+        <li>Parent testimonial system</li>
+        <li>Monthly performance report</li>
+      </ul>
+    </div>
+    <div class="pkg">
+      <div class="pkg-badge" style="background:#C9A227;"></div>
+      <div class="pkg-name">Full Presence</div>
+      <div class="pkg-price">₹55,000</div>
+      <div class="pkg-note">one-time + ₹12,000/mo</div>
+      <ul class="pkg-items">
+        <li>Everything in Growth, plus:</li>
+        <li>Instagram Reels + YouTube Shorts</li>
+        <li>Google Ads management</li>
+        <li>All listing platforms managed</li>
+        <li>Admission season landing page</li>
+        <li>Monthly strategy review call</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <!-- WHY ASVEX -->
+    <div class="col">
+      <div class="section-title">Why Hunny Bunny Needs This Now</div>
+      <div class="why-item"><span class="why-icon">🔍</span><div><div class="why-title">Parents Google before they visit</div><div class="why-desc">80%+ of urban parents search online before enquiring. If you're not visible, they find your competitor.</div></div></div>
+      <div class="why-item"><span class="why-icon">📱</span><div><div class="why-title">Instagram is where young parents are</div><div class="why-desc">Parents of 2–5 year olds (age 26–35) scroll Instagram daily. Regular posts build trust before the first call.</div></div></div>
+      <div class="why-item"><span class="why-icon">🎯</span><div><div class="why-title">Admission season is narrow</div><div class="why-desc">Jan–March is decision time. A campaign 6 weeks before fills your pipeline before others start.</div></div></div>
+    </div>
+    <!-- ROI BOX -->
+    <div class="col">
+      <div class="section-title">Return on Investment</div>
+      <div class="roi-box">
+        <div class="roi-title">Growth Package ROI Estimate</div>
+        <div class="roi-row"><span>Annual fee per child</span><span>₹47,000</span></div>
+        <div class="roi-row"><span>New admissions needed to break even</span><span>2 children</span></div>
+        <div class="roi-row"><span>One-time setup cost</span><span>₹35,000</span></div>
+        <div class="roi-row"><span>Annual retainer cost</span><span>₹96,000</span></div>
+        <div class="roi-row"><span>Revenue from 5 new admissions</span><span>₹2,35,000</span></div>
+        <div class="roi-row"><span style="color:#00875A;">Net return (5 admissions)</span><span style="color:#00875A;">₹1,04,000 profit</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="section-title">How We Work Together</div>
+  <div class="process">
+    <div class="proc-step"><div class="proc-num">1</div><div class="proc-title">Discovery</div><div class="proc-desc">Understand your goals + admission targets</div></div>
+    <div class="proc-step"><div class="proc-num">2</div><div class="proc-title">Strategy</div><div class="proc-desc">Custom plan + content calendar</div></div>
+    <div class="proc-step"><div class="proc-num">3</div><div class="proc-title">Build</div><div class="proc-desc">Website + profiles live in 2 weeks</div></div>
+    <div class="proc-step"><div class="proc-num">4</div><div class="proc-title">Promote</div><div class="proc-desc">Monthly content + ads running</div></div>
+    <div class="proc-step"><div class="proc-num">5</div><div class="proc-title">Report</div><div class="proc-desc">Monthly results + strategy review</div></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>
+      <div class="footer-brand">ASVEX <span>TECHNOLOGIES</span></div>
+      <div style="font-size:10px;color:#8899BB;margin-top:2px;">Sole Proprietorship · Mumbai, India</div>
+    </div>
+    <div class="footer-contact">
+      Abhayraj Singh · Founder<br>
+      +91 98924 69015 · abhay@asvextech.com<br>
+      asvextech.com
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
