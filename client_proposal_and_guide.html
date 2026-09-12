@@ -181,20 +181,54 @@ h1.title {
 }
 
 .benefit-pill {
-  display: flex;
+  display: grid;
+  grid-template-columns: 46px 190px 1fr;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   background: #FFFBF3;
   border: 1.5px solid #FDE68A;
-  padding: 14px 20px;
-  border-radius: 14px;
-  margin-bottom: 10px;
-  font-weight: 700;
-  font-size: 0.95rem;
+  padding: 16px 20px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.04);
 }
-.benefit-pill i {
-  color: var(--gold);
+.benefit-pill-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #FEF3C7;
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.benefit-pill-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #92400E;
+  line-height: 1.3;
+}
+.benefit-pill-desc {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .benefit-pill {
+    grid-template-columns: 44px 1fr;
+    gap: 10px 14px;
+    padding: 16px;
+  }
+  .benefit-pill-title {
+    grid-column: 2;
+  }
+  .benefit-pill-desc {
+    grid-column: 1 / -1;
+  }
 }
 
 .testing-steps {
@@ -277,10 +311,24 @@ h1.title {
         <span class="kw-tag">📍 Activity Centre Sector 42 Seawoods</span>
       </div>
 
-      <div style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
-        <div class="benefit-pill"><i class="fa-solid fa-ranking-star"></i> <strong>Search Engine Dominance:</strong> Built-in schema tags, fast loading speeds, and localized meta descriptions tell Google that Hunny Bunny is the most active and authentic pre-school in Seawoods.</div>
-        <div class="benefit-pill"><i class="fa-solid fa-arrow-trend-up"></i> <strong>Zero Wasted Ad Budget:</strong> Organic search traffic brings parents who are <em>actively searching right now</em>, resulting in significantly higher conversion rates for campus visits.</div>
-        <div class="benefit-pill"><i class="fa-solid fa-mobile-screen-button"></i> <strong>Google Maps Integration:</strong> Connects seamlessly with Google Business Profile so parents get instant driving directions, 1-tap phone calls, and WhatsApp chats.</div>
+      <div style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
+        <div class="benefit-pill">
+          <div class="benefit-pill-icon"><i class="fa-solid fa-ranking-star"></i></div>
+          <div class="benefit-pill-title">Search Engine Dominance</div>
+          <div class="benefit-pill-desc">Built-in schema tags, fast loading speeds, and localized meta descriptions tell Google that Hunny Bunny is the most active and authentic pre-school in Seawoods.</div>
+        </div>
+
+        <div class="benefit-pill">
+          <div class="benefit-pill-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="benefit-pill-title">Zero Wasted Ad Budget</div>
+          <div class="benefit-pill-desc">Organic search traffic brings parents who are <strong>actively searching right now</strong>, resulting in significantly higher conversion rates for campus visits.</div>
+        </div>
+
+        <div class="benefit-pill">
+          <div class="benefit-pill-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <div class="benefit-pill-title">Google Maps Integration</div>
+          <div class="benefit-pill-desc">Connects seamlessly with Google Business Profile so parents get instant driving directions, 1-tap phone calls, and WhatsApp chats.</div>
+        </div>
       </div>
     </div>
   </div>
