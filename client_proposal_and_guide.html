@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hunny Bunny Pre School — Client Proposal & Digital Strategy Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+:root {
+  --orange: #FF6200;
+  --navy: #0A1628;
+  --blue: #0055DD;
+  --cream: #FFFBF3;
+  --ink: #1E293B;
+  --muted: #64748B;
+  --border: #E2E8F0;
+  --green: #10B981;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #F8FAFC;
+  color: var(--ink);
+  line-height: 1.65;
+  padding: 40px 20px;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  padding: 48px;
+  border: 1px solid var(--border);
+}
+.header {
+  border-bottom: 2px dashed var(--border);
+  padding-bottom: 32px;
+  margin-bottom: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFF0E6;
+  padding: 8px 18px;
+  border-radius: 100px;
+  color: var(--orange);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+h1.title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 2.2rem;
+  color: var(--navy);
+  margin-top: 14px;
+  line-height: 1.2;
+}
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.meta-tag {
+  background: var(--navy);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+.section-title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.45rem;
+  color: var(--navy);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title i {
+  color: var(--orange);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+}
+.card {
+  background: #F8FAFC;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  transition: transform 0.2s;
+}
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  display: block;
+}
+.card h3 {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #FFF6F0 0%, #FFF0E6 100%);
+  border: 2px solid #FFCCAA;
+  border-radius: 18px;
+  padding: 26px;
+  margin: 24px 0;
+}
+.highlight-box h3 {
+  font-family: 'Fredoka One', sans-serif;
+  color: var(--orange);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.testing-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+.testing-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #F1F5F9;
+  padding: 16px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+}
+.step-num {
+  background: var(--orange);
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.footer-note {
+  border-top: 2px solid var(--border);
+  padding-top: 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 48px;
+}
+@media print {
+  body { background: #fff; padding:0; }
+  .container { box-shadow: none; border: none; padding: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div>
+      <div class="logo-badge">🐰 Hunny Bunny Pre School</div>
+      <h1 class="title">Website Redesign & Parent Trust Strategy</h1>
+      <p class="subtitle">Prepared for Management · Seawoods West, Navi Mumbai</p>
+    </div>
+    <div style="text-align:right;">
+      <span class="meta-tag">DEMO V2 PRESENTATION</span>
+      <p style="font-size:0.8rem; color:var(--muted); margin-top:8px;">Version 2.0 · Est. 2013</p>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="section">
+    <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> Executive Summary</h2>
+    <p>Modern young parents in Seawoods search on Google and view websites on their mobile phones long before setting foot inside a school campus. Choosing a preschool for a 1.5 to 4-year-old child is an deeply emotional decision based on <strong>trust, safety, hygiene, and warmth</strong>.</p>
+    <p style="margin-top:12px;">This <strong>Demo V2 Website</strong> has been purpose-built to instantly reassure parents, highlight Hunny Bunny's 12-year legacy, showcase your actual school entrance and activities, and turn casual website visitors into confirmed campus visits.</p>
+  </div>
+
+  <div class="highlight-box">
+    <h3><i class="fa-solid fa-heart-pulse"></i> The Parent Mindset & How This Website Builds Immediate Trust</h3>
+    <p>When a parent opens this website on their smartphone, they aren't just looking for fees — they are asking: <em>"Will my baby be safe here? Are the teachers caring? Is the school clean?"</em> Demo V2 answers all these questions visually and transparently in seconds.</p>
+  </div>
+
+  <!-- KEY STRATEGIC FEATURES -->
+  <div class="section">
+    <h2 class="section-title"><i class="fa-solid fa-star"></i> 5 Core Pillars Built into Demo V2</h2>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-icon">📸</span>
+        <h3>Authentic Campus Visuals</h3>
+        <p>Uses your actual Hunny Bunny storefront image and real photos from Sports Day, Janmashtami, and prize distributions — establishing 100% authenticity over stock images.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛡️</span>
+        <h3>Safety & CCTV Transparency</h3>
+        <p>Dedicated Safety section outlining 24/7 CCTV monitoring, soft-floor child-proofing, restricted guardian entry, and traffic police life skills workshops.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🧼</span>
+        <h3>Hygiene & Sanitization Schedule</h3>
+        <p>Step-by-step daily cleaning checklist (morning sweep, mealtime hand-washing, evening deep clean, zero-tolerance illness policy) reassuring protective parents.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📚</span>
+        <h3>Interactive Program Syllabus</h3>
+        <p>Parents can tap "Full Syllabus & Details" on Playgroup, Nursery, and Daycare to view teacher-to-child ratios, daily timings, and learning outcomes in interactive popups.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">💬</span>
+        <h3>Instant WhatsApp & Call Booking</h3>
+        <p>Persistent floating WhatsApp button and one-tap call buttons let parents immediately schedule a free campus visit while their interest is highest.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">⭐</span>
+        <h3>4.8★ Social Proof & Reviews</h3>
+        <p>Prominently features 39 verified JustDial parent reviews and real testimonials highlighting emotional growth and patient educators.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO TEST & APPROVE -->
+  <div class="section">
+    <h2 class="section-title"><i class="fa-solid fa-vial-circle-check"></i> Client Testing & Review Checklist</h2>
+    <p>Please review the live Vercel link on your mobile phone and laptop following these steps:</p>
+    <ul class="testing-steps">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <div>Mobile Responsiveness & Navigation</div>
+          <div style="font-weight:400; font-size:0.88rem; color:var(--muted);">Tap the hamburger menu (≡) on your phone to test the smooth drawer navigation.</div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <div>Scroll Animations</div>
+          <div style="font-weight:400; font-size:0.88rem; color:var(--muted);">Scroll down from top to bottom. Notice how every section, program block, and safety card gracefully fades in.</div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <div>Interactive Syllabus & Gallery Lightbox</div>
+          <div style="font-weight:400; font-size:0.88rem; color:var(--muted);">Click any program button or gallery photo to test the interactive popups.</div>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div>
+          <div>Digital Presence Playbook Link</div>
+          <div style="font-weight:400; font-size:0.88rem; color:var(--muted);">Scroll to the website footer and tap <strong>"📱 Digital Marketing Playbook"</strong> to view the step-by-step local SEO & parent acquisition guide created for your school.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    Presented by <strong>ASVEX Technologies</strong> · Empowering Schools with Modern Digital Systems<br/>
+    Confidential · Prepared for Hunny Bunny Pre School Management
+  </div>
+</div>
+
+</body>
+</html>
