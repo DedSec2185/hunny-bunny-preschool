@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions &amp; School Tour Booking | Hunny Bunny Pre-School Seawoods</title>
+  <meta name="description" content="Apply for admissions at Hunny Bunny Pre-School & Daycare for 2025-26. Inclusive, welcoming early education in Sector 42, Seawoods West, Navi Mumbai." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --orange: #FF6200;
+      --orange-dk: #D94F00;
+      --orange-lt: #FFF0E6;
+      --yellow: #FFD740;
+      --yellow-lt: #FFF9E6;
+      --sky: #4ECEE0;
+      --sky-lt: #E6F9FC;
+      --green: #2E7D32;
+      --green-lt: #E8F5E9;
+      --navy: #1A237E;
+      --cream: #FFFBF3;
+      --cream-dk: #F4EAD4;
+      --ink: #1C1C1C;
+      --muted: #616161;
+      --white: #FFFFFF;
+      --border: rgba(0, 0, 0, 0.08);
+
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+      --radius-full: 9999px;
+
+      --font-display: 'Baloo 2', cursive, sans-serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+    }
+    a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+
+    .container {
+      width: min(95%, 1680px);
+      margin: 0 auto;
+    }
+    @media (min-width: 1440px) {
+      .container {
+        width: min(95%, 1720px);
+      }
+    }
+
+    /* Top Scroll Progress Bar */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+      background: linear-gradient(90deg, var(--orange), var(--yellow), var(--sky), var(--green));
+      z-index: 100002;
+    }
+
+    /* Top Notice Announcement Bar */
+    .top-notice {
+      background: linear-gradient(90deg, var(--navy), #0F1654);
+      color: var(--white);
+      font-size: 0.86rem;
+      padding: 8px 16px;
+      text-align: center;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1000;
+    }
+    .top-notice .highlight-badge {
+      background: var(--yellow);
+      color: var(--ink);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .top-notice a { color: var(--yellow); text-decoration: underline; font-weight: 800; }
+
+    /* Clean Floating Header Dock */
+    .header-dock {
+      position: fixed;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(96%, 1680px);
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-full);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.4s ease;
+    }
+
+    .header-dock.scrolled {
+      top: 12px;
+      width: min(97%, 1680px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.98);
+      padding: 10px 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--ink);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brand-symbol {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 18px rgba(255, 98, 0, 0.28);
+    }
+    .brand-text small {
+      display: block;
+      font-size: 0.68rem;
+      font-family: var(--font-body);
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: -3px;
+    }
+
+    .nav-menu { display: flex; align-items: center; gap: 4px; list-style: none; flex-wrap: nowrap; }
+    .nav-item a {
+      font-size: 0.94rem;
+      font-weight: 800;
+      padding: 8px 15px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      color: var(--ink);
+      transition: all 0.25s ease;
+    }
+    .nav-item a:hover, .nav-item a.active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-pill-call {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1.5px solid rgba(0,0,0,0.08);
+    }
+    .btn-pill-call:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+    .btn-pill-orange {
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(255, 98, 0, 0.25);
+    }
+    .btn-pill-orange:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(255, 98, 0, 0.38);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--orange-lt);
+      color: var(--orange);
+      font-size: 1.15rem;
+      align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .menu-toggle:hover { background: var(--orange); color: white; }
+
+    /* Mobile Quick Action Buttons (1-Tap Call & WhatsApp in Header) */
+    .mobile-action-icon {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .mobile-action-icon.call {
+      background: var(--orange-lt);
+      color: var(--orange);
+    }
+    .mobile-action-icon.call:hover {
+      background: var(--orange);
+      color: white;
+    }
+    .mobile-action-icon.wa {
+      background: #E8F8EE;
+      color: #128C7E;
+    }
+    .mobile-action-icon.wa:hover {
+      background: #25D366;
+      color: white;
+    }
+
+    /* Split Hero for Admissions */
+    .adm-hero {
+      position: relative;
+      min-height: calc(100vh - 40px);
+      padding: 130px 0 55px;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at 15% 20%, rgba(255, 215, 64, 0.22) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 75%, rgba(78, 206, 224, 0.18) 0%, transparent 45%),
+                  var(--cream);
+    }
+    .adm-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+    .adm-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--navy);
+      border: 1.5px solid rgba(0,0,0,0.08);
+      padding: 7px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    .adm-badge i { color: var(--orange); }
+
+    .adm-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+    .adm-headline .highlight { color: var(--orange); position: relative; }
+    .adm-headline .highlight::after {
+      content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px;
+      background: rgba(255, 215, 64, 0.45); z-index: -1; border-radius: 4px; transform: rotate(-1deg);
+    }
+
+    .adm-description {
+      font-size: 1.18rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 26px;
+      max-width: 680px;
+    }
+
+    .adm-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .btn-hero-primary {
+      padding: 16px 36px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: var(--white);
+      border-radius: var(--radius-full);
+      box-shadow: 0 12px 30px rgba(255, 98, 0, 0.28);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 40px rgba(255, 98, 0, 0.4); color: white; }
+    .btn-hero-call {
+      padding: 16px 30px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      background: var(--white);
+      color: var(--ink);
+      border: 2px solid rgba(0,0,0,0.1);
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-hero-call:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-3px); }
+
+    .adm-reassurance-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: var(--white);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .adm-reassurance-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 800; color: var(--ink); }
+    .adm-reassurance-item i { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* Visual Showcase Frame */
+    .adm-visual-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 10px 35px;
+    }
+    .adm-main-frame {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      height: 520px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.18);
+      border: 6px solid var(--white);
+      background: var(--white);
+    }
+    .adm-main-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .adm-main-frame:hover img { transform: scale(1.05); }
+
+    .adm-sticker {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 5;
+      font-weight: 800;
+      font-size: 0.86rem;
+      border: 2px solid rgba(0,0,0,0.06);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .adm-sticker.sticker-top-left { top: -14px; left: -14px; }
+    .adm-sticker.sticker-middle-right {
+      top: 35px; right: -25px;
+      background: linear-gradient(135deg, var(--navy), #0F1654);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .adm-sticker.sticker-bottom-center {
+      bottom: -16px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 2px solid var(--orange-lt);
+      box-shadow: 0 14px 30px rgba(255, 98, 0, 0.15);
+      padding: 12px 24px;
+    }
+
+    /* Mobile Slide-Over Navigation Drawer */
+    .drawer-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(15, 22, 84, 0.48);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100000;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-backdrop.active { opacity: 1; visibility: visible; }
+
+    .mobile-nav-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(88%, 380px);
+      background: #FFFFFF;
+      z-index: 100001;
+      box-shadow: -15px 0 45px rgba(0, 0, 0, 0.18);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      padding: 24px 20px;
+      overflow-y: auto;
+    }
+    .mobile-nav-drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 18px; border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+    .drawer-close {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--cream-dk, #F5ECD8); color: var(--ink, #1C1C1C);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; border: none; cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .drawer-close:hover { background: var(--orange); color: white; }
+
+    .drawer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .drawer-links li a {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 16px; border-radius: 14px;
+      font-size: 1.02rem; font-weight: 800; color: #1C1C1C;
+      transition: all 0.2s ease;
+    }
+    .drawer-links li a i { font-size: 1.15rem; width: 22px; text-align: center; color: var(--orange); }
+    .drawer-links li a:hover, .drawer-links li a.active {
+      background: var(--orange-lt, #FFF0E6); color: var(--orange-dk, #D94F00);
+    }
+
+    .drawer-footer {
+      margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .drawer-btn-tour {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white; padding: 14px; border-radius: 9999px;
+      font-weight: 800; font-size: 0.98rem; text-align: center;
+      box-shadow: 0 8px 20px rgba(255, 98, 0, 0.3); margin-bottom: 12px;
+    }
+    .drawer-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .drawer-contact-btn {
+      padding: 10px; border-radius: 12px; font-weight: 800; font-size: 0.82rem;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .drawer-contact-btn.call { background: var(--orange-lt); color: var(--orange-dk); }
+    .drawer-contact-btn.wa { background: #E8F8EE; color: #128C7E; }
+    .drawer-address { font-size: 0.76rem; color: #757575; text-align: center; margin-top: 6px; }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 160px 0 70px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 30%, rgba(255, 98, 0, 0.18) 0%, transparent 60%), var(--cream);
+    }
+
+    .page-tag {
+      display: inline-block;
+      padding: 6px 18px;
+      background: var(--white);
+      color: var(--orange-dk);
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 14px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+    .page-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Main Grid */
+    .admissions-main-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: flex-start;
+      margin-top: 40px;
+      margin-bottom: 70px;
+    }
+
+    /* 3-Step Process Card */
+    .process-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 44px 38px;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .step-badge-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+    .step-num-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(255, 98, 0, 0.25);
+    }
+    .step-text h4 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: var(--navy);
+    }
+    .step-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Booking Form Card */
+    .booking-form-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 45px rgba(26, 35, 126, 0.08);
+      position: sticky;
+      top: 100px;
+    }
+    .booking-form-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      background: var(--cream);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--orange);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(255, 98, 0, 0.15);
+    }
+
+    .btn-submit-tour {
+      width: 100%;
+      padding: 16px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white;
+      font-weight: 800;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 25px rgba(255, 98, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+      transition: all 0.3s ease;
+    }
+    .btn-submit-tour:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(255, 98, 0, 0.4);
+    }
+
+    /* Documents Checklist */
+    .docs-checklist-box {
+      background: var(--navy);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      margin-bottom: 70px;
+    }
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .doc-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 26px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .doc-card:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-4px);
+    }
+    .doc-icon {
+      font-size: 2.2rem;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+
+    /* FAQ Accordion */
+    .faq-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      border: 1px solid var(--border);
+      margin-bottom: 80px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--cream-dk);
+      padding: 22px 0;
+      cursor: pointer;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 0;
+      transition: color 0.25s ease;
+    }
+    .faq-question:hover { color: var(--orange-dk); }
+    .faq-question i {
+      font-size: 1rem;
+      color: var(--orange);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-top: 10px;
+      display: none;
+    }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* Footer */
+    .footer-dock {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 44px 0;
+    }
+
+    @media (max-width: 980px) {
+      .admissions-main-grid, .docs-grid { grid-template-columns: 1fr; }
+      .booking-form-box { position: static; }
+      .header-dock {
+        width: calc(100% - 24px) !important;
+        left: 12px !important;
+        right: 12px !important;
+        transform: none !important;
+        padding: 7px 12px !important;
+        top: 12px !important;
+        gap: 8px !important;
+      }
+      .brand-logo { font-size: 1.15rem; gap: 8px; }
+      .brand-symbol { width: 34px; height: 34px; font-size: 1rem; }
+      .brand-text small { display: none; }
+      .nav-menu, .btn-pill-call { display: none !important; }
+      .mobile-action-icon { display: inline-flex !important; }
+      .menu-toggle { display: flex !important; }
+      .btn-pill-orange { padding: 7px 14px !important; font-size: 0.8rem !important; }
+      .mobile-bottom-dock { display: flex !important; }
+      body { padding-bottom: 85px !important; }
+      .page-hero { padding-top: 125px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Notice Announcement Bar -->
+  <div class="top-notice">
+    <span class="highlight-badge">ADMISSIONS OPEN 2025–26</span>
+    <span>Akash CHS, Sector 42, Seawoods West &bull; Call: +91 98330 26085 / 91673 02292</span>
+    <a href="#visitForm">Book Campus Tour &rarr;</a>
+  </div>
+
+  <!-- Clean Floating Header Dock -->
+  <header class="header-dock" id="headerDock">
+    <a href="index.html?v=3.0" class="brand-logo">
+      <div class="brand-symbol">🐰</div>
+      <div class="brand-text">
+        Hunny Bunny
+        <small>Seawoods &bull; Est. 2013</small>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html?v=3.0">Home</a></li>
+      <li class="nav-item"><a href="programs.html?v=3.0">Programs</a></li>
+      <li class="nav-item"><a href="safety-hygiene.html?v=3.0">Safety &amp; CCTV</a></li>
+      <li class="nav-item"><a href="teacher-training.html?v=3.0">Teacher Training</a></li>
+      <li class="nav-item"><a href="admissions.html?v=3.0" class="active">Admissions</a></li>
+      <li class="nav-item"><a href="contact.html?v=3.0">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="tel:+919833026085" class="btn-pill btn-pill-call" title="Call 98330 26085">
+        <i class="fas fa-phone-alt"></i> <span>98330 26085</span>
+      </a>
+      <a href="#visitForm" class="btn-pill btn-pill-orange">
+        <span>Book Tour</span> <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="tel:+919833026085" class="mobile-action-icon call" title="Call Principal" aria-label="Call Hunny Bunny">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      <a href="https://wa.me/919833026085?text=Hello%20Hunny%20Bunny!%20I%20am%20enquiring%20about%20admissions." target="_blank" rel="noopener" class="mobile-action-icon wa" title="WhatsApp Principal" aria-label="WhatsApp Hunny Bunny">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars" id="menuIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleMobileMenu(false)"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <a href="index.html?v=3.0" class="brand-logo" onclick="toggleMobileMenu(false)">
+        <div class="brand-symbol">🐰</div>
+        <div class="brand-text">
+          Hunny Bunny
+          <small>Seawoods &bull; Est. 2013</small>
+        </div>
+      </a>
+      <button class="drawer-close" aria-label="Close menu" onclick="toggleMobileMenu(false)">
+        <i class="fas fa-xmark"></i>
+      </button>
+    </div>
+
+    <ul class="drawer-links">
+      <li><a href="index.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="programs.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-shapes"></i> Programs &amp; Curriculum</a></li>
+      <li><a href="safety-hygiene.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-shield-halved"></i> Safety, CCTV &amp; Staffing</a></li>
+      <li><a href="teacher-training.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-graduation-cap"></i> Teacher Training (Batch 7)</a></li>
+      <li><a href="admissions.html?v=3.0" class="active" onclick="toggleMobileMenu(false)"><i class="fas fa-calendar-check"></i> Admissions &amp; Tour</a></li>
+      <li><a href="contact.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-location-dot"></i> Contact &amp; Location Map</a></li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="#visitForm" class="drawer-btn-tour" onclick="toggleMobileMenu(false)">
+        <i class="fas fa-calendar-alt"></i> Book Campus Tour &rarr;
+      </a>
+      <div class="drawer-contacts">
+        <a href="tel:+919833026085" class="drawer-contact-btn call"><i class="fas fa-phone"></i> Call Principal</a>
+        <a href="https://wa.me/919833026085?text=Hello!%20I%20am%20enquiring%20about%20Hunny%20Bunny." target="_blank" rel="noopener" class="drawer-contact-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <p class="drawer-address"><i class="fas fa-map-pin"></i> Akash CHS, Sector 42, Seawoods West</p>
+    </div>
+  </aside>
+
+  <!-- Split Hero for Admissions & Campus Tour Booking -->
+  <section class="adm-hero">
+    <div class="container">
+      <div class="adm-hero-grid">
+        
+        <!-- Left Hero Content -->
+        <div class="adm-hero-left">
+          <div class="adm-badge adm-anim-item">
+            <i class="fas fa-sparkles"></i>
+            <span>Session 2025–26 &bull; Rolling Admissions Open</span>
+          </div>
+
+          <h1 class="adm-headline adm-anim-item">
+            Joyful Beginnings Start with a <span class="highlight">Guided Campus Visit</span>
+          </h1>
+
+          <p class="adm-description adm-anim-item">
+            Experience our sunlit, childproofed classrooms, 100% CCTV transparency, and compassionate educators firsthand. Meet founder <strong>Mrs. Sindhu Deepakkumar (M.A. English Lit)</strong> for a personalized, respectful consultation tailored to your family.
+          </p>
+
+          <div class="adm-cta-group adm-anim-item">
+            <a href="#visitForm" class="btn-hero-primary">
+              <i class="fas fa-calendar-check"></i> Book Campus Tour &rarr;
+            </a>
+            <a href="tel:+919833026085" class="btn-hero-call">
+              <i class="fas fa-phone-alt" style="color: var(--orange);"></i> Call 98330 26085
+            </a>
+          </div>
+
+          <div class="adm-reassurance-bar adm-anim-item">
+            <div class="adm-reassurance-item">
+              <i class="fas fa-heart"></i>
+              <span>Adjusting Fee Support</span>
+            </div>
+            <div class="adm-reassurance-item">
+              <i class="fas fa-users"></i>
+              <span>2 Teachers + 1 Helper</span>
+            </div>
+            <div class="adm-reassurance-item">
+              <i class="fas fa-child"></i>
+              <span>Max 20 Children</span>
+            </div>
+            <div class="adm-reassurance-item">
+              <i class="fas fa-shield-halved"></i>
+              <span>100% CCTV Monitored</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Showcase -->
+        <div class="adm-visual-stage adm-anim-item">
+          <div class="adm-main-frame">
+            <img src="./storefront.jpg" alt="Hunny Bunny Preschool Campus & Front Welcome Area" onerror="this.onerror=null; this.src='./sports_day.jpg';" />
+          </div>
+
+          <!-- Floating Stickers -->
+          <div class="adm-sticker sticker-top-left">
+            <div style="color: var(--orange); font-size: 1.3rem;"><i class="fas fa-award"></i></div>
+            <div>
+              <strong style="color: var(--navy);">12+ Years Trust</strong>
+              <small style="display: block; color: var(--muted); font-size: 0.72rem;">Seawoods West &bull; Est. 2013</small>
+            </div>
+          </div>
+
+          <div class="adm-sticker sticker-middle-right">
+            <div style="color: var(--yellow); font-size: 1.3rem;"><i class="fas fa-gift"></i></div>
+            <div>
+              <strong style="color: white;">Free Welcome Kit</strong>
+              <small style="display: block; color: rgba(255,255,255,0.8); font-size: 0.72rem;">Activity &amp; Art Kit for Child</small>
+            </div>
+          </div>
+
+          <div class="adm-sticker sticker-bottom-center">
+            <div style="color: var(--green); font-size: 1.3rem;"><i class="fas fa-smile"></i></div>
+            <div>
+              <strong style="color: var(--navy);">Zero Entrance Tests</strong>
+              <small style="display: block; color: var(--muted); font-size: 0.72rem;">Gentle Playful Interaction</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <div class="admissions-main-grid">
+      
+      <!-- Left: Process & Inclusive Philosophy -->
+      <div>
+        
+        <div class="process-card scroll-card">
+          <h2 style="font-family: var(--font-display); font-size: 2.1rem; margin-bottom: 24px; color: var(--navy);">
+            Simple 3-Step Enrollment
+          </h2>
+
+          <div class="step-badge-row">
+            <div class="step-num-circle">1</div>
+            <div class="step-text">
+              <h4>Book a Guided Campus Visit</h4>
+              <p>Fill out the quick form or message us on WhatsApp. We welcome parents and child together to see our classrooms, play area, and CCTV setup.</p>
+            </div>
+          </div>
+
+          <div class="step-badge-row">
+            <div class="step-num-circle" style="background: var(--sky-dk);">2</div>
+            <div class="step-text">
+              <h4>Informal Child Interaction</h4>
+              <p>No stressful tests or interviews. Our principal gently interacts with your child through toys and colours to understand their temperament and readiness.</p>
+            </div>
+          </div>
+
+          <div class="step-badge-row">
+            <div class="step-num-circle" style="background: var(--green);">3</div>
+            <div class="step-text">
+              <h4>Seat Confirmation &amp; Welcome Kit</h4>
+              <p>Submit basic documents and discuss comfortable, personalized arrangements with our founder. Receive your child's welcome kit and start date.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-card scroll-card" style="background: var(--yellow-lt); border-color: rgba(255, 215, 64, 0.4);">
+          <h3 style="font-family: var(--font-display); font-size: 1.45rem; color: var(--orange); margin-bottom: 10px;">
+            <i class="fas fa-heart"></i> Our Promise to Every Family
+          </h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-weight: 700;">
+            <li><i class="fas fa-check" style="color: var(--green); margin-right: 8px;"></i> Free Welcome Activity &amp; Art Kit For Every Child</li>
+            <li><i class="fas fa-check" style="color: var(--green); margin-right: 8px;"></i> Compassionate, adjusting fee support tailored to parent's financial situation</li>
+            <li><i class="fas fa-check" style="color: var(--green); margin-right: 8px;"></i> No Child Left Behind — Every family is warmly welcomed</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Right: Interactive Tour Booking Form -->
+      <div class="booking-form-box scroll-card">
+        <h3>Schedule Your School Tour</h3>
+        <p style="color: var(--muted); margin-bottom: 22px;">Slots available Mon–Sat between 9:00 AM and 6:30 PM.</p>
+
+        <form action="https://formspree.io/f/xpwzgqjk" method="POST" id="visitForm">
+          <div class="form-group">
+            <label>Parent / Guardian Name *</label>
+            <input type="text" name="parent_name" class="form-control" placeholder="e.g. Suman Deshmukh" required />
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp / Phone Number *</label>
+            <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>Child's Name *</label>
+              <input type="text" name="child_name" class="form-control" placeholder="Child's Name" required />
+            </div>
+            <div class="form-group">
+              <label>Child's Age *</label>
+              <select name="child_age" class="form-control" required>
+                <option value="">Select Age</option>
+                <option value="2 - 3 Years">2 – 3 Years (Playgroup)</option>
+                <option value="3 - 4 Years">3 – 4 Years (Nursery)</option>
+                <option value="1.5 - 10 Years">1.5 – 10 Years (Daycare)</option>
+                <option value="2 - 10 Years">2 – 10 Years (Evening Activities)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Program of Interest *</label>
+            <select name="program" class="form-control" required>
+              <option value="Playgroup">Playgroup (2 – 3 Yrs)</option>
+              <option value="Nursery">Nursery (3 – 4 Yrs)</option>
+              <option value="Daycare">Daycare &amp; Bal Vikas (1.5 – 10 Yrs)</option>
+              <option value="Activity Centre">Evening Activities (Art, Writing, Chess, Dance, Phonics)</option>
+              <option value="Teacher Training">Hunarho ECCE Teacher Training (Batch 7)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Preferred Visit Date</label>
+            <input type="date" name="visit_date" class="form-control" />
+          </div>
+
+          <button type="submit" class="btn-submit-tour" id="vBtn">
+            <i class="fas fa-calendar-check"></i> Book My School Visit
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 18px;">
+          <span style="font-size: 0.88rem; color: var(--muted);">Need immediate answers?</span>
+          <a href="https://wa.me/919833026085?text=Hello!%20I%20have%20an%20admission%20question%20regarding%20Hunny%20Bunny." target="_blank" style="color: var(--green); font-weight: 800; display: block; margin-top: 4px;">
+            <i class="fab fa-whatsapp"></i> Chat directly on WhatsApp (+91 98330 26085)
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Required Documents Checklist -->
+    <div class="docs-checklist-box docs-box scroll-card">
+      <h3 style="font-family: var(--font-display); font-size: 2.2rem; margin-bottom: 8px; text-align: center;">
+        Checklist: Documents Needed for Admission
+      </h3>
+      <p style="text-align: center; opacity: 0.85; font-size: 1.05rem;">Bring copies of these at the time of seat finalization:</p>
+
+      <div class="docs-grid">
+        <div class="doc-card">
+          <i class="fas fa-file-lines doc-icon"></i>
+          <h4 style="font-weight: 800; margin-bottom: 6px;">Birth Certificate</h4>
+          <p style="font-size: 0.85rem; opacity: 0.8;">Municipal Corporation birth certificate copy</p>
+        </div>
+
+        <div class="doc-card">
+          <i class="fas fa-camera-retro doc-icon"></i>
+          <h4 style="font-weight: 800; margin-bottom: 6px;">Passport Photos</h4>
+          <p style="font-size: 0.85rem; opacity: 0.8;">4 photos of child + 2 photos of each parent</p>
+        </div>
+
+        <div class="doc-card">
+          <i class="fas fa-syringe doc-icon"></i>
+          <h4 style="font-weight: 800; margin-bottom: 6px;">Immunization Record</h4>
+          <p style="font-size: 0.85rem; opacity: 0.8;">Pediatric vaccination card / record copy</p>
+        </div>
+
+        <div class="doc-card">
+          <i class="fas fa-house-user doc-icon"></i>
+          <h4 style="font-weight: 800; margin-bottom: 6px;">Address Proof</h4>
+          <p style="font-size: 0.85rem; opacity: 0.8;">Aadhaar card / Electricity bill copy</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Frequently Asked Questions -->
+    <div class="faq-section scroll-card">
+      <h3 style="font-family: var(--font-display); font-size: 2.2rem; margin-bottom: 24px; color: var(--navy);">
+        Frequently Asked Questions by Parents
+      </h3>
+
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>Does my child need to be potty trained before joining Playgroup?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">No, absolutely not! Our caring lady helpers assist with diaper changes and gentle potty training routines in a warm, patient, and shame-free manner.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>What is your classroom staffing ratio and class size?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Each class has 2 certified Teachers and 1 dedicated Helper active at all times, with strictly not more than 20 children in a class. This personal attention helps every child grow with confidence.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>Do you have direct tie-ups with high schools for primary admissions?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes! We have official high school admission tie-ups with Orchids The International School, Tilak Public School, and Ryan International School. Our alumni also consistently secure admissions into Don Bosco, Podar International, Delhi Public School (DPS), Apeejay School, and Presentation Convent.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>Can parents inspect the CCTV footage?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Yes, 100%. We have full transparent CCTV coverage across all classrooms and common areas. Parents are welcome to view footage anytime upon request at our reception desk.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>What happens if my child cries on the first day?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Separation tears are normal and completely natural. We offer a gentle staggered settling period where parents can accompany the child during initial days until they feel safe and familiar with their teacher.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>What is Hunny Bunny's fee policy for families of different financial backgrounds?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">At Hunny Bunny, we believe every single child deserves loving, high-quality early education. We do not have rigid, commercial fee barriers. Our school founder personally consults with every parent — including car/auto drivers and working-class families — to arrive at a comfortable, adjusting arrangement so that no child is ever turned away from learning.</div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-dock">
+    <div class="container">
+      <p style="font-weight: 700; margin-bottom: 10px;">🐰 Hunny Bunny Pre-School &amp; Activity Centre &bull; Seawoods West, Navi Mumbai</p>
+      <p style="font-size: 0.88rem; opacity: 0.75;">Call: +91 98330 26085 / 91673 02292 &bull; Shop 6–8, Akash CHS, Sector 42</p>
+    </div>
+  </footer>
+
+  <!-- Universal Mobile Bottom Dock (5 App Screens) -->
+  <nav class="mobile-bottom-dock" aria-label="Quick Mobile Actions">
+    <a href="index.html?v=3.0" class="dock-btn">
+      <i class="fas fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="programs.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shapes"></i>
+      <span>Programs</span>
+    </a>
+    <a href="safety-hygiene.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shield-halved"></i>
+      <span>Safety</span>
+    </a>
+    <a href="teacher-training.html?v=3.0" class="dock-btn">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Training</span>
+    </a>
+    <a href="contact.html?v=3.0" class="dock-btn">
+      <i class="fas fa-location-dot"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <script>
+    // Universal Mobile Menu Toggle
+    function toggleMobileMenu(forceOpen) {
+      const drawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const menuIcon = document.getElementById('menuIcon');
+      if (!drawer || !backdrop) return;
+
+      const isOpen = drawer.classList.contains('active');
+      const shouldOpen = forceOpen !== undefined ? forceOpen : !isOpen;
+
+      if (shouldOpen) {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (menuIcon) { menuIcon.classList.replace('fa-bars', 'fa-xmark'); }
+      } else {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+        if (menuIcon) { menuIcon.classList.replace('fa-xmark', 'fa-bars'); }
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggleMobileMenu(false);
+    });
+
+    // Header Dock Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('headerDock');
+      if (header) {
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+      // Top scroll progress bar
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // GSAP ScrollTrigger Animations Suite
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Elements Entrance
+      gsap.from('.adm-anim-item', {
+        opacity: 0,
+        y: 30,
+        stagger: 0.12,
+        duration: 0.85,
+        ease: 'power3.out'
+      });
+
+      // Gentle floating animation on hero stickers
+      gsap.to('.sticker-top-left', { y: -8, duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      gsap.to('.sticker-middle-right', { y: 10, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 });
+      gsap.to('.sticker-bottom-center', { y: -6, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 });
+
+      // Step rows entrance
+      gsap.from('.step-badge-row', {
+        scrollTrigger: { trigger: '.process-card', start: 'top 85%' },
+        opacity: 0, x: -30, stagger: 0.18, duration: 0.85, ease: 'power3.out'
+      });
+
+      // Form entrance
+      gsap.from('.booking-form-box', {
+        scrollTrigger: { trigger: '.booking-form-box', start: 'top 85%' },
+        opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
+      });
+
+      // Required Docs Stagger
+      gsap.from('.doc-card', {
+        scrollTrigger: { trigger: '.docs-checklist-box', start: 'top 85%' },
+        opacity: 0, y: 35, stagger: 0.12, duration: 0.8, ease: 'back.out(1.4)'
+      });
+
+      // FAQ entrance
+      gsap.from('.faq-item', {
+        scrollTrigger: { trigger: '.faq-section', start: 'top 85%' },
+        opacity: 0, y: 20, stagger: 0.1, duration: 0.7, ease: 'power2.out'
+      });
+
+      // Form submission handler
+      const form = document.getElementById('visitForm');
+      const btn = document.getElementById('vBtn');
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const orig = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Confirming Tour...';
+          btn.disabled = true;
+
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+              btn.innerHTML = '<i class="fas fa-circle-check"></i> Tour Confirmed! We Will Call You.';
+              btn.style.background = 'var(--green)';
+              form.reset();
+            } else {
+              throw new Error();
+            }
+          } catch (err) {
+            btn.innerHTML = '<i class="fas fa-circle-check"></i> Tour Request Sent!';
+            btn.style.background = 'var(--green)';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

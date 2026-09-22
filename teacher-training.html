@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECCE Teacher Training Academy (Batch 7) | Hunny Bunny &amp; Hunarho</title>
+  <meta name="description" content="Become a Government-Certified Educator with Hunny Bunny & Hunarho. 6-Month ECCE Certification program starting 29th September 2026 in Seawoods West, Navi Mumbai. Free AI, Canva, Excel & Phonics classes." />
+
+  <!-- Fonts: Baloo 2 + Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --orange: #FF6200;
+      --orange-dk: #D94F00;
+      --orange-lt: #FFF0E6;
+      --yellow: #FFD740;
+      --yellow-lt: #FFF9E6;
+      --sky: #4ECEE0;
+      --sky-lt: #E6F9FC;
+      --green: #2E7D32;
+      --green-lt: #E8F5E9;
+      --navy: #1A237E;
+      --navy-dk: #0F1654;
+      --cream: #FFFBF3;
+      --cream-dk: #F4EAD4;
+      --ink: #1C1C1C;
+      --muted: #616161;
+      --white: #FFFFFF;
+      --border: rgba(0, 0, 0, 0.08);
+
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 32px;
+      --radius-full: 9999px;
+
+      --font-display: 'Baloo 2', cursive, sans-serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+    }
+    a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+
+    .container {
+      width: min(95%, 1680px);
+      margin: 0 auto;
+    }
+    @media (min-width: 1440px) {
+      .container {
+        width: min(95%, 1720px);
+      }
+    }
+
+    /* Top Notice Announcement Bar */
+    .top-notice {
+      background: linear-gradient(90deg, var(--navy), #0F1654);
+      color: var(--white);
+      font-size: 0.86rem;
+      padding: 8px 16px;
+      text-align: center;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1000;
+    }
+    .top-notice .highlight-badge {
+      background: var(--yellow);
+      color: var(--ink);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .top-notice a { color: var(--yellow); text-decoration: underline; font-weight: 800; }
+
+    /* Clean Floating Header Dock */
+    .header-dock {
+      position: fixed;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(96%, 1680px);
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-full);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.4s ease;
+    }
+
+    .header-dock.scrolled {
+      top: 12px;
+      width: min(97%, 1680px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.98);
+      padding: 10px 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--ink);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brand-symbol {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 18px rgba(255, 98, 0, 0.28);
+    }
+    .brand-text small {
+      display: block;
+      font-size: 0.68rem;
+      font-family: var(--font-body);
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: -3px;
+    }
+
+    .nav-menu { display: flex; align-items: center; gap: 4px; list-style: none; flex-wrap: nowrap; }
+    .nav-item a {
+      font-size: 0.94rem;
+      font-weight: 800;
+      padding: 8px 15px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      color: var(--ink);
+      transition: all 0.25s ease;
+    }
+    .nav-item a:hover, .nav-item a.active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-pill-call {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1.5px solid rgba(0,0,0,0.08);
+    }
+    .btn-pill-call:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+    .btn-pill-orange {
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(255, 98, 0, 0.25);
+    }
+    .btn-pill-orange:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(255, 98, 0, 0.38);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--orange-lt);
+      color: var(--orange);
+      font-size: 1.15rem;
+      align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .menu-toggle:hover { background: var(--orange); color: white; }
+
+    /* Mobile Quick Action Buttons (1-Tap Call & WhatsApp in Header) */
+    .mobile-action-icon {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .mobile-action-icon.call {
+      background: var(--orange-lt);
+      color: var(--orange);
+    }
+    .mobile-action-icon.call:hover {
+      background: var(--orange);
+      color: white;
+    }
+    .mobile-action-icon.wa {
+      background: #E8F8EE;
+      color: #128C7E;
+    }
+    .mobile-action-icon.wa:hover {
+      background: #25D366;
+      color: white;
+    }
+
+    /* Mobile Slide-Over Navigation Drawer */
+    .drawer-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(15, 22, 84, 0.48);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100000;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-backdrop.active { opacity: 1; visibility: visible; }
+
+    .mobile-nav-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(88%, 380px);
+      background: #FFFFFF;
+      z-index: 100001;
+      box-shadow: -15px 0 45px rgba(0, 0, 0, 0.18);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      padding: 24px 20px;
+      overflow-y: auto;
+    }
+    .mobile-nav-drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 18px; border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+    .drawer-close {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--cream-dk, #F5ECD8); color: var(--ink, #1C1C1C);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; border: none; cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .drawer-close:hover { background: var(--orange); color: white; }
+
+    .drawer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .drawer-links li a {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 16px; border-radius: 14px;
+      font-size: 1.02rem; font-weight: 800; color: #1C1C1C;
+      transition: all 0.2s ease;
+    }
+    .drawer-links li a i { font-size: 1.15rem; width: 22px; text-align: center; color: var(--orange); }
+    .drawer-links li a:hover, .drawer-links li a.active {
+      background: var(--orange-lt, #FFF0E6); color: var(--orange-dk, #D94F00);
+    }
+
+    .drawer-footer {
+      margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .drawer-btn-tour {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white; padding: 14px; border-radius: 9999px;
+      font-weight: 800; font-size: 0.98rem; text-align: center;
+      box-shadow: 0 8px 20px rgba(255, 98, 0, 0.3); margin-bottom: 12px;
+    }
+    .drawer-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .drawer-contact-btn {
+      padding: 10px; border-radius: 12px; font-weight: 800; font-size: 0.82rem;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .drawer-contact-btn.call { background: var(--orange-lt); color: var(--orange-dk); }
+    .drawer-contact-btn.wa { background: #E8F8EE; color: #128C7E; }
+    .drawer-address { font-size: 0.76rem; color: #757575; text-align: center; margin-top: 6px; }
+
+    /* Split Hero for Teacher Training */
+    .tt-hero {
+      position: relative;
+      min-height: calc(100vh - 40px);
+      padding: 130px 0 55px;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at 15% 20%, rgba(255, 215, 64, 0.22) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 75%, rgba(78, 206, 224, 0.18) 0%, transparent 45%),
+                  var(--cream);
+    }
+    .tt-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+    .partner-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1.5px solid rgba(0,0,0,0.08);
+      padding: 8px 22px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--navy);
+    }
+    .partner-pill i { color: var(--orange); }
+    .partner-pill span { font-weight: 900; }
+
+    .batch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #D32F2F;
+      color: var(--white);
+      padding: 7px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(211, 47, 47, 0.25);
+    }
+
+    .tt-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+    .tt-headline .highlight { color: var(--orange); position: relative; }
+    .tt-headline .highlight::after {
+      content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px;
+      background: rgba(255, 215, 64, 0.45); z-index: -1; border-radius: 4px; transform: rotate(-1deg);
+    }
+
+    .tt-description {
+      font-size: 1.18rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 26px;
+      max-width: 680px;
+    }
+
+    .tt-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .btn-hero-primary {
+      padding: 16px 36px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: var(--white);
+      border-radius: var(--radius-full);
+      box-shadow: 0 12px 30px rgba(255, 98, 0, 0.28);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 40px rgba(255, 98, 0, 0.4); color: white; }
+    .btn-hero-call {
+      padding: 16px 30px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      background: var(--white);
+      color: var(--ink);
+      border: 2px solid rgba(0,0,0,0.1);
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-hero-call:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-3px); }
+
+    .tt-reassurance-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: var(--white);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .tt-reassurance-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 800; color: var(--ink); }
+    .tt-reassurance-item i { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* Visual Showcase Frame */
+    .tt-visual-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 10px 35px;
+    }
+    .tt-main-frame {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      height: 520px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.18);
+      border: 6px solid var(--white);
+      background: var(--white);
+    }
+    .tt-main-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .tt-main-frame:hover img { transform: scale(1.05); }
+
+    .tt-badge {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 5;
+      font-weight: 800;
+      font-size: 0.86rem;
+      border: 2px solid rgba(0,0,0,0.06);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .tt-badge.badge-top-left { top: -14px; left: -14px; }
+    .tt-badge.badge-middle-right {
+      top: 30px; right: -25px;
+      background: linear-gradient(135deg, var(--navy), #0F1654);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .tt-badge.badge-bottom-center {
+      bottom: -16px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 2px solid var(--orange-lt);
+      box-shadow: 0 14px 30px rgba(255, 98, 0, 0.15);
+      padding: 12px 24px;
+    }
+
+    /* 4 Free Skill-Based Courses (From Poster) */
+    .skills-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 70px 50px;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+      margin: 80px auto;
+      text-align: center;
+    }
+    .free-access-tag {
+      display: inline-block;
+      padding: 7px 22px;
+      background: #D32F2F;
+      color: var(--white);
+      border-radius: var(--radius-full);
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 45px;
+    }
+    .skill-card {
+      background: var(--cream);
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-md);
+      padding: 34px 24px;
+      transition: all 0.35s ease;
+      position: relative;
+      text-align: left;
+    }
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--orange);
+      background: var(--white);
+      box-shadow: 0 20px 45px rgba(255, 98, 0, 0.15);
+    }
+    .skill-badge-100 {
+      position: absolute;
+      top: -12px;
+      right: 14px;
+      background: var(--green);
+      color: white;
+      font-weight: 900;
+      font-size: 0.74rem;
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+    }
+    .skill-icon-box {
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+    .skill-icon-box.canva { background: #E0F2FE; color: #0284C7; }
+    .skill-icon-box.excel { background: #DCFCE7; color: #16A34A; }
+    .skill-icon-box.phonics { background: #FEF3C7; color: #D97706; }
+    .skill-icon-box.genai { background: #EDE9FE; color: #7C3AED; }
+
+    .skill-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .skill-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Mentorship & Leadership Spotlight (NEW) */
+    .leadership-strip {
+      background: linear-gradient(135deg, var(--navy) 0%, #0F1654 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 60px 50px;
+      margin: 80px auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      box-shadow: 0 20px 50px rgba(26, 35, 126, 0.22);
+    }
+    .leadership-content h3 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .leadership-content p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .mentor-cards-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .mentor-profile-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .mentor-avatar-circle {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .mentor-details strong { display: block; font-size: 1.1rem; color: var(--white); font-weight: 800; }
+    .mentor-details span { font-size: 0.84rem; color: var(--yellow); font-weight: 700; display: block; margin-bottom: 4px; }
+    .mentor-details small { font-size: 0.82rem; color: rgba(255,255,255,0.8); line-height: 1.4; display: block; }
+
+    /* Program Details & NEP 2020 Framework */
+    .details-split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+      margin: 80px auto;
+    }
+    .details-content h2 {
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .details-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .details-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--ink);
+    }
+    .details-checklist li i {
+      color: var(--green);
+      font-size: 1.3rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Enrollment Card */
+    .enroll-card {
+      background: linear-gradient(135deg, var(--navy) 0%, #0F1654 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 50px 40px;
+      box-shadow: 0 20px 50px rgba(26, 35, 126, 0.25);
+    }
+    .discount-banner {
+      background: var(--yellow);
+      color: var(--ink);
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 900;
+      font-size: 0.95rem;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .enroll-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+    }
+    .enroll-card p {
+      font-size: 0.98rem;
+      opacity: 0.9;
+      line-height: 1.65;
+      margin-bottom: 26px;
+    }
+    .btn-whatsapp-enroll {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 16px;
+      background: #25D366;
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    }
+    .btn-whatsapp-enroll:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer-dock {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    /* Mobile Floating Dock (Scan Reception QR App Bar) */
+    .mobile-bottom-dock {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.12);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      z-index: 99999;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .dock-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .dock-btn i { font-size: 1.2rem; }
+    .dock-btn.wa { color: #25D366; }
+    .dock-btn.call { color: var(--orange); }
+
+    @media (max-width: 980px) {
+      .highlight-strip, .skills-grid, .details-split { grid-template-columns: 1fr; }
+      .header-dock {
+        width: calc(100% - 24px) !important;
+        left: 12px !important;
+        right: 12px !important;
+        transform: none !important;
+        padding: 7px 12px !important;
+        top: 12px !important;
+        gap: 8px !important;
+      }
+      .brand-logo { font-size: 1.15rem; gap: 8px; }
+      .brand-symbol { width: 34px; height: 34px; font-size: 1rem; }
+      .brand-text small { display: none; }
+      .nav-menu, .btn-pill-call { display: none !important; }
+      .mobile-action-icon { display: inline-flex !important; }
+      .menu-toggle { display: flex !important; }
+      .btn-pill-orange { padding: 7px 12px !important; font-size: 0.8rem !important; }
+      .mobile-bottom-dock { display: flex !important; }
+      body { padding-bottom: 85px !important; }
+      .page-hero { padding-top: 125px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Notice Announcement Bar -->
+  <div class="top-notice">
+    <span class="highlight-badge">BATCH 7 ADMISSIONS OPEN</span>
+    <span>Govt. Certified ECCE Teacher Training &bull; Akash CHS, Seawoods West &bull; Call: +91 98330 26085</span>
+    <a href="https://wa.me/919833026085?text=Hello!%20I%20am%20interested%20in%20Hunarho%20Batch%207%20ECCE%20Teacher%20Training." target="_blank" rel="noopener">Enroll on WhatsApp &rarr;</a>
+  </div>
+
+  <!-- Clean Floating Header Dock -->
+  <header class="header-dock" id="headerDock">
+    <a href="index.html?v=3.0" class="brand-logo">
+      <div class="brand-symbol">🐰</div>
+      <div class="brand-text">
+        Hunny Bunny
+        <small>Seawoods &bull; Est. 2013</small>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html?v=3.0">Home</a></li>
+      <li class="nav-item"><a href="programs.html?v=3.0">Programs</a></li>
+      <li class="nav-item"><a href="safety-hygiene.html?v=3.0">Safety &amp; CCTV</a></li>
+      <li class="nav-item"><a href="teacher-training.html?v=3.0" class="active">Teacher Training</a></li>
+      <li class="nav-item"><a href="admissions.html?v=3.0">Admissions</a></li>
+      <li class="nav-item"><a href="contact.html?v=3.0">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="tel:+919833026085" class="btn-pill btn-pill-call" title="Call 98330 26085">
+        <i class="fas fa-phone-alt"></i> <span>98330 26085</span>
+      </a>
+      <a href="https://wa.me/919833026085?text=Hello!%20I%20am%20interested%20in%20Hunarho%20Batch%207%20ECCE%20Teacher%20Training." target="_blank" rel="noopener" class="btn-pill btn-pill-orange">
+        <i class="fab fa-whatsapp"></i> <span>Enroll Batch 7</span>
+      </a>
+      <a href="tel:+919833026085" class="mobile-action-icon call" title="Call Principal" aria-label="Call Hunny Bunny">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      <a href="https://wa.me/919833026085?text=Hello%20Hunny%20Bunny!%20I%20am%20interested%20in%20Hunarho%20Batch%207%20ECCE%20Teacher%20Training." target="_blank" rel="noopener" class="mobile-action-icon wa" title="WhatsApp Principal" aria-label="WhatsApp Hunny Bunny">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars" id="menuIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleMobileMenu(false)"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <a href="index.html?v=3.0" class="brand-logo" onclick="toggleMobileMenu(false)">
+        <div class="brand-symbol">🐰</div>
+        <div class="brand-text">
+          Hunny Bunny
+          <small>Seawoods &bull; Est. 2013</small>
+        </div>
+      </a>
+      <button class="drawer-close" aria-label="Close menu" onclick="toggleMobileMenu(false)">
+        <i class="fas fa-xmark"></i>
+      </button>
+    </div>
+
+    <ul class="drawer-links">
+      <li><a href="index.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="programs.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-shapes"></i> Programs &amp; Curriculum</a></li>
+      <li><a href="safety-hygiene.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-shield-halved"></i> Safety, CCTV &amp; Staffing</a></li>
+      <li><a href="teacher-training.html?v=3.0" class="active" onclick="toggleMobileMenu(false)"><i class="fas fa-graduation-cap"></i> Teacher Training (Batch 7)</a></li>
+      <li><a href="admissions.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-calendar-check"></i> Admissions &amp; Tour</a></li>
+      <li><a href="contact.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-location-dot"></i> Contact &amp; Location Map</a></li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="admissions.html?v=3.0" class="drawer-btn-tour" onclick="toggleMobileMenu(false)">
+        <i class="fas fa-calendar-alt"></i> Book Campus Tour &rarr;
+      </a>
+      <div class="drawer-contacts">
+        <a href="tel:+919833026085" class="drawer-contact-btn call"><i class="fas fa-phone"></i> Call Principal</a>
+        <a href="https://wa.me/919833026085?text=Hello!%20I%20am%20enquiring%20about%20Hunny%20Bunny." target="_blank" rel="noopener" class="drawer-contact-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <p class="drawer-address"><i class="fas fa-map-pin"></i> Akash CHS, Sector 42, Seawoods West</p>
+    </div>
+  </aside>
+
+  <!-- Split Hero for Teacher Training Academy -->
+  <section class="tt-hero">
+    <div class="container">
+      <div class="tt-hero-grid">
+        
+        <!-- Left Hero Content -->
+        <div class="tt-hero-left">
+          <div class="partner-pill tt-anim-item">
+            <i class="fas fa-handshake"></i>
+            <span>hunarho (दिशा नये कल की)</span>
+            <span style="opacity: 0.5;">&times;</span>
+            <span>🐰 Hunny Bunny Pre-School</span>
+          </div>
+
+          <div class="batch-badge tt-anim-item">
+            <i class="fas fa-fire"></i> BATCH 7 &bull; STARTS 29TH SEPT 2026 &bull; ADMISSIONS OPEN
+          </div>
+
+          <h1 class="tt-headline tt-anim-item">
+            Become a <span class="highlight">Government-Certified</span><br>Early Childhood Educator
+          </h1>
+
+          <p class="tt-description tt-anim-item">
+            6-Month Early Childhood Care &amp; Education (ECCE) Certification Program aligned with <strong>NEP 2020 &amp; NCF</strong>. Transform your passion for children into an accredited, rewarding teaching career with live preschool internship exposure and 4 free digital &amp; AI bonus courses.
+          </p>
+
+          <div class="tt-cta-group tt-anim-item">
+            <a href="https://wa.me/919833026085?text=Hello%20Hunny%20Bunny!%20Please%20send%20me%20full%20details%20and%20syllabus%20for%20ECCE%20Batch%207%20Teacher%20Training." target="_blank" rel="noopener" class="btn-hero-primary">
+              <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Inquire for Batch 7 &rarr;
+            </a>
+            <a href="tel:+919833026085" class="btn-hero-call">
+              <i class="fas fa-phone-alt" style="color: var(--orange);"></i> Call 98330 26085
+            </a>
+          </div>
+
+          <div class="tt-reassurance-bar tt-anim-item">
+            <div class="tt-reassurance-item">
+              <i class="fas fa-award"></i>
+              <span>Govt. Accredited</span>
+            </div>
+            <div class="tt-reassurance-item">
+              <i class="fas fa-calendar-check"></i>
+              <span>Flexible Hybrid Batches</span>
+            </div>
+            <div class="tt-reassurance-item">
+              <i class="fas fa-graduation-cap"></i>
+              <span>12th Pass Eligible</span>
+            </div>
+            <div class="tt-reassurance-item">
+              <i class="fas fa-briefcase"></i>
+              <span>100% Placement Help</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Showcase -->
+        <div class="tt-visual-stage tt-anim-item">
+          <div class="tt-main-frame">
+            <img src="photos/uniform_assembly_drill.jpg" alt="Hunny Bunny Teacher Training & Student Classroom Activities" onerror="this.onerror=null; this.src='./storefront.jpg';" />
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="tt-badge badge-top-left">
+            <div class="tt-badge-icon" style="color: var(--navy);"><i class="fas fa-award" style="font-size: 1.3rem; color: var(--orange);"></i></div>
+            <div class="tt-badge-text">
+              <strong style="color: var(--navy);">Govt. Recognized</strong>
+              <small style="display: block; color: var(--muted); font-size: 0.72rem;">Valid Nationwide</small>
+            </div>
+          </div>
+
+          <div class="tt-badge badge-middle-right">
+            <div class="tt-badge-icon"><i class="fas fa-sparkles" style="font-size: 1.3rem; color: var(--yellow);"></i></div>
+            <div class="tt-badge-text">
+              <strong style="color: white;">4 Free Courses</strong>
+              <small style="display: block; color: rgba(255,255,255,0.8); font-size: 0.72rem;">Canva, Phonics, Excel &amp; AI</small>
+            </div>
+          </div>
+
+          <div class="tt-badge badge-bottom-center">
+            <div class="tt-badge-icon"><i class="fas fa-chalkboard-user" style="font-size: 1.3rem; color: var(--green);"></i></div>
+            <div class="tt-badge-text">
+              <strong style="color: var(--navy);">Mentored by Founders</strong>
+              <small style="display: block; color: var(--muted); font-size: 0.72rem;">Mrs. Sindhu &amp; Mrs. Archana</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- 4 Value Highlights -->
+    <div class="highlight-strip">
+      <div class="strip-card">
+        <div class="strip-icon cert"><i class="fas fa-award"></i></div>
+        <h4>Government Certified</h4>
+        <p>Accredited certification valid across private and recognized schools nationwide.</p>
+      </div>
+      <div class="strip-card">
+        <div class="strip-icon mentor"><i class="fas fa-chalkboard-user"></i></div>
+        <h4>Expert Mentorship</h4>
+        <p>Hands-on coaching from veteran preschool directors and childhood psychologists.</p>
+      </div>
+      <div class="strip-card">
+        <div class="strip-icon flex"><i class="fas fa-clock"></i></div>
+        <h4>Flexible Learning</h4>
+        <p>Self-paced schedule perfect for college students, graduates, and homemakers.</p>
+      </div>
+      <div class="strip-card">
+        <div class="strip-icon career"><i class="fas fa-briefcase"></i></div>
+        <h4>Better Career Scope</h4>
+        <p>High placement demand across leading preschools and primary schools.</p>
+      </div>
+    </div>
+
+    <!-- 4 Free In-Demand Modern Skills (From Poster) -->
+    <section class="skills-section">
+      <span class="free-access-tag">EXCLUSIVE BONUS: 100% FREE FOR ALL LEARNERS</span>
+      <h2 style="font-family: var(--font-display); font-size: 2.3rem; font-weight: 800; margin-bottom: 12px; color: var(--navy);">
+        Get Free Access to 4 Powerful Skill-Based Courses
+      </h2>
+      <p style="color: var(--muted); max-width: 680px; margin: 0 auto; font-size: 1.05rem;">
+        Modern educators need modern digital capabilities. We equip you with in-demand creative, data, and AI tools at zero extra cost:
+      </p>
+
+      <div class="skills-grid">
+        
+        <div class="skill-card">
+          <span class="skill-badge-100">100% FREE</span>
+          <div class="skill-icon-box canva"><i class="fas fa-paintbrush"></i></div>
+          <h4>CANVA</h4>
+          <p>Design with Creativity: Make eye-catching flashcards, classroom worksheets, and event banners effortlessly.</p>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-badge-100">100% FREE</span>
+          <div class="skill-icon-box excel"><i class="fas fa-file-excel"></i></div>
+          <h4>AI EXCEL</h4>
+          <p>Work Smarter with Data: Track student milestones, attendance records, and learning assessments with ease.</p>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-badge-100">100% FREE</span>
+          <div class="skill-icon-box phonics"><i class="fas fa-spell-check"></i></div>
+          <h4>PHONICS</h4>
+          <p>Building Stronger Readers: Master Jolly Phonics sounds, blending techniques, and early pronunciation methods.</p>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-badge-100">100% FREE</span>
+          <div class="skill-icon-box genai"><i class="fas fa-brain"></i></div>
+          <h4>GEN AI</h4>
+          <p>Explore Future Intelligence: Use AI to craft tailored lesson plans, children's bedtime stories, and interactive rhymes in seconds.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Mentorship & Leadership Spotlight -->
+    <div class="leadership-strip">
+      <div class="leadership-content">
+        <span class="batch-badge" style="background: var(--yellow); color: var(--ink); margin-bottom: 14px;">DIRECT PERSONAL MENTORSHIP</span>
+        <h3>Learn from 12+ Years of Real Classroom Excellence</h3>
+        <p>
+          Unlike impersonal online video portals, Batch 7 candidates train directly under seasoned preschool directors with real-time feedback, empathetic coaching, and live classroom internship right at our Seawoods West facility.
+        </p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="https://wa.me/919833026085?text=Hello%20Mrs.%20Sindhu,%20I%20would%20like%20to%20know%20more%20about%20mentorship%20in%20ECCE%20Batch%207." target="_blank" rel="noopener" class="btn-hero-primary" style="background: var(--yellow); color: var(--ink); font-weight: 900;">
+            <i class="fab fa-whatsapp"></i> Speak with Mentors on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="mentor-cards-col">
+        <div class="mentor-profile-box">
+          <div class="mentor-avatar-circle">SD</div>
+          <div class="mentor-details">
+            <strong>Mrs. Sindhu Deepakkumar</strong>
+            <span>Founder &amp; Principal &bull; M.A. in English Literature</span>
+            <small>12+ years shaping early childhood pedagogy, phonics mastery, and joyful learning foundations in Seawoods.</small>
+          </div>
+        </div>
+
+        <div class="mentor-profile-box">
+          <div class="mentor-avatar-circle" style="background: var(--sky); color: white;">AS</div>
+          <div class="mentor-details">
+            <strong>Mrs. Archana Shambhu</strong>
+            <span>ECCE Academic Coordinator &bull; Senior Trainer</span>
+            <small>Specialist in NEP 2020 Play-Way curriculum, classroom management, child psychology, and joyful lesson delivery.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Split -->
+    <div class="details-split">
+      <div class="details-content">
+        <span class="batch-badge" style="background: var(--navy);">PROGRAM CURRICULUM</span>
+        <h2>Comprehensive Framework Aligned with NEP 2020 &amp; NCF</h2>
+        <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.75;">
+          Gain actionable, practical teaching strategies that make you confident from day one in any modern preschool or primary classroom:
+        </p>
+
+        <ul class="details-checklist">
+          <li><i class="fas fa-circle-check"></i> <strong>Government-Accredited Program:</strong> Recognized credential for teaching in India and abroad.</li>
+          <li><i class="fas fa-circle-check"></i> <strong>Foundational Literacy &amp; Numeracy (FLN):</strong> Techniques rooted in playful discovery.</li>
+          <li><i class="fas fa-circle-check"></i> <strong>Theory to Real-World Best Practices:</strong> Managing tantrums, separation anxiety, and sensory integration.</li>
+          <li><i class="fas fa-circle-check"></i> <strong>Montessori &amp; Play-Way Methodology:</strong> Hands-on tactile learning tools and classroom management.</li>
+          <li><i class="fas fa-circle-check"></i> <strong>Internship Exposure:</strong> Live classroom observation right here at Hunny Bunny Seawoods.</li>
+        </ul>
+      </div>
+
+      <div class="enroll-card">
+        <div class="discount-banner">
+          <i class="fas fa-tag"></i> GET 5% OFF ON ONE-TIME PAYMENT
+        </div>
+        <h3>Batch 7 Starts 29th Sept 2026</h3>
+        <p>
+          Seats are strictly limited to maintain personal 1-on-1 mentor guidance for every aspiring educator. Book your seat today!
+        </p>
+
+        <div style="background: rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 24px; font-size: 0.9rem;">
+          <div style="margin-bottom: 8px;">📍 <strong>Training Centre:</strong> Hunny Bunny Pre-School, Akash CHS, Sector 42, Seawoods West</div>
+          <div style="margin-bottom: 8px;">⏳ <strong>Duration:</strong> 6 Months (Flexible Hybrid Mode)</div>
+          <div style="margin-bottom: 8px;">🎓 <strong>Eligibility:</strong> Minimum 12th Pass (Open to all streams, freshers &amp; mothers)</div>
+          <div>👩‍🏫 <strong>Mentors:</strong> Guided by Mrs. Sindhu Deepakkumar (M.A. English Lit) &amp; Mrs. Archana Shambhu (Coordinator)</div>
+        </div>
+
+        <a href="https://wa.me/919833026085?text=Hi!%20I%20want%20to%20enroll%20in%20Hunarho%20ECCE%20Batch%207%20at%20Hunny%20Bunny." target="_blank" rel="noopener" class="btn-whatsapp-enroll">
+          <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
+          <span>Enroll in Batch 7 on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer-dock">
+    <div class="container">
+      <p style="font-weight: 700; margin-bottom: 8px;">🐰 Hunny Bunny Pre-School &bull; Teacher Training Centre &bull; Seawoods West</p>
+      <p style="font-size: 0.88rem; opacity: 0.75;">In proud academic partnership with Hunarho (दिशा नये कल की) &bull; Call: +91 98330 26085</p>
+    </div>
+  </footer>
+
+  <!-- Universal Mobile Bottom Dock (5 App Screens) -->
+  <nav class="mobile-bottom-dock" aria-label="Quick Mobile Actions">
+    <a href="index.html?v=3.0" class="dock-btn">
+      <i class="fas fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="programs.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shapes"></i>
+      <span>Programs</span>
+    </a>
+    <a href="safety-hygiene.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shield-halved"></i>
+      <span>Safety</span>
+    </a>
+    <a href="teacher-training.html?v=3.0" class="dock-btn active-btn">
+      <i class="fas fa-graduation-cap" style="color: var(--orange);"></i>
+      <span style="color: var(--orange);">Training</span>
+    </a>
+    <a href="contact.html?v=3.0" class="dock-btn">
+      <i class="fas fa-location-dot"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <script>
+    // Universal Mobile Menu Toggle
+    function toggleMobileMenu(forceOpen) {
+      const drawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const menuIcon = document.getElementById('menuIcon');
+      if (!drawer || !backdrop) return;
+
+      const isOpen = drawer.classList.contains('active');
+      const shouldOpen = forceOpen !== undefined ? forceOpen : !isOpen;
+
+      if (shouldOpen) {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (menuIcon) { menuIcon.classList.replace('fa-bars', 'fa-xmark'); }
+      } else {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+        if (menuIcon) { menuIcon.classList.replace('fa-xmark', 'fa-bars'); }
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggleMobileMenu(false);
+    });
+
+    // Header Dock Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('headerDock');
+      if (header) {
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+      // Top scroll progress bar
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // GSAP ScrollTrigger Animations Suite
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Elements Entrance
+      gsap.from('.tt-anim-item', {
+        opacity: 0,
+        y: 30,
+        stagger: 0.12,
+        duration: 0.85,
+        ease: 'power3.out'
+      });
+
+      // Gentle floating animation on hero badges
+      gsap.to('.badge-top-left', { y: -8, duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      gsap.to('.badge-middle-right', { y: 10, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 });
+      gsap.to('.badge-bottom-center', { y: -6, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 });
+
+      // Highlight Strip Stagger
+      gsap.from('.strip-card', {
+        scrollTrigger: { trigger: '.highlight-strip', start: 'top 85%' },
+        opacity: 0, y: 35, stagger: 0.12, duration: 0.8, ease: 'power3.out'
+      });
+
+      // 4 Skills Cards Stagger with Soft Pop
+      gsap.from('.skill-card', {
+        scrollTrigger: { trigger: '.skills-grid', start: 'top 85%' },
+        opacity: 0, y: 40, stagger: 0.12, duration: 0.8, ease: 'back.out(1.4)'
+      });
+
+      // Leadership Strip Entrance
+      gsap.from('.leadership-strip', {
+        scrollTrigger: { trigger: '.leadership-strip', start: 'top 80%' },
+        opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
+      });
+
+      // Details Content & Checklist
+      gsap.from('.details-content', {
+        scrollTrigger: { trigger: '.details-split', start: 'top 80%' },
+        opacity: 0, x: -35, duration: 0.9, ease: 'power3.out'
+      });
+
+      // Enrollment Card
+      gsap.from('.enroll-card', {
+        scrollTrigger: { trigger: '.details-split', start: 'top 80%' },
+        opacity: 0, x: 35, duration: 0.9, ease: 'power3.out'
+      });
+
+      // Floating Discount Badge Pulse
+      gsap.to('.discount-banner', {
+        scale: 1.05,
+        boxShadow: '0 8px 24px rgba(255, 215, 64, 0.45)',
+        repeat: -1,
+        yoyo: true,
+        duration: 1.2,
+        ease: 'power1.inOut'
+      });
+    });
+  </script>
+
+</body>
+</html>

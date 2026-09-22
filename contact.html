@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Contact Us &amp; Campus Visit | Hunny Bunny Pre-School &amp; Daycare Seawoods</title>
+  <meta name="description" content="Get in touch with Hunny Bunny Pre-School & Daycare, Sector 42, Seawoods West, Navi Mumbai. Schedule a personalized campus walkthrough, speak with our principal, or enquire about 365-day admissions." />
+  <meta name="keywords" content="contact hunny bunny seawoods, preschool address sector 42 seawoods west, hunny bunny phone number navi mumbai, daycare visit seawoods" />
+  <meta name="theme-color" content="#FF6200" />
+
+  <!-- Google Fonts: Baloo 2 + Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- GSAP for Smooth Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --orange: #FF6200;
+      --orange-dk: #D94F00;
+      --orange-lt: #FFF0E6;
+      --orange-glow: rgba(255, 98, 0, 0.28);
+      --yellow: #FFD740;
+      --yellow-lt: #FFFDE7;
+      --sky: #4ECEE0;
+      --sky-lt: #E6F9FC;
+      --green: #2E7D32;
+      --green-lt: #E8F5E9;
+      --navy: #1A237E;
+      --navy-dk: #0D1442;
+      --cream: #FFFBF3;
+      --cream-dk: #F5ECD8;
+      --ink: #1C1C1C;
+      --muted: #5A5A5A;
+      --border: rgba(0, 0, 0, 0.08);
+      --white: #FFFFFF;
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-full: 9999px;
+
+      --font-display: 'Baloo 2', cursive;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; background-color: var(--cream); color: var(--ink); }
+    body { font-family: var(--font-body); background-color: var(--cream); color: var(--ink); line-height: 1.65; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
+    button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+
+    .container {
+      width: min(95%, 1680px);
+      margin: 0 auto;
+    }
+    @media (min-width: 1440px) {
+      .container {
+        width: min(95%, 1720px);
+      }
+    }
+
+    /* Top Scroll Progress Bar */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 4px; width: 0%;
+      background: linear-gradient(90deg, var(--orange), var(--yellow), var(--sky), var(--green));
+      z-index: 100002;
+    }
+
+    /* Top Notice Announcement Bar */
+    .top-notice {
+      background: linear-gradient(90deg, var(--navy), #0F1654);
+      color: var(--white);
+      font-size: 0.86rem;
+      padding: 8px 16px;
+      text-align: center;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1000;
+    }
+    .top-notice .highlight-badge {
+      background: var(--yellow);
+      color: var(--ink);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .top-notice a { color: var(--yellow); text-decoration: underline; font-weight: 800; }
+
+    /* Clean Floating Header Dock */
+    .header-dock {
+      position: fixed;
+      top: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(96%, 1680px);
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-full);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.4s ease;
+    }
+
+    .header-dock.scrolled {
+      top: 12px;
+      width: min(97%, 1680px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.98);
+      padding: 10px 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--ink);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brand-symbol {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 18px var(--orange-glow);
+    }
+    .brand-text small {
+      display: block;
+      font-size: 0.68rem;
+      font-family: var(--font-body);
+      font-weight: 800;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: -3px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      flex-wrap: nowrap;
+    }
+    .nav-item a {
+      font-size: 0.94rem;
+      font-weight: 800;
+      padding: 8px 15px;
+      border-radius: var(--radius-full);
+      color: var(--ink);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .nav-item a:hover, .nav-item a.active {
+      color: var(--white);
+      background-color: var(--navy);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-pill-call {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1.5px solid rgba(0,0,0,0.08);
+    }
+    .btn-pill-call:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+    .btn-pill-orange {
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white;
+      box-shadow: 0 8px 24px var(--orange-glow);
+    }
+    .btn-pill-orange:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(255, 98, 0, 0.38);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--orange-lt);
+      color: var(--orange);
+      font-size: 1.15rem;
+      align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .menu-toggle:hover { background: var(--orange); color: white; }
+
+    /* Mobile Quick Action Buttons (1-Tap Call & WhatsApp in Header) */
+    .mobile-action-icon {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .mobile-action-icon.call {
+      background: var(--orange-lt);
+      color: var(--orange);
+    }
+    .mobile-action-icon.call:hover {
+      background: var(--orange);
+      color: white;
+    }
+    .mobile-action-icon.wa {
+      background: #E8F8EE;
+      color: #128C7E;
+    }
+    .mobile-action-icon.wa:hover {
+      background: #25D366;
+      color: white;
+    }
+
+    /* Split Hero for Contact */
+    .cnt-hero {
+      position: relative;
+      min-height: calc(100vh - 40px);
+      padding: 130px 0 55px;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at 15% 20%, rgba(255, 215, 64, 0.22) 0%, transparent 45%),
+                  radial-gradient(circle at 85% 75%, rgba(78, 206, 224, 0.18) 0%, transparent 45%),
+                  var(--cream);
+    }
+    .cnt-hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+    .cnt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--navy);
+      border: 1.5px solid rgba(0,0,0,0.08);
+      padding: 7px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+    .cnt-badge i { color: var(--orange); }
+
+    .cnt-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 4.2vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+    .cnt-headline .highlight { color: var(--orange); position: relative; }
+    .cnt-headline .highlight::after {
+      content: ''; position: absolute; bottom: 8px; left: 0; width: 100%; height: 12px;
+      background: rgba(255, 215, 64, 0.45); z-index: -1; border-radius: 4px; transform: rotate(-1deg);
+    }
+
+    .cnt-description {
+      font-size: 1.18rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 26px;
+      max-width: 680px;
+    }
+
+    .cnt-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .btn-hero-primary {
+      padding: 16px 36px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: var(--white);
+      border-radius: var(--radius-full);
+      box-shadow: 0 12px 30px rgba(255, 98, 0, 0.28);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 40px rgba(255, 98, 0, 0.4); color: white; }
+    .btn-hero-call {
+      padding: 16px 30px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      background: var(--white);
+      color: var(--ink);
+      border: 2px solid rgba(0,0,0,0.1);
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    .btn-hero-call:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-3px); }
+
+    .cnt-reassurance-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      background: var(--white);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+    .cnt-reassurance-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 800; color: var(--ink); }
+    .cnt-reassurance-item i { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* Visual Showcase Frame */
+    .cnt-visual-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 10px 35px;
+    }
+    .cnt-main-frame {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      height: 520px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.18);
+      border: 6px solid var(--white);
+      background: var(--white);
+    }
+    .cnt-main-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .cnt-main-frame:hover img { transform: scale(1.05); }
+
+    .cnt-sticker {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      padding: 11px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 5;
+      font-weight: 800;
+      font-size: 0.86rem;
+      border: 2px solid rgba(0,0,0,0.06);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .cnt-sticker.sticker-top-left { top: -14px; left: -14px; }
+    .cnt-sticker.sticker-middle-right {
+      top: 35px; right: -25px;
+      background: linear-gradient(135deg, var(--navy), #0F1654);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .cnt-sticker.sticker-bottom-center {
+      bottom: -16px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 2px solid var(--orange-lt);
+      box-shadow: 0 14px 30px rgba(255, 98, 0, 0.15);
+      padding: 12px 24px;
+    }
+
+    /* Mobile Slide-Over Navigation Drawer */
+    .drawer-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(15, 22, 84, 0.48);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100000;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-backdrop.active { opacity: 1; visibility: visible; }
+
+    .mobile-nav-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(88%, 380px);
+      background: #FFFFFF;
+      z-index: 100001;
+      box-shadow: -15px 0 45px rgba(0, 0, 0, 0.18);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      padding: 24px 20px;
+      overflow-y: auto;
+    }
+    .mobile-nav-drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 18px; border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+    .drawer-close {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--cream-dk, #F5ECD8); color: var(--ink, #1C1C1C);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; border: none; cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .drawer-close:hover { background: var(--orange); color: white; }
+
+    .drawer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .drawer-links li a {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 16px; border-radius: 14px;
+      font-size: 1.02rem; font-weight: 800; color: #1C1C1C;
+      transition: all 0.2s ease;
+    }
+    .drawer-links li a i { font-size: 1.15rem; width: 22px; text-align: center; color: var(--orange); }
+    .drawer-links li a:hover, .drawer-links li a.active {
+      background: var(--orange-lt, #FFF0E6); color: var(--orange-dk, #D94F00);
+    }
+
+    .drawer-footer {
+      margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .drawer-btn-tour {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white; padding: 14px; border-radius: 9999px;
+      font-weight: 800; font-size: 0.98rem; text-align: center;
+      box-shadow: 0 8px 20px rgba(255, 98, 0, 0.3); margin-bottom: 12px;
+    }
+    .drawer-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .drawer-contact-btn {
+      padding: 10px; border-radius: 12px; font-weight: 800; font-size: 0.82rem;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .drawer-contact-btn.call { background: var(--orange-lt); color: var(--orange-dk); }
+    .drawer-contact-btn.wa { background: #E8F8EE; color: #128C7E; }
+    .drawer-address { font-size: 0.76rem; color: #757575; text-align: center; margin-top: 6px; }
+
+    /* Page Hero */
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: 60px;
+      text-align: center;
+      background: radial-gradient(circle at top, var(--orange-lt) 0%, var(--cream) 70%);
+    }
+    .page-tag {
+      display: inline-block;
+      background: var(--white);
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .page-sub {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 30px;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.3fr;
+      gap: 36px;
+      margin-bottom: 60px;
+    }
+
+    .contact-info-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+
+    .info-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+    .info-icon.loc { background: var(--orange-lt); color: var(--orange); }
+    .info-icon.phone { background: var(--green-lt); color: var(--green); }
+    .info-icon.time { background: var(--sky-lt); color: var(--sky); }
+    .info-icon.train { background: var(--yellow-lt); color: #B78103; }
+
+    .info-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .info-content p {
+      font-size: 0.98rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .info-content small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    /* Direct Action Call Buttons */
+    .action-callouts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-action-card {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 800;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .btn-action-card.call {
+      background: var(--orange-lt);
+      color: var(--orange-dk);
+      border: 1px solid rgba(255, 98, 0, 0.2);
+    }
+    .btn-action-card.call:hover {
+      background: var(--orange);
+      color: white;
+      transform: translateY(-3px);
+    }
+    .btn-action-card.wa {
+      background: #E8F8EE;
+      color: #128C7E;
+      border: 1px solid rgba(37, 211, 102, 0.25);
+    }
+    .btn-action-card.wa:hover {
+      background: #25D366;
+      color: white;
+      transform: translateY(-3px);
+    }
+    .btn-action-card i {
+      font-size: 1.6rem;
+    }
+
+    /* Booking Form Card */
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    .form-header {
+      margin-bottom: 24px;
+    }
+    .form-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .form-header p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      background: var(--cream);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--ink);
+      transition: all 0.25s ease;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--orange);
+      background: white;
+      box-shadow: 0 0 0 4px var(--orange-glow);
+    }
+
+    .btn-submit-form {
+      width: 100%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: white;
+      padding: 16px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 24px var(--orange-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      transition: all 0.35s ease;
+    }
+    .btn-submit-form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px var(--orange-glow);
+    }
+
+    /* Founder Inclusive Philosophy Callout */
+    .inclusive-card {
+      background: linear-gradient(135deg, var(--navy), var(--navy-dk));
+      color: white;
+      border-radius: var(--radius-md);
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .inclusive-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .inclusive-text h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+      color: var(--yellow);
+    }
+    .inclusive-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    /* Interactive Map Section */
+    .map-section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      margin-bottom: 80px;
+    }
+    .map-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .map-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .map-container {
+      width: 100%;
+      height: 420px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid var(--border);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Footer */
+    .footer-dock {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 44px 0;
+    }
+    .footer-dock p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Mobile Bottom Dock */
+    .mobile-bottom-dock {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.12);
+      border-top: 1px solid var(--border);
+      padding: 10px 16px;
+      z-index: 99999;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .dock-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--ink);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .dock-btn i { font-size: 1.2rem; }
+    .dock-btn.wa { color: #25D366; }
+    .dock-btn.call { color: var(--orange); }
+    .dock-btn.active-btn { color: var(--orange); }
+
+
+    @media (max-width: 980px) {
+      .header-dock {
+        width: calc(100% - 24px) !important;
+        left: 12px !important;
+        right: 12px !important;
+        transform: none !important;
+        padding: 7px 12px !important;
+        top: 12px !important;
+        gap: 8px !important;
+      }
+      .brand-logo { font-size: 1.15rem; gap: 8px; }
+      .brand-symbol { width: 34px; height: 34px; font-size: 1rem; }
+      .brand-text small { display: none; }
+      .nav-menu, .btn-pill-call { display: none !important; }
+      .mobile-action-icon { display: inline-flex !important; }
+      .menu-toggle { display: flex !important; }
+      .btn-pill-orange { padding: 7px 14px !important; font-size: 0.8rem !important; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .contact-info-card, .contact-form-card, .map-section { padding: 26px; }
+      .mobile-bottom-dock { display: flex !important; }
+      body { padding-bottom: 85px !important; }
+      .page-hero { padding-top: 125px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Notice Announcement Bar -->
+  <div class="top-notice">
+    <span class="highlight-badge">VISIT OUR CAMPUS</span>
+    <span>Akash CHS, Sector 42, Seawoods West &bull; Call: +91 98330 26085 / 91673 02292</span>
+    <a href="admissions.html?v=3.0">Book Guided Tour &rarr;</a>
+  </div>
+
+  <!-- Clean Floating Header Dock -->
+  <header class="header-dock" id="headerDock">
+    <a href="index.html?v=3.0" class="brand-logo">
+      <div class="brand-symbol">🐰</div>
+      <div class="brand-text">
+        Hunny Bunny
+        <small>Seawoods &bull; Est. 2013</small>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html?v=3.0">Home</a></li>
+      <li class="nav-item"><a href="programs.html?v=3.0">Programs</a></li>
+      <li class="nav-item"><a href="safety-hygiene.html?v=3.0">Safety &amp; CCTV</a></li>
+      <li class="nav-item"><a href="teacher-training.html?v=3.0">Teacher Training</a></li>
+      <li class="nav-item"><a href="admissions.html?v=3.0">Admissions</a></li>
+      <li class="nav-item"><a href="contact.html?v=3.0" class="active">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="tel:+919833026085" class="btn-pill btn-pill-call" title="Call 98330 26085">
+        <i class="fas fa-phone-alt"></i> <span>98330 26085</span>
+      </a>
+      <a href="admissions.html?v=3.0" class="btn-pill btn-pill-orange">
+        <span>Book Tour</span> <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="tel:+919833026085" class="mobile-action-icon call" title="Call Principal" aria-label="Call Hunny Bunny">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      <a href="https://wa.me/919833026085?text=Hello%20Hunny%20Bunny!%20I%20am%20enquiring%20about%20visiting%20the%20campus." target="_blank" rel="noopener" class="mobile-action-icon wa" title="WhatsApp Principal" aria-label="WhatsApp Hunny Bunny">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars" id="menuIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleMobileMenu(false)"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <a href="index.html?v=3.0" class="brand-logo" onclick="toggleMobileMenu(false)">
+        <div class="brand-symbol">🐰</div>
+        <div class="brand-text">
+          Hunny Bunny
+          <small>Seawoods &bull; Est. 2013</small>
+        </div>
+      </a>
+      <button class="drawer-close" aria-label="Close menu" onclick="toggleMobileMenu(false)">
+        <i class="fas fa-xmark"></i>
+      </button>
+    </div>
+
+    <ul class="drawer-links">
+      <li><a href="index.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="programs.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-shapes"></i> Programs &amp; Curriculum</a></li>
+      <li><a href="safety-hygiene.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-shield-halved"></i> Safety, CCTV &amp; Staffing</a></li>
+      <li><a href="teacher-training.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-graduation-cap"></i> Teacher Training (Batch 7)</a></li>
+      <li><a href="admissions.html?v=3.0" onclick="toggleMobileMenu(false)"><i class="fas fa-calendar-check"></i> Admissions &amp; Tour</a></li>
+      <li><a href="contact.html?v=3.0" class="active" onclick="toggleMobileMenu(false)"><i class="fas fa-location-dot"></i> Contact &amp; Location Map</a></li>
+    </ul>
+
+    <div class="drawer-footer">
+      <a href="admissions.html?v=3.0" class="drawer-btn-tour" onclick="toggleMobileMenu(false)">
+        <i class="fas fa-calendar-alt"></i> Schedule Campus Visit &rarr;
+      </a>
+      <div class="drawer-contacts">
+        <a href="tel:+919833026085" class="drawer-contact-btn call"><i class="fas fa-phone"></i> Call Principal</a>
+        <a href="https://wa.me/919833026085?text=Hello!%20I%20am%20enquiring%20about%20Hunny%20Bunny." target="_blank" rel="noopener" class="drawer-contact-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <p class="drawer-address"><i class="fas fa-map-pin"></i> Akash CHS, Sector 42, Seawoods West</p>
+    </div>
+  </aside>
+
+  <!-- Split Hero for Contact & Campus Visit -->
+  <section class="cnt-hero">
+    <div class="container">
+      <div class="cnt-hero-grid">
+        
+        <!-- Left Hero Content -->
+        <div class="cnt-hero-left">
+          <div class="cnt-badge cnt-anim-item">
+            <i class="fas fa-location-dot"></i>
+            <span>Sector 42 &bull; Seawoods West &bull; Navi Mumbai</span>
+          </div>
+
+          <h1 class="cnt-headline cnt-anim-item">
+            Visit Us &amp; Discover Our <span class="highlight">Loving Learning Haven</span>
+          </h1>
+
+          <p class="cnt-description cnt-anim-item">
+            We are conveniently located in the peaceful Akash CHS residential neighborhood, just 5 minutes from Seawoods Grand Central Station. Stop by for an informal campus tour, child interaction, or coffee with founder <strong>Mrs. Sindhu Deepakkumar (M.A. English Lit)</strong>.
+          </p>
+
+          <div class="cnt-cta-group cnt-anim-item">
+            <a href="tel:+919833026085" class="btn-hero-primary">
+              <i class="fas fa-phone-alt"></i> Call +91 98330 26085
+            </a>
+            <a href="https://wa.me/919833026085?text=Hello%20Hunny%20Bunny!%20I%20would%20like%20to%20visit%20the%20campus." target="_blank" rel="noopener" class="btn-hero-call">
+              <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i> WhatsApp Us
+            </a>
+          </div>
+
+          <div class="cnt-reassurance-bar cnt-anim-item">
+            <div class="cnt-reassurance-item">
+              <i class="fas fa-train-subway"></i>
+              <span>5 Mins from Station</span>
+            </div>
+            <div class="cnt-reassurance-item">
+              <i class="fas fa-clock"></i>
+              <span>Mon–Sat: 8am–7pm</span>
+            </div>
+            <div class="cnt-reassurance-item">
+              <i class="fas fa-tree"></i>
+              <span>Quiet Residential Lane</span>
+            </div>
+            <div class="cnt-reassurance-item">
+              <i class="fas fa-phone"></i>
+              <span>Direct Founder Line</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Showcase -->
+        <div class="cnt-visual-stage cnt-anim-item">
+          <div class="cnt-main-frame">
+            <img src="./storefront.jpg" alt="Hunny Bunny Preschool Entrance & Exterior View" onerror="this.onerror=null; this.src='./sports_day.jpg';" />
+          </div>
+
+          <!-- Floating Stickers -->
+          <div class="cnt-sticker sticker-top-left">
+            <div style="color: var(--orange); font-size: 1.3rem;"><i class="fas fa-map-pin"></i></div>
+            <div>
+              <strong style="color: var(--navy);">Akash CHS, Sec 42</strong>
+              <small style="display: block; color: var(--muted); font-size: 0.72rem;">Shops 6, 7 &amp; 8</small>
+            </div>
+          </div>
+
+          <div class="cnt-sticker sticker-middle-right">
+            <div style="color: var(--yellow); font-size: 1.3rem;"><i class="fas fa-calendar-days"></i></div>
+            <div>
+              <strong style="color: white;">Open 6 Days</strong>
+              <small style="display: block; color: rgba(255,255,255,0.8); font-size: 0.72rem;">Morning &amp; Evening Batches</small>
+            </div>
+          </div>
+
+          <div class="cnt-sticker sticker-bottom-center">
+            <div style="color: var(--green); font-size: 1.3rem;"><i class="fas fa-mug-hot"></i></div>
+            <div>
+              <strong style="color: var(--navy);">Drop In Anytime</strong>
+              <small style="display: block; color: var(--muted); font-size: 0.72rem;">Warm Welcome for Parents &amp; Kids</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Contact Section -->
+  <main class="container">
+    <div class="contact-grid">
+      
+      <!-- Left Column: Campus Coordinates -->
+      <div class="contact-info-card">
+        
+        <div class="info-group">
+          <div class="info-icon loc"><i class="fas fa-location-dot"></i></div>
+          <div class="info-content">
+            <h4>Campus Address</h4>
+            <p><strong>Shop No 6, 7 &amp; 8, Akash CHS</strong><br />Plot No 8 &amp; 9, Sector 42, Seawoods (West),<br />Navi Mumbai, Maharashtra &ndash; 400706</p>
+            <small>Opposite Sector 42 residential lane &bull; Clean, peaceful neighborhood</small>
+          </div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-icon phone"><i class="fas fa-phone-volume"></i></div>
+          <div class="info-content">
+            <h4>Helpline &amp; WhatsApp</h4>
+            <p><a href="tel:+919833026085" style="color:var(--orange); font-weight:800;">+91 98330 26085</a> / <a href="tel:+919167302292" style="font-weight:700;">+91 91673 02292</a></p>
+            <small>Direct line to Founder &amp; Admissions Desk</small>
+          </div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-icon" style="background: rgba(255, 98, 0, 0.12); color: var(--orange);"><i class="fas fa-user-graduate"></i></div>
+          <div class="info-content">
+            <h4>Academic &amp; Admissions Leadership</h4>
+            <p><strong>Mrs. Sindhu Deepakkumar</strong> &bull; <span style="color:var(--orange-dk); font-weight:700;">Founder &amp; Principal</span> (M.A. in English Literature)</p>
+            <p style="margin-top:4px;"><strong>Mrs. Archana Shambhu</strong> &bull; <span style="color:var(--navy); font-weight:700;">School Coordinator</span></p>
+            <small>Personal consultation, child readiness guidance &amp; compassionate fee accommodations</small>
+          </div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-icon time"><i class="fas fa-clock"></i></div>
+          <div class="info-content">
+            <h4>School &amp; Daycare Timings</h4>
+            <p><strong>Mon &ndash; Sat:</strong> 8:00 AM &ndash; 7:00 PM</p>
+            <small><strong>Best Visiting Hours:</strong> 9:30 AM &ndash; 12:30 PM (Live Class) or 4:00 PM &ndash; 6:30 PM</small>
+          </div>
+        </div>
+
+        <div class="info-group">
+          <div class="info-icon train"><i class="fas fa-train-subway"></i></div>
+          <div class="info-content">
+            <h4>How to Reach (Landmarks)</h4>
+            <p><strong>Train:</strong> 5 mins from Seawoods-Darave Railway Station (West exit).</p>
+            <p><strong>Landmark:</strong> Near Seawoods Grand Central Mall / Sector 42 market.</p>
+          </div>
+        </div>
+
+        <!-- 1-Tap Action Callouts -->
+        <div class="action-callouts">
+          <a href="tel:+919833026085" class="btn-action-card call">
+            <i class="fas fa-phone"></i>
+            <span>Call Now</span>
+          </a>
+          <a href="https://wa.me/919833026085?text=Hello!%20I%20am%20enquiring%20about%20a%20campus%20visit%20at%20Hunny%20Bunny." target="_blank" rel="noopener" class="btn-action-card wa">
+            <i class="fab fa-whatsapp"></i>
+            <span>Chat on WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Founder's Inclusive Welcome -->
+        <div class="inclusive-card">
+          <div class="inclusive-icon"><i class="fas fa-heart"></i></div>
+          <div class="inclusive-text">
+            <h4>Open-Hearted Policy</h4>
+            <p>We believe every child deserves education. If you are concerned about fees, please speak to Mrs. Sindhu Deepakkumar freely — our founder adjusts to support every working family.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Visit Form -->
+      <div class="contact-form-card" id="visitForm">
+        <div class="form-header">
+          <h3>Schedule a Campus Walkthrough</h3>
+          <p>Fill in this quick form and our principal Mrs. Sindhu Deepakkumar will confirm your preferred visit slot within 2 hours.</p>
+        </div>
+
+        <form id="contactEnquiryForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="pName">Parent's Full Name *</label>
+              <input type="text" id="pName" placeholder="e.g. Priya Sharma" required />
+            </div>
+            <div class="form-group">
+              <label for="pPhone">Mobile Number (WhatsApp) *</label>
+              <input type="tel" id="pPhone" placeholder="e.g. 98200 XXXXX" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="cName">Child's Name</label>
+              <input type="text" id="cName" placeholder="e.g. Aarav" />
+            </div>
+            <div class="form-group">
+              <label for="cAge">Child's Age / DOB</label>
+              <input type="text" id="cAge" placeholder="e.g. 2 Years / June 2023" />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="pProgram">Program of Interest *</label>
+              <select id="pProgram" required>
+                <option value="" disabled selected>Select Program</option>
+                <option value="Playgroup (2 - 3 Yrs, Min 2 Yrs)">Playgroup (2 – 3 Yrs &bull; Youngest: 2 Yrs)</option>
+                <option value="Nursery (3 - 4 Yrs)">Nursery (3 – 4 Yrs)</option>
+                <option value="Junior KG (4 - 5 Yrs)">Junior KG (4 – 5 Yrs)</option>
+                <option value="Senior KG (5 - 6 Yrs)">Senior KG (5 – 6 Yrs)</option>
+                <option value="Daycare & Bal Vikas (1.5 - 10 Yrs)">Daycare &amp; Bal Vikas (1.5 – 10 Yrs)</option>
+                <option value="Hunarho ECCE Teacher Training (12th Pass)">Hunarho ECCE Teacher Training (Batch 7 &bull; Min 12th Pass)</option>
+                <option value="Evening Holistic Activity Centre">Evening Activity Centre (Art, Phonics, Chess, Dance)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="vDate">Preferred Visit Date</label>
+              <input type="date" id="vDate" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pMessage">Message or Questions for the Principal</label>
+            <textarea id="pMessage" rows="3" placeholder="Ask about daily routine, potty training support, high school tie-ups, or fee accommodations..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit-form" id="submitBtn">
+            <span>Confirm Visit Request</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <div id="formSuccess" style="display:none; margin-top:20px; padding:18px; border-radius:var(--radius-sm); background:var(--green-lt); color:var(--green); font-weight:700; text-align:center;">
+          <i class="fas fa-circle-check" style="font-size:1.4rem; margin-bottom:6px; display:block;"></i>
+          Thank you! Your campus visit request has been received. Our founder will call you shortly to welcome you.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Campus Photo Preview Card -->
+    <div style="background: var(--white); border-radius: var(--radius-lg); padding: 36px; border: 1px solid var(--border); box-shadow: 0 16px 36px rgba(0,0,0,0.05); margin-bottom: 40px;" class="scroll-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 22px;">
+        <div>
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px;">Walk-In Visitors Welcome</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.8rem; color: var(--ink);">What You Will See When You Visit Us</h3>
+        </div>
+        <a href="tel:+919833026085" class="btn-pill-orange" style="font-size: 0.88rem; padding: 10px 20px;">Call Before Visiting &rarr;</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="border-radius: var(--radius-md); overflow: hidden; height: 260px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); position: relative;">
+          <img src="storefront.jpg" alt="Hunny Bunny Preschool Storefront & Reception Entrance" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.75); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;">
+            <i class="fas fa-door-open"></i> Main Welcome Reception &amp; Security Gate
+          </div>
+        </div>
+        <div style="border-radius: var(--radius-md); overflow: hidden; height: 260px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); position: relative;">
+          <img src="photos/uniform_assembly_drill.jpg" alt="Hunny Bunny Activity Hall and Alphabet Learning Wall" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.75); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;">
+            <i class="fas fa-shapes"></i> Classroom Activity Hall &amp; Alphabet Wall
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Google Map Section -->
+    <section class="map-section">
+      <div class="map-header">
+        <div>
+          <h3>Locate Us on Google Maps</h3>
+          <p style="color:var(--muted); font-size:0.95rem;">Sector 42, Seawoods (West), Navi Mumbai &bull; Easy road access with ample parking</p>
+        </div>
+        <a href="https://maps.google.com/?q=Akash+CHS+Sector+42+Seawoods+Navi+Mumbai" target="_blank" rel="noopener" class="btn-pill-orange" style="font-size:0.85rem; padding:8px 18px;">
+          <i class="fas fa-diamond-turn-right"></i> Get Driving Directions
+        </a>
+      </div>
+      <div class="map-container">
+        <iframe 
+          title="Hunny Bunny Preschool Seawoods Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.865363718428!2d73.0156!3d19.0195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c3933c000001%3A0x6b4a5d8b8a6a2e4b!2sSector%2042%2C%20Seawoods%2C%20Navi%20Mumbai%2C%20Maharashtra%20400706!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-dock">
+    <div class="container">
+      <p style="font-weight: 800; margin-bottom: 8px;">🐰 Hunny Bunny Pre-School, Daycare &amp; Activity Centre</p>
+      <p style="opacity: 0.8; font-size: 0.9rem;">Shop No 6, 7 &amp; 8, Akash CHS, Plot No 8 &amp; 9, Sector 42, Seawoods West, Navi Mumbai &bull; Call: +91 98330 26085</p>
+    </div>
+  </footer>
+
+  <!-- Universal Mobile Bottom Dock (5 App Screens) -->
+  <nav class="mobile-bottom-dock" aria-label="Quick Mobile Actions">
+    <a href="index.html?v=3.0" class="dock-btn">
+      <i class="fas fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="programs.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shapes"></i>
+      <span>Programs</span>
+    </a>
+    <a href="safety-hygiene.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shield-halved"></i>
+      <span>Safety</span>
+    </a>
+    <a href="teacher-training.html?v=3.0" class="dock-btn">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Training</span>
+    </a>
+    <a href="contact.html?v=3.0" class="dock-btn active-btn">
+      <i class="fas fa-location-dot" style="color: var(--orange);"></i>
+      <span style="color: var(--orange);">Contact</span>
+    </a>
+  </nav>
+
+  <script>
+    // Universal Mobile Menu Toggle
+    function toggleMobileMenu(forceOpen) {
+      const drawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const menuIcon = document.getElementById('menuIcon');
+      if (!drawer || !backdrop) return;
+
+      const isOpen = drawer.classList.contains('active');
+      const shouldOpen = forceOpen !== undefined ? forceOpen : !isOpen;
+
+      if (shouldOpen) {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (menuIcon) { menuIcon.classList.replace('fa-bars', 'fa-xmark'); }
+      } else {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+        if (menuIcon) { menuIcon.classList.replace('fa-xmark', 'fa-bars'); }
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggleMobileMenu(false);
+    });
+
+    // Header Dock Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('headerDock');
+      if (header) {
+        if (window.scrollY > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+      // Top scroll progress bar
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // Form Submission
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        document.getElementById('contactEnquiryForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      }, 700);
+    }
+
+    // GSAP ScrollTrigger Animations Suite
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Elements Entrance
+      gsap.from('.cnt-anim-item', {
+        opacity: 0,
+        y: 30,
+        stagger: 0.12,
+        duration: 0.85,
+        ease: 'power3.out'
+      });
+
+      // Gentle floating animation on hero stickers
+      gsap.to('.sticker-top-left', { y: -8, duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      gsap.to('.sticker-middle-right', { y: 10, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 });
+      gsap.to('.sticker-bottom-center', { y: -6, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 });
+
+      // Contact Info items stagger
+      gsap.from('.info-group', {
+        scrollTrigger: { trigger: '.contact-info-card', start: 'top 85%' },
+        opacity: 0, x: -30, stagger: 0.15, duration: 0.8, ease: 'power3.out'
+      });
+
+      // Action callouts & inclusive card
+      gsap.from('.action-callouts, .inclusive-card', {
+        scrollTrigger: { trigger: '.action-callouts', start: 'top 85%' },
+        opacity: 0, y: 30, stagger: 0.2, duration: 0.85, ease: 'power3.out'
+      });
+
+      // Form Card Entrance
+      gsap.from('.contact-form-card', {
+        scrollTrigger: { trigger: '.contact-form-card', start: 'top 85%' },
+        opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
+      });
+
+      // Map Section Entrance
+      gsap.from('.map-section', {
+        scrollTrigger: { trigger: '.map-section', start: 'top 85%' },
+        opacity: 0, y: 30, duration: 0.9, ease: 'power3.out'
+      });
+    });
+  </script>
+</body>
+</html>
