@@ -391,7 +391,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 0.65rem;
+      font-size: clamp(0.58rem, 2.2vw, 0.65rem);
       font-weight: 800;
       line-height: 1.1;
     }
@@ -662,6 +662,7 @@
     }
 
     @media (max-width: 980px) {
+      .top-notice { display: none !important; }
       .header-dock {
         position: fixed !important;
         top: 0 !important;
@@ -681,7 +682,8 @@
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
-      .btn-pill-orange { padding: 7px 12px !important; font-size: 0.8rem !important; }
+      .btn-pill-orange { display: none !important; }
+      .page-hero { padding: 100px 0 35px !important; }
       .program-detail-card, .program-detail-card:nth-child(even) {
         grid-template-columns: 1fr;
         padding: 30px;

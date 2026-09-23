@@ -769,7 +769,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 0.65rem;
+      font-size: clamp(0.58rem, 2.2vw, 0.65rem);
       font-weight: 800;
       line-height: 1.1;
     }
@@ -780,6 +780,7 @@
     .dock-btn.active-btn, .dock-btn.active-btn span { color: var(--orange) !important; }
 
     @media (max-width: 980px) {
+      .top-notice { display: none !important; }
       .highlight-strip, .skills-grid, .details-split { grid-template-columns: 1fr; }
       .header-dock {
         position: fixed !important;
@@ -800,7 +801,7 @@
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
-      .btn-pill-orange { padding: 7px 12px !important; font-size: 0.8rem !important; }
+      .btn-pill-orange { display: none !important; }
       .mobile-bottom-dock { display: flex !important; }
       body { padding-bottom: 85px !important; }
       .tt-hero { padding-top: 100px; min-height: auto; text-align: center; }
@@ -1299,31 +1300,31 @@
 
       // Highlight Strip Stagger
       gsap.from('.strip-card', {
-        scrollTrigger: { trigger: '.highlight-strip', start: 'top 85%' },
+        scrollTrigger: { trigger: '.highlight-strip', start: 'top 85%', once: true },
         opacity: 0, y: 35, stagger: 0.12, duration: 0.8, ease: 'power3.out'
       });
 
       // 4 Skills Cards Stagger with Soft Pop
       gsap.from('.skill-card', {
-        scrollTrigger: { trigger: '.skills-grid', start: 'top 85%' },
+        scrollTrigger: { trigger: '.skills-grid', start: 'top 85%', once: true },
         opacity: 0, y: 40, stagger: 0.12, duration: 0.8, ease: 'back.out(1.4)'
       });
 
       // Leadership Strip Entrance
       gsap.from('.leadership-strip', {
-        scrollTrigger: { trigger: '.leadership-strip', start: 'top 80%' },
+        scrollTrigger: { trigger: '.leadership-strip', start: 'top 80%', once: true },
         opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
       });
 
       // Details Content & Checklist
       gsap.from('.details-content', {
-        scrollTrigger: { trigger: '.details-split', start: 'top 85%' },
+        scrollTrigger: { trigger: '.details-split', start: 'top 85%', once: true },
         opacity: 0, y: 30, duration: 0.8, ease: 'power2.out'
       });
 
       // Enrollment Card
       gsap.from('.enroll-card', {
-        scrollTrigger: { trigger: '.details-split', start: 'top 85%' },
+        scrollTrigger: { trigger: '.details-split', start: 'top 85%', once: true },
         opacity: 0, y: 30, duration: 0.8, ease: 'power2.out'
       });
 

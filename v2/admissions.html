@@ -767,7 +767,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 0.65rem;
+      font-size: clamp(0.58rem, 2.2vw, 0.65rem);
       font-weight: 800;
       line-height: 1.1;
     }
@@ -778,6 +778,7 @@
     .dock-btn.active-btn, .dock-btn.active-btn span { color: var(--orange) !important; }
 
     @media (max-width: 980px) {
+      .top-notice { display: none !important; }
       .admissions-main-grid, .docs-grid { grid-template-columns: 1fr; }
       .booking-form-box { position: static; }
       .header-dock {
@@ -799,7 +800,7 @@
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
-      .btn-pill-orange { padding: 7px 14px !important; font-size: 0.8rem !important; }
+      .btn-pill-orange { display: none !important; }
       .mobile-bottom-dock { display: flex !important; }
       body { padding-bottom: 85px !important; }
       .adm-hero { padding-top: 100px; min-height: auto; text-align: center; }
@@ -1356,25 +1357,25 @@
 
       // Step rows entrance
       gsap.from('.step-badge-row', {
-        scrollTrigger: { trigger: '.process-card', start: 'top 85%' },
+        scrollTrigger: { trigger: '.process-card', start: 'top 85%', once: true },
         opacity: 0, y: 25, stagger: 0.15, duration: 0.8, ease: 'power2.out'
       });
 
       // Form entrance
       gsap.from('.booking-form-box', {
-        scrollTrigger: { trigger: '.booking-form-box', start: 'top 85%' },
+        scrollTrigger: { trigger: '.booking-form-box', start: 'top 85%', once: true },
         opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
       });
 
       // Required Docs Stagger
       gsap.from('.doc-card', {
-        scrollTrigger: { trigger: '.docs-checklist-box', start: 'top 85%' },
+        scrollTrigger: { trigger: '.docs-checklist-box', start: 'top 85%', once: true },
         opacity: 0, y: 35, stagger: 0.12, duration: 0.8, ease: 'back.out(1.4)'
       });
 
       // FAQ entrance
       gsap.from('.faq-item', {
-        scrollTrigger: { trigger: '.faq-section', start: 'top 85%' },
+        scrollTrigger: { trigger: '.faq-section', start: 'top 85%', once: true },
         opacity: 0, y: 20, stagger: 0.1, duration: 0.7, ease: 'power2.out'
       });
 

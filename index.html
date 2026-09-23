@@ -1017,7 +1017,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 0.65rem;
+      font-size: clamp(0.58rem, 2.2vw, 0.65rem);
       font-weight: 800;
       line-height: 1.1;
     }
@@ -1033,13 +1033,8 @@
       .btn-pill { padding: 8px 14px; font-size: 0.82rem; }
     }
 
-    /* Responsive Breakpoints */
-    @media (max-width: 1140px) {
-      .nav-item a { padding: 6px 9px; font-size: 0.82rem; }
-      .btn-pill { padding: 8px 14px; font-size: 0.82rem; }
-    }
-
     @media (max-width: 980px) {
+      .top-notice { display: none !important; }
       .header-dock {
         position: fixed !important;
         top: 0 !important;
@@ -1059,7 +1054,7 @@
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
-      .btn-pill-orange { padding: 7px 12px !important; font-size: 0.8rem !important; }
+      .btn-pill-orange { display: none !important; }
       .hero-v2 { padding-top: 100px; text-align: center; }
       .hero-grid, .safety-split-showcase, .admissions-grid-v2, .program-showcase-grid, .tieup-showcase-box, .teacher-training-grid { grid-template-columns: 1fr; }
       .hero-cta-group { justify-content: center; }

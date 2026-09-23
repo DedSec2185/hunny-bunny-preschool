@@ -832,7 +832,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 0.65rem;
+      font-size: clamp(0.58rem, 2.2vw, 0.65rem);
       font-weight: 800;
       line-height: 1.1;
     }
@@ -843,6 +843,7 @@
     .dock-btn.active-btn, .dock-btn.active-btn span { color: var(--orange) !important; }
 
     @media (max-width: 980px) {
+      .top-notice { display: none !important; }
       .header-dock {
         position: fixed !important;
         top: 0 !important;
@@ -862,7 +863,7 @@
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
-      .btn-pill-orange { padding: 7px 14px !important; font-size: 0.8rem !important; }
+      .btn-pill-orange { display: none !important; }
       .contact-grid { grid-template-columns: 1fr; }
       .form-row-2 { grid-template-columns: 1fr; }
       .contact-info-card, .contact-form-card, .map-section { padding: 26px; }
@@ -1415,25 +1416,25 @@
 
       // Contact Info items stagger
       gsap.from('.info-group', {
-        scrollTrigger: { trigger: '.contact-info-card', start: 'top 85%' },
+        scrollTrigger: { trigger: '.contact-info-card', start: 'top 85%', once: true },
         opacity: 0, y: 25, stagger: 0.15, duration: 0.8, ease: 'power2.out'
       });
 
       // Action callouts & inclusive card
       gsap.from('.action-callouts, .inclusive-card', {
-        scrollTrigger: { trigger: '.action-callouts', start: 'top 85%' },
+        scrollTrigger: { trigger: '.action-callouts', start: 'top 85%', once: true },
         opacity: 0, y: 30, stagger: 0.2, duration: 0.85, ease: 'power3.out'
       });
 
       // Form Card Entrance
       gsap.from('.contact-form-card', {
-        scrollTrigger: { trigger: '.contact-form-card', start: 'top 85%' },
+        scrollTrigger: { trigger: '.contact-form-card', start: 'top 85%', once: true },
         opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
       });
 
       // Map Section Entrance
       gsap.from('.map-section', {
-        scrollTrigger: { trigger: '.map-section', start: 'top 85%' },
+        scrollTrigger: { trigger: '.map-section', start: 'top 85%', once: true },
         opacity: 0, y: 30, duration: 0.9, ease: 'power3.out'
       });
     });
