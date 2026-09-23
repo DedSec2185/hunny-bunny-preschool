@@ -781,13 +781,17 @@
       .admissions-main-grid, .docs-grid { grid-template-columns: 1fr; }
       .booking-form-box { position: static; }
       .header-dock {
-        width: calc(100% - 24px) !important;
-        left: 12px !important;
-        right: 12px !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        border-radius: 0 0 16px 16px !important;
         transform: none !important;
         padding: 8px 14px !important;
-        top: 10px !important;
         gap: 8px !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        z-index: 9999 !important;
       }
       .brand-logo { font-size: 1.15rem; gap: 8px; }
       .brand-symbol { width: 34px; height: 34px; font-size: 1rem; }
@@ -798,33 +802,82 @@
       .btn-pill-orange { padding: 7px 14px !important; font-size: 0.8rem !important; }
       .mobile-bottom-dock { display: flex !important; }
       body { padding-bottom: 85px !important; }
-      .page-hero { padding-top: 125px; }
+      .adm-hero { padding-top: 100px; min-height: auto; text-align: center; }
+      .adm-hero-grid { grid-template-columns: 1fr; }
+      .adm-sticker { display: none; }
     }
 
     @media (max-width: 768px) {
       .top-notice { display: none !important; }
-      .header-dock {
-        position: sticky !important;
+      .header-dock, .header-dock.scrolled {
+        position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
         border-radius: 0 0 16px 16px !important;
         margin: 0 !important;
-        padding: 10px 16px !important;
+        padding: 10px 14px !important;
         box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
         transform: none !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        z-index: 9999 !important;
       }
       .btn-pill-orange { display: none !important; }
-      .page-hero { padding: 40px 0 24px !important; }
-      .page-title { font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important; line-height: 1.22 !important; }
-      .page-sub { font-size: 0.95rem !important; margin-bottom: 18px !important; }
+      
+      .adm-hero { min-height: auto !important; padding: 76px 0 20px !important; text-align: center !important; }
+      .adm-hero-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .adm-badge { font-size: 0.76rem !important; padding: 6px 14px !important; margin-bottom: 12px !important; }
+      .adm-headline { font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important; line-height: 1.2 !important; margin-bottom: 12px !important; }
+      .adm-description { font-size: 0.94rem !important; line-height: 1.55 !important; margin: 0 auto 18px !important; }
 
-      .process-card { padding: 22px 16px !important; }
-      .booking-form-box { padding: 22px 16px !important; }
       .adm-sticker { display: none !important; }
-      .adm-main-frame { max-width: 100% !important; height: 300px !important; }
-      .faq-section { padding: 24px 16px !important; }
+      .adm-visual-stage { padding: 10px 0 !important; width: 100% !important; }
+      .adm-main-frame { max-width: 100% !important; height: 260px !important; border-radius: 20px !important; }
+
+      .adm-cta-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        width: 100% !important;
+        margin-bottom: 16px !important;
+      }
+      .adm-cta-group a, .btn-hero-primary, .btn-hero-call {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 13px 20px !important;
+        font-size: 0.95rem !important;
+        border-radius: 9999px !important;
+        box-sizing: border-box !important;
+      }
+
+      .adm-reassurance-bar {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        padding: 12px 14px !important;
+        max-width: 100% !important;
+        margin: 0 auto 16px !important;
+        text-align: center !important;
+      }
+
+      .process-card { padding: 20px 16px !important; margin-bottom: 20px !important; }
+      .step-badge-row { gap: 12px !important; margin-bottom: 16px !important; }
+      .step-num-circle { width: 36px !important; height: 36px !important; font-size: 1rem !important; }
+
+      .booking-form-box { padding: 20px 16px !important; }
+      .form-group { margin-bottom: 14px !important; }
+      .form-group label { font-size: 0.82rem !important; }
+      .form-control { padding: 12px 14px !important; font-size: 0.92rem !important; }
+      .form-row-mobile { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+      .docs-checklist-box { padding: 22px 16px !important; margin-bottom: 30px !important; }
+      .docs-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+      .doc-card { padding: 16px 12px !important; }
+
+      .faq-section { padding: 20px 16px !important; margin-bottom: 30px !important; }
       .faq-question { font-size: 1.05rem !important; }
     }
   </style>
@@ -1067,7 +1120,7 @@
             <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required />
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="form-row-mobile" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <div class="form-group">
               <label>Child's Name *</label>
               <input type="text" name="child_name" class="form-control" placeholder="Child's Name" required />
@@ -1223,9 +1276,9 @@
       <i class="fas fa-shapes"></i>
       <span>Programs</span>
     </a>
-    <a href="safety-hygiene.html?v=3.0" class="dock-btn">
-      <i class="fas fa-shield-halved"></i>
-      <span>Safety</span>
+    <a href="admissions.html?v=3.0" class="dock-btn active-btn">
+      <i class="fas fa-calendar-check" style="color: var(--orange);"></i>
+      <span style="color: var(--orange);">Admissions</span>
     </a>
     <a href="teacher-training.html?v=3.0" class="dock-btn">
       <i class="fas fa-graduation-cap"></i>
@@ -1304,7 +1357,7 @@
       // Step rows entrance
       gsap.from('.step-badge-row', {
         scrollTrigger: { trigger: '.process-card', start: 'top 85%' },
-        opacity: 0, x: -30, stagger: 0.18, duration: 0.85, ease: 'power3.out'
+        opacity: 0, y: 25, stagger: 0.15, duration: 0.8, ease: 'power2.out'
       });
 
       // Form entrance

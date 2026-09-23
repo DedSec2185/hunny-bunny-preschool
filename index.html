@@ -1033,15 +1033,25 @@
       .btn-pill { padding: 8px 14px; font-size: 0.82rem; }
     }
 
+    /* Responsive Breakpoints */
+    @media (max-width: 1140px) {
+      .nav-item a { padding: 6px 9px; font-size: 0.82rem; }
+      .btn-pill { padding: 8px 14px; font-size: 0.82rem; }
+    }
+
     @media (max-width: 980px) {
       .header-dock {
-        width: calc(100% - 24px) !important;
-        left: 12px !important;
-        right: 12px !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        border-radius: 0 0 16px 16px !important;
         transform: none !important;
         padding: 8px 14px !important;
-        top: 10px !important;
         gap: 8px !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        z-index: 9999 !important;
       }
       .brand-logo { font-size: 1.15rem; gap: 8px; }
       .brand-symbol { width: 34px; height: 34px; font-size: 1rem; }
@@ -1050,7 +1060,7 @@
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
       .btn-pill-orange { padding: 7px 12px !important; font-size: 0.8rem !important; }
-      .hero-v2 { padding-top: 125px; text-align: center; }
+      .hero-v2 { padding-top: 100px; text-align: center; }
       .hero-grid, .safety-split-showcase, .admissions-grid-v2, .program-showcase-grid, .tieup-showcase-box, .teacher-training-grid { grid-template-columns: 1fr; }
       .hero-cta-group { justify-content: center; }
       .hero-description { margin: 0 auto 26px; }
@@ -1061,33 +1071,73 @@
       .hero-main-frame { max-width: 440px; height: 460px; }
       .floating-sticker { display: none; }
       .mobile-bottom-dock { display: flex !important; }
-      .whatsapp-bubble-float { display: none; } /* On mobile, the bottom dock has WhatsApp */
+      .whatsapp-bubble-float { display: none; }
       body { padding-bottom: 85px !important; }
     }
 
     @media (max-width: 768px) {
       .top-notice { display: none !important; }
-      .header-dock {
-        position: sticky !important;
+      .header-dock, .header-dock.scrolled {
+        position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
         border-radius: 0 0 16px 16px !important;
         margin: 0 !important;
-        padding: 10px 16px !important;
+        padding: 10px 14px !important;
         box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
         transform: none !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        z-index: 9999 !important;
       }
       .btn-pill-orange { display: none !important; }
-      .hero-v2 { padding-top: 24px !important; padding-bottom: 36px !important; }
-      .hero-badge-pill { font-size: 0.78rem !important; padding: 6px 14px !important; }
-      .hero-headline { font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important; line-height: 1.22 !important; }
-      .hero-description { font-size: 0.95rem !important; line-height: 1.6 !important; margin-bottom: 20px !important; }
+      .hero-v2 { padding-top: 76px !important; padding-bottom: 28px !important; min-height: auto !important; }
+      .hero-lead-badge { font-size: 0.78rem !important; padding: 6px 14px !important; margin-bottom: 14px !important; }
+      .hero-headline { font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important; line-height: 1.2 !important; margin-bottom: 12px !important; }
+      .hero-description { font-size: 0.94rem !important; line-height: 1.55 !important; margin: 0 auto 18px !important; }
+      .section-v2 { padding: 42px 0 !important; }
+      .section-header-center { margin-bottom: 22px !important; }
       .section-title { font-size: clamp(1.5rem, 5.5vw, 1.85rem) !important; line-height: 1.25 !important; }
-      .hero-cta-group { flex-direction: column !important; align-items: stretch !important; gap: 10px !important; }
-      .hero-cta-group .btn-pill { justify-content: center !important; width: 100% !important; text-align: center !important; }
-      .parent-reassurance-bar { display: flex !important; flex-direction: column !important; gap: 8px !important; padding: 12px 16px !important; }
+      .section-sub { font-size: 0.92rem !important; line-height: 1.55 !important; }
+
+      .hero-cta-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+        width: 100% !important;
+        margin-bottom: 18px !important;
+      }
+      .hero-cta-group a, .btn-hero-primary, .btn-hero-whatsapp {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 13px 20px !important;
+        font-size: 0.95rem !important;
+        border-radius: 9999px !important;
+        box-sizing: border-box !important;
+      }
+
+      .parent-reassurance-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 12px 14px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto 16px !important;
+      }
+
+      .hero-visual-stage { padding: 10px 0 !important; width: 100% !important; }
+      .hero-main-frame { max-width: 100% !important; height: 260px !important; border-radius: 20px !important; border-width: 4px !important; }
+      .floating-sticker { display: none !important; }
+
+      .stats-strip-v2 { padding: 24px 0 !important; }
+      .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+      .stat-value { font-size: 2.2rem !important; }
+      .stat-label { font-size: 0.8rem !important; }
+      .stat-box::after { display: none !important; }
 
       .age-finder-dock {
         justify-content: flex-start !important;
@@ -1097,7 +1147,7 @@
         padding: 6px 4px !important;
         gap: 8px !important;
         scrollbar-width: none;
-        margin-bottom: 24px !important;
+        margin-bottom: 20px !important;
       }
       .age-finder-dock::-webkit-scrollbar { display: none; }
       .age-tab {
@@ -1107,19 +1157,19 @@
         white-space: nowrap !important;
       }
 
-      .program-showcase-grid { padding: 22px 16px !important; }
+      .program-showcase-grid { padding: 20px 16px !important; gap: 20px !important; min-height: auto !important; }
       .program-info-pane h3 { font-size: 1.55rem !important; }
       .program-curriculum-list {
         display: flex !important;
         flex-direction: column !important;
-        gap: 10px !important;
-        margin-bottom: 20px !important;
+        gap: 8px !important;
+        margin-bottom: 16px !important;
       }
       .program-curriculum-list li {
         display: flex !important;
         align-items: flex-start !important;
         gap: 10px !important;
-        font-size: 0.92rem !important;
+        font-size: 0.9rem !important;
         line-height: 1.4 !important;
       }
       .program-curriculum-list li i {
@@ -1130,21 +1180,52 @@
       .program-support-bar {
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: 14px !important;
+        gap: 12px !important;
       }
       .program-support-bar > div:last-child {
         margin-left: 0 !important;
         width: 100% !important;
         display: flex !important;
+        flex-direction: column !important;
         gap: 8px !important;
       }
       .program-support-bar > div:last-child a {
-        flex: 1 !important;
+        width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
-        padding: 10px 8px !important;
-        font-size: 0.84rem !important;
+        padding: 11px 12px !important;
+        font-size: 0.88rem !important;
       }
+      .program-visual-pane { height: 220px !important; width: 100% !important; }
+
+      .bento-grid-v2 { grid-template-columns: 1fr !important; gap: 14px !important; }
+      .bento-span-2 { grid-column: auto !important; }
+      .bento-card { padding: 20px 16px !important; }
+      .bento-card-title { font-size: 1.25rem !important; }
+
+      .teacher-training-section { padding: 22px 16px !important; margin-bottom: 30px !important; }
+      .teacher-training-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .tt-skills-row { grid-template-columns: 1fr 1fr !important; gap: 10px !important; margin: 16px 0 !important; }
+      .teacher-training-section .btn-pill { width: 100% !important; justify-content: center !important; text-align: center !important; }
+
+      .safety-split-showcase { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .safety-console-mockup { padding: 16px 12px !important; }
+      .camera-grid-preview { grid-template-columns: 1fr !important; gap: 8px !important; }
+      .cam-feed { height: 160px !important; }
+      .safety-feature-row { padding: 10px 12px !important; gap: 10px !important; }
+
+      .hygiene-timeline-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+      .hygiene-card { padding: 18px 14px !important; }
+
+      .tieup-showcase-box { padding: 22px 16px !important; grid-template-columns: 1fr !important; gap: 18px !important; margin-bottom: 30px !important; }
+      .tieup-badges-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+      .reviews-grid-v2 { grid-template-columns: 1fr !important; gap: 14px !important; }
+      .review-card-v2 { padding: 20px 16px !important; }
+
+      .admissions-grid-v2 { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .booking-card-form { padding: 20px 16px !important; }
+      .form-row-2 { grid-template-columns: 1fr !important; gap: 10px !important; }
 
       .gallery-mosaic-grid {
         display: flex !important;
@@ -1174,14 +1255,18 @@
         opacity: 1 !important;
         background: linear-gradient(180deg, transparent 40%, rgba(15, 22, 84, 0.88) 100%) !important;
       }
+
+      .footer-v2 { padding: 45px 0 25px !important; }
+      .footer-grid-v2 { grid-template-columns: 1fr !important; gap: 24px !important; }
+      .footer-bottom-bar { flex-direction: column !important; gap: 10px !important; text-align: center !important; }
     }
 
     @media (max-width: 600px) {
       .bento-grid-v2, .hygiene-timeline-cards, .reviews-grid-v2, .stats-grid, .form-row-2, .tieup-badges-grid, .tt-skills-row { grid-template-columns: 1fr; }
       .bento-span-2 { grid-column: span 1; }
       .footer-grid-v2 { grid-template-columns: 1fr; }
-      .booking-card-form { padding: 22px; }
-      .hero-main-frame { max-width: 320px; height: 380px; }
+      .booking-card-form { padding: 20px 14px; }
+      .hero-main-frame { max-width: 100%; height: 240px; }
     }
   </style>
 </head>
@@ -2252,9 +2337,9 @@
       <i class="fas fa-shapes"></i>
       <span>Programs</span>
     </a>
-    <a href="safety-hygiene.html?v=3.0" class="dock-btn">
-      <i class="fas fa-shield-halved"></i>
-      <span>Safety</span>
+    <a href="admissions.html?v=3.0" class="dock-btn">
+      <i class="fas fa-calendar-check"></i>
+      <span>Admissions</span>
     </a>
     <a href="teacher-training.html?v=3.0" class="dock-btn">
       <i class="fas fa-graduation-cap"></i>
@@ -2325,27 +2410,28 @@
       gsap.from('.parent-reassurance-bar', { opacity: 0, y: 20, duration: 0.8, delay: 0.4, ease: 'power3.out' });
       gsap.from('.hero-visual-stage', { opacity: 0, scale: 0.92, duration: 0.9, delay: 0.2, ease: 'power2.out' });
 
-      // Bidirectional Scroll Animations for below-the-fold sections
+      // Smooth One-Way Scroll Animations (Guarantees elements never get stuck or disappear on mobile)
       const animatedElements = document.querySelectorAll('.scroll-anim');
+      const isMobile = window.innerWidth <= 768;
       animatedElements.forEach((el) => {
         const animType = el.getAttribute('data-anim') || 'fade-up';
         const delay = parseFloat(el.getAttribute('data-delay') || '0');
 
         let fromProps = { opacity: 0 };
-        let toProps = { opacity: 1, duration: 0.85, ease: 'power3.out', delay: delay };
+        let toProps = { opacity: 1, duration: 0.7, ease: 'power2.out', delay: isMobile ? 0 : delay };
 
-        if (animType === 'fade-up') {
-          fromProps.y = 55;
+        if (animType === 'fade-up' || isMobile) {
+          fromProps.y = 25;
           toProps.y = 0;
         } else if (animType === 'fade-right') {
-          fromProps.x = -60;
+          fromProps.x = -35;
           toProps.x = 0;
         } else if (animType === 'fade-left') {
-          fromProps.x = 60;
+          fromProps.x = 35;
           toProps.x = 0;
         } else if (animType === 'scale-up') {
-          fromProps.scale = 0.88;
-          fromProps.y = 35;
+          fromProps.scale = 0.94;
+          fromProps.y = 20;
           toProps.scale = 1;
           toProps.y = 0;
         }
@@ -2354,9 +2440,9 @@
           ...toProps,
           scrollTrigger: {
             trigger: el,
-            start: 'top 88%',
-            end: 'bottom 12%',
-            toggleActions: 'play reverse play reverse',
+            start: 'top 92%',
+            toggleActions: 'play none none none',
+            once: true
           }
         });
       });
