@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="photos/hunny_bunny_mascot.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Hunny Bunny Pre-School &amp; Daycare | Seawoods, Navi Mumbai</title>
   <meta name="description" content="Seawoods' most trusted preschool & daycare since 2013. 365-day rolling admissions, 15-20 kids per class with 2 teachers + 1 helper, 100% CCTV, direct high school tie-ups, and Govt-accredited ECCE teacher training." />
@@ -212,15 +214,23 @@
     .brand-symbol {
       width: 44px;
       height: 44px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
-      color: var(--white);
+      background: #FFF9E6;
+      border: 2px solid #FFE082;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
-      box-shadow: 0 6px 18px var(--orange-glow);
+      box-shadow: 0 4px 14px rgba(255, 140, 0, 0.16);
       transition: transform 0.4s var(--transition-spring);
+      overflow: hidden;
+      flex-shrink: 0;
+      padding: 3px;
+    }
+    .brand-mascot-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .brand-logo:hover .brand-symbol { transform: rotate(-10deg) scale(1.1); }
@@ -1049,7 +1059,7 @@
         z-index: 9999 !important;
       }
       .brand-logo { font-size: 1.15rem; gap: 8px; }
-      .brand-symbol { width: 34px; height: 34px; font-size: 1rem; }
+      .brand-symbol { width: 36px; height: 36px; padding: 2px; }
       .brand-text small { display: none; }
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
@@ -1280,7 +1290,7 @@
   <!-- Floating Clean Header Dock -->
   <header class="header-dock" id="headerDock">
     <a href="index.html?v=3.0" class="brand-logo">
-      <div class="brand-symbol">🐰</div>
+      <div class="brand-symbol"><img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" class="brand-mascot-img" /></div>
       <div class="brand-text">
         Hunny Bunny
         <small>Seawoods &bull; Est. 2013</small>
@@ -1320,7 +1330,7 @@
   <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
     <div class="drawer-header">
       <a href="index.html?v=3.0" class="brand-logo" onclick="toggleMobileMenu(false)">
-        <div class="brand-symbol">🐰</div>
+        <div class="brand-symbol"><img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" class="brand-mascot-img" /></div>
         <div class="brand-text">
           Hunny Bunny
           <small>Seawoods &bull; Est. 2013</small>
@@ -2168,6 +2178,7 @@
       
       <div class="admissions-grid-v2">
         <div class="admissions-pitch scroll-anim" data-anim="fade-right">
+          <div style="margin-bottom: 16px;"><img src="photos/hunny_bunny_logo_horizontal.png" alt="Hunny Bunny Pre-School Official Logo" style="max-width: 220px; width: 100%; height: auto; object-fit: contain;" /></div>
           <span class="pill-tag" style="background: var(--yellow); color: var(--ink);">365-Day Open Admissions</span>
           <h2>Give Your Child The Best, Most Caring Start.</h2>
           <p>
@@ -2257,7 +2268,7 @@
       <div class="footer-grid-v2">
         <div class="footer-brand-pane">
           <div class="brand-logo" style="color: var(--white); margin-bottom: 16px;">
-            <div class="brand-symbol">🐰</div>
+            <div class="brand-symbol"><img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" class="brand-mascot-img" /></div>
             <div class="brand-text">
               Hunny Bunny
               <small style="color: var(--yellow);">Pre-School &amp; Daycare</small>
