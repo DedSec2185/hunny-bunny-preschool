@@ -145,14 +145,35 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    .brand-symbol {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
-      color: white;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      box-shadow: 0 6px 18px rgba(255, 98, 0, 0.28);
+        .brand-symbol {
+      width: 44px !important;
+      height: 44px !important;
+      max-width: 44px !important;
+      max-height: 44px !important;
+      background: #FFF9E6 !important;
+      border: 2px solid #FFE082 !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 4px 14px rgba(255, 140, 0, 0.16) !important;
+      transition: transform 0.4s var(--transition-spring);
+      overflow: hidden !important;
+      flex-shrink: 0 !important;
+      padding: 3px !important;
+      box-sizing: border-box !important;
+    }
+    .brand-symbol img,
+    .brand-mascot-img {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+    .brand-logo:hover .brand-symbol {
+      transform: rotate(-8deg) scale(1.08);
     }
     .brand-text small {
       display: block;
@@ -797,7 +818,7 @@
         z-index: 9999 !important;
       }
       .brand-logo { font-size: 1.15rem; gap: 8px; }
-      .brand-symbol { width: 36px; height: 36px; padding: 2px; }
+      .brand-symbol { width: 36px !important; height: 36px !important; max-width: 36px !important; max-height: 36px !important; padding: 2px !important; }
       .brand-text small { display: none; }
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
@@ -900,7 +921,7 @@
   <!-- Clean Floating Header Dock -->
   <header class="header-dock" id="headerDock">
     <a href="index.html?v=3.0" class="brand-logo">
-      <div class="brand-symbol"><img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" class="brand-mascot-img" /></div>
+      <div class="brand-symbol"><img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" class="brand-mascot-img" width="38" height="38" style="width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; display: block;" /></div>
       <div class="brand-text">
         Hunny Bunny
         <small>Seawoods &bull; Est. 2013</small>
@@ -940,7 +961,7 @@
   <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
     <div class="drawer-header">
       <a href="index.html?v=3.0" class="brand-logo" onclick="toggleMobileMenu(false)">
-        <div class="brand-symbol"><img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" class="brand-mascot-img" /></div>
+        <div class="brand-symbol"><img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" class="brand-mascot-img" width="38" height="38" style="width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; display: block;" /></div>
         <div class="brand-text">
           Hunny Bunny
           <small>Seawoods &bull; Est. 2013</small>
