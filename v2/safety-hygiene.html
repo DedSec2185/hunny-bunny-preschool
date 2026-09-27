@@ -657,7 +657,7 @@
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
-      .btn-pill-orange { display: none !important; }
+      .header-dock .btn-pill-orange { display: none !important; }
       .page-hero { padding: 100px 0 35px !important; }
       .pillars-grid, .sanitization-grid, .checklist-grid { grid-template-columns: 1fr; }
       .sanitization-box { padding: 30px; }
@@ -682,7 +682,7 @@
         background: rgba(255, 255, 255, 0.98) !important;
         z-index: 9999 !important;
       }
-      .btn-pill-orange { display: none !important; }
+      .header-dock .btn-pill-orange { display: none !important; }
       .page-hero { padding: 76px 0 20px !important; }
       .page-title { font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important; line-height: 1.22 !important; }
       .page-sub { font-size: 0.94rem !important; margin-bottom: 16px !important; }
@@ -702,6 +702,38 @@
       .sanitization-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
       .sanitization-item { gap: 12px !important; }
       .sanitization-num { width: 36px !important; height: 36px !important; font-size: 1rem !important; }
+
+      /* CCTV Console Wrapper Mobile Card Styling */
+      .cctv-console-wrapper {
+        padding: 20px 14px !important;
+        margin-bottom: 28px !important;
+        border-radius: var(--radius-md) !important;
+      }
+      .cctv-grid-4 {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .cctv-cam-card {
+        aspect-ratio: 16/9 !important;
+      }
+      .cctv-console-wrapper a, .cctv-console-wrapper .btn-pill-orange {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        box-sizing: border-box !important;
+        padding: 11px 16px !important;
+      }
+
+      /* Mobile Touch Optimization & Dock Safe Spacing */
+      body {
+        padding-bottom: calc(75px + env(safe-area-inset-bottom, 16px)) !important;
+      }
+      .dock-btn {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+
     }
   </style>
 </head>

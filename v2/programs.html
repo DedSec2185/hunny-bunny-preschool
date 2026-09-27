@@ -705,7 +705,7 @@
       .nav-menu, .btn-pill-call { display: none !important; }
       .mobile-action-icon { display: inline-flex !important; }
       .menu-toggle { display: flex !important; }
-      .btn-pill-orange { display: none !important; }
+      .header-dock .btn-pill-orange { display: none !important; }
       .page-hero { padding: 100px 0 35px !important; }
       .program-detail-card, .program-detail-card:nth-child(even) {
         grid-template-columns: 1fr;
@@ -737,7 +737,7 @@
         background: rgba(255, 255, 255, 0.98) !important;
         z-index: 9999 !important;
       }
-      .btn-pill-orange { display: none !important; }
+      .header-dock .btn-pill-orange { display: none !important; }
       .page-hero { padding: 76px 0 20px !important; }
       .page-title { font-size: clamp(1.75rem, 6.5vw, 2.2rem) !important; line-height: 1.22 !important; }
       .page-sub { font-size: 0.94rem !important; margin-bottom: 16px !important; }
@@ -781,6 +781,39 @@
       .p-visual-side { height: 220px !important; }
       .comparison-section { padding: 20px 14px !important; margin-bottom: 36px !important; }
       .comparison-section h3 { font-size: 1.35rem !important; }
+
+      /* Mobile Form Elements & Input Zoom Prevention */
+      input, select, textarea, .form-control {
+        font-size: 16px !important;
+      }
+      
+      /* Mobile Program Detail Support Bar & Action Buttons */
+      .support-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+      }
+      .support-bar a, .support-bar .btn-pill-orange {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        padding: 12px 18px !important;
+        border-radius: var(--radius-full) !important;
+        box-sizing: border-box !important;
+        touch-action: manipulation;
+      }
+
+      /* Mobile Touch Optimization & Dock Safe Spacing */
+      body {
+        padding-bottom: calc(75px + env(safe-area-inset-bottom, 16px)) !important;
+      }
+      .dock-btn {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+
     }
   </style>
 </head>
