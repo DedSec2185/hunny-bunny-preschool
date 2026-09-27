@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hunny-bunny-preschool.vercel.app/sitemap.xml
