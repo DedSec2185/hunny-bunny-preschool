@@ -932,6 +932,179 @@
       }
 
     }
+  
+    /* === MOBILE-FIRST ENHANCEMENTS & OVERLAP PREVENTION === */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      position: relative;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    [id], section, .booking-form-box, .contact-form-card, .process-card, .cctv-console-wrapper {
+      scroll-margin-top: 85px !important;
+    }
+    input, select, textarea, .form-control, .form-control-v2 {
+      font-size: 16px !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Universal Mobile Bottom Dock */
+    .mobile-bottom-dock {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 6px 2px calc(6px + env(safe-area-inset-bottom, 12px));
+      z-index: 99999;
+      justify-content: space-around;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .dock-btn {
+      flex: 1 1 0;
+      min-width: 0;
+      min-height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      text-align: center;
+      padding: 4px 1px;
+      text-decoration: none;
+      color: var(--ink);
+      background: none;
+      border: none;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .dock-btn span {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .dock-btn i { font-size: 1.18rem; margin-bottom: 2px; }
+    .dock-btn.active-btn, .dock-btn.active-btn span, .dock-btn.active-btn i {
+      color: var(--orange) !important;
+    }
+
+    /* Standalone Pill Button Completeness */
+    .btn-pill-orange {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: var(--white) !important;
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 24px rgba(255, 98, 0, 0.25);
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      text-align: center;
+    }
+    .btn-pill-orange:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(255, 98, 0, 0.38);
+      color: white !important;
+    }
+
+    /* Fluid Headline Highlight Wrapping */
+    .highlight {
+      display: inline !important;
+      position: relative !important;
+      background: linear-gradient(180deg, transparent 65%, rgba(255, 215, 64, 0.45) 65%) !important;
+      border-radius: 2px !important;
+      padding: 0 4px !important;
+    }
+    .highlight::after {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .top-notice { display: none !important; }
+      .header-dock, .header-dock.scrolled {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        border-radius: 0 0 16px 16px !important;
+        margin: 0 !important;
+        padding: 8px 14px !important;
+        gap: 8px !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+        transform: none !important;
+        z-index: 9999 !important;
+      }
+      .brand-logo { font-size: 1.15rem; gap: 8px; }
+      .brand-symbol {
+        width: 36px !important;
+        height: 36px !important;
+        max-width: 36px !important;
+        max-height: 36px !important;
+        padding: 2px !important;
+        overflow: hidden !important;
+        border-radius: 50% !important;
+        flex-shrink: 0 !important;
+      }
+      .brand-symbol img, .brand-mascot-img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        display: block !important;
+      }
+      .brand-text small { display: none !important; }
+      .nav-menu, .btn-pill-call { display: none !important; }
+      .header-dock .btn-pill-orange { display: none !important; }
+      .mobile-action-icon { display: inline-flex !important; }
+      .menu-toggle { display: flex !important; }
+      .mobile-bottom-dock { display: flex !important; }
+      .whatsapp-bubble-float { display: none !important; }
+      body {
+        padding-bottom: calc(75px + env(safe-area-inset-bottom, 16px)) !important;
+      }
+      .hero-v2, .page-hero, .adm-hero, .tt-hero, .cnt-hero {
+        padding-top: 80px !important;
+        padding-bottom: 24px !important;
+        min-height: auto !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1333,9 +1506,9 @@
       <i class="fas fa-calendar-check" style="color: var(--orange);"></i>
       <span style="color: var(--orange);">Admissions</span>
     </a>
-    <a href="teacher-training.html?v=3.0" class="dock-btn">
-      <i class="fas fa-graduation-cap"></i>
-      <span>Training</span>
+    <a href="safety-hygiene.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shield-halved"></i>
+      <span>Safety</span>
     </a>
     <a href="contact.html?v=3.0" class="dock-btn">
       <i class="fas fa-location-dot"></i>
@@ -1392,44 +1565,67 @@
     // GSAP ScrollTrigger Animations Suite
     document.addEventListener('DOMContentLoaded', () => {
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+      const isMobile = window.innerWidth <= 980;
 
       // Hero Elements Entrance
-      gsap.from('.adm-anim-item', {
-        opacity: 0,
-        y: 30,
-        stagger: 0.12,
-        duration: 0.85,
-        ease: 'power3.out'
-      });
+      gsap.fromTo('.adm-anim-item',
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.08,
+          duration: 0.7,
+          ease: 'power2.out',
+          clearProps: 'all'
+        }
+      );
 
-      // Gentle floating animation on hero stickers
-      gsap.to('.sticker-top-left', { y: -8, duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-      gsap.to('.sticker-middle-right', { y: 10, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 });
-      gsap.to('.sticker-bottom-center', { y: -6, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 });
+      // Floating hero stickers on desktop
+      if (!isMobile) {
+        gsap.to('.sticker-top-left', { y: -8, duration: 2.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+        gsap.to('.sticker-middle-right', { y: 10, duration: 2.6, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.3 });
+        gsap.to('.sticker-bottom-center', { y: -6, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.6 });
+      }
 
       // Step rows entrance
-      gsap.from('.step-badge-row', {
-        scrollTrigger: { trigger: '.process-card', start: 'top 85%', once: true },
-        opacity: 0, y: 25, stagger: 0.15, duration: 0.8, ease: 'power2.out'
-      });
+      gsap.fromTo('.step-badge-row',
+        { opacity: 0, y: 20 },
+        {
+          scrollTrigger: { trigger: '.process-card', start: 'top 95%', once: true },
+          opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out', clearProps: 'all'
+        }
+      );
 
       // Form entrance
-      gsap.from('.booking-form-box', {
-        scrollTrigger: { trigger: '.booking-form-box', start: 'top 85%', once: true },
-        opacity: 0, y: 40, duration: 0.9, ease: 'power3.out'
-      });
+      gsap.fromTo('.booking-form-box',
+        { opacity: 0, y: 25 },
+        {
+          scrollTrigger: { trigger: '.booking-form-box', start: 'top 95%', once: true },
+          opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', clearProps: 'all'
+        }
+      );
 
       // Required Docs Stagger
-      gsap.from('.doc-card', {
-        scrollTrigger: { trigger: '.docs-checklist-box', start: 'top 85%', once: true },
-        opacity: 0, y: 35, stagger: 0.12, duration: 0.8, ease: 'back.out(1.4)'
-      });
+      gsap.fromTo('.doc-card',
+        { opacity: 0, y: 20 },
+        {
+          scrollTrigger: { trigger: '.docs-checklist-box', start: 'top 95%', once: true },
+          opacity: 1, y: 0, stagger: 0.08, duration: 0.6, ease: 'power2.out', clearProps: 'all'
+        }
+      );
 
       // FAQ entrance
-      gsap.from('.faq-item', {
-        scrollTrigger: { trigger: '.faq-section', start: 'top 85%', once: true },
-        opacity: 0, y: 20, stagger: 0.1, duration: 0.7, ease: 'power2.out'
-      });
+      gsap.fromTo('.faq-item',
+        { opacity: 0, y: 15 },
+        {
+          scrollTrigger: { trigger: '.faq-section', start: 'top 95%', once: true },
+          opacity: 1, y: 0, stagger: 0.06, duration: 0.5, ease: 'power2.out', clearProps: 'all'
+        }
+      );
+
+      window.addEventListener('load', () => ScrollTrigger.refresh());
 
       // Form submission handler
       const form = document.getElementById('visitForm');
@@ -1448,15 +1644,20 @@
               headers: { 'Accept': 'application/json' }
             });
             if (res.ok) {
-              btn.innerHTML = '<i class="fas fa-circle-check"></i> Tour Confirmed! We Will Call You.';
-              btn.style.background = 'var(--green)';
-              form.reset();
+              form.innerHTML = `
+                <div style="text-align: center; padding: 28px 16px; background: var(--green-lt); border-radius: var(--radius-md);">
+                  <i class="fas fa-circle-check" style="font-size: 2.8rem; color: var(--green); margin-bottom: 12px; display: inline-block;"></i>
+                  <h3 style="color: var(--green); font-family: var(--font-display); font-size: 1.45rem; margin-bottom: 8px;">Campus Walkthrough Requested!</h3>
+                  <p style="color: var(--ink); font-weight: 700; font-size: 0.92rem; line-height: 1.5;">Thank you! Founder Mrs. Sindhu Deepakkumar will contact you via WhatsApp shortly to finalize your visiting hour.</p>
+                </div>
+              `;
             } else {
-              throw new Error();
+              throw new Error('Failed');
             }
-          } catch (err) {
-            btn.innerHTML = '<i class="fas fa-circle-check"></i> Tour Request Sent!';
-            btn.style.background = 'var(--green)';
+          } catch(err) {
+            btn.innerHTML = orig;
+            btn.disabled = false;
+            alert('Something went wrong. Please call directly at +91 98330 26085 or WhatsApp us.');
           }
         });
       }
