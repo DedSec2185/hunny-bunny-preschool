@@ -798,6 +798,20 @@
     .bento-card-title { font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; color: var(--ink); margin-bottom: 10px; line-height: 1.25; }
     .bento-card-body { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
     .bento-highlight-pill { display: inline-block; margin-top: 16px; padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 800; }
+    .bento-photo-frame {
+      margin-top: 14px;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 140px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      width: 100%;
+    }
+    .bento-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     /* Hunarho Teacher Training Section (NEW) */
     .teacher-training-section {
@@ -1083,7 +1097,13 @@
       .bento-grid-v2, .hygiene-timeline-cards, .reviews-grid-v2, .stats-grid, .form-row-2, .tt-skills-row { grid-template-columns: 1fr 1fr; }
       .bento-span-2 { grid-column: span 2; }
       .footer-grid-v2 { grid-template-columns: 1fr 1fr; }
-      .hero-main-frame { max-width: 440px; height: 460px; }
+      .hero-main-frame {
+        width: 100% !important;
+        max-width: 520px !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        border-radius: 24px !important;
+      }
       .floating-sticker { display: none; }
       .mobile-bottom-dock { display: flex !important; }
       .whatsapp-bubble-float { display: none; }
@@ -1145,7 +1165,22 @@
       }
 
       .hero-visual-stage { padding: 10px 0 !important; width: 100% !important; }
-      .hero-main-frame { max-width: 100% !important; height: 260px !important; border-radius: 20px !important; border-width: 4px !important; }
+      .hero-main-frame {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        border-radius: 20px !important;
+        border-width: 4px !important;
+        overflow: hidden !important;
+      }
+      .hero-main-frame img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
       .floating-sticker { display: none !important; }
 
       .stats-strip-v2 { padding: 24px 0 !important; }
@@ -1211,7 +1246,34 @@
         padding: 11px 12px !important;
         font-size: 0.88rem !important;
       }
-      .program-visual-pane { height: 220px !important; width: 100% !important; }
+      .program-visual-pane {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        border-radius: var(--radius-md) !important;
+        overflow: hidden !important;
+      }
+      .program-visual-pane img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
+      .program-visual-badge {
+        bottom: 10px !important;
+        left: 10px !important;
+        max-width: calc(100% - 20px) !important;
+        padding: 6px 12px !important;
+        font-size: 0.78rem !important;
+      }
+      .bento-photo-frame {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+      }
 
       .bento-grid-v2 { grid-template-columns: 1fr !important; gap: 14px !important; }
       .bento-span-2 { grid-column: auto !important; }
@@ -1226,7 +1288,20 @@
       .safety-split-showcase { grid-template-columns: 1fr !important; gap: 20px !important; }
       .safety-console-mockup { padding: 16px 12px !important; }
       .camera-grid-preview { grid-template-columns: 1fr !important; gap: 8px !important; }
-      .cam-feed { height: 160px !important; }
+      .cam-feed {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+        border-radius: 10px !important;
+        overflow: hidden !important;
+      }
+      .cam-feed img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
       .safety-feature-row { padding: 10px 12px !important; gap: 10px !important; }
 
       .hygiene-timeline-cards { grid-template-columns: 1fr !important; gap: 12px !important; }
@@ -1330,7 +1405,7 @@
       .bento-span-2 { grid-column: span 1; }
       .footer-grid-v2 { grid-template-columns: 1fr; }
       .booking-card-form { padding: 20px 14px; }
-      .hero-main-frame { max-width: 100%; height: 240px; }
+      .hero-main-frame { width: 100% !important; max-width: 100% !important; height: auto !important; aspect-ratio: 16 / 10 !important; }
     }
   
     /* === MOBILE-FIRST ENHANCEMENTS & OVERLAP PREVENTION === */
@@ -1918,7 +1993,7 @@
             <p class="bento-card-body">
               Dahi Handi, Diwali, Eid, Christmas &amp; Independence Day celebrated with vibrant costumes, songs, and cultural stories to help children understand the significance of our rich heritage.
             </p>
-            <div style="margin-top: 14px; border-radius: 12px; overflow: hidden; height: 130px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+            <div class="bento-photo-frame">
               <img src="photos/festival_onam_care_love_trust.jpg" alt="Onam Festival &amp; Values at Hunny Bunny" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='photos/festival_ashadhi_ekadashi.jpg';" />
             </div>
           </div>
@@ -1935,7 +2010,7 @@
             <p class="bento-card-body">
               Airy, child-safe rooms with gross motor play equipment, annual educational field trips, and regular pediatric dental &amp; health checkups.
             </p>
-            <div style="margin-top: 14px; border-radius: 12px; overflow: hidden; height: 130px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+            <div class="bento-photo-frame">
               <img src="photos/uniform_assembly_drill.jpg" alt="Spacious classroom and alphabet assembly drill at Hunny Bunny" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='photos/motor_skills_stepping_blocks.jpg';" />
             </div>
           </div>

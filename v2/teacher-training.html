@@ -882,7 +882,22 @@
       
       .tt-badge { display: none !important; }
       .tt-visual-stage { padding: 10px 0 !important; width: 100% !important; }
-      .tt-main-frame { max-width: 100% !important; height: 260px !important; border-radius: 20px !important; }
+      .tt-main-frame {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        border-radius: 20px !important;
+        border-width: 4px !important;
+        overflow: hidden !important;
+      }
+      .tt-main-frame img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
 
       .tt-cta-group {
         display: flex !important;

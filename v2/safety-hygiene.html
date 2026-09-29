@@ -750,7 +750,18 @@
         gap: 12px !important;
       }
       .cctv-cam-card {
-        aspect-ratio: 16/9 !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+      }
+      .cctv-cam-card img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
       }
       .cctv-console-wrapper a, .cctv-console-wrapper .btn-pill-orange {
         width: 100% !important;

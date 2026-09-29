@@ -763,7 +763,21 @@
       .program-detail-card:nth-child(even) .p-content-side { order: 1; }
       .program-detail-card:nth-child(even) .p-visual-side { order: 2; }
       .milestone-grid { grid-template-columns: 1fr; }
-      .p-visual-side { height: 280px; }
+      .p-visual-side {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        border-radius: var(--radius-md) !important;
+        overflow: hidden !important;
+      }
+      .p-visual-side img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
       .philosophy-banner { flex-direction: column; text-align: center; }
       .program-filter-bar { position: static; }
       .mobile-bottom-dock { display: flex !important; }
@@ -827,7 +841,21 @@
       .p-desc { font-size: 0.94rem !important; margin-bottom: 16px !important; }
       .milestone-grid { grid-template-columns: 1fr !important; gap: 10px !important; margin-bottom: 18px !important; }
       .milestone-item { font-size: 0.88rem !important; }
-      .p-visual-side { height: 220px !important; }
+      .p-visual-side {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        border-radius: var(--radius-md) !important;
+        overflow: hidden !important;
+      }
+      .p-visual-side img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
       .comparison-section { padding: 20px 14px !important; margin-bottom: 36px !important; }
       .comparison-section h3 { font-size: 1.35rem !important; }
 

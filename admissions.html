@@ -917,7 +917,22 @@
 
       .adm-sticker { display: none !important; }
       .adm-visual-stage { padding: 10px 0 !important; width: 100% !important; }
-      .adm-main-frame { max-width: 100% !important; height: 260px !important; border-radius: 20px !important; }
+      .adm-main-frame {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        border-radius: 20px !important;
+        border-width: 4px !important;
+        overflow: hidden !important;
+      }
+      .adm-main-frame img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+      }
 
       .adm-cta-group {
         display: flex !important;
