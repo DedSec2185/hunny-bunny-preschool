@@ -483,6 +483,29 @@
     }
     .btn-hero-call:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-3px); }
 
+    .tt-back-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      background: var(--white);
+      border: 1.5px solid rgba(26, 35, 126, 0.12);
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      margin-bottom: 16px;
+      transition: all 0.25s ease;
+    }
+    .tt-back-breadcrumb:hover {
+      background: var(--orange-lt);
+      color: var(--orange-dk);
+      border-color: var(--orange);
+      transform: translateX(-3px);
+    }
+
     .tt-reassurance-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -490,11 +513,147 @@
       background: var(--white);
       padding: 14px 18px;
       border-radius: var(--radius-md);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
       border: 1px solid rgba(0,0,0,0.07);
     }
-    .tt-reassurance-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 800; color: var(--ink); }
-    .tt-reassurance-item i { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+    .tt-reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #FAF8F5;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+    .tt-reassurance-item:hover {
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      border-color: var(--orange-lt);
+    }
+    .tt-reassurance-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+    .tt-reassurance-icon.cert { background: #FFF0E6; color: #FF6200; }
+    .tt-reassurance-icon.intern { background: #E8F5E9; color: #2E7D32; }
+    .tt-reassurance-icon.bonus { background: #E1F5FE; color: #0288D1; }
+    .tt-reassurance-icon.fee { background: #FFF9E6; color: #E65100; }
+
+    .tt-reassurance-text strong {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .tt-reassurance-text small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Modern Framework Feature Cards */
+    .framework-card-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 26px 0;
+    }
+    .framework-item-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #FFFFFF;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(26, 35, 126, 0.08);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+      transition: all 0.25s ease;
+    }
+    .framework-item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      border-color: var(--orange-lt);
+    }
+    .framework-icon-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #E8F5E9;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .framework-item-body strong {
+      display: block;
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .framework-item-body p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Course Specs Box */
+    .batch-quick-specs {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .spec-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .spec-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 215, 64, 0.2);
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .spec-text strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .spec-text span {
+      display: block;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+      margin-top: 1px;
+    }
 
     /* Visual Showcase Frame */
     .tt-visual-stage {
@@ -920,11 +1079,44 @@
       .tt-reassurance-bar {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
-        padding: 12px 14px !important;
+        gap: 10px !important;
+        padding: 12px !important;
         max-width: 100% !important;
-        margin: 0 auto 16px !important;
-        text-align: center !important;
+        margin: 0 auto 18px !important;
+      }
+      .tt-reassurance-item {
+        padding: 9px 8px !important;
+        gap: 8px !important;
+      }
+      .tt-reassurance-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.95rem !important;
+      }
+      .tt-reassurance-text strong {
+        font-size: 0.78rem !important;
+      }
+      .tt-reassurance-text small {
+        font-size: 0.68rem !important;
+      }
+      .framework-card-stack {
+        gap: 10px !important;
+        margin: 20px 0 !important;
+      }
+      .framework-item-card {
+        padding: 12px 14px !important;
+        gap: 12px !important;
+      }
+      .framework-icon-badge {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 1rem !important;
+      }
+      .framework-item-body strong {
+        font-size: 0.92rem !important;
+      }
+      .framework-item-body p {
+        font-size: 0.82rem !important;
       }
 
       .highlight-strip { grid-template-columns: 1fr !important; gap: 12px !important; margin-bottom: 30px !important; }
@@ -1264,6 +1456,10 @@
         
         <!-- Left Hero Content -->
         <div class="tt-hero-left">
+          <a href="index.html?v=3.0" class="tt-back-breadcrumb tt-anim-item">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Preschool Home</span>
+          </a>
           <div class="partner-pill tt-anim-item">
             <i class="fas fa-handshake"></i>
             <span>hunarho (दिशा नये कल की)</span>
@@ -1294,20 +1490,32 @@
 
           <div class="tt-reassurance-bar tt-anim-item">
             <div class="tt-reassurance-item">
-              <i class="fas fa-award"></i>
-              <span>Govt. Accredited</span>
+              <div class="tt-reassurance-icon cert"><i class="fas fa-award"></i></div>
+              <div class="tt-reassurance-text">
+                <strong>Govt. Accredited</strong>
+                <small>Nationwide credential</small>
+              </div>
             </div>
             <div class="tt-reassurance-item">
-              <i class="fas fa-calendar-check"></i>
-              <span>Flexible Hybrid Batches</span>
+              <div class="tt-reassurance-icon intern"><i class="fas fa-calendar-check"></i></div>
+              <div class="tt-reassurance-text">
+                <strong>Flexible Hybrid</strong>
+                <small>Weekend &amp; online mode</small>
+              </div>
             </div>
             <div class="tt-reassurance-item">
-              <i class="fas fa-graduation-cap"></i>
-              <span>12th Pass Eligible</span>
+              <div class="tt-reassurance-icon bonus"><i class="fas fa-graduation-cap"></i></div>
+              <div class="tt-reassurance-text">
+                <strong>12th Pass Eligible</strong>
+                <small>Open to freshers &amp; moms</small>
+              </div>
             </div>
             <div class="tt-reassurance-item">
-              <i class="fas fa-briefcase"></i>
-              <span>100% Placement Help</span>
+              <div class="tt-reassurance-icon fee"><i class="fas fa-briefcase"></i></div>
+              <div class="tt-reassurance-text">
+                <strong>100% Placement Help</strong>
+                <small>Leading school tie-ups</small>
+              </div>
             </div>
           </div>
         </div>
@@ -1462,13 +1670,43 @@
           Gain actionable, practical teaching strategies that make you confident from day one in any modern preschool or primary classroom:
         </p>
 
-        <ul class="details-checklist">
-          <li><i class="fas fa-circle-check"></i> <strong>Government-Accredited Program:</strong> Recognized credential for teaching in India and abroad.</li>
-          <li><i class="fas fa-circle-check"></i> <strong>Foundational Literacy &amp; Numeracy (FLN):</strong> Techniques rooted in playful discovery.</li>
-          <li><i class="fas fa-circle-check"></i> <strong>Theory to Real-World Best Practices:</strong> Managing tantrums, separation anxiety, and sensory integration.</li>
-          <li><i class="fas fa-circle-check"></i> <strong>Montessori &amp; Play-Way Methodology:</strong> Hands-on tactile learning tools and classroom management.</li>
-          <li><i class="fas fa-circle-check"></i> <strong>Internship Exposure:</strong> Live classroom observation right here at Hunny Bunny Seawoods.</li>
-        </ul>
+        <div class="framework-card-stack">
+          <div class="framework-item-card">
+            <div class="framework-icon-badge"><i class="fas fa-circle-check"></i></div>
+            <div class="framework-item-body">
+              <strong>Government-Accredited Program</strong>
+              <p>Recognized credential for teaching in pre-primary and primary schools across India and abroad.</p>
+            </div>
+          </div>
+          <div class="framework-item-card">
+            <div class="framework-icon-badge"><i class="fas fa-circle-check"></i></div>
+            <div class="framework-item-body">
+              <strong>Foundational Literacy &amp; Numeracy (FLN)</strong>
+              <p>Proven pedagogy rooted in playful discovery, phonemic sound mastery, and intuitive number sense.</p>
+            </div>
+          </div>
+          <div class="framework-item-card">
+            <div class="framework-icon-badge"><i class="fas fa-circle-check"></i></div>
+            <div class="framework-item-body">
+              <strong>Theory to Real-World Classroom Practices</strong>
+              <p>Handling separation anxiety, toddler tantrums, sensory integration, and positive behavioral coaching.</p>
+            </div>
+          </div>
+          <div class="framework-item-card">
+            <div class="framework-icon-badge"><i class="fas fa-circle-check"></i></div>
+            <div class="framework-item-body">
+              <strong>Montessori &amp; Play-Way Methodology</strong>
+              <p>Mastering tactile learning aids, Montessori sensorial equipment, and engaging circle time games.</p>
+            </div>
+          </div>
+          <div class="framework-item-card">
+            <div class="framework-icon-badge"><i class="fas fa-circle-check"></i></div>
+            <div class="framework-item-body">
+              <strong>Live Classroom Internship Exposure</strong>
+              <p>Hands-on practical training right at Hunny Bunny Seawoods with direct observation of real students.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="enroll-card">
@@ -1480,11 +1718,35 @@
           Seats are strictly limited to maintain personal 1-on-1 mentor guidance for every aspiring educator. Book your seat today!
         </p>
 
-        <div style="background: rgba(255,255,255,0.1); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 24px; font-size: 0.9rem;">
-          <div style="margin-bottom: 8px;">📍 <strong>Training Centre:</strong> Hunny Bunny Pre-School, Akash CHS, Sector 42, Seawoods West</div>
-          <div style="margin-bottom: 8px;">⏳ <strong>Duration:</strong> 6 Months (Flexible Hybrid Mode)</div>
-          <div style="margin-bottom: 8px;">🎓 <strong>Eligibility:</strong> Minimum 12th Pass (Open to all streams, freshers &amp; mothers)</div>
-          <div>👩‍🏫 <strong>Mentors:</strong> Guided by Mrs. Sindhu Deepakkumar (M.A. English Lit) &amp; Mrs. Archana Shambhu (Coordinator)</div>
+        <div class="batch-quick-specs">
+          <div class="spec-row">
+            <div class="spec-icon"><i class="fas fa-location-dot"></i></div>
+            <div class="spec-text">
+              <strong>Training Centre</strong>
+              <span>Hunny Bunny Campus, Akash CHS, Sector 42, Seawoods West</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-icon"><i class="fas fa-calendar-days"></i></div>
+            <div class="spec-text">
+              <strong>Course Duration</strong>
+              <span>6 Months &bull; Flexible Hybrid Mode (Offline Practicum + Mentorship)</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="spec-text">
+              <strong>Eligibility Criteria</strong>
+              <span>Minimum 12th Pass (Open to freshers, graduates &amp; mothers)</span>
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <div class="spec-text">
+              <strong>Principal Mentors</strong>
+              <span>Mrs. Sindhu Deepakkumar (M.A. English Lit) &amp; Mrs. Archana Shambhu</span>
+            </div>
+          </div>
         </div>
 
         <a href="https://wa.me/919833026085?text=Hi!%20I%20want%20to%20enroll%20in%20Hunarho%20ECCE%20Batch%207%20at%20Hunny%20Bunny." target="_blank" rel="noopener" class="btn-whatsapp-enroll">
@@ -1517,9 +1779,9 @@
       <i class="fas fa-calendar-check"></i>
       <span>Admissions</span>
     </a>
-    <a href="teacher-training.html?v=3.0" class="dock-btn active-btn">
-      <i class="fas fa-graduation-cap" style="color: var(--orange);"></i>
-      <span style="color: var(--orange);">Training</span>
+    <a href="safety-hygiene.html?v=3.0" class="dock-btn">
+      <i class="fas fa-shield-halved"></i>
+      <span>Safety</span>
     </a>
     <a href="contact.html?v=3.0" class="dock-btn">
       <i class="fas fa-location-dot"></i>

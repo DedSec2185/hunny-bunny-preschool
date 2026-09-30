@@ -418,11 +418,53 @@
       background: var(--white);
       padding: 14px 18px;
       border-radius: var(--radius-md);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
       border: 1px solid rgba(0,0,0,0.07);
     }
-    .cnt-reassurance-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 800; color: var(--ink); }
-    .cnt-reassurance-item i { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+    .cnt-reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #FAF8F5;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+    .cnt-reassurance-item:hover {
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      border-color: var(--orange-lt);
+    }
+    .cnt-reassurance-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+    .cnt-reassurance-icon.train { background: #FFF0E6; color: #FF6200; }
+    .cnt-reassurance-icon.clock { background: #E8F5E9; color: #2E7D32; }
+    .cnt-reassurance-icon.tree { background: #E1F5FE; color: #0288D1; }
+    .cnt-reassurance-icon.phone { background: #FFF9E6; color: #E65100; }
+
+    .cnt-reassurance-text strong {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .cnt-reassurance-text small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
 
     /* Visual Showcase Frame */
     .cnt-visual-stage {
@@ -1037,11 +1079,25 @@
       .cnt-reassurance-bar {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
-        padding: 12px 14px !important;
+        gap: 10px !important;
+        padding: 12px !important;
         max-width: 100% !important;
-        margin: 0 auto 16px !important;
-        text-align: center !important;
+        margin: 0 auto 18px !important;
+      }
+      .cnt-reassurance-item {
+        padding: 9px 8px !important;
+        gap: 8px !important;
+      }
+      .cnt-reassurance-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.95rem !important;
+      }
+      .cnt-reassurance-text strong {
+        font-size: 0.78rem !important;
+      }
+      .cnt-reassurance-text small {
+        font-size: 0.68rem !important;
       }
 
       .contact-info-card, .contact-form-card, .map-section { padding: 20px 16px !important; }
@@ -1373,20 +1429,32 @@
 
           <div class="cnt-reassurance-bar cnt-anim-item">
             <div class="cnt-reassurance-item">
-              <i class="fas fa-train-subway"></i>
-              <span>5 Mins from Station</span>
+              <div class="cnt-reassurance-icon train"><i class="fas fa-train-subway"></i></div>
+              <div class="cnt-reassurance-text">
+                <strong>5 Mins from Station</strong>
+                <small>Seawoods West exit</small>
+              </div>
             </div>
             <div class="cnt-reassurance-item">
-              <i class="fas fa-clock"></i>
-              <span>Mon–Sat: 8am–7pm</span>
+              <div class="cnt-reassurance-icon clock"><i class="fas fa-clock"></i></div>
+              <div class="cnt-reassurance-text">
+                <strong>Mon–Sat: 8am–7pm</strong>
+                <small>Extended daycare hours</small>
+              </div>
             </div>
             <div class="cnt-reassurance-item">
-              <i class="fas fa-tree"></i>
-              <span>Quiet Residential Lane</span>
+              <div class="cnt-reassurance-icon tree"><i class="fas fa-tree"></i></div>
+              <div class="cnt-reassurance-text">
+                <strong>Quiet Residential Lane</strong>
+                <small>Akash CHS Sector 42</small>
+              </div>
             </div>
             <div class="cnt-reassurance-item">
-              <i class="fas fa-phone"></i>
-              <span>Direct Founder Line</span>
+              <div class="cnt-reassurance-icon phone"><i class="fas fa-phone-volume"></i></div>
+              <div class="cnt-reassurance-text">
+                <strong>Direct Founder Line</strong>
+                <small>Call +91 98330 26085</small>
+              </div>
             </div>
           </div>
         </div>

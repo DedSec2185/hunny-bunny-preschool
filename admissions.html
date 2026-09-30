@@ -445,11 +445,197 @@
       background: var(--white);
       padding: 14px 18px;
       border-radius: var(--radius-md);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
       border: 1px solid rgba(0,0,0,0.07);
     }
-    .adm-reassurance-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 800; color: var(--ink); }
-    .adm-reassurance-item i { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+    .adm-reassurance-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #FAF8F5;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+    .adm-reassurance-item:hover {
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      border-color: var(--orange-lt);
+    }
+    .adm-reassurance-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+    .adm-reassurance-icon.fee { background: #FFF0E6; color: #FF6200; }
+    .adm-reassurance-icon.ratio { background: #E8F5E9; color: #2E7D32; }
+    .adm-reassurance-icon.child { background: #FFF9E6; color: #E65100; }
+    .adm-reassurance-icon.cctv { background: #E1F5FE; color: #0288D1; }
+
+    .adm-reassurance-text strong {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .adm-reassurance-text small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Family Promise Card & WhatsApp Direct Button */
+    .family-promise-card {
+      background: linear-gradient(135deg, #FFFDF8 0%, #FFF8EE 100%);
+      border: 1.5px solid #FFE0B2;
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      box-shadow: 0 12px 32px rgba(255, 98, 0, 0.08);
+      margin-top: 24px;
+    }
+    .promise-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .promise-badge-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #FFF0E6;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(255, 98, 0, 0.15);
+    }
+    .promise-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: var(--navy);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .promise-header p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+    .promise-items-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .promise-pill-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #FFFFFF;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 152, 0, 0.12);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+    }
+    .promise-pill-row:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 98, 0, 0.1);
+      border-color: rgba(255, 98, 0, 0.3);
+    }
+    .promise-check-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #E8F5E9;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .promise-pill-content strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .promise-pill-content p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.45;
+    }
+
+    .form-wa-help {
+      margin-top: 22px;
+      text-align: center;
+    }
+    .wa-help-divider {
+      position: relative;
+      margin: 18px 0 14px;
+      text-align: center;
+    }
+    .wa-help-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.08);
+      z-index: 1;
+    }
+    .wa-help-divider span {
+      position: relative;
+      z-index: 2;
+      background: #FFFFFF;
+      padding: 0 12px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 0.8px;
+    }
+    .btn-wa-direct {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #FFFFFF !important;
+      font-weight: 800;
+      font-size: 0.96rem;
+      padding: 13px 24px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+      transition: all 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      touch-action: manipulation;
+    }
+    .btn-wa-direct i {
+      font-size: 1.3rem;
+    }
+    .btn-wa-direct:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      background: linear-gradient(135deg, #28E06D 0%, #159C8D 100%);
+    }
 
     /* Visual Showcase Frame */
     .adm-visual-stage {
@@ -955,11 +1141,46 @@
       .adm-reassurance-bar {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
-        padding: 12px 14px !important;
+        gap: 10px !important;
+        padding: 12px !important;
         max-width: 100% !important;
-        margin: 0 auto 16px !important;
-        text-align: center !important;
+        margin: 0 auto 18px !important;
+      }
+      .adm-reassurance-item {
+        padding: 9px 8px !important;
+        gap: 8px !important;
+      }
+      .adm-reassurance-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.95rem !important;
+      }
+      .adm-reassurance-text strong {
+        font-size: 0.78rem !important;
+      }
+      .adm-reassurance-text small {
+        font-size: 0.68rem !important;
+      }
+      .family-promise-card {
+        padding: 18px 14px !important;
+      }
+      .promise-header h3 {
+        font-size: 1.25rem !important;
+      }
+      .promise-pill-row {
+        padding: 11px 12px !important;
+        gap: 10px !important;
+      }
+      .promise-check-icon {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.85rem !important;
+      }
+      .promise-pill-content strong {
+        font-size: 0.86rem !important;
+      }
+      .promise-pill-content p {
+        font-size: 0.78rem !important;
       }
 
       .process-card { padding: 20px 16px !important; margin-bottom: 20px !important; }
@@ -1300,20 +1521,32 @@
 
           <div class="adm-reassurance-bar adm-anim-item">
             <div class="adm-reassurance-item">
-              <i class="fas fa-heart"></i>
-              <span>Adjusting Fee Support</span>
+              <div class="adm-reassurance-icon fee"><i class="fas fa-hand-holding-heart"></i></div>
+              <div class="adm-reassurance-text">
+                <strong>Adjusting Fee Support</strong>
+                <small>Tailored to each family</small>
+              </div>
             </div>
             <div class="adm-reassurance-item">
-              <i class="fas fa-users"></i>
-              <span>2 Teachers + 1 Helper</span>
+              <div class="adm-reassurance-icon ratio"><i class="fas fa-user-group"></i></div>
+              <div class="adm-reassurance-text">
+                <strong>2 Teachers + 1 Helper</strong>
+                <small>Dedicated attention</small>
+              </div>
             </div>
             <div class="adm-reassurance-item">
-              <i class="fas fa-child"></i>
-              <span>Max 20 Children</span>
+              <div class="adm-reassurance-icon child"><i class="fas fa-child-reaching"></i></div>
+              <div class="adm-reassurance-text">
+                <strong>Max 20 Children</strong>
+                <small>Small batch intimacy</small>
+              </div>
             </div>
             <div class="adm-reassurance-item">
-              <i class="fas fa-shield-halved"></i>
-              <span>100% CCTV Monitored</span>
+              <div class="adm-reassurance-icon cctv"><i class="fas fa-shield-halved"></i></div>
+              <div class="adm-reassurance-text">
+                <strong>100% CCTV Monitored</strong>
+                <small>Transparent campus</small>
+              </div>
             </div>
           </div>
         </div>
@@ -1392,15 +1625,37 @@
           </div>
         </div>
 
-        <div class="process-card scroll-card" style="background: var(--yellow-lt); border-color: rgba(255, 215, 64, 0.4);">
-          <h3 style="font-family: var(--font-display); font-size: 1.45rem; color: var(--orange); margin-bottom: 10px;">
-            <i class="fas fa-heart"></i> Our Promise to Every Family
-          </h3>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-weight: 700;">
-            <li><i class="fas fa-check" style="color: var(--green); margin-right: 8px;"></i> Free Welcome Activity &amp; Art Kit For Every Child</li>
-            <li><i class="fas fa-check" style="color: var(--green); margin-right: 8px;"></i> Compassionate, adjusting fee support tailored to parent's financial situation</li>
-            <li><i class="fas fa-check" style="color: var(--green); margin-right: 8px;"></i> No Child Left Behind — Every family is warmly welcomed</li>
-          </ul>
+        <div class="family-promise-card scroll-card">
+          <div class="promise-header">
+            <div class="promise-badge-icon"><i class="fas fa-heart"></i></div>
+            <div>
+              <h3>Our Promise to Every Family</h3>
+              <p>Core values that guide our admissions and relationship with parents</p>
+            </div>
+          </div>
+          <div class="promise-items-stack">
+            <div class="promise-pill-row">
+              <div class="promise-check-icon"><i class="fas fa-gift"></i></div>
+              <div class="promise-pill-content">
+                <strong>Free Welcome Activity &amp; Art Kit</strong>
+                <p>Every newly enrolled child receives a full complimentary art &amp; craft sensory starter kit.</p>
+              </div>
+            </div>
+            <div class="promise-pill-row">
+              <div class="promise-check-icon"><i class="fas fa-hand-holding-heart"></i></div>
+              <div class="promise-pill-content">
+                <strong>Compassionate &amp; Adjusting Fee Support</strong>
+                <p>Personalized discussion with founder Mrs. Sindhu to comfortably match your family's financial situation.</p>
+              </div>
+            </div>
+            <div class="promise-pill-row">
+              <div class="promise-check-icon"><i class="fas fa-shield-heart"></i></div>
+              <div class="promise-pill-content">
+                <strong>No Child Left Behind</strong>
+                <p>Zero rejection policy — every child is embraced with equal love, respect, and encouragement.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1459,10 +1714,13 @@
           </button>
         </form>
 
-        <div style="text-align: center; margin-top: 18px;">
-          <span style="font-size: 0.88rem; color: var(--muted);">Need immediate answers?</span>
-          <a href="https://wa.me/919833026085?text=Hello!%20I%20have%20an%20admission%20question%20regarding%20Hunny%20Bunny." target="_blank" style="color: var(--green); font-weight: 800; display: block; margin-top: 4px;">
-            <i class="fab fa-whatsapp"></i> Chat directly on WhatsApp (+91 98330 26085)
+        <div class="form-wa-help">
+          <div class="wa-help-divider">
+            <span>OR NEED INSTANT ADVICE?</span>
+          </div>
+          <a href="https://wa.me/919833026085?text=Hello!%20I%20have%20an%20admission%20question%20regarding%20Hunny%20Bunny." target="_blank" rel="noopener" class="btn-wa-direct">
+            <i class="fab fa-whatsapp"></i>
+            <span>Chat Directly on WhatsApp (+91 98330 26085)</span>
           </a>
         </div>
       </div>
