@@ -2,14 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="photos/hunny_bunny_mascot.png">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="photos/hunny_bunny_mascot.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rate Hunny Bunny Pre-School | Google Reviews</title>
-  <meta name="description" content="Share your experience at Hunny Bunny Pre-School & Daycare Seawoods. Help local parents discover safe, loving early education." />
-  <link rel="canonical" href="https://hunny-bunny-preschool.vercel.app/review" />
+  <title>Review Hunny Bunny Pre-School &amp; Daycare | Official Google Review Hub</title>
+  <meta name="description" content="Share your experience at Hunny Bunny Pre-School & Daycare Seawoods. Scan QR code or tap to rate 5 stars on Google Maps." />
+  <link rel="canonical" href="https://hunny-bunny-preschool.vercel.app/review.html" />
 
-  <!-- Fonts & Icons -->
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Rate Hunny Bunny Pre-School on Google Maps" />
+  <meta property="og:description" content="Help local Seawoods families discover safe, nurturing early education and daycare." />
+  <meta property="og:image" content="https://hunny-bunny-preschool.vercel.app/photos/hunny_bunny_mascot.png" />
+  <meta property="og:url" content="https://hunny-bunny-preschool.vercel.app/review.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -23,84 +30,249 @@
       --yellow: #FFD740;
       --yellow-lt: #FFF9E6;
       --navy: #1A237E;
+      --navy-lt: #E8EAF6;
       --green: #2E7D32;
       --green-lt: #E8F5E9;
       --ink: #1C1C1C;
-      --muted: #616161;
+      --muted: #555555;
       --white: #FFFFFF;
-      --radius-md: 20px;
+      --border: #FFE082;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
       --radius-full: 9999px;
       --font-display: 'Baloo 2', cursive, sans-serif;
       --font-body: 'Nunito', sans-serif;
+      --shadow-soft: 0 16px 38px rgba(26, 35, 126, 0.08);
+      --shadow-hover: 0 20px 45px rgba(255, 98, 0, 0.22);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: var(--font-body);
-      background: radial-gradient(circle at 10% 20%, rgba(255, 215, 64, 0.22) 0%, transparent 45%),
-                  radial-gradient(circle at 90% 80%, rgba(255, 98, 0, 0.15) 0%, transparent 40%),
+      background: radial-gradient(circle at 10% 15%, rgba(255, 215, 64, 0.25) 0%, transparent 45%),
+                  radial-gradient(circle at 90% 85%, rgba(255, 98, 0, 0.18) 0%, transparent 45%),
                   #FFFBF3;
       color: var(--ink);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px 16px;
+      justify-content: flex-start;
+      padding: 24px 16px 48px;
     }
-    .review-card {
-      background: #FFFFFF;
-      border-radius: 28px;
-      padding: 36px 24px;
-      max-width: 440px;
+
+    .review-wrapper {
+      max-width: 520px;
       width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 45px rgba(26, 35, 126, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      position: relative;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
+
+    /* Top Brand & Google Header */
+    .brand-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 6px 4px;
+    }
+    .brand-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.88rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.25s ease;
+    }
+    .brand-back-btn:hover {
+      background: var(--navy);
+      color: var(--white);
+      transform: translateX(-2px);
+    }
+    .print-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      color: var(--muted);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .print-mode-btn:hover {
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+
+    /* Main Hub Card */
+    .hub-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      border: 1.5px solid rgba(255, 224, 130, 0.7);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hub-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853);
+    }
+
+    /* Mascot Avatar */
     .mascot-avatar {
-      width: 76px;
-      height: 76px;
+      width: 82px;
+      height: 82px;
       border-radius: 50%;
       background: #FFF9E6;
-      border: 3px solid #FFE082;
-      margin: 0 auto 16px;
+      border: 3.5px solid #FFE082;
+      margin: 0 auto 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(255, 140, 0, 0.18);
+      box-shadow: 0 8px 24px rgba(255, 140, 0, 0.2);
       overflow: hidden;
       padding: 4px;
+      transition: transform 0.3s ease;
     }
+    .mascot-avatar:hover { transform: scale(1.06) rotate(-5deg); }
     .mascot-avatar img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-    h1 {
+
+    /* Title & Meta */
+    h1.hub-title {
       font-family: var(--font-display);
-      font-size: 1.75rem;
+      font-size: 1.68rem;
       color: var(--navy);
-      line-height: 1.25;
-      margin-bottom: 8px;
+      line-height: 1.22;
+      margin-bottom: 6px;
     }
-    p.subtitle {
+    p.hub-subtitle {
       color: var(--muted);
       font-size: 0.94rem;
       line-height: 1.5;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       font-weight: 600;
     }
-    .stars-strip {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      font-size: 2.2rem;
-      color: #FFB300;
-      margin-bottom: 24px;
-      text-shadow: 0 4px 12px rgba(255, 179, 0, 0.35);
+
+    /* Google Official Business Profile Pill */
+    .google-verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #F8F9FA;
+      border: 1px solid #DADCE0;
+      border-radius: var(--radius-full);
+      padding: 8px 18px;
+      margin-bottom: 22px;
+      text-align: left;
     }
-    .btn-google-review {
+    .google-g-icon {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: #4285F4;
+      flex-shrink: 0;
+    }
+    .google-badge-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .google-badge-meta .title {
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: #202124;
+    }
+    .google-badge-meta .stats {
+      font-size: 0.78rem;
+      color: #5F6368;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 700;
+    }
+    .google-stars {
+      color: #FBBC04;
+      font-size: 0.82rem;
+    }
+
+    /* Interactive Star Selector */
+    .rating-section {
+      background: var(--yellow-lt);
+      border: 1.5px solid #FFE082;
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      margin-bottom: 22px;
+    }
+    .rating-prompt {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .interactive-stars {
+      display: inline-flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      direction: ltr;
+    }
+    .star-btn {
+      background: none;
+      border: none;
+      font-size: 2.3rem;
+      color: #FFD54F;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      padding: 4px;
+      touch-action: manipulation;
+      outline: none;
+    }
+    .star-btn.active,
+    .star-btn.hover {
+      color: #FF9800;
+      transform: scale(1.18);
+      filter: drop-shadow(0 4px 10px rgba(255, 152, 0, 0.45));
+    }
+    .rating-sentiment-text {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--orange-dk);
+      min-height: 22px;
+      transition: all 0.2s ease;
+    }
+
+    /* Direct Google Review Action Button */
+    .btn-google-direct {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -110,114 +282,572 @@
       padding: 16px 24px;
       border-radius: var(--radius-full);
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       text-decoration: none;
       box-shadow: 0 10px 28px rgba(255, 98, 0, 0.35);
-      margin-bottom: 22px;
-      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      transition: all 0.25s ease;
       touch-action: manipulation;
+      border: none;
+      cursor: pointer;
+      width: 100%;
     }
-    .btn-google-review:hover {
+    .btn-google-direct:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 14px 34px rgba(255, 98, 0, 0.45);
+      box-shadow: 0 16px 36px rgba(255, 98, 0, 0.45);
     }
-    .tips-box {
-      background: var(--yellow-lt);
-      border: 1px dashed rgba(255, 179, 0, 0.6);
-      border-radius: var(--radius-md);
-      padding: 16px;
+    .btn-google-direct i.fa-google {
+      font-size: 1.25rem;
+    }
+
+    /* Topic Inspiration Chips (Like in Google Review modal) */
+    .topics-box {
       text-align: left;
       margin-bottom: 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
     }
-    .tips-box h4 {
-      font-size: 0.85rem;
-      color: var(--orange-dk);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .topics-header {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: space-between;
     }
-    .tips-box ul {
-      list-style: none;
-      font-size: 0.82rem;
-      color: var(--ink);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .topics-header span.hint {
+      font-size: 0.74rem;
+      color: var(--muted);
       font-weight: 600;
     }
-    .tips-box li::before {
-      content: '✔ ';
-      color: var(--green);
-      font-weight: 800;
+    .chips-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .btn-wa-private {
+    .chip {
+      background: var(--yellow-lt);
+      border: 1px solid #FFE082;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .chip:hover {
+      background: var(--orange-lt);
+      border-color: var(--orange);
+      color: var(--orange-dk);
+      transform: translateY(-1px);
+    }
+    .chip.selected {
+      background: var(--orange);
+      color: var(--white);
+      border-color: var(--orange-dk);
+    }
+
+    /* Review Draft Helper Box */
+    .draft-helper {
+      margin-top: 14px;
+    }
+    .draft-textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(0, 0, 0, 0.12);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--ink);
+      resize: vertical;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .draft-textarea:focus {
+      border-color: var(--orange);
+    }
+    .btn-copy-draft {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      color: #25D366;
-      background: #E8F5E9;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
       padding: 10px 18px;
       border-radius: var(--radius-full);
-      text-decoration: none;
       font-size: 0.85rem;
       font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .btn-copy-draft:hover {
+      background: #0D1642;
+      transform: translateY(-1px);
+    }
+
+    /* Lower rating fallback box */
+    .low-rating-box {
+      display: none;
+      background: #FFF3E0;
+      border: 1.5px dashed #FF9800;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .low-rating-box h4 {
+      font-size: 0.95rem;
+      color: #E65100;
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+    .low-rating-box p {
+      font-size: 0.84rem;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .btn-wa-resolve {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25D366;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.88rem;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
       transition: all 0.2s ease;
     }
-    .back-home {
-      display: block;
-      margin-top: 18px;
-      font-size: 0.84rem;
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 700;
+    .btn-wa-resolve:hover {
+      background: #1EBE5D;
+      transform: translateY(-1px);
     }
-    .back-home:hover { color: var(--orange); }
+
+    /* Desk QR Standee Card */
+    .standee-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .standee-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 0.94rem;
+      color: var(--navy);
+    }
+    .standee-qr-frame {
+      background: #FFFFFF;
+      padding: 12px;
+      border: 2px solid #FFE082;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      width: 190px;
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .standee-qr-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .standee-caption {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .standee-actions {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      margin-top: 4px;
+    }
+    .btn-action-sm {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: #F8F9FA;
+      color: var(--ink);
+      transition: all 0.2s ease;
+    }
+    .btn-action-sm:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #202124;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      z-index: 99999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Print Stylesheet: Ready-to-frame tabletop standee flyer */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        padding: 0 !important;
+        color: #000000 !important;
+      }
+      .brand-bar, .rating-section, .draft-helper, .standee-actions, .toast-msg, .low-rating-box {
+        display: none !important;
+      }
+      .review-wrapper {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+      }
+      .hub-card {
+        border: 2px solid #000000 !important;
+        box-shadow: none !important;
+        padding: 40px !important;
+        page-break-inside: avoid;
+      }
+      .btn-google-direct {
+        background: #000000 !important;
+        color: #FFFFFF !important;
+        box-shadow: none !important;
+      }
+      .standee-card {
+        border: 2px dashed #000000 !important;
+        box-shadow: none !important;
+        margin-top: 30px !important;
+      }
+      .standee-qr-frame {
+        width: 240px !important;
+        height: 240px !important;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <main class="review-card">
-    <div class="mascot-avatar">
-      <img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" />
-    </div>
+  <div class="review-wrapper">
 
-    <h1>Thank You for Choosing Hunny Bunny!</h1>
-    <p class="subtitle">Your 30-second review on Google helps other Seawoods parents find a safe, nurturing preschool &amp; daycare.</p>
-
-    <div class="stars-strip">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-    </div>
-
-    <a href="https://maps.google.com/?q=Hunny+Bunny+Pre-School+Sector+42+Seawoods" target="_blank" rel="noopener" class="btn-google-review">
-      <i class="fab fa-google"></i>
-      <span>Rate 5 Stars on Google &rarr;</span>
-    </a>
-
-    <div class="tips-box">
-      <h4><i class="fas fa-lightbulb"></i> Helpful Review Ideas:</h4>
-      <ul>
-        <li>Loving teachers &amp; gentle care (Mrs. Sindhu &amp; team)</li>
-        <li>100% CCTV transparency &amp; clean environment</li>
-        <li>Playgroup, Nursery, or Daycare experience</li>
-        <li>Your child's growth, confidence &amp; happiness</li>
-      </ul>
-    </div>
-
-    <div>
-      <a href="https://wa.me/919833026085?text=Hello%20Mrs.%20Sindhu!%20I%20wanted%20to%20share%20some%20private%20feedback%20about%20Hunny%20Bunny." target="_blank" rel="noopener" class="btn-wa-private">
-        <i class="fab fa-whatsapp"></i> Share Private Feedback with Principal
+    <!-- Top Navigation Bar -->
+    <header class="brand-bar">
+      <a href="index.html?v=3.0" class="brand-back-btn">
+        <i class="fas fa-arrow-left"></i>
+        <span>Hunny Bunny Home</span>
       </a>
-    </div>
+      <button type="button" class="print-mode-btn" onclick="window.print()" title="Print front desk QR flyer">
+        <i class="fas fa-print"></i>
+        <span>Print Standee</span>
+      </button>
+    </header>
 
-    <a href="index.html?v=3.0" class="back-home">&larr; Return to Hunny Bunny Website</a>
-  </main>
+    <!-- Main Google Review Action Card -->
+    <main class="hub-card" id="mainReviewCard">
+
+      <div class="mascot-avatar">
+        <img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Preschool Mascot" />
+      </div>
+
+      <h1 class="hub-title">Thank You for Being Part of Hunny Bunny!</h1>
+      <p class="hub-subtitle">
+        Your 30-second review on Google helps other Seawoods parents find a safe, joyful &amp; loving start for their child.
+      </p>
+
+      <!-- Google Official Business Verification Banner -->
+      <div class="google-verified-badge">
+        <div class="google-g-icon">
+          <i class="fab fa-google"></i>
+        </div>
+        <div class="google-badge-meta">
+          <span class="title">Hunny Bunny Pre School</span>
+          <span class="stats">
+            <span class="google-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+            <strong>4.8</strong> &bull; 20+ Google Reviews &bull; Seawoods
+          </span>
+        </div>
+      </div>
+
+      <!-- Interactive 5-Star Selector -->
+      <section class="rating-section" aria-label="Rating selector">
+        <div class="rating-prompt" id="ratingPrompt">Select your rating:</div>
+        <div class="interactive-stars" id="starGroup" role="radiogroup" aria-label="Rate from 1 to 5 stars">
+          <button type="button" class="star-btn active" data-rating="1" aria-label="1 Star"><i class="fas fa-star"></i></button>
+          <button type="button" class="star-btn active" data-rating="2" aria-label="2 Stars"><i class="fas fa-star"></i></button>
+          <button type="button" class="star-btn active" data-rating="3" aria-label="3 Stars"><i class="fas fa-star"></i></button>
+          <button type="button" class="star-btn active" data-rating="4" aria-label="4 Stars"><i class="fas fa-star"></i></button>
+          <button type="button" class="star-btn active" data-rating="5" aria-label="5 Stars"><i class="fas fa-star"></i></button>
+        </div>
+        <div class="rating-sentiment-text" id="sentimentText">⭐ 5 Stars: Outstanding &amp; Highly Recommended!</div>
+      </section>
+
+      <!-- Primary Action: Direct Google Review Dialog Launch -->
+      <div id="highRatingFlow">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJ_ZYQcL3D5zsRE-oIuRitJIU"
+           target="_blank"
+           rel="noopener"
+           id="directGoogleBtn"
+           class="btn-google-direct">
+          <i class="fab fa-google"></i>
+          <span>Write 5-Star Review on Google &rarr;</span>
+        </a>
+
+        <!-- Topic Inspiration Chips (Like in Google Review composer) -->
+        <section class="topics-box">
+          <div class="topics-header">
+            <span><i class="fas fa-lightbulb" style="color: var(--orange);"></i> Tap Topics to Build Your Review:</span>
+            <span class="hint">Click to add</span>
+          </div>
+          <div class="chips-flex" id="chipsContainer">
+            <span class="chip" data-phrase="Loving &amp; highly attentive teachers.">❤️ Caring Teachers</span>
+            <span class="chip" data-phrase="100% CCTV safety &amp; spotless clean campus.">🛡️ 100% CCTV Safe</span>
+            <span class="chip" data-phrase="Warm, hygienic daycare with attentive care.">🧸 Safe Daycare</span>
+            <span class="chip" data-phrase="Joyful activity-based curriculum &amp; phonics.">🎨 Creative Activities</span>
+            <span class="chip" data-phrase="Personal guidance from Principal Mrs. Sindhu.">👩‍🏫 Mrs. Sindhu's Guidance</span>
+            <span class="chip" data-phrase="Noticeable growth in my child's confidence.">🌟 Confident Child</span>
+            <span class="chip" data-phrase="Best preschool in Seawoods Sector 42.">🏆 Best Preschool in Seawoods</span>
+          </div>
+
+          <!-- Optional Review Draft Helper -->
+          <div class="draft-helper">
+            <textarea id="draftTextarea" class="draft-textarea" rows="3" aria-label="Review text">Wonderful preschool and daycare in Seawoods! Caring teachers, 100% CCTV safety, spotless hygiene, and personal attention from Mrs. Sindhu. My child loves going every day!</textarea>
+            <button type="button" id="copyAndOpenBtn" class="btn-copy-draft">
+              <i class="fas fa-copy"></i>
+              <span>Copy Review Text &amp; Open Google</span>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Low Rating Fallback (1-3 stars): Gentle Principal Resolution Option -->
+      <section class="low-rating-box" id="lowRatingFlow">
+        <h4><i class="fas fa-heart"></i> Your Child's Happiness is Our #1 Priority</h4>
+        <p>
+          We are deeply committed to every family. If anything fell short of your expectations, please talk directly with our Principal Mrs. Sindhu so we can resolve it immediately.
+        </p>
+        <a href="https://wa.me/919833026085?text=Hello%20Mrs.%20Sindhu%2C%20I%20wanted%20to%20share%20some%20feedback%20regarding%20my%20experience%20at%20Hunny%20Bunny."
+           target="_blank"
+           rel="noopener"
+           class="btn-wa-resolve">
+          <i class="fab fa-whatsapp"></i> Chat with Principal Mrs. Sindhu
+        </a>
+        <div style="margin-top: 14px;">
+          <a href="https://search.google.com/local/writereview?placeid=ChIJ_ZYQcL3D5zsRE-oIuRitJIU"
+             target="_blank"
+             rel="noopener"
+             style="font-size: 0.78rem; color: var(--muted); text-decoration: underline;">
+            Continue to public Google Review form anyway &rarr;
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Front Desk QR Code Standee Card (For reception scan & print) -->
+    <section class="standee-card">
+      <div class="standee-header">
+        <i class="fas fa-qrcode" style="color: var(--orange); font-size: 1.2rem;"></i>
+        <span>Scan QR Code with Phone Camera</span>
+      </div>
+      <div class="standee-qr-frame">
+        <img src="photos/qr_hunny_bunny_review.svg" alt="Scan QR Code to Review Hunny Bunny on Google" width="180" height="180" />
+      </div>
+      <p class="standee-caption">
+        Point any smartphone camera at this QR code to instantly launch this review page or rate us on Google Maps.
+      </p>
+      <div class="standee-actions">
+        <button type="button" class="btn-action-sm" onclick="window.print()">
+          <i class="fas fa-print"></i> Print Desk Standee
+        </button>
+        <a href="photos/qr_hunny_bunny_review.svg" download="Hunny_Bunny_Review_QR.svg" class="btn-action-sm">
+          <i class="fas fa-download"></i> Save QR Code
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Toast Element -->
+  <div class="toast-msg" id="toast">
+    <i class="fas fa-check-circle" style="color: #34A853;"></i>
+    <span id="toastText">Review text copied! Opening Google...</span>
+  </div>
+
+  <!-- Interactive Logic -->
+  <script>
+    (function() {
+      const GOOGLE_REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJ_ZYQcL3D5zsRE-oIuRitJIU';
+      const starButtons = document.querySelectorAll('.star-btn');
+      const sentimentText = document.getElementById('sentimentText');
+      const highRatingFlow = document.getElementById('highRatingFlow');
+      const lowRatingFlow = document.getElementById('lowRatingFlow');
+      const directGoogleBtn = document.getElementById('directGoogleBtn');
+      const chipsContainer = document.getElementById('chipsContainer');
+      const draftTextarea = document.getElementById('draftTextarea');
+      const copyAndOpenBtn = document.getElementById('copyAndOpenBtn');
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toastText');
+
+      let currentRating = 5;
+
+      const sentiments = {
+        5: '⭐ 5 Stars: Outstanding & Highly Recommended!',
+        4: '⭐ 4 Stars: Very Good Experience!',
+        3: '⭐ 3 Stars: Satisfactory Experience',
+        2: '⭐ 2 Stars: Needs Improvement',
+        1: '⭐ 1 Star: Disappointed'
+      };
+
+      function updateStars(rating) {
+        currentRating = rating;
+        starButtons.forEach((btn, index) => {
+          if (index < rating) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
+        sentimentText.textContent = sentiments[rating] || '';
+
+        if (rating >= 4) {
+          highRatingFlow.style.display = 'block';
+          lowRatingFlow.style.display = 'none';
+          directGoogleBtn.innerHTML = '<i class="fab fa-google"></i> <span>Write ' + rating + '-Star Review on Google &rarr;</span>';
+        } else {
+          highRatingFlow.style.display = 'none';
+          lowRatingFlow.style.display = 'block';
+        }
+      }
+
+      starButtons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          const hoverRating = parseInt(btn.getAttribute('data-rating'), 10);
+          starButtons.forEach((b, idx) => {
+            if (idx < hoverRating) b.classList.add('hover');
+            else b.classList.remove('hover');
+          });
+        });
+
+        btn.addEventListener('mouseleave', () => {
+          starButtons.forEach(b => b.classList.remove('hover'));
+        });
+
+        btn.addEventListener('click', () => {
+          const rating = parseInt(btn.getAttribute('data-rating'), 10);
+          updateStars(rating);
+        });
+      });
+
+      // Topic Chips click handler to dynamically build review draft
+      if (chipsContainer) {
+        chipsContainer.addEventListener('click', (e) => {
+          const chip = e.target.closest('.chip');
+          if (!chip) return;
+
+          chip.classList.toggle('selected');
+          const phrase = chip.getAttribute('data-phrase');
+
+          let currentText = draftTextarea.value.trim();
+          if (chip.classList.contains('selected')) {
+            if (currentText.length > 0 && !currentText.endsWith('.')) {
+              currentText += ' ';
+            }
+            if (!currentText.includes(phrase)) {
+              draftTextarea.value = (currentText + ' ' + phrase).trim();
+            }
+          }
+        });
+      }
+
+      // Copy text & launch Google Review intent
+      function showToast(msg, duration = 3000) {
+        toastText.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, duration);
+      }
+
+      if (copyAndOpenBtn) {
+        copyAndOpenBtn.addEventListener('click', async () => {
+          const textToCopy = draftTextarea.value.trim();
+          try {
+            await navigator.clipboard.writeText(textToCopy);
+            showToast('Review text copied! Opening Google Maps...');
+          } catch (err) {
+            // Fallback for older browsers or if clipboard permission fails
+            draftTextarea.select();
+            document.execCommand('copy');
+            showToast('Review text copied! Opening Google Maps...');
+          }
+
+          setTimeout(() => {
+            window.open(GOOGLE_REVIEW_URL, '_blank', 'noopener,noreferrer');
+          }, 800);
+        });
+      }
+
+      // Initial state
+      updateStars(5);
+
+      // Check URL parameters for direct print mode (?print=1)
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('print') === '1' || urlParams.get('standee') === '1') {
+        setTimeout(() => {
+          window.print();
+        }, 600);
+      }
+    })();
+  </script>
 
 </body>
 </html>
