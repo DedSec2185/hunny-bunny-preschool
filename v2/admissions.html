@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="canonical" href="https://www.hunnybunnypreschool.com/admissions" />
   <title>Admissions &amp; School Tour Booking | Hunny Bunny Pre-School Seawoods</title>
-  <meta name="description" content="Apply for admissions at Hunny Bunny Pre-School & Daycare for 2025-26. Inclusive, welcoming early education in Sector 42, Seawoods West, Navi Mumbai." />
+  <meta name="description" content="Admissions open in December for June–April session. Strictly max 20 children per batch with 2 teachers + 1 helper. Book an in-person campus walkthrough at Hunny Bunny Pre-School, Seawoods West, Navi Mumbai." />
 
   <!-- Fonts -->
     <!-- JSON-LD FAQPage & LocalBusiness Schema -->
@@ -32,6 +32,14 @@
       {
         "@type": "FAQPage",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When do admissions open and what is the academic year session?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Admissions officially open every December for the upcoming academic year running from June to April. Each batch is strictly capped at maximum 20 students with 2 certified teachers and 1 helper for focused personal care. If a batch reaches 20, admissions are closed. Mid-term admissions are accepted only if a spot becomes vacant. All vacancy enquiries must be made in-person at our campus."
+            }
+          },
           {
             "@type": "Question",
             "name": "Does my child need to be potty trained before joining Playgroup?",
@@ -579,6 +587,160 @@
       color: var(--muted);
       margin-top: 3px;
       line-height: 1.45;
+    }
+
+    /* Academic Session & Batch Policy Card */
+    .academic-cycle-card {
+      background: #FFFFFF;
+      border: 2px solid rgba(255, 98, 0, 0.22);
+      border-radius: var(--radius-lg);
+      padding: 26px 24px;
+      box-shadow: 0 12px 32px rgba(255, 98, 0, 0.08);
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .academic-cycle-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+    }
+    .cycle-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .cycle-badge-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #FFF0E6;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(255, 98, 0, 0.15);
+    }
+    .cycle-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      background: rgba(255, 98, 0, 0.1);
+      color: var(--orange);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+    .cycle-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--navy);
+      font-weight: 800;
+      line-height: 1.25;
+      margin: 0 0 4px 0;
+    }
+    .cycle-header p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 600px) {
+      .cycle-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .cycle-box {
+      background: #FAF7F2;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .cycle-box:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 98, 0, 0.3);
+    }
+    .cycle-box-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-top: 2px;
+    }
+    .cycle-box.highlight-box {
+      background: #FFF8EE;
+      border-color: rgba(255, 152, 0, 0.25);
+    }
+    .cycle-box.highlight-box .cycle-box-icon {
+      background: #FF6200;
+      color: #FFFFFF;
+    }
+    .cycle-box.alert-box {
+      background: #FFF4E5;
+      border-color: rgba(255, 111, 0, 0.3);
+      grid-column: 1 / -1;
+    }
+    .cycle-box.alert-box .cycle-box-icon {
+      background: #D84315;
+      color: #FFFFFF;
+    }
+    .cycle-box-content strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .cycle-box-content p {
+      font-size: 0.81rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.45;
+    }
+    .cycle-footer-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(3, 169, 244, 0.08);
+      border: 1px dashed rgba(3, 169, 244, 0.4);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      color: #01579B;
+      line-height: 1.45;
+    }
+    .cycle-footer-notice i {
+      font-size: 1.1rem;
+      color: #0288D1;
+      margin-top: 2px;
+      flex-shrink: 0;
     }
 
     .form-wa-help {
@@ -1410,9 +1572,9 @@
 
   <!-- Top Notice Announcement Bar -->
   <div class="top-notice">
-    <span class="highlight-badge">ADMISSIONS OPEN 2025–26</span>
-    <span>Akash CHS, Sector 42, Seawoods West &bull; Call: +91 98330 26085 / 91673 02292</span>
-    <a href="#visitForm">Book Campus Tour &rarr;</a>
+    <span class="highlight-badge">ADMISSIONS OPEN IN DECEMBER</span>
+    <span>Academic Term: June to April &bull; Strictly 20 Children per Batch (2 Teachers + 1 Helper)</span>
+    <a href="#visitForm">Enquire for Spots &rarr;</a>
   </div>
 
   <!-- Clean Floating Header Dock -->
@@ -1499,7 +1661,7 @@
         <div class="adm-hero-left">
           <div class="adm-badge adm-anim-item">
             <i class="fas fa-sparkles"></i>
-            <span>Session 2025–26 &bull; Rolling Admissions Open</span>
+            <span>Admissions Open in December &bull; Academic Year: June to April</span>
           </div>
 
           <h1 class="adm-headline adm-anim-item">
@@ -1594,6 +1756,57 @@
       <!-- Left: Process & Inclusive Philosophy -->
       <div>
         
+        <!-- Official Academic Cycle & Batch Intake Policy Card -->
+        <div class="academic-cycle-card scroll-card">
+          <div class="cycle-header">
+            <div class="cycle-badge-icon"><i class="fas fa-calendar-check"></i></div>
+            <div>
+              <span class="cycle-pill">Official Intake Guidelines</span>
+              <h3>Academic Session &amp; Batch Capacity Policy</h3>
+              <p>Ensuring personalized lookout, emotional security, and highest standards of early childcare</p>
+            </div>
+          </div>
+          
+          <div class="cycle-grid">
+            <div class="cycle-box">
+              <div class="cycle-box-icon"><i class="fas fa-bullhorn"></i></div>
+              <div class="cycle-box-content">
+                <strong>Admissions Open in December</strong>
+                <p>Official enrollment opens in <strong>December</strong> of every year for the upcoming academic session. Early registration ensures priority batch reservation.</p>
+              </div>
+            </div>
+
+            <div class="cycle-box">
+              <div class="cycle-box-icon"><i class="fas fa-school"></i></div>
+              <div class="cycle-box-content">
+                <strong>Academic Year: June to April</strong>
+                <p>Our complete academic session runs from <strong>June through April</strong> of the following year, following an age-graded developmental curriculum.</p>
+              </div>
+            </div>
+
+            <div class="cycle-box highlight-box">
+              <div class="cycle-box-icon"><i class="fas fa-user-group"></i></div>
+              <div class="cycle-box-content">
+                <strong>Strictly 20 Children per Batch (2 Teachers + 1 Helper)</strong>
+                <p>To guarantee personal touch and individual lookout for every single child, we strictly cap intake at <strong>maximum 20 students per batch</strong>, guided by 2 certified teachers and 1 dedicated caregiver.</p>
+              </div>
+            </div>
+
+            <div class="cycle-box alert-box">
+              <div class="cycle-box-icon"><i class="fas fa-door-closed"></i></div>
+              <div class="cycle-box-content">
+                <strong>Full Batches &amp; Mid-Term Vacancy Rules</strong>
+                <p>Once a batch reaches 20 children, it is <strong>strictly closed</strong>. Parents must wait until the next academic year unless a vacant spot arises mid-term (e.g. family relocation). All vacancy checks and waitlist tokens must be enquired <strong>in-person by visiting our campus</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cycle-footer-notice">
+            <i class="fas fa-location-dot"></i>
+            <span><strong>In-Person Enquiries Only:</strong> Real-time seat allocation, batch vacancy checks, and campus walkthroughs require an in-person visit to our Sector 42 Seawoods West campus.</span>
+          </div>
+        </div>
+
         <div class="process-card scroll-card">
           <div style="text-align: center; margin-bottom: 20px;"><img src="photos/hunny_bunny_logo.png" alt="Hunny Bunny Pre-School Official Logo" style="max-width: 140px; width: 100%; height: auto; object-fit: contain;" /></div>
           <h2 style="font-family: var(--font-display); font-size: 2.1rem; margin-bottom: 24px; color: var(--navy);">
@@ -1766,6 +1979,22 @@
       <h3 style="font-family: var(--font-display); font-size: 2.2rem; margin-bottom: 24px; color: var(--navy);">
         Frequently Asked Questions by Parents
       </h3>
+
+      <div class="faq-item active" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>When do admissions open, and what is the academic year?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Official admissions open every year in <strong>December</strong> for the upcoming academic session running from <strong>June to April</strong>. Because every batch is capped at <strong>strictly 20 students (2 teachers + 1 helper)</strong> for individual lookout, we encourage families to register early during the December enrollment window.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('active')">
+        <div class="faq-question">
+          <span>Can we enroll mid-session, or what if a batch is already full?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">Mid-term admission is accepted <strong>only if the current batch has fewer than 20 students</strong> (for example, if a family relocates). If the batch has reached 20 students, it is strictly closed and parents must wait until the next academic year or until a vacant spot opens. To maintain transparency, all vacancy checks and seat confirmations must be made <strong>in-person at our preschool campus</strong>.</div>
+      </div>
 
       <div class="faq-item" onclick="this.classList.toggle('active')">
         <div class="faq-question">
