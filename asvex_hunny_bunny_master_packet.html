@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Documents Portal | ASVEX Technologies &bull; Hunny Bunny Pre-School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0F172A;
+      color: #F8FAFC;
+      line-height: 1.5;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation Dock */
+    .portal-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #090D16;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .portal-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .portal-logo {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: white;
+    }
+    .portal-logo span {
+      color: #3B82F6;
+    }
+    .portal-tag {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Tab Controls */
+    .portal-tabs {
+      display: flex;
+      gap: 6px;
+      background: #1E293B;
+      padding: 4px;
+      border-radius: 8px;
+    }
+    .portal-tab-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .portal-tab-btn:hover {
+      color: white;
+      background: rgba(255,255,255,0.05);
+    }
+    .portal-tab-btn.active {
+      background: #2563EB;
+      color: white;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Action Buttons */
+    .portal-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-action-print {
+      background: linear-gradient(135deg, #2563EB, #1D4ED8);
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: all 0.2s;
+    }
+    .btn-action-print:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+    }
+
+    /* Container for Views */
+    .viewport-container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 16px 60px;
+    }
+
+    .doc-view {
+      display: none;
+    }
+    .doc-view.active {
+      display: block;
+    }
+
+    /* Embedded Iframe or Full Wrapper */
+    .embedded-frame {
+      width: 100%;
+      min-height: 1100px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    }
+
+    /* Notice Card */
+    .portal-help-card {
+      background: #1E293B;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: #CBD5E1;
+    }
+    .portal-help-card strong {
+      color: white;
+    }
+    .direct-links {
+      display: flex;
+      gap: 12px;
+    }
+    .direct-link-item {
+      color: #60A5FA;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .direct-link-item:hover {
+      text-decoration: underline;
+    }
+
+    @media print {
+      .portal-nav, .portal-help-card {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Dock -->
+  <nav class="portal-nav">
+    <div class="portal-brand">
+      <div class="portal-logo">ASVEX <span>TECHNOLOGIES</span></div>
+      <div class="portal-tag">Client Document Center</div>
+    </div>
+
+    <!-- Switcher Tabs -->
+    <div class="portal-tabs">
+      <button class="portal-tab-btn active" onclick="switchDoc('invoice')">
+        <i class="fas fa-file-invoice-dollar"></i> Master Invoice (&#8377;20,000)
+      </button>
+      <button class="portal-tab-btn" onclick="switchDoc('proposal')">
+        <i class="fas fa-file-contract"></i> Project Proposal
+      </button>
+      <button class="portal-tab-btn" onclick="switchDoc('agreement')">
+        <i class="fas fa-file-signature"></i> Master Agreement (MSA)
+      </button>
+    </div>
+
+    <div class="portal-actions">
+      <button class="btn-action-print" onclick="printActiveDoc()">
+        <i class="fas fa-print"></i> Print / Save as PDF
+      </button>
+    </div>
+  </nav>
+
+  <div class="viewport-container">
+
+    <!-- Helper Notice -->
+    <div class="portal-help-card">
+      <div>
+        <i class="fas fa-circle-check" style="color: #4ADE80; margin-right: 6px;"></i>
+        <strong>Official Documents for Hunny Bunny Pre-School &amp; Daycare:</strong>
+        All 3 documents have been formatted to standard A4 printing and PDF generation under ASVEX Technologies.
+      </div>
+      <div class="direct-links">
+        <a href="asvex_hunny_bunny_invoice.html" target="_blank" class="direct-link-item">
+          <i class="fas fa-external-link-alt"></i> Open Invoice
+        </a>
+        <a href="asvex_hunny_bunny_proposal.html" target="_blank" class="direct-link-item">
+          <i class="fas fa-external-link-alt"></i> Open Proposal
+        </a>
+        <a href="asvex_hunny_bunny_agreement.html" target="_blank" class="direct-link-item">
+          <i class="fas fa-external-link-alt"></i> Open MSA
+        </a>
+      </div>
+    </div>
+
+    <!-- Document Views -->
+    <div id="view-invoice" class="doc-view active">
+      <iframe src="asvex_hunny_bunny_invoice.html" class="embedded-frame" id="frame-invoice"></iframe>
+    </div>
+
+    <div id="view-proposal" class="doc-view">
+      <iframe src="asvex_hunny_bunny_proposal.html" class="embedded-frame" id="frame-proposal"></iframe>
+    </div>
+
+    <div id="view-agreement" class="doc-view">
+      <iframe src="asvex_hunny_bunny_agreement.html" class="embedded-frame" id="frame-agreement"></iframe>
+    </div>
+
+  </div>
+
+  <script>
+    let currentDoc = 'invoice';
+
+    function switchDoc(docType) {
+      currentDoc = docType;
+      document.querySelectorAll('.portal-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.doc-view').forEach(v => v.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById('view-' + docType).classList.add('active');
+    }
+
+    function printActiveDoc() {
+      const activeFrame = document.getElementById('frame-' + currentDoc);
+      if (activeFrame && activeFrame.contentWindow) {
+        activeFrame.contentWindow.focus();
+        activeFrame.contentWindow.print();
+      } else {
+        window.print();
+      }
+    }
+  </script>
+
+</body>
+</html>
