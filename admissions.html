@@ -96,6 +96,7 @@
       --yellow: #FFD740;
       --yellow-lt: #FFF9E6;
       --sky: #4ECEE0;
+      --sky-dk: #1EAABF;
       --sky-lt: #E6F9FC;
       --green: #2E7D32;
       --green-lt: #E8F5E9;
@@ -114,6 +115,9 @@
 
       --font-display: 'Baloo 2', cursive, sans-serif;
       --font-body: 'Nunito', sans-serif;
+
+      --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -589,35 +593,35 @@
       line-height: 1.45;
     }
 
-    /* Academic Session & Batch Policy Card */
-    .academic-cycle-card {
-      background: #FFFFFF;
-      border: 2px solid rgba(255, 98, 0, 0.22);
+    /* ==========================================================================
+       FULL-WIDTH ACADEMIC CYCLE & INTAKE POLICY SHOWCASE
+       ========================================================================== */
+    .academic-policy-section {
+      background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 26px 24px;
-      box-shadow: 0 12px 32px rgba(255, 98, 0, 0.08);
-      margin-bottom: 24px;
+      border: 1.5px solid rgba(255, 98, 0, 0.2);
+      box-shadow: 0 16px 40px rgba(255, 98, 0, 0.06);
+      padding: 34px 34px 28px;
+      margin-top: 20px;
+      margin-bottom: 40px;
       position: relative;
       overflow: hidden;
     }
-    .academic-cycle-card::before {
+    .academic-policy-section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--orange), var(--yellow));
+      top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow), var(--sky));
     }
-    .cycle-header {
+    .policy-header-row {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 20px;
+      gap: 16px;
+      margin-bottom: 24px;
     }
-    .cycle-badge-icon {
-      width: 48px;
-      height: 48px;
+    .policy-header-icon {
+      width: 50px;
+      height: 50px;
       border-radius: 14px;
       background: #FFF0E6;
       color: var(--orange);
@@ -626,121 +630,172 @@
       justify-content: center;
       font-size: 1.35rem;
       flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(255, 98, 0, 0.15);
+      box-shadow: 0 6px 16px rgba(255, 98, 0, 0.15);
     }
-    .cycle-pill {
+    .policy-pill {
       display: inline-block;
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 800;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
       background: rgba(255, 98, 0, 0.1);
       color: var(--orange);
-      padding: 3px 10px;
+      padding: 3px 12px;
       border-radius: 999px;
       margin-bottom: 6px;
     }
-    .cycle-header h3 {
+    .policy-title {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: clamp(1.5rem, 2.3vw, 2.1rem);
       color: var(--navy);
       font-weight: 800;
-      line-height: 1.25;
-      margin: 0 0 4px 0;
+      line-height: 1.2;
+      margin: 0 0 6px 0;
     }
-    .cycle-header p {
-      font-size: 0.85rem;
+    .policy-subtitle {
+      font-size: 0.94rem;
       color: var(--muted);
       margin: 0;
-      line-height: 1.4;
+      line-height: 1.5;
+      max-width: 820px;
     }
-    .cycle-grid {
+
+    /* 4-Card Responsive Grid */
+    .policy-cards-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 22px;
     }
-    @media (max-width: 600px) {
-      .cycle-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 1100px) {
+      .policy-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-    .cycle-box {
+    @media (max-width: 640px) {
+      .policy-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .academic-policy-section {
+        padding: 24px 18px 20px;
+      }
+      .policy-header-row {
+        gap: 12px;
+      }
+      .policy-header-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+      }
+    }
+
+    .policy-grid-card {
       background: #FAF7F2;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 14px;
-      padding: 14px 16px;
+      border: 1.5px solid rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      padding: 20px 18px;
       display: flex;
-      align-items: flex-start;
+      flex-direction: column;
       gap: 12px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: all 0.25s ease;
+      position: relative;
     }
-    .cycle-box:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255, 98, 0, 0.3);
-    }
-    .cycle-box-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
+    .policy-grid-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(255, 98, 0, 0.08);
+      border-color: rgba(255, 98, 0, 0.25);
       background: #FFFFFF;
-      color: var(--orange);
+    }
+    .policy-grid-card.highlight {
+      background: #FFF8EE;
+      border-color: rgba(255, 152, 0, 0.3);
+      box-shadow: 0 4px 14px rgba(255, 98, 0, 0.06);
+    }
+    .policy-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .policy-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+      font-size: 1.1rem;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-top: 2px;
     }
-    .cycle-box.highlight-box {
-      background: #FFF8EE;
-      border-color: rgba(255, 152, 0, 0.25);
+    .policy-card-icon.icon-orange { background: #FFF0E6; color: var(--orange); }
+    .policy-card-icon.icon-navy   { background: #E8EAF6; color: var(--navy); }
+    .policy-card-icon.icon-amber  { background: #FF6200; color: #FFFFFF; }
+    .policy-card-icon.icon-rose   { background: #FBE9E7; color: #D84315; }
+
+    .policy-card-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      background: rgba(0,0,0,0.04);
+      padding: 3px 8px;
+      border-radius: 6px;
     }
-    .cycle-box.highlight-box .cycle-box-icon {
-      background: #FF6200;
-      color: #FFFFFF;
+    .policy-grid-card.highlight .policy-card-tag {
+      background: rgba(255, 98, 0, 0.12);
+      color: var(--orange);
     }
-    .cycle-box.alert-box {
-      background: #FFF4E5;
-      border-color: rgba(255, 111, 0, 0.3);
-      grid-column: 1 / -1;
-    }
-    .cycle-box.alert-box .cycle-box-icon {
-      background: #D84315;
-      color: #FFFFFF;
-    }
-    .cycle-box-content strong {
-      display: block;
-      font-size: 0.92rem;
+
+    .policy-card-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.12rem;
       font-weight: 800;
       color: var(--ink);
       line-height: 1.3;
-      margin-bottom: 4px;
+      margin: 0 0 8px 0;
     }
-    .cycle-box-content p {
-      font-size: 0.81rem;
+    .policy-grid-card.highlight .policy-card-body h3 {
+      color: var(--navy);
+    }
+    .policy-card-body p {
+      font-size: 0.88rem;
       color: var(--muted);
+      line-height: 1.55;
       margin: 0;
-      line-height: 1.45;
     }
-    .cycle-footer-notice {
+    .policy-card-body strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* Bottom In-Person Notice Bar */
+    .policy-footer-notice {
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: rgba(3, 169, 244, 0.08);
-      border: 1px dashed rgba(3, 169, 244, 0.4);
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 0.82rem;
+      align-items: center;
+      gap: 14px;
+      background: #F0F9FF;
+      border: 1.5px dashed rgba(2, 136, 209, 0.35);
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-size: 0.88rem;
       color: #01579B;
-      line-height: 1.45;
+      line-height: 1.5;
     }
-    .cycle-footer-notice i {
-      font-size: 1.1rem;
+    .policy-footer-notice i {
+      font-size: 1.25rem;
       color: #0288D1;
-      margin-top: 2px;
       flex-shrink: 0;
+    }
+    .policy-footer-notice strong {
+      color: #01579B;
+      font-weight: 800;
+    }
+    @media (max-width: 640px) {
+      .policy-footer-notice {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
     }
 
     .form-wa-help {
@@ -961,10 +1016,10 @@
     /* Main Grid */
     .admissions-main-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 50px;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
       align-items: flex-start;
-      margin-top: 40px;
+      margin-top: 0;
       margin-bottom: 70px;
     }
 
@@ -972,10 +1027,10 @@
     .process-card {
       background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 44px 38px;
+      padding: 38px 34px;
       border: 1px solid var(--border);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     .step-badge-row {
@@ -1751,62 +1806,74 @@
 
   <main class="container">
 
+    <!-- Official Academic Cycle & Batch Intake Policy (Full Width 4-Card Grid) -->
+    <section class="academic-policy-section scroll-card">
+      <div class="policy-header-row">
+        <div class="policy-header-icon"><i class="fas fa-calendar-check"></i></div>
+        <div>
+          <span class="policy-pill">Official Intake Guidelines</span>
+          <h2 class="policy-title">Academic Session &amp; Batch Intake Policy</h2>
+          <p class="policy-subtitle">Transparent standards ensuring focused personal attention, emotional security, and zero compromise on early child development.</p>
+        </div>
+      </div>
+      
+      <div class="policy-cards-grid">
+        <div class="policy-grid-card">
+          <div class="policy-card-top">
+            <div class="policy-card-icon icon-orange"><i class="fas fa-bullhorn"></i></div>
+            <span class="policy-card-tag">Intake Cycle</span>
+          </div>
+          <div class="policy-card-body">
+            <h3>Admissions Open in December</h3>
+            <p>Official enrollment opens every year in <strong>December</strong> for the upcoming academic session. Early registration ensures priority batch reservation.</p>
+          </div>
+        </div>
+
+        <div class="policy-grid-card">
+          <div class="policy-card-top">
+            <div class="policy-card-icon icon-navy"><i class="fas fa-graduation-cap"></i></div>
+            <span class="policy-card-tag">Annual Term</span>
+          </div>
+          <div class="policy-card-body">
+            <h3>Session Runs June to April</h3>
+            <p>Our complete academic session runs from <strong>June through April</strong> of the following year, following structured age-graded developmental milestones.</p>
+          </div>
+        </div>
+
+        <div class="policy-grid-card highlight">
+          <div class="policy-card-top">
+            <div class="policy-card-icon icon-amber"><i class="fas fa-users"></i></div>
+            <span class="policy-card-tag">Dedicated Ratio</span>
+          </div>
+          <div class="policy-card-body">
+            <h3>Strictly 20 Children per Batch</h3>
+            <p>To guarantee personal lookout and love for every child, each room is strictly capped at <strong>20 students with 2 certified teachers + 1 caregiver</strong>.</p>
+          </div>
+        </div>
+
+        <div class="policy-grid-card">
+          <div class="policy-card-top">
+            <div class="policy-card-icon icon-rose"><i class="fas fa-door-closed"></i></div>
+            <span class="policy-card-tag">Batch Rules</span>
+          </div>
+          <div class="policy-card-body">
+            <h3>Mid-Term &amp; Full Batch Policy</h3>
+            <p>When a batch hits 20 children, it is closed until next year. Mid-term admission is accepted <em>only</em> if a spot vacates (e.g. family relocation).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="policy-footer-notice">
+        <i class="fas fa-location-dot"></i>
+        <span><strong>In-Person Enquiries Only:</strong> Real-time batch vacancy and seat allocation can only be verified in-person by visiting our Sector 42 Seawoods West campus. Admissions are confirmed on a first-come, first-served basis.</span>
+      </div>
+    </section>
+
     <div class="admissions-main-grid">
       
       <!-- Left: Process & Inclusive Philosophy -->
       <div>
         
-        <!-- Official Academic Cycle & Batch Intake Policy Card -->
-        <div class="academic-cycle-card scroll-card">
-          <div class="cycle-header">
-            <div class="cycle-badge-icon"><i class="fas fa-calendar-check"></i></div>
-            <div>
-              <span class="cycle-pill">Official Intake Guidelines</span>
-              <h3>Academic Session &amp; Batch Capacity Policy</h3>
-              <p>Ensuring personalized lookout, emotional security, and highest standards of early childcare</p>
-            </div>
-          </div>
-          
-          <div class="cycle-grid">
-            <div class="cycle-box">
-              <div class="cycle-box-icon"><i class="fas fa-bullhorn"></i></div>
-              <div class="cycle-box-content">
-                <strong>Admissions Open in December</strong>
-                <p>Official enrollment opens in <strong>December</strong> of every year for the upcoming academic session. Early registration ensures priority batch reservation.</p>
-              </div>
-            </div>
-
-            <div class="cycle-box">
-              <div class="cycle-box-icon"><i class="fas fa-school"></i></div>
-              <div class="cycle-box-content">
-                <strong>Academic Year: June to April</strong>
-                <p>Our complete academic session runs from <strong>June through April</strong> of the following year, following an age-graded developmental curriculum.</p>
-              </div>
-            </div>
-
-            <div class="cycle-box highlight-box">
-              <div class="cycle-box-icon"><i class="fas fa-user-group"></i></div>
-              <div class="cycle-box-content">
-                <strong>Strictly 20 Children per Batch (2 Teachers + 1 Helper)</strong>
-                <p>To guarantee personal touch and individual lookout for every single child, we strictly cap intake at <strong>maximum 20 students per batch</strong>, guided by 2 certified teachers and 1 dedicated caregiver.</p>
-              </div>
-            </div>
-
-            <div class="cycle-box alert-box">
-              <div class="cycle-box-icon"><i class="fas fa-door-closed"></i></div>
-              <div class="cycle-box-content">
-                <strong>Full Batches &amp; Mid-Term Vacancy Rules</strong>
-                <p>Once a batch reaches 20 children, it is <strong>strictly closed</strong>. Parents must wait until the next academic year unless a vacant spot arises mid-term (e.g. family relocation). All vacancy checks and waitlist tokens must be enquired <strong>in-person by visiting our campus</strong>.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="cycle-footer-notice">
-            <i class="fas fa-location-dot"></i>
-            <span><strong>In-Person Enquiries Only:</strong> Real-time seat allocation, batch vacancy checks, and campus walkthroughs require an in-person visit to our Sector 42 Seawoods West campus.</span>
-          </div>
-        </div>
-
         <div class="process-card scroll-card">
           <div style="text-align: center; margin-bottom: 20px;"><img src="photos/hunny_bunny_logo.png" alt="Hunny Bunny Pre-School Official Logo" style="max-width: 140px; width: 100%; height: auto; object-fit: contain;" /></div>
           <h2 style="font-family: var(--font-display); font-size: 2.1rem; margin-bottom: 24px; color: var(--navy);">
