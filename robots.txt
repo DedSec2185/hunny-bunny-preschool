@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /v2/
+Disallow: /hunny_bunny_website_v2
+Disallow: /hunny_bunny_demo
+Disallow: /asvex_
+Disallow: /client_
+Disallow: /playbook
+Disallow: /tuesday_presentation
 
 Sitemap: https://www.hunnybunnypreschool.com/sitemap.xml
