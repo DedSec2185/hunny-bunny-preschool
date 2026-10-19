@@ -584,10 +584,10 @@
         <i class="fas fa-arrow-left"></i>
         <span>Hunny Bunny Home</span>
       </a>
-      <button type="button" class="print-mode-btn" onclick="window.print()" title="Print front desk QR flyer">
+      <a href="/qr-standee" class="print-mode-btn" title="Open Reception Desk QR Scanner Banner Print Studio" style="text-decoration:none;">
         <i class="fas fa-print"></i>
-        <span>Print Standee</span>
-      </button>
+        <span>Print Desk QR Banners</span>
+      </a>
     </header>
 
     <!-- Main Google Review Action Card -->
@@ -691,24 +691,45 @@
 
     </main>
 
-    <!-- Front Desk QR Code Standee Card (For reception scan & print) -->
+    <!-- Front Desk QR Code Standee Card (Both Google Review + Website QR) -->
     <section class="standee-card">
       <div class="standee-header">
         <i class="fas fa-qrcode" style="color: var(--orange); font-size: 1.2rem;"></i>
-        <span>Scan QR Code with Phone Camera</span>
+        <span>Receptionist Desk QR Scanners (Google Review &amp; Website)</span>
       </div>
-      <div class="standee-qr-frame">
-        <img src="photos/qr_hunny_bunny_review.svg" alt="Scan QR Code to Review Hunny Bunny on Google" width="180" height="180" />
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; margin: 6px 0;">
+        <!-- QR 1: Google Review -->
+        <div style="background:#FFFDF5; border:1.5px solid #FFE082; border-radius:16px; padding:12px 8px; display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <span style="font-size:0.74rem; font-weight:900; color:#B06000; text-transform:uppercase;"><i class="fab fa-google"></i> 1. Google Review QR</span>
+          <div class="standee-qr-frame" style="width:155px; height:155px; padding:8px;">
+            <img src="photos/qr_google_review_direct.svg" alt="Scan QR Code to Write a Google Review" width="140" height="140" />
+          </div>
+          <span style="font-size:0.74rem; font-weight:700; color:var(--muted);">Opens Google Review Box</span>
+          <a href="photos/qr_google_review_direct.png" download="Hunny_Bunny_Google_Review_QR.png" class="btn-action-sm" style="width:100%; font-size:0.74rem; padding:6px 8px;">
+            <i class="fas fa-download"></i> Save Review QR
+          </a>
+        </div>
+
+        <!-- QR 2: Official Website -->
+        <div style="background:#FFF7F2; border:1.5px solid #FFCCBC; border-radius:16px; padding:12px 8px; display:flex; flex-direction:column; align-items:center; gap:6px;">
+          <span style="font-size:0.74rem; font-weight:900; color:var(--orange-dk); text-transform:uppercase;"><i class="fas fa-globe"></i> 2. Official Website QR</span>
+          <div class="standee-qr-frame" style="width:155px; height:155px; padding:8px; border-color:#FFCCBC;">
+            <img src="photos/qr_hunny_bunny_website.svg" alt="Scan QR Code to Visit www.hunnybunnypreschool.com" width="140" height="140" />
+          </div>
+          <span style="font-size:0.74rem; font-weight:700; color:var(--muted);">hunnybunnypreschool.com</span>
+          <a href="photos/qr_hunny_bunny_website.png" download="Hunny_Bunny_Website_QR.png" class="btn-action-sm" style="width:100%; font-size:0.74rem; padding:6px 8px;">
+            <i class="fas fa-download"></i> Save Website QR
+          </a>
+        </div>
       </div>
+
       <p class="standee-caption">
-        Point any smartphone camera at this QR code to instantly launch this review page or rate us on Google Maps.
+        Want to print a full Receptionist Desk QR Scanner Banner or Acrylic Tabletop Standee?
       </p>
       <div class="standee-actions">
-        <button type="button" class="btn-action-sm" onclick="window.print()">
-          <i class="fas fa-print"></i> Print Desk Standee
-        </button>
-        <a href="photos/qr_hunny_bunny_review.svg" download="Hunny_Bunny_Review_QR.svg" class="btn-action-sm">
-          <i class="fas fa-download"></i> Save QR Code
+        <a href="/qr-standee" class="btn-action-sm" style="background: var(--orange); color: #FFFFFF; border-color: var(--orange); padding: 11px 16px; font-size: 0.86rem;">
+          <i class="fas fa-print"></i> Open Reception Desk QR Banner Print Studio &rarr;
         </a>
       </div>
     </section>

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="photos/hunny_bunny_mascot.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reception Desk QR Code Standee &amp; Banner Print Studio | Hunny Bunny Pre-School</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --orange: #FF6200;
+      --orange-dk: #D94F00;
+      --orange-lt: #FFF0E6;
+      --yellow: #FFD740;
+      --yellow-lt: #FFF9E6;
+      --navy: #1A237E;
+      --navy-dk: #0F1654;
+      --navy-lt: #E8EAF6;
+      --green: #2E7D32;
+      --green-lt: #E8F5E9;
+      --g-blue: #4285F4;
+      --g-red: #EA4335;
+      --g-yellow: #FBBC05;
+      --g-green: #34A853;
+      --ink: #1C1C1C;
+      --muted: #555555;
+      --white: #FFFFFF;
+      --font-display: 'Baloo 2', cursive, sans-serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #F1F4F9;
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 24px 16px 64px;
+    }
+
+    /* ==========================================
+       TOP STUDIO CONTROL BAR (Hidden on Print)
+       ========================================== */
+    .studio-controls {
+      max-width: 1120px;
+      margin: 0 auto 28px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px 24px;
+      box-shadow: 0 12px 32px rgba(26, 35, 126, 0.08);
+      border: 1.5px solid rgba(26, 35, 126, 0.1);
+    }
+
+    .studio-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .studio-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .studio-brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--yellow-lt);
+      border: 2px solid var(--yellow);
+      padding: 2px;
+      object-fit: contain;
+    }
+
+    .studio-brand h1 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+
+    .studio-brand p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .studio-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #F4F6FA;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.86rem;
+      border: 1px solid rgba(26, 35, 126, 0.12);
+      transition: all 0.2s ease;
+    }
+
+    .btn-back:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .btn-print-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: var(--white);
+      border: none;
+      font-family: var(--font-body);
+      font-weight: 900;
+      font-size: 0.92rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 98, 0, 0.28);
+      transition: all 0.2s ease;
+    }
+
+    .btn-print-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(255, 98, 0, 0.36);
+    }
+
+    .studio-options-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 16px;
+    }
+
+    .mode-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mode-tab {
+      padding: 8px 15px;
+      border-radius: 999px;
+      border: 1.5px solid #DDE2EE;
+      background: #F8FAFC;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 0.83rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .mode-tab.active {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .qr-target-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow-lt);
+      border: 1px solid #FFE082;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .qr-target-toggle select {
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: var(--navy);
+      background: var(--white);
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+
+    /* Raw QR Code Download Bar */
+    .raw-download-bar {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed #E2E8F0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.82rem;
+    }
+
+    .raw-download-bar .label {
+      font-weight: 800;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dl-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .dl-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #F1F5F9;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.78rem;
+      border: 1px solid #CBD5E1;
+      transition: all 0.18s ease;
+    }
+
+    .dl-chip:hover {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    /* ==========================================
+       PRINTABLE STANDEE SHEETS CONTAINER
+       ========================================== */
+    .sheets-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .sheet-label {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--navy);
+      background: #E8EAF6;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: -24px;
+      z-index: 2;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    /* ==========================================
+       SHEET 1: DUAL RECEPTION DESK BANNER (2-IN-1)
+       ========================================== */
+    .dual-banner-sheet {
+      width: 100%;
+      max-width: 1060px;
+      background: var(--white);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(26, 35, 126, 0.1);
+      border: 3px solid var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dual-banner-top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: linear-gradient(135deg, var(--navy) 0%, #283593 100%);
+      color: var(--white);
+      padding: 16px 24px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .dual-brand-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .dual-brand-left img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--yellow-lt);
+      border: 3px solid var(--yellow);
+      padding: 3px;
+      object-fit: contain;
+    }
+
+    .dual-brand-left h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      color: var(--yellow);
+      line-height: 1.1;
+    }
+
+    .dual-brand-left p {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 700;
+    }
+
+    .dual-brand-right {
+      text-align: right;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 8px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 215, 64, 0.35);
+    }
+
+    .dual-brand-right .tag {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--yellow);
+      font-weight: 800;
+    }
+
+    .dual-brand-right .loc {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .dual-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* Individual Scanner Card inside Dual Banner */
+    .scanner-card {
+      border-radius: 22px;
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scanner-card.google-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF7 100%);
+      border: 2.5px solid #FBBC05;
+      box-shadow: 0 10px 28px rgba(251, 188, 5, 0.12);
+    }
+
+    .scanner-card.website-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF7F2 100%);
+      border: 2.5px solid var(--orange);
+      box-shadow: 0 10px 28px rgba(255, 98, 0, 0.12);
+    }
+
+    .google-color-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: linear-gradient(90deg, var(--g-blue) 0% 25%, var(--g-red) 25% 50%, var(--g-yellow) 50% 75%, var(--g-green) 75% 100%);
+    }
+
+    .orange-color-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: linear-gradient(90deg, var(--navy), var(--orange), var(--yellow));
+    }
+
+    .card-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .pill-google {
+      background: #FEF7E0;
+      color: #B06000;
+      border: 1px solid #FDE293;
+    }
+
+    .pill-website {
+      background: var(--orange-lt);
+      color: var(--orange-dk);
+      border: 1px solid #FFCCBC;
+    }
+
+    .scanner-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    .scanner-card .sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 12px;
+      max-width: 340px;
+    }
+
+    .stars-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #FBBC05;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+      background: #FFFDF2;
+      padding: 5px 16px;
+      border-radius: 999px;
+      border: 1px solid #FDE293;
+    }
+
+    .domain-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--navy);
+      color: var(--yellow);
+      font-weight: 900;
+      font-size: 0.88rem;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
+    }
+
+    /* QR Scanner Aiming Bracket Frame */
+    .qr-scanner-box {
+      position: relative;
+      width: 230px;
+      height: 230px;
+      padding: 14px;
+      background: var(--white);
+      border-radius: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      border: 2px solid #F1F5F9;
+    }
+
+    .qr-scanner-box img.qr-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Center Mascot Badge Overlay on QR (ECC=H/M safe size) */
+    .qr-center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--white);
+      border: 2.5px solid var(--navy);
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    }
+
+    .qr-center-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Corner Scanner Brackets [ ] */
+    .corner {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-color: var(--orange);
+      border-style: solid;
+      pointer-events: none;
+    }
+    .google-card .corner {
+      border-color: var(--g-blue);
+    }
+    .corner.tl { top: -3px; left: -3px; border-width: 5px 0 0 5px; border-top-left-radius: 16px; }
+    .corner.tr { top: -3px; right: -3px; border-width: 5px 5px 0 0; border-top-right-radius: 16px; }
+    .corner.bl { bottom: -3px; left: -3px; border-width: 0 0 5px 5px; border-bottom-left-radius: 16px; }
+    .corner.br { bottom: -3px; right: -3px; border-width: 0 5px 5px 0; border-bottom-right-radius: 16px; }
+
+    .scan-cta-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 0.86rem;
+      margin-bottom: 10px;
+    }
+
+    .google-card .scan-cta-banner {
+      background: var(--g-blue);
+      color: var(--white);
+    }
+
+    .website-card .scan-cta-banner {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .card-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .card-steps span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dual-footer-strip {
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 2px dashed #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    /* ==========================================
+       SHEET 2 & 3: SINGLE PORTRAIT STANDEES
+       ========================================== */
+    .single-standees-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 36px;
+      width: 100%;
+      max-width: 1000px;
+      justify-items: center;
+    }
+
+    .single-standee {
+      width: 100%;
+      max-width: 460px;
+      background: var(--white);
+      border-radius: 30px;
+      padding: 34px 28px 28px;
+      border: 3.5px solid var(--navy);
+      box-shadow: 0 20px 50px rgba(26, 35, 126, 0.12);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .single-standee.google-standee {
+      border-color: #202124;
+    }
+
+    .single-standee .top-stripe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+    }
+
+    .google-stripe {
+      background: linear-gradient(90deg, var(--g-blue) 0% 25%, var(--g-red) 25% 50%, var(--g-yellow) 50% 75%, var(--g-green) 75% 100%);
+    }
+
+    .brand-stripe {
+      background: linear-gradient(90deg, var(--navy) 0%, var(--orange) 55%, var(--yellow) 100%);
+    }
+
+    .standee-school-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #FFF9E6;
+      border: 2px solid #FFE082;
+      padding: 8px 18px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    .standee-school-header img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .standee-school-header .text {
+      text-align: left;
+    }
+
+    .standee-school-header .name {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.1;
+      font-weight: 800;
+    }
+
+    .standee-school-header .sub-loc {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--orange-dk);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .single-standee h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--navy);
+      line-height: 1.12;
+      margin-bottom: 6px;
+    }
+
+    .single-standee .lead {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 16px;
+      max-width: 360px;
+    }
+
+    .single-standee .qr-scanner-box {
+      width: 265px;
+      height: 265px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .single-standee .how-to-steps {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 10px 0 18px;
+    }
+
+    .step-mini {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 10px 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .step-mini i {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+
+    .google-standee .step-mini i {
+      color: var(--g-blue);
+    }
+
+    .feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .feature-tags span {
+      background: var(--orange-lt);
+      color: var(--orange-dk);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+
+    .standee-bottom-bar {
+      width: 100%;
+      padding-top: 12px;
+      border-top: 1.5px dashed #CBD5E1;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ==========================================
+       VIEW FILTERING CLASSES
+       ========================================== */
+    body[data-view="dual"] .single-standees-section { display: none !important; }
+    body[data-view="google"] .dual-banner-section,
+    body[data-view="google"] #websiteSingleStandee { display: none !important; }
+    body[data-view="website"] .dual-banner-section,
+    body[data-view="website"] #googleSingleStandee { display: none !important; }
+
+    /* ==========================================
+       RESPONSIVE DESIGN
+       ========================================== */
+    @media (max-width: 820px) {
+      .dual-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .single-standees-grid {
+        grid-template-columns: 1fr;
+      }
+      .dual-banner-top-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .dual-brand-left {
+        flex-direction: column;
+      }
+      .dual-brand-right {
+        text-align: center;
+      }
+    }
+
+    /* ==========================================
+       PRINT STYLESHEET (Clean Reception Standees)
+       ========================================== */
+    @media print {
+      @page {
+        margin: 8mm;
+      }
+      body {
+        background: #FFFFFF !important;
+        padding: 0 !important;
+      }
+      .studio-controls,
+      .sheet-label {
+        display: none !important;
+      }
+      .sheets-container {
+        gap: 0 !important;
+        max-width: 100% !important;
+      }
+      .dual-banner-sheet {
+        box-shadow: none !important;
+        max-width: 100% !important;
+        page-break-after: always;
+        break-after: page;
+      }
+      .dual-cards-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .single-standees-grid {
+        display: block !important;
+        width: 100% !important;
+      }
+      .single-standee {
+        margin: 0 auto 12mm !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        page-break-after: always;
+        break-after: page;
+      }
+      .single-standee:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+    }
+  </style>
+</head>
+<body data-view="all">
+
+  <!-- TOP STUDIO CONTROLS (Hidden automatically when printing) -->
+  <header class="studio-controls">
+    <div class="studio-top-row">
+      <div class="studio-brand">
+        <img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" />
+        <div>
+          <h1>Reception Desk QR Scanner Banner &amp; Standee Studio</h1>
+          <p>Print ready-to-frame tabletop QR scanners for Google Reviews &amp; Official Website</p>
+        </div>
+      </div>
+      <div class="studio-actions">
+        <a href="/review" class="btn-back">
+          <i class="fas fa-star"></i> Review Hub
+        </a>
+        <a href="/" class="btn-back">
+          <i class="fas fa-home"></i> Main Website
+        </a>
+        <button type="button" class="btn-print-main" onclick="window.print()">
+          <i class="fas fa-print"></i> Print / Save as PDF
+        </button>
+      </div>
+    </div>
+
+    <div class="studio-options-row">
+      <div class="mode-tabs" role="tablist" aria-label="Choose Standee Layout to Print">
+        <button type="button" class="mode-tab active" data-mode="all">All Layouts (Dual + Individual)</button>
+        <button type="button" class="mode-tab" data-mode="dual">2-in-1 Reception Desk Banner</button>
+        <button type="button" class="mode-tab" data-mode="google">Google Review Standee Only</button>
+        <button type="button" class="mode-tab" data-mode="website">Website QR Standee Only</button>
+      </div>
+
+      <div class="qr-target-toggle">
+        <label for="reviewQrMode"><i class="fab fa-google" style="color: var(--g-blue);"></i> Review QR Destination:</label>
+        <select id="reviewQrMode">
+          <option value="direct" selected>Direct Google Maps Review Popup (1-Step Scan)</option>
+          <option value="hub">Hunny Bunny Smart Review Hub (/review)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Raw QR Code Image Downloads for Acrylic/Banner Printing -->
+    <div class="raw-download-bar">
+      <span class="label"><i class="fas fa-download"></i> Download Raw High-Res QR Code Images (For Flex / Acrylic Standee Designer):</span>
+      <div class="dl-chips">
+        <a href="photos/qr_google_review_direct.png" download="Hunny_Bunny_Google_Review_Direct_QR.png" class="dl-chip">
+          <i class="fab fa-google"></i> Google Review QR (PNG HD)
+        </a>
+        <a href="photos/qr_google_review_direct.svg" download="Hunny_Bunny_Google_Review_Direct_QR.svg" class="dl-chip">
+          <i class="fas fa-vector-square"></i> Google Review QR (SVG Vector)
+        </a>
+        <a href="photos/qr_hunny_bunny_website.png" download="Hunny_Bunny_Website_QR.png" class="dl-chip">
+          <i class="fas fa-globe"></i> Website QR (PNG HD)
+        </a>
+        <a href="photos/qr_hunny_bunny_website.svg" download="Hunny_Bunny_Website_QR.svg" class="dl-chip">
+          <i class="fas fa-vector-square"></i> Website QR (SVG Vector)
+        </a>
+        <a href="photos/qr_hunny_bunny_review.png" download="Hunny_Bunny_Smart_Review_Hub_QR.png" class="dl-chip">
+          <i class="fas fa-magic"></i> Smart Review Hub QR (PNG)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRINTABLE STANDEE SHEETS -->
+  <main class="sheets-container">
+
+    <!-- =====================================================
+         LAYOUT 1: 2-IN-1 RECEPTIONIST DESK DUAL SCANNER BANNER
+         ===================================================== -->
+    <div class="sheet-label dual-banner-section">Layout 1: 2-in-1 Reception Desk Scanner Banner (Google Review + Official Website)</div>
+    <section class="dual-banner-sheet dual-banner-section" aria-label="Dual Reception Desk QR Banner">
+      <div class="dual-banner-top-header">
+        <div class="dual-brand-left">
+          <img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" />
+          <div>
+            <h2>Hunny Bunny Pre-School &amp; Daycare</h2>
+            <p>Where Every Child Takes Their First Independent Steps with Joy &amp; Confidence!</p>
+          </div>
+        </div>
+        <div class="dual-brand-right">
+          <span class="tag">Trusted Since 2013 &bull; Seawoods</span>
+          <span class="loc">Sector 42, Seawoods West, Navi Mumbai</span>
+        </div>
+      </div>
+
+      <div class="dual-cards-grid">
+        <!-- LEFT QR: GOOGLE REVIEW SCANNER -->
+        <div class="scanner-card google-card">
+          <div class="google-color-bar"></div>
+          <span class="card-pill pill-google"><i class="fab fa-google"></i> Official Google Review</span>
+          <h3>Love Hunny Bunny?<br/>Review Us on Google!</h3>
+          <p class="sub">Scan with your phone camera to share your feedback &amp; rate us 5 stars on Google</p>
+
+          <div class="stars-row" aria-label="5 Stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <div class="qr-scanner-box">
+            <span class="corner tl"></span>
+            <span class="corner tr"></span>
+            <span class="corner bl"></span>
+            <span class="corner br"></span>
+            <img src="photos/qr_google_review_direct.svg"
+                 alt="Scan to Write a Google Review for Hunny Bunny Pre-School"
+                 class="qr-img js-review-qr" />
+            <div class="qr-center-logo">
+              <img src="photos/hunny_bunny_mascot.png" alt="" />
+            </div>
+          </div>
+
+          <div class="scan-cta-banner">
+            <i class="fas fa-camera"></i>
+            <span>SCAN TO WRITE GOOGLE REVIEW</span>
+          </div>
+
+          <div class="card-steps">
+            <span><i class="fas fa-mobile-alt"></i> 1. Open Camera</span>
+            <span>&rarr;</span>
+            <span><i class="fas fa-qrcode"></i> 2. Scan QR</span>
+            <span>&rarr;</span>
+            <span><i class="fas fa-star" style="color:#FBBC05;"></i> 3. Rate 5 Stars</span>
+          </div>
+        </div>
+
+        <!-- RIGHT QR: OFFICIAL WEBSITE SCANNER -->
+        <div class="scanner-card website-card">
+          <div class="orange-color-bar"></div>
+          <span class="card-pill pill-website"><i class="fas fa-globe"></i> Official Digital Campus</span>
+          <h3>Explore Our Website<br/>&amp; Programs Online</h3>
+          <p class="sub">Scan to view curriculum, admissions policy, 100% CCTV safety &amp; book a tour</p>
+
+          <div class="domain-pill">
+            <i class="fas fa-lock"></i>
+            <span>www.hunnybunnypreschool.com</span>
+          </div>
+
+          <div class="qr-scanner-box">
+            <span class="corner tl"></span>
+            <span class="corner tr"></span>
+            <span class="corner bl"></span>
+            <span class="corner br"></span>
+            <img src="photos/qr_hunny_bunny_website.svg"
+                 alt="Scan to Visit www.hunnybunnypreschool.com"
+                 class="qr-img" />
+            <div class="qr-center-logo">
+              <img src="photos/hunny_bunny_mascot.png" alt="" />
+            </div>
+          </div>
+
+          <div class="scan-cta-banner">
+            <i class="fas fa-external-link-alt"></i>
+            <span>SCAN TO VISIT OUR WEBSITE</span>
+          </div>
+
+          <div class="card-steps">
+            <span>Playgroup</span> &bull;
+            <span>Nursery</span> &bull;
+            <span>Jr. &amp; Sr. KG</span> &bull;
+            <span>Daycare</span> &bull;
+            <span>Teacher Training</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dual-footer-strip">
+        <span><i class="fas fa-map-marker-alt" style="color: var(--orange);"></i> Shop 7, 8 &amp; 9, Akash CHS, Sector 42, Seawoods West</span>
+        <span><i class="fas fa-calendar-check" style="color: var(--orange);"></i> Admissions Open: December &bull; Academic Year: June–April</span>
+        <span><i class="fas fa-phone-alt" style="color: var(--orange);"></i> +91 98330 26085</span>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         LAYOUT 2 & 3: INDIVIDUAL PORTRAIT ACRYLIC STANDEES
+         ===================================================== -->
+    <div class="sheet-label single-standees-section">Individual Vertical Desk Standees (Print &amp; Insert into Acrylic Standee Holders)</div>
+    <div class="single-standees-grid single-standees-section">
+
+      <!-- SINGLE STANDEE A: GOOGLE REVIEW -->
+      <article class="single-standee google-standee" id="googleSingleStandee">
+        <div class="top-stripe google-stripe"></div>
+
+        <div class="standee-school-header">
+          <img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" />
+          <div class="text">
+            <span class="name">Hunny Bunny Pre-School</span>
+            <span class="sub-loc">Pre-School &amp; Daycare &bull; Seawoods</span>
+          </div>
+        </div>
+
+        <h2>Rate Us on <span style="color:var(--g-blue)">G</span><span style="color:var(--g-red)">o</span><span style="color:var(--g-yellow)">o</span><span style="color:var(--g-blue)">g</span><span style="color:var(--g-green)">l</span><span style="color:var(--g-red)">e</span></h2>
+        <p class="lead">Your 30-second review helps other Seawoods parents discover a safe &amp; joyful second home for their child!</p>
+
+        <div class="stars-row" style="font-size: 1.4rem; margin-bottom: 16px;">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+
+        <div class="qr-scanner-box">
+          <span class="corner tl" style="border-color: var(--g-blue);"></span>
+          <span class="corner tr" style="border-color: var(--g-red);"></span>
+          <span class="corner bl" style="border-color: var(--g-yellow);"></span>
+          <span class="corner br" style="border-color: var(--g-green);"></span>
+          <img src="photos/qr_google_review_direct.svg"
+               alt="Scan to Review Hunny Bunny Pre-School on Google"
+               class="qr-img js-review-qr" />
+          <div class="qr-center-logo">
+            <img src="photos/hunny_bunny_mascot.png" alt="" />
+          </div>
+        </div>
+
+        <div class="scan-cta-banner" style="background: #202124; color: #FFFFFF; font-size: 0.92rem; padding: 10px 22px;">
+          <i class="fas fa-camera" style="color: var(--yellow);"></i>
+          <span>POINT PHONE CAMERA HERE TO SCAN</span>
+        </div>
+
+        <div class="how-to-steps">
+          <div class="step-mini">
+            <i class="fas fa-camera"></i>
+            1. Open Camera
+          </div>
+          <div class="step-mini">
+            <i class="fas fa-qrcode"></i>
+            2. Scan QR Code
+          </div>
+          <div class="step-mini">
+            <i class="fas fa-star" style="color: #FBBC05;"></i>
+            3. Post Review
+          </div>
+        </div>
+
+        <div class="standee-bottom-bar">
+          <span><i class="fas fa-heart" style="color: var(--g-red);"></i> Thank You, Parents!</span>
+          <span>www.hunnybunnypreschool.com</span>
+        </div>
+      </article>
+
+      <!-- SINGLE STANDEE B: OFFICIAL WEBSITE -->
+      <article class="single-standee website-standee" id="websiteSingleStandee">
+        <div class="top-stripe brand-stripe"></div>
+
+        <div class="standee-school-header">
+          <img src="photos/hunny_bunny_mascot.png" alt="Hunny Bunny Mascot" />
+          <div class="text">
+            <span class="name">Hunny Bunny Pre-School</span>
+            <span class="sub-loc">Pre-School &amp; Daycare &bull; Seawoods</span>
+          </div>
+        </div>
+
+        <h2>Scan to Visit Our<br/><span style="color: var(--orange);">Official Website</span></h2>
+        <p class="lead">Explore our age-wise programs, 20-student batch policy, safety standards &amp; book a campus visit online!</p>
+
+        <div class="domain-pill" style="font-size: 0.95rem; padding: 7px 18px; margin-bottom: 16px;">
+          <i class="fas fa-globe"></i>
+          <span>www.hunnybunnypreschool.com</span>
+        </div>
+
+        <div class="qr-scanner-box">
+          <span class="corner tl"></span>
+          <span class="corner tr"></span>
+          <span class="corner bl"></span>
+          <span class="corner br"></span>
+          <img src="photos/qr_hunny_bunny_website.svg"
+               alt="Scan to Visit www.hunnybunnypreschool.com"
+               class="qr-img" />
+          <div class="qr-center-logo">
+            <img src="photos/hunny_bunny_mascot.png" alt="" />
+          </div>
+        </div>
+
+        <div class="scan-cta-banner" style="background: var(--orange); color: #FFFFFF; font-size: 0.92rem; padding: 10px 22px; margin-bottom: 12px;">
+          <i class="fas fa-mobile-alt"></i>
+          <span>SCAN WITH CAMERA TO OPEN WEBSITE</span>
+        </div>
+
+        <div class="feature-tags">
+          <span>Playgroup (1.5–2.5 Yrs)</span>
+          <span>Nursery (2.5–3.5 Yrs)</span>
+          <span>Jr. &amp; Sr. KG</span>
+          <span>Daycare (8 AM–7 PM)</span>
+          <span>ECCE Teacher Training</span>
+          <span>Max 20 Kids / Batch</span>
+        </div>
+
+        <div class="standee-bottom-bar">
+          <span><i class="fas fa-phone-alt" style="color: var(--orange);"></i> +91 98330 26085</span>
+          <span>Sector 42, Seawoods West</span>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+
+  <script>
+    (function() {
+      const modeTabs = document.querySelectorAll('.mode-tab');
+      const reviewQrSelect = document.getElementById('reviewQrMode');
+      const reviewQrImages = document.querySelectorAll('.js-review-qr');
+
+      const QR_SOURCES = {
+        direct: 'photos/qr_google_review_direct.svg',
+        hub: 'photos/qr_hunny_bunny_review.svg'
+      };
+
+      modeTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          modeTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const mode = tab.getAttribute('data-mode');
+          document.body.setAttribute('data-view', mode);
+        });
+      });
+
+      if (reviewQrSelect) {
+        reviewQrSelect.addEventListener('change', () => {
+          const selected = reviewQrSelect.value;
+          const src = QR_SOURCES[selected] || QR_SOURCES.direct;
+          reviewQrImages.forEach(img => {
+            img.setAttribute('src', src);
+          });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
