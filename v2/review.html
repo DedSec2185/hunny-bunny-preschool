@@ -512,28 +512,168 @@
     /* Toast Notification */
     .toast-msg {
       position: fixed;
-      bottom: 24px;
+      bottom: 84px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
       background: #202124;
       color: #FFFFFF;
-      padding: 12px 24px;
+      padding: 12px 20px;
       border-radius: var(--radius-full);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 700;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      z-index: 99999;
+      z-index: 100000;
       opacity: 0;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       pointer-events: none;
-      white-space: nowrap;
+      max-width: 92vw;
+      text-align: center;
     }
     .toast-msg.show {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
+    }
+
+    /* Responsive Dual QR Grid */
+    .review-qr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      width: 100%;
+      margin: 6px 0;
+    }
+
+    /* Mobile Quick Navigation Pill Strip */
+    .review-quick-nav {
+      display: flex;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      gap: 7px;
+      padding: 4px 2px 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      width: 100%;
+    }
+    .review-quick-nav::-webkit-scrollbar { display: none; }
+    .rqn-pill {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--navy);
+      background: #FFFFFF;
+      border: 1px solid rgba(26, 35, 126, 0.12);
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .rqn-pill i { color: var(--orange); }
+    .rqn-pill.active {
+      background: linear-gradient(135deg, var(--orange), var(--orange-dk));
+      color: #FFFFFF;
+      border-color: var(--orange);
+    }
+    .rqn-pill.active i { color: #FFFFFF; }
+
+    /* Universal Mobile Bottom Dock */
+    .mobile-bottom-dock {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 6px 2px calc(6px + env(safe-area-inset-bottom, 12px));
+      z-index: 99999;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .dock-btn {
+      flex: 1 1 0;
+      min-width: 0;
+      min-height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      text-align: center;
+      padding: 4px 1px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .dock-btn span {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .dock-btn i { font-size: 1.18rem; margin-bottom: 2px; }
+    .dock-btn.active-btn, .dock-btn.active-btn span, .dock-btn.active-btn i {
+      color: var(--orange) !important;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 14px 12px calc(88px + env(safe-area-inset-bottom, 12px)) !important;
+      }
+      .hub-card {
+        padding: 24px 16px !important;
+        border-radius: 22px !important;
+      }
+      h1.hub-title {
+        font-size: 1.45rem !important;
+      }
+      p.hub-subtitle {
+        font-size: 0.88rem !important;
+        margin-bottom: 16px !important;
+      }
+      .google-verified-badge {
+        padding: 8px 14px !important;
+        max-width: 100% !important;
+      }
+      .star-btn {
+        font-size: 2.1rem !important;
+        padding: 4px !important;
+      }
+      .btn-google-direct {
+        padding: 15px 18px !important;
+        font-size: 0.98rem !important;
+      }
+      .mobile-bottom-dock {
+        display: flex !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .review-qr-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .brand-bar {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .brand-back-btn, .print-mode-btn {
+        font-size: 0.78rem !important;
+        padding: 7px 12px !important;
+      }
     }
 
     /* Print Stylesheet: Ready-to-frame tabletop standee flyer */
@@ -543,7 +683,7 @@
         padding: 0 !important;
         color: #000000 !important;
       }
-      .brand-bar, .rating-section, .draft-helper, .standee-actions, .toast-msg, .low-rating-box {
+      .brand-bar, .review-quick-nav, .mobile-bottom-dock, .rating-section, .draft-helper, .standee-actions, .toast-msg, .low-rating-box {
         display: none !important;
       }
       .review-wrapper {
@@ -589,6 +729,16 @@
         <span>Print Desk QR Banners</span>
       </a>
     </header>
+
+    <!-- Mobile-First Quick Navigation Strip -->
+    <nav class="review-quick-nav" aria-label="Website Sections">
+      <a href="/" class="rqn-pill"><i class="fas fa-house"></i> <span>Home</span></a>
+      <a href="/programs" class="rqn-pill"><i class="fas fa-shapes"></i> <span>Programs</span></a>
+      <a href="/admissions" class="rqn-pill"><i class="fas fa-calendar-check"></i> <span>Admissions</span></a>
+      <a href="/safety-hygiene" class="rqn-pill"><i class="fas fa-shield-halved"></i> <span>Safety &amp; CCTV</span></a>
+      <a href="/review" class="rqn-pill active"><i class="fas fa-star"></i> <span>Google Review</span></a>
+      <a href="/contact" class="rqn-pill"><i class="fas fa-location-dot"></i> <span>Contact</span></a>
+    </nav>
 
     <!-- Main Google Review Action Card -->
     <main class="hub-card" id="mainReviewCard">
@@ -698,27 +848,27 @@
         <span>Receptionist Desk QR Scanners (Google Review &amp; Website)</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; width: 100%; margin: 6px 0;">
+      <div class="review-qr-grid">
         <!-- QR 1: Google Review -->
-        <div style="background:#FFFDF5; border:1.5px solid #FFE082; border-radius:16px; padding:12px 8px; display:flex; flex-direction:column; align-items:center; gap:6px;">
+        <div style="background:#FFFDF5; border:1.5px solid #FFE082; border-radius:16px; padding:12px 10px; display:flex; flex-direction:column; align-items:center; gap:6px;">
           <span style="font-size:0.74rem; font-weight:900; color:#B06000; text-transform:uppercase;"><i class="fab fa-google"></i> 1. Google Review QR</span>
           <div class="standee-qr-frame" style="width:155px; height:155px; padding:8px;">
             <img src="photos/qr_google_review_direct.svg" alt="Scan QR Code to Write a Google Review" width="140" height="140" />
           </div>
           <span style="font-size:0.74rem; font-weight:700; color:var(--muted);">Opens Google Review Box</span>
-          <a href="photos/qr_google_review_direct.png" download="Hunny_Bunny_Google_Review_QR.png" class="btn-action-sm" style="width:100%; font-size:0.74rem; padding:6px 8px;">
+          <a href="photos/qr_google_review_direct.png" download="Hunny_Bunny_Google_Review_QR.png" class="btn-action-sm" style="width:100%; font-size:0.76rem; padding:8px 10px;">
             <i class="fas fa-download"></i> Save Review QR
           </a>
         </div>
 
         <!-- QR 2: Official Website -->
-        <div style="background:#FFF7F2; border:1.5px solid #FFCCBC; border-radius:16px; padding:12px 8px; display:flex; flex-direction:column; align-items:center; gap:6px;">
+        <div style="background:#FFF7F2; border:1.5px solid #FFCCBC; border-radius:16px; padding:12px 10px; display:flex; flex-direction:column; align-items:center; gap:6px;">
           <span style="font-size:0.74rem; font-weight:900; color:var(--orange-dk); text-transform:uppercase;"><i class="fas fa-globe"></i> 2. Official Website QR</span>
           <div class="standee-qr-frame" style="width:155px; height:155px; padding:8px; border-color:#FFCCBC;">
             <img src="photos/qr_hunny_bunny_website.svg" alt="Scan QR Code to Visit www.hunnybunnypreschool.com" width="140" height="140" />
           </div>
           <span style="font-size:0.74rem; font-weight:700; color:var(--muted);">hunnybunnypreschool.com</span>
-          <a href="photos/qr_hunny_bunny_website.png" download="Hunny_Bunny_Website_QR.png" class="btn-action-sm" style="width:100%; font-size:0.74rem; padding:6px 8px;">
+          <a href="photos/qr_hunny_bunny_website.png" download="Hunny_Bunny_Website_QR.png" class="btn-action-sm" style="width:100%; font-size:0.76rem; padding:8px 10px;">
             <i class="fas fa-download"></i> Save Website QR
           </a>
         </div>
@@ -728,13 +878,37 @@
         Want to print a full Receptionist Desk QR Scanner Banner or Acrylic Tabletop Standee?
       </p>
       <div class="standee-actions">
-        <a href="/qr-standee" class="btn-action-sm" style="background: var(--orange); color: #FFFFFF; border-color: var(--orange); padding: 11px 16px; font-size: 0.86rem;">
+        <a href="/qr-standee" class="btn-action-sm" style="background: var(--orange); color: #FFFFFF; border-color: var(--orange); padding: 12px 16px; font-size: 0.86rem;">
           <i class="fas fa-print"></i> Open Reception Desk QR Banner Print Studio &rarr;
         </a>
       </div>
     </section>
 
   </div>
+
+  <!-- Universal Mobile Bottom Dock -->
+  <nav class="mobile-bottom-dock" aria-label="Quick Mobile Navigation">
+    <a href="/" class="dock-btn">
+      <i class="fas fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="/programs" class="dock-btn">
+      <i class="fas fa-shapes"></i>
+      <span>Programs</span>
+    </a>
+    <a href="/admissions" class="dock-btn">
+      <i class="fas fa-calendar-check"></i>
+      <span>Admissions</span>
+    </a>
+    <a href="/review" class="dock-btn active-btn">
+      <i class="fas fa-star"></i>
+      <span>Reviews</span>
+    </a>
+    <a href="/contact" class="dock-btn">
+      <i class="fas fa-location-dot"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
 
   <!-- Toast Element -->
   <div class="toast-msg" id="toast">
